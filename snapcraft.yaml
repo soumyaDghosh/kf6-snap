@@ -600,7 +600,7 @@ parts:
         - -DCMAKE_BUILD_TYPE=RelWithDebInfo
         - -DQT_MAJOR_VERSION=6
         - -DPHONON_BUILD_QT5=OFF
- 		- -DPHONON_BUILD_QT6=ON
+        - -DPHONON_BUILD_QT6=ON
         - -DBUILD_TESTING=OFF
         - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE"
     knotifications:
@@ -1302,25 +1302,24 @@ parts:
         - -DBUILD_WITH_QT6=ON
         - -DBUILD_TESTING=OFF
         - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE"
-        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE"
-        - "-DJPEGXL_ENABLE_BENCHMARK=OFF",
-        - "-DJPEGXL_ENABLE_DOXYGEN=OFF",
-        - "-DJPEGXL_ENABLE_EXAMPLES=OFF",
-        - "-DJPEGXL_ENABLE_JNI=OFF",
-        - "-DJPEGXL_ENABLE_MANPAGES=OFF",
-        - "-DJPEGXL_ENABLE_PLUGINS=OFF",
-        - "-DJPEGXL_ENABLE_SJPEG=OFF",
-        - "-DJPEGXL_ENABLE_SKCMS=ON",
-        - "-DJPEGXL_ENABLE_TCMALLOC=OFF",
-        - "-DJPEGXL_ENABLE_TOOLS=OFF",
-        - "-DJPEGXL_FORCE_SYSTEM_BROTLI=ON",
+        - "-DJPEGXL_ENABLE_BENCHMARK=OFF"
+        - "-DJPEGXL_ENABLE_DOXYGEN=OFF"
+        - "-DJPEGXL_ENABLE_EXAMPLES=OFF"
+        - "-DJPEGXL_ENABLE_JNI=OFF"
+        - "-DJPEGXL_ENABLE_MANPAGES=OFF"
+        - "-DJPEGXL_ENABLE_PLUGINS=OFF"
+        - "-DJPEGXL_ENABLE_SJPEG=OFF"
+        - "-DJPEGXL_ENABLE_SKCMS=ON"
+        - "-DJPEGXL_ENABLE_TCMALLOC=OFF"
+        - "-DJPEGXL_ENABLE_TOOLS=OFF"
+        - "-DJPEGXL_FORCE_SYSTEM_BROTLI=ON"
         - "-DJPEGXL_WARNINGS_AS_ERRORS=OFF"
         prime:
         - "-*.a"
         - "-/include/hwy"
         - "-/include/jxl"
         - "-*.pc"
-        - "-libjxl_threads.so",
+        - "-libjxl_threads.so"
         - "-libjxl.so"
     kimageformats:
         after:
