@@ -83,7 +83,7 @@ parts:
         - -DQT_MAJOR_VERSION=6
         - -DBUILD_WITH_QT6=ON
         - -DBUILD_TESTING=OFF
-        - -DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE
+        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE"
     plasma-wayland-protocols:
         after:
         - fcitx5-platforminputcontext
@@ -101,1248 +101,1372 @@ parts:
         - -DQT_MAJOR_VERSION=6
         - -DBUILD_WITH_QT6=ON
         - -DBUILD_TESTING=OFF
-#         {
-#             "name": "kwidgetsaddons",
-#             "config-opts": [
-#                 "-DBUILD_TESTING=OFF"
-#             ],
-#             "buildsystem": "cmake-ninja",
-#             "sources": [
-#                 {
-#                     "type": "git",
-#                     "url": "https://invent.kde.org/frameworks/kwidgetsaddons.git",
-#                     "tag": "master"
-#                 }
-#             ]
-#         },
-#         {
-#             "name": "ki18n",
-#             "config-opts": [
-#                 "-DBUILD_TESTING=OFF"
-#             ],
-#             "buildsystem": "cmake-ninja",
-#             "sources": [
-#                 {
-#                     "type": "git",
-#                     "url": "https://invent.kde.org/frameworks/ki18n.git",
-#                     "tag": "master"
-#                 }
-#             ]
-#         },
-#         {
-#             "name": "kconfig",
-#             "config-opts": [
-#                 "-DBUILD_TESTING=OFF"
-#             ],
-#             "buildsystem": "cmake-ninja",
-#             "sources": [
-#                 {
-#                     "type": "git",
-#                     "url": "https://invent.kde.org/frameworks/kconfig.git",
-#                     "tag": "master"
-#                 }
-#             ]
-#         },
-#         {
-#             "name": "attica",
-#             "config-opts": [
-#                 "-DBUILD_TESTING=OFF"
-#             ],
-#             "buildsystem": "cmake-ninja",
-#             "sources": [
-#                 {
-#                     "type": "git",
-#                     "url": "https://invent.kde.org/frameworks/attica.git",
-#                     "tag": "master"
-#                 }
-#             ]
-#         },
-#         {
-#             "name": "kguiaddons",
-#             "config-opts": [
-#                 "-DBUILD_TESTING=OFF"
-#             ],
-#             "buildsystem": "cmake-ninja",
-#             "sources": [
-#                 {
-#                     "type": "git",
-#                     "url": "https://invent.kde.org/frameworks/kguiaddons.git",
-#                     "tag": "master"
-#                 }
-#             ]
-#         },
-#         {
-#             "name": "kcoreaddons",
-#             "config-opts": [
-#                 "-DBUILD_TESTING=OFF"
-#             ],
-#             "buildsystem": "cmake-ninja",
-#             "sources": [
-#                 {
-#                     "type": "git",
-#                     "url": "https://invent.kde.org/frameworks/kcoreaddons.git",
-#                     "tag": "master"
-#                 }
-#             ]
-#         },
-#         {
-#             "name": "kauth",
-#             "config-opts": [
-#                 "-DBUILD_TESTING=OFF"
-#             ],
-#             "buildsystem": "cmake-ninja",
-#             "sources": [
-#                 {
-#                     "type": "git",
-#                     "url": "https://invent.kde.org/frameworks/kauth.git",
-#                     "tag": "master"
-#                 }
-#             ]
-#         },
-#         {
-#             "name": "karchive",
-#             "config-opts": [
-#                 "-DBUILD_TESTING=OFF",
-#                 "-DCMAKE_DISABLE_FIND_PACKAGE_Qt5Test=TRUE"
-#             ],
-#             "buildsystem": "cmake-ninja",
-#             "sources": [
-#                 {
-#                     "type": "git",
-#                     "url": "https://invent.kde.org/frameworks/karchive.git",
-#                     "tag": "master"
-#                 }
-#             ]
-#         },
-#         {
-#             "name": "kcodecs",
-#             "config-opts": [
-#                 "-DBUILD_TESTING=OFF"
-#             ],
-#             "buildsystem": "cmake-ninja",
-#             "sources": [
-#                 {
-#                     "type": "git",
-#                     "url": "https://invent.kde.org/frameworks/kcodecs.git",
-#                     "tag": "master"
-#                 }
-#             ]
-#         },
-#         {
-#             "name": "kcolorscheme",
-#             "config-opts": [
-#                 "-DBUILD_TESTING=OFF"
-#             ],
-#             "buildsystem": "cmake-ninja",
-#             "sources": [
-#                 {
-#                     "type": "git",
-#                     "url": "https://invent.kde.org/frameworks/kcolorscheme.git",
-#                     "tag": "master"
-#                 }
-#             ]
-#         },
-#         {
-#             "name": "kconfigwidgets",
-#             "config-opts": [
-#                 "-DBUILD_TESTING=OFF"
-#             ],
-#             "buildsystem": "cmake-ninja",
-#             "sources": [
-#                 {
-#                     "type": "git",
-#                     "url": "https://invent.kde.org/frameworks/kconfigwidgets.git",
-#                     "tag": "master"
-#                 }
-#             ]
-#         },
-#         {
-#             "name": "kitemviews",
-#             "config-opts": [
-#                 "-DBUILD_TESTING=OFF"
-#             ],
-#             "buildsystem": "cmake-ninja",
-#             "sources": [
-#                 {
-#                     "type": "git",
-#                     "url": "https://invent.kde.org/frameworks/kitemviews.git",
-#                     "tag": "master"
-#                 }
-#             ]
-#         },
-#         {
-#             "name": "kiconthemes",
-#             "config-opts": [
-#                 "-DBUILD_TESTING=OFF"
-#             ],
-#             "buildsystem": "cmake-ninja",
-#             "sources": [
-#                 {
-#                     "type": "git",
-#                     "url": "https://invent.kde.org/frameworks/kiconthemes.git",
-#                     "tag": "master"
-#                 }
-#             ]
-#         },
-#         {
-#             "name": "kwindowsystem",
-#             "config-opts": [
-#                 "-DBUILD_TESTING=OFF"
-#             ],
-#             "buildsystem": "cmake-ninja",
-#             "sources": [
-#                 {
-#                     "type": "git",
-#                     "url": "https://invent.kde.org/frameworks/kwindowsystem.git",
-#                     "tag": "master"
-#                 }
-#             ]
-#         },
-#         {
-#             "name": "kcrash",
-#             "config-opts": [
-#                 "-DBUILD_TESTING=OFF"
-#             ],
-#             "buildsystem": "cmake-ninja",
-#             "sources": [
-#                 {
-#                     "type": "git",
-#                     "url": "https://invent.kde.org/frameworks/kcrash.git",
-#                     "tag": "master"
-#                 }
-#             ]
-#         },
-#         {
-#             "name": "kdbusaddons",
-#             "config-opts": [
-#                 "-DBUILD_TESTING=OFF"
-#             ],
-#             "buildsystem": "cmake-ninja",
-#             "sources": [
-#                 {
-#                     "type": "git",
-#                     "url": "https://invent.kde.org/frameworks/kdbusaddons.git",
-#                     "tag": "master"
-#                 }
-#             ]
-#         },
-#         {
-#             "name": "kservice",
-#             "config-opts": [
-#                 "-DBUILD_TESTING=OFF"
-#             ],
-#             "buildsystem": "cmake-ninja",
-#             "builddir": true,
-#             "sources": [
-#                 {
-#                     "type": "git",
-#                     "url": "https://invent.kde.org/frameworks/kservice.git",
-#                     "tag": "master"
-#                 }
-#             ]
-#         },
-#         {
-#             "name": "kglobalaccel",
-#             "config-opts": [
-#                 "-DBUILD_TESTING=OFF"
-#             ],
-#             "buildsystem": "cmake-ninja",
-#             "sources": [
-#                 {
-#                     "type": "git",
-#                     "url": "https://invent.kde.org/frameworks/kglobalaccel.git",
-#                     "tag": "master"
-#                 }
-#             ]
-#         },
-#         {
-#             "name": "sonnet",
-#             "config-opts": [
-#                 "-DBUILD_TESTING=OFF"
-#             ],
-#             "buildsystem": "cmake-ninja",
-#             "sources": [
-#                 {
-#                     "type": "git",
-#                     "url": "https://invent.kde.org/frameworks/sonnet.git",
-#                     "tag": "master"
-#                 }
-#             ]
-#         },
-#         {
-#             "name": "kcompletion",
-#             "config-opts": [
-#                 "-DBUILD_TESTING=OFF"
-#             ],
-#             "buildsystem": "cmake-ninja",
-#             "sources": [
-#                 {
-#                     "type": "git",
-#                     "url": "https://invent.kde.org/frameworks/kcompletion.git",
-#                     "tag": "master"
-#                 }
-#             ]
-#         },
-#         {
-#             "name": "ktextwidgets",
-#             "config-opts": [
-#                 "-DBUILD_TESTING=OFF"
-#             ],
-#             "buildsystem": "cmake-ninja",
-#             "sources": [
-#                 {
-#                     "type": "git",
-#                     "url": "https://invent.kde.org/frameworks/ktextwidgets.git",
-#                     "tag": "master"
-#                 }
-#             ]
-#         },
-#         {
-#             "name": "kxmlgui",
-#             "config-opts": [
-#                 "-DBUILD_TESTING=OFF"
-#             ],
-#             "buildsystem": "cmake-ninja",
-#             "sources": [
-#                 {
-#                     "type": "git",
-#                     "url": "https://invent.kde.org/frameworks/kxmlgui.git",
-#                     "tag": "master"
-#                 }
-#             ]
-#         },
-#         {
-#             "name": "perl-uri-escape",
-#             "cleanup-platform": [
-#                 "*"
-#             ],
-#             "sources": [
-#                 {
-#                     "type": "archive",
-#                     "url": "https://cpan.metacpan.org/authors/id/E/ET/ETHER/URI-1.74.tar.gz",
-#                     "sha256": "a9c254f45f89cb1dd946b689dfe433095404532a4543bdaab0b71ce0fdcdd53d"
-#                 },
-#                 {
-#                     "type": "script",
-#                     "commands": [
-#                         "perl Makefile.PL INSTALLDIRS=vendor"
-#                     ],
-#                     "dest-filename": "configure"
-#                 }
-#             ]
-#         },
-#         {
-#             "name": "kdoctools",
-#             "config-opts": [
-#                 "-DBUILD_TESTING=OFF",
-#                 "-DDocBookXSL_DIR=/usr/share/xml/docbook/xml/xsl-stylesheets/",
-#                 "-DDTD_PATH_LIST=/usr/share/xml/docbook/xml-dtd/4.5/"
-#             ],
-#             "buildsystem": "cmake-ninja",
-#             "sources": [
-#                 {
-#                     "type": "git",
-#                     "url": "https://invent.kde.org/frameworks/kdoctools.git",
-#                     "tag": "master"
-#                 }
-#             ]
-#         },
-#         {
-#             "name": "kpackage",
-#             "config-opts": [
-#                 "-DBUILD_TESTING=OFF"
-#             ],
-#             "buildsystem": "cmake-ninja",
-#             "sources": [
-#                 {
-#                     "type": "git",
-#                     "url": "https://invent.kde.org/frameworks/kpackage.git",
-#                     "tag": "master"
-#                 }
-#             ]
-#         },
-#         {
-#             "name": "kbookmarks",
-#             "config-opts": [
-#                 "-DBUILD_TESTING=OFF"
-#             ],
-#             "buildsystem": "cmake-ninja",
-#             "sources": [
-#                 {
-#                     "type": "git",
-#                     "url": "https://invent.kde.org/frameworks/kbookmarks.git",
-#                     "tag": "master"
-#                 }
-#             ]
-#         },
-#         {
-#             "name": "kfilemetadata",
-#             "config-opts": [
-#                 "-DBUILD_TESTING=OFF"
-#             ],
-#             "buildsystem": "cmake-ninja",
-#             "sources": [
-#                 {
-#                     "type": "git",
-#                     "url": "https://invent.kde.org/frameworks/kfilemetadata.git",
-#                     "tag": "master"
-#                 }
-#             ],
-#             "modules": [
-#                 {
-#                     "name": "taglib",
-#                     "config-opts": [
-#                         "-DBUILD_SHARED_LIBS=ON",
-#                         "-DLIB_INSTALL_DIR:PATH=/usr/lib/@@SDK_ARCH@@-linux-gnu"
-#                     ],
-#                     "buildsystem": "cmake-ninja",
-#                     "sources": [
-#                         {
-#                             "type": "archive",
-#                             "url": "https://taglib.github.io/releases/taglib-1.12.tar.gz",
-#                             "sha256": "7fccd07669a523b07a15bd24c8da1bbb92206cb19e9366c3692af3d79253b703"
-#                         }
-#                     ]
-#                 }
-#             ]
-#         },
-#         {
-#             "name": "phonon",
-#             "config-opts": [
-#                 "-DBUILD_TESTING=OFF",
-#                 "-DPHONON_BUILD_QT5=OFF",
-# 		"-DPHONON_BUILD_QT6=ON"
-#             ],
-#             "buildsystem": "cmake-ninja",
-#             "sources": [
-#                 {
-#                     "type": "git",
-#                     "url": "https://invent.kde.org/libraries/phonon.git",
-#                     "tag": "master"
-#                 }
-#             ]
-#         },
-#         {
-#             "name": "canberra",
-#             "sources": [
-#                 {
-#                     "type": "git",
-#                     "url": "git://git.0pointer.net/libcanberra.git",
-#                     "tag": "master"
-#                 }
-#             ]
-#         },
-#         {
-#             "name": "knotifications",
-#             "buildsystem": "cmake-ninja",
-#             "config-opts": [
-#                 "-DBUILD_TESTING=OFF"
-#             ],
-#             "sources": [
-#                 {
-#                     "type": "git",
-#                     "url": "https://invent.kde.org/frameworks/knotifications.git",
-#                     "tag": "master"
-#                 }
-#             ]
-#         },
-#         {
-#             "name": "kwallet",
-#             "config-opts": [
-#                 "-DBUILD_TESTING=OFF"
-#             ],
-#             "buildsystem": "cmake-ninja",
-#             "sources": [
-#                 {
-#                     "type": "git",
-#                     "url": "https://invent.kde.org/frameworks/kwallet.git",
-#                     "tag": "master"
-#                 }
-#             ],
-#             "modules": [
-#                 {
-#                     "config-opts": [ "-DENABLE_TESTING=OFF", "-DBUILD_WITH_QT6=ON" ],
-#                     "name": "qca",
-#                     "buildsystem": "cmake-ninja",
-#                     "sources": [
-#                         {
-#                             "type": "git",
-#                             "url": "https://invent.kde.org/libraries/qca.git",
-#                             "tag": "v2.3.5"
-#                         }
-#                     ]
-#                 }
-#             ]
-#         },
-#         {
-#             "name": "kjobwidgets",
-#             "config-opts": [
-#                 "-DBUILD_TESTING=OFF"
-#             ],
-#             "buildsystem": "cmake-ninja",
-#             "sources": [
-#                 {
-#                     "type": "git",
-#                     "url": "https://invent.kde.org/frameworks/kjobwidgets.git",
-#                     "tag": "master"
-#                 }
-#             ]
-#         },
-#         {
-#             "name": "solid",
-#             "config-opts": [
-#                 "-DBUILD_TESTING=OFF"
-#             ],
-#             "buildsystem": "cmake-ninja",
-#             "sources": [
-#                 {
-#                     "type": "git",
-#                     "url": "https://invent.kde.org/frameworks/solid.git",
-#                     "tag": "master"
-#                 }
-#             ]
-#         },
-#         {
-#             "name": "kio",
-#             "buildsystem": "cmake-ninja",
-#             "config-opts": [
-#                 "-DBUILD_TESTING=OFF"
-#             ],
-#             "sources": [
-#                 {
-#                     "type": "git",
-#                     "url": "https://invent.kde.org/frameworks/kio.git",
-#                     "tag": "master"
-#                 }
-#             ]
-#         },
-#         {
-#             "name": "kparts",
-#             "config-opts": [
-#                 "-DBUILD_TESTING=OFF"
-#             ],
-#             "buildsystem": "cmake-ninja",
-#             "sources": [
-#                 {
-#                     "type": "git",
-#                     "url": "https://invent.kde.org/frameworks/kparts.git",
-#                     "tag": "master"
-#                 }
-#             ]
-#         },
-#         {
-#             "name": "kplotting",
-#             "config-opts": [
-#                 "-DBUILD_TESTING=OFF"
-#             ],
-#             "buildsystem": "cmake-ninja",
-#             "sources": [
-#                 {
-#                     "type": "git",
-#                     "url": "https://invent.kde.org/frameworks/kplotting.git",
-#                     "tag": "master"
-#                 }
-#             ]
-#         },
-#         {
-#             "name": "kded",
-#             "config-opts": [
-#                 "-DBUILD_TESTING=OFF"
-#             ],
-#             "buildsystem": "cmake-ninja",
-#             "sources": [
-#                 {
-#                     "type": "git",
-#                     "url": "https://invent.kde.org/frameworks/kded.git",
-#                     "tag": "master"
-#                 }
-#             ]
-#         },
-#         {
-#             "name": "kunitconversion",
-#             "config-opts": [
-#                 "-DBUILD_TESTING=OFF"
-#             ],
-#             "buildsystem": "cmake-ninja",
-#             "sources": [
-#                 {
-#                     "type": "git",
-#                     "url": "https://invent.kde.org/frameworks/kunitconversion.git",
-#                     "tag": "master"
-#                 }
-#             ]
-#         },
-#         {
-#             "name": "kdeclarative",
-#             "config-opts": [
-#                 "-DBUILD_TESTING=OFF"
-#             ],
-#             "buildsystem": "cmake-ninja",
-#             "sources": [
-#                 {
-#                     "type": "git",
-#                     "url": "https://invent.kde.org/frameworks/kdeclarative.git",
-#                     "tag": "master"
-#                 }
-#             ]
-#         },
-#         {
-#             "name": "kactivities",
-#             "config-opts": [
-#                 "-DBUILD_TESTING=OFF",
-#                 "-DKACTIVITIES_LIBRARY_ONLY=ON"
-#             ],
-#             "buildsystem": "cmake-ninja",
-#             "builddir": true,
-#             "sources": [
-#                 {
-#                     "type": "git",
-#                     "url": "https://invent.kde.org/frameworks/kactivities.git",
-#                     "tag": "master"
-#                 }
-#             ]
-#         },
-#         {
-#             "name": "kcmutils",
-#             "config-opts": [
-#                 "-DBUILD_TESTING=OFF"
-#             ],
-#             "buildsystem": "cmake-ninja",
-#             "sources": [
-#                 {
-#                     "type": "git",
-#                     "url": "https://invent.kde.org/frameworks/kcmutils.git",
-#                     "tag": "master"
-#                 }
-#             ]
-#         },
-#         {
-#             "name": "knotifyconfig",
-#             "config-opts": [
-#                 "-DBUILD_TESTING=OFF"
-#             ],
-#             "buildsystem": "cmake-ninja",
-#             "builddir": true,
-#             "sources": [
-#                 {
-#                     "type": "git",
-#                     "url": "https://invent.kde.org/frameworks/knotifyconfig.git",
-#                     "tag": "master"
-#                 }
-#             ]
-#         },
-#         {
-#             "name": "knewstuff",
-#             "config-opts": [
-#                 "-DBUILD_TESTING=OFF"
-#             ],
-#             "buildsystem": "cmake-ninja",
-#             "sources": [
-#                 {
-#                     "type": "git",
-#                     "url": "https://invent.kde.org/frameworks/knewstuff.git",
-#                     "tag": "master"
-#                 }
-#             ]
-#         },
-#         {
-#             "name": "kidletime",
-#             "config-opts": [
-#                 "-DBUILD_TESTING=OFF"
-#             ],
-#             "buildsystem": "cmake-ninja",
-#             "sources": [
-#                 {
-#                     "type": "git",
-#                     "url": "https://invent.kde.org/frameworks/kidletime.git",
-#                     "tag": "master"
-#                 }
-#             ]
-#         },
-#         {
-#             "name": "threadweaver",
-#             "config-opts": [
-#                 "-DBUILD_TESTING=OFF"
-#             ],
-#             "buildsystem": "cmake-ninja",
-#             "sources": [
-#                 {
-#                     "type": "git",
-#                     "url": "https://invent.kde.org/frameworks/threadweaver.git",
-#                     "tag": "master"
-#                 }
-#             ]
-#         },
-#         {
-#             "name": "kitemmodels",
-#             "config-opts": [
-#                 "-DBUILD_TESTING=OFF"
-#             ],
-#             "buildsystem": "cmake-ninja",
-#             "sources": [
-#                 {
-#                     "type": "git",
-#                     "url": "https://invent.kde.org/frameworks/kitemmodels.git",
-#                     "tag": "master"
-#                 }
-#             ]
-#         },
-#         {
-#             "name": "kdnssd",
-#             "config-opts": [
-#                 "-DBUILD_TESTING=OFF"
-#             ],
-#             "buildsystem": "cmake-ninja",
-#             "sources": [
-#                 {
-#                     "type": "git",
-#                     "url": "https://invent.kde.org/frameworks/kdnssd.git",
-#                     "tag": "master"
-#                 }
-#             ]
-#         },
-#         {
-#             "name": "kquickcharts",
-#             "buildsystem": "cmake-ninja",
-#             "config-opts": [
-#                 "-DBUILD_TESTING=OFF"
-#             ],
-#             "sources": [
-#                 {
-#                     "type": "git",
-#                     "url": "https://invent.kde.org/frameworks/kquickcharts.git",
-#                     "tag": "master"
-#                 }
-#             ]
-#         },
-#         {
-#             "config-opts": [
-#                 "-DBUILD_TESTING=OFF"
-#             ],
-#             "name": "syntax-highlighting",
-#             "buildsystem": "cmake-ninja",
-#             "sources": [
-#                 {
-#                     "type": "git",
-#                     "url": "https://invent.kde.org/frameworks/syntax-highlighting.git",
-#                     "tag": "master"
-#                 }
-#             ]
-#         },
-#         {
-#             "config-opts": [
-#                 "-DBUILD_TESTING=OFF"
-#             ],
-#             "name": "ktexteditor",
-#             "buildsystem": "cmake-ninja",
-#             "sources": [
-#                 {
-#                     "type": "git",
-#                     "url": "https://invent.kde.org/frameworks/ktexteditor.git",
-#                     "tag": "master"
-#                 }
-#             ]
-#         },
-#         {
-#             "name": "frameworkintegration",
-#             "config-opts": [
-#                 "-DBUILD_TESTING=OFF"
-#             ],
-#             "buildsystem": "cmake-ninja",
-#             "builddir": true,
-#             "sources": [
-#                 {
-#                     "type": "git",
-#                     "url": "https://invent.kde.org/frameworks/frameworkintegration.git",
-#                     "tag": "master"
-#                 }
-#             ]
-#         },
-#         {
-#             "name": "kpty",
-#             "buildsystem": "cmake-ninja",
-#             "config-opts": [
-#                 "-DBUILD_TESTING=OFF"
-#             ],
-#             "sources": [
-#                 {
-#                     "type": "git",
-#                     "url": "https://invent.kde.org/frameworks/kpty.git",
-#                     "tag": "master"
-#                 }
-#             ]
-#         },
-#         {
-#             "name": "kwayland",
-#             "buildsystem": "cmake-ninja",
-#             "config-opts": [
-#                 "-DBUILD_TESTING=OFF"
-#             ],
-#             "sources": [
-#                 {
-#                     "type": "git",
-#                     "url": "https://invent.kde.org/frameworks/kwayland.git",
-#                     "tag": "master"
-#                 }
-#             ]
-#         },
-#         {
-#             "name": "kirigami",
-#             "config-opts": [
-#                 "-DBUILD_TESTING=OFF",
-#                 "-DPLASMA_ENABLED=OFF"
-#             ],
-#             "buildsystem": "cmake-ninja",
-#             "builddir": true,
-#             "sources": [
-#                 {
-#                     "type": "git",
-#                     "url": "https://invent.kde.org/frameworks/kirigami.git",
-#                     "tag": "master"
-#                 }
-#             ]
-#         },
-#         {
-#             "name": "qqc2-desktop-style",
-#             "config-opts": [
-#                 "-DBUILD_TESTING=OFF"
-#             ],
-#             "buildsystem": "cmake-ninja",
-#             "builddir": true,
-#             "sources": [
-#                 {
-#                     "type": "git",
-#                     "url": "https://invent.kde.org/frameworks/qqc2-desktop-style.git",
-#                     "tag": "master"
-#                 }
-#             ]
-#         },
-#         {
-#             "name": "kcontacts",
-#             "config-opts": [
-#                 "-DBUILD_TESTING=OFF"
-#             ],
-#             "buildsystem": "cmake-ninja",
-#             "builddir": true,
-#             "sources": [
-#                 {
-#                     "type": "git",
-#                     "url": "https://invent.kde.org/frameworks/kcontacts.git",
-#                     "tag": "master"
-#                 }
-#             ]
-#         },
-#         {
-#             "name": "kcalendarcore",
-#             "config-opts": [
-#                 "-DBUILD_TESTING=OFF"
-#             ],
-#             "builddir": true,
-#             "buildsystem": "cmake-ninja",
-#             "sources": [
-#                 {
-#                     "type": "git",
-#                     "url": "https://invent.kde.org/frameworks/kcalendarcore.git",
-#                     "tag": "master"
-#                 }
-#             ],
-#             "modules": [
-#                 {
-#                     "name": "libical",
-#                     "buildsystem": "cmake-ninja",
-#                     "builddir": true,
-#                     "config-opts": [
-#                         "-DICAL_BUILD_DOCS=OFF",
-#                         "-DICAL_GLIB=OFF",
-#                         "-DWITH_CXX_BINDINGS=OFF",
-#                         "-DSHARED_ONLY=ON"
-#                     ],
-#                     "sources": [
-#                         {
-#                             "type": "git",
-#                             "url": "https://github.com/libical/libical.git",
-#                             "tag": "v3.0.16"
-#                         }
-#                     ]
-#                 }
-#             ]
-#         },
-#         {
-#             "name": "kholidays",
-#             "config-opts": [
-#                 "-DBUILD_TESTING=OFF"
-#             ],
-#             "buildsystem": "cmake-ninja",
-#             "builddir": true,
-#             "sources": [
-#                 {
-#                     "type": "git",
-#                     "url": "https://invent.kde.org/frameworks/kholidays.git",
-#                     "tag": "master"
-#                 }
-#             ]
-#         },
-#         {
-#             "name": "prison",
-#             "config-opts": [
-#                 "-DBUILD_TESTING=OFF"
-#             ],
-#             "buildsystem": "cmake-ninja",
-#             "sources": [
-#                 {
-#                     "type": "git",
-#                     "url": "https://invent.kde.org/frameworks/prison.git",
-#                     "tag": "master"
-#                 }
-#             ],
-#             "modules": [
-#                 {
-#                     "name": "qrencode",
-#                     "buildsystem": "cmake-ninja",
-#                     "config-opts": [
-#                         "-DBUILD_SHARED_LIBS=ON",
-#                         "-DWITH_TOOLS=OFF"
-#                     ],
-#                     "builddir": true,
-#                     "sources": [
-#                         {
-#                             "type": "archive",
-#                             "url": "https://fukuchi.org/works/qrencode/qrencode-4.1.1.tar.gz",
-#                             "sha256": "da448ed4f52aba6bcb0cd48cac0dd51b8692bccc4cd127431402fca6f8171e8e"
-#                         }
-#                     ]
-#                 },
-#                 {
-#                     "name": "libdmtx",
-#                     "config-opts": [
-#                         "--disable-static"
-#                     ],
-#                     "sources": [
-#                         {
-#                             "type": "archive",
-#                             "url": "https://github.com/dmtx/libdmtx/archive/v0.7.7.tar.gz",
-#                             "sha256": "7aa62adcefdd6e24bdabeb82b3ce41a8d35f4a0c95ab0c4438206aecafd6e1a1"
-#                         }
-#                     ]
-#                 },
-#                 {
-#                     "name": "zxing",
-#                     "config-opts": [
-#                         "-DBUILD_DEPENDENCIES=LOCAL",
-#                         "-DBUILD_SHARED_LIBS=ON",
-#                         "-DBUILD_UNIT_TESTS=OFF",
-#                         "-DBUILD_BLACKBOX_TESTS=OFF",
-#                         "-DBUILD_EXAMPLES=OFF"
-#                     ],
-#                     "buildsystem": "cmake-ninja",
-#                     "builddir": true,
-#                     "sources": [
-#                         {
-#                             "type": "archive",
-#                             "url": "https://github.com/nu-book/zxing-cpp/archive/refs/tags/v1.4.0.tar.gz",
-#                             "sha256": "126767bb56f8a1f25ae84d233db2e9b9be50d71f5776092d0e170ca0f0ed1862"
-#                         }
-#                     ]
-#                 }
-#             ]
-#         },
-#         {
-#             "name": "syndication",
-#             "config-opts": [
-#                 "-DBUILD_TESTING=OFF"
-#             ],
-#             "buildsystem": "cmake-ninja",
-#             "sources": [
-#                 {
-#                     "type": "git",
-#                     "url": "https://invent.kde.org/frameworks/syndication.git",
-#                     "tag": "master"
-#                 }
-#             ]
-#         },
-#         {
-#             "name": "purpose",
-#             "config-opts": [
-#                 "-DBUILD_TESTING=OFF"
-#             ],
-#             "buildsystem": "cmake-ninja",
-#             "sources": [
-#                 {
-#                     "type": "git",
-#                     "url": "https://invent.kde.org/frameworks/purpose.git",
-#                     "tag": "master"
-#                 }
-#             ]
-#         },
-#         {
-#             "name": "kdav",
-#             "config-opts": [
-#                 "-DBUILD_TESTING=OFF"
-#             ],
-#             "buildsystem": "cmake-ninja",
-#             "sources": [
-#                 {
-#                     "type": "git",
-#                     "url": "https://invent.kde.org/frameworks/kdav.git",
-#                     "tag": "master"
-#                 }
-#             ]
-#         },
-#         {
-#             "name": "ksvg",
-#             "config-opts": [
-#                 "-DBUILD_TESTING=OFF"
-#             ],
-#             "buildsystem": "cmake-ninja",
-#             "builddir": true,
-#             "sources": [
-#                 {
-#                     "type": "git",
-#                     "url": "https://invent.kde.org/frameworks/ksvg.git",
-#                     "tag": "master"
-#                 }
-#             ]
-#         },
-#         {
-#             "name": "plasma-framework",
-#             "config-opts": [
-#                 "-DBUILD_TESTING=OFF"
-#             ],
-#             "buildsystem": "cmake-ninja",
-#             "builddir": true,
-#             "sources": [
-#                 {
-#                     "type": "git",
-#                     "url": "https://invent.kde.org/frameworks/plasma-framework.git",
-#                     "tag": "master"
-#                 }
-#             ]
-#         },
-#         {
-#             "name": "breeze-icons",
-#             "cleanup-platform": [
-#                 "*.rcc"
-#             ],
-#             "config-opts": [
-#                 "-DBUILD_TESTING=OFF"
-#             ],
-#             "buildsystem": "cmake-ninja",
-#             "builddir": true,
-#             "sources": [
-#                 {
-#                     "type": "git",
-#                     "url": "https://invent.kde.org/frameworks/breeze-icons.git",
-#                     "tag": "master"
-#                 }
-#             ]
-#         },
-#         {
-#             "name": "kimageformats",
-#             "config-opts": [
-#                 "-DBUILD_TESTING=OFF"
-#             ],
-#             "buildsystem": "cmake-ninja",
-#             "builddir": true,
-#             "sources": [
-#                 {
-#                     "type": "git",
-#                     "url": "https://invent.kde.org/frameworks/kimageformats.git",
-#                     "tag": "master"
-#                 }
-#             ],
-#             "modules": [
-#                 {
-#                     "name": "libjxl",
-#                     "config-opts": [
-#                         "-DBUILD_TESTING=OFF",
-#                         "-DJPEGXL_ENABLE_BENCHMARK=OFF",
-#                         "-DJPEGXL_ENABLE_DOXYGEN=OFF",
-#                         "-DJPEGXL_ENABLE_EXAMPLES=OFF",
-#                         "-DJPEGXL_ENABLE_JNI=OFF",
-#                         "-DJPEGXL_ENABLE_MANPAGES=OFF",
-#                         "-DJPEGXL_ENABLE_PLUGINS=OFF",
-#                         "-DJPEGXL_ENABLE_SJPEG=OFF",
-#                         "-DJPEGXL_ENABLE_SKCMS=ON",
-#                         "-DJPEGXL_ENABLE_TCMALLOC=OFF",
-#                         "-DJPEGXL_ENABLE_TOOLS=OFF",
-#                         "-DJPEGXL_FORCE_SYSTEM_BROTLI=ON",
-#                         "-DJPEGXL_WARNINGS_AS_ERRORS=OFF"
-#                     ],
-#                     "buildsystem": "cmake-ninja",
-#                     "builddir": true,
-#                     "cleanup": [
-#                         "*.a",
-#                         "/include/hwy",
-#                         "/include/jxl",
-#                         "*.pc",
-#                         "libjxl_threads.so",
-#                         "libjxl.so"
-#                     ],
-#                     "sources": [
-#                         {
-#                             "type": "git",
-#                             "url": "https://github.com/libjxl/libjxl.git",
-#                             "tag": "v0.7.0",
-#                             "commit": "f95da131cf7c7ccd4da256356fde2fec1fa23bb5"
-#                         }
-#                     ]
-#                 },
-#                 {
-#                     "name": "libavif",
-#                     "config-opts": [
-#                         "-DAVIF_CODEC_AOM=ON",
-#                         "-DAVIF_ENABLE_WERROR=OFF"
-#                     ],
-#                     "buildsystem": "cmake-ninja",
-#                     "builddir": true,
-#                     "cleanup": [
-#                         "/include/avif",
-#                         "*.pc",
-#                         "/lib/*/cmake/libavif",
-#                         "libavif.so"
-#                     ],
-#                     "sources": [
-#                         {
-#                             "type": "archive",
-#                             "url": "https://github.com/AOMediaCodec/libavif/archive/refs/tags/v0.11.1.tar.gz",
-#                             "sha256": "0eb49965562a0e5e5de58389650d434cff32af84c34185b6c9b7b2fccae06d4e"
-#                         }
-#                     ]
-#                 }
-#             ]
-#         },
-#         {
-#             "name": "bluez-qt",
-#             "config-opts": [
-#                 "-DBUILD_TESTING=OFF"
-#             ],
-#             "buildsystem": "cmake-ninja",
-#             "builddir": true,
-#             "sources": [
-#                 {
-#                     "type": "git",
-#                     "url": "https://invent.kde.org/frameworks/bluez-qt.git",
-#                     "tag": "master"
-#                 }
-#             ]
-#         },
-#         {
-#             "name": "kstatusnotifieritem",
-#             "config-opts": [
-#                 "-DBUILD_TESTING=OFF"
-#             ],
-#             "buildsystem": "cmake-ninja",
-#             "builddir": true,
-#             "sources": [
-#                 {
-#                     "type": "git",
-#                     "url": "https://invent.kde.org/frameworks/kstatusnotifieritem.git",
-#                     "tag": "master"
-#                 }
-#             ]
-#         },
-#         {
-#             "name": "kio-extras",
-#             "buildsystem": "cmake-ninja",
-#             "config-opts": [
-#                 "-DBUILD_TESTING=OFF",
-#                 "-DBUILD_WITH_QT6=ON"
-#             ],
-#             "sources": [
-#                 {
-#                     "type": "git",
-#                     "url": "https://invent.kde.org/network/kio-extras.git",
-#                     "tag": "kf6"
-#                 }
-#             ]
-#         },
-#         {
-#             "name": "breeze",
-#             "buildsystem": "cmake-ninja",
-#             "config-opts": [
-#                 "-DBUILD_TESTING=OFF",
-#                 "-DWITH_DECORATIONS=OFF",
-#                 "-DWITH_WALLPAPERS=OFF",
-#                 "-DBUILD_QT5=OFF",
-#                 "-DBUILD_QT6=ON"
-#             ],
-#             "sources": [
-#                 {
-#                     "type": "git",
-#                     "url": "https://invent.kde.org/plasma/breeze.git",
-#                     "branch": "master"
-#                 }
-#             ]
-#         },
-#         {
-#             "name": "plasma-integration",
-#             "buildsystem": "cmake-ninja",
-#             "config-opts": [
-#                 "-DBUILD_TESTING=OFF",
-#                 "-DBUILD_QT5=OFF",
-#                 "-DBUILD_QT6=ON"
-#             ],
-#             "sources": [
-#                 {
-#                     "type": "git",
-#                     "url": "https://invent.kde.org/plasma/plasma-integration.git",
-#                     "branch": "master"
-#                 }
-#             ]
-#         },
-#         {
-#             "name": "kwayland-integration",
-#             "buildsystem": "cmake-ninja",
-#             "config-opts": [
-#                 "-DBUILD_TESTING=OFF",
-#                 "-DBUILD_WITH_QT6=ON"
-#             ],
-#             "sources": [
-#                 {
-#                     "type": "git",
-#                     "url": "https://invent.kde.org/plasma/kwayland-integration.git",
-#                     "branch": "master"
-#                 }
-#             ]
-#         },
-#         {
-#             "name": "qqc2-breeze-style",
-#             "buildsystem": "cmake-ninja",
-#             "builddir": true,
-#             "config-opts": [
-#                 "-DBUILD_TESTING=OFF"
-#             ],
-#             "sources": [
-#                 {
-#                     "type": "git",
-#                     "url": "https://invent.kde.org/plasma/qqc2-breeze-style.git",
-#                     "branch": "master"
-#                 }
-#             ]
-#         },
-#
-#     plasma-integration:
-#         after:
-#         - kf6-dev
-#         plugin: cmake
-#         build-attributes:
-#         - enable-patchelf
-#         build-snaps:
-#         - qt-framework-sdk
-#         stage-packages:
-#         - libxcursor1
-#         stage:
-#         - "-usr/share/doc/*"
-#         - "-usr/share/man/*"
-#         - "-usr/share/icons/breeze/*.rcc"
-#         - "-usr/share/wallpapers/*"
-#         - "-usr/share/fonts/*"
-#         cmake-parameters:
-#         - "-DCMAKE_INSTALL_PREFIX=/usr"
-#         - "-DCMAKE_BUILD_TYPE=Release"
-#         - "-DENABLE_TESTING=OFF"
-#         - "-DBUILD_TESTING=OFF"
-#         - "-DKDE_SKIP_TEST_SETTINGS=ON"
-#         source: https://invent.kde.org/plasma/plasma-integration.git
-#         source-branch: master
-
+        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE"
+    kwidgetsaddons:
+        after:
+        - plasma-wayland-protocals
+        source: https://invent.kde.org/frameworks/kwidgetsaddons.git
+        source-branch: master
+        build-packages:
+        - cmake
+        build-snaps:
+        - qt-framework-sdk
+        plugin: cmake
+        cmake-generator: Ninja
+        cmake-parameters:
+        - -DCMAKE_INSTALL_PREFIX=/usr
+        - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+        - -DQT_MAJOR_VERSION=6
+        - -DBUILD_WITH_QT6=ON
+        - -DBUILD_TESTING=OFF
+        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE"
+    ki18n:
+        after:
+        - kwidgetsaddons
+        source: https://invent.kde.org/frameworks/ki18n.git
+        source-branch: master
+        build-packages:
+        - cmake
+        build-snaps:
+        - qt-framework-sdk
+        plugin: cmake
+        cmake-generator: Ninja
+        cmake-parameters:
+        - -DCMAKE_INSTALL_PREFIX=/usr
+        - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+        - -DQT_MAJOR_VERSION=6
+        - -DBUILD_WITH_QT6=ON
+        - -DBUILD_TESTING=OFF
+        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE"
+    kconfig:
+        after:
+        - ki18n
+        source: https://invent.kde.org/frameworks/kconfig.git
+        source-branch: master
+        build-packages:
+        - cmake
+        build-snaps:
+        - qt-framework-sdk
+        plugin: cmake
+        cmake-generator: Ninja
+        cmake-parameters:
+        - -DCMAKE_INSTALL_PREFIX=/usr
+        - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+        - -DQT_MAJOR_VERSION=6
+        - -DBUILD_WITH_QT6=ON
+        - -DBUILD_TESTING=OFF
+        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE"
+    attica:
+        after:
+        - kconfig
+        source: https://invent.kde.org/frameworks/attica.git
+        source-branch: master
+        build-packages:
+        - cmake
+        build-snaps:
+        - qt-framework-sdk
+        plugin: cmake
+        cmake-generator: Ninja
+        cmake-parameters:
+        - -DCMAKE_INSTALL_PREFIX=/usr
+        - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+        - -DQT_MAJOR_VERSION=6
+        - -DBUILD_WITH_QT6=ON
+        - -DBUILD_TESTING=OFF
+        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE"
+    kguiaddons:
+        after:
+        - attica
+        source: https://invent.kde.org/frameworks/kguiaddons.git
+        source-branch: master
+        build-packages:
+        - cmake
+        build-snaps:
+        - qt-framework-sdk
+        plugin: cmake
+        cmake-generator: Ninja
+        cmake-parameters:
+        - -DCMAKE_INSTALL_PREFIX=/usr
+        - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+        - -DQT_MAJOR_VERSION=6
+        - -DBUILD_WITH_QT6=ON
+        - -DBUILD_TESTING=OFF
+        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE"
+    kcoreaddons:
+        after:
+        - kguiaddons
+        source: https://invent.kde.org/frameworks/kcoreaddons.git
+        source-branch: master
+        build-packages:
+        - cmake
+        build-snaps:
+        - qt-framework-sdk
+        plugin: cmake
+        cmake-generator: Ninja
+        cmake-parameters:
+        - -DCMAKE_INSTALL_PREFIX=/usr
+        - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+        - -DQT_MAJOR_VERSION=6
+        - -DBUILD_WITH_QT6=ON
+        - -DBUILD_TESTING=OFF
+        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE"
+    kauth:
+        after:
+        - kguiaddons
+        source: https://invent.kde.org/frameworks/kauth.git
+        source-branch: master
+        build-packages:
+        - cmake
+        build-snaps:
+        - qt-framework-sdk
+        plugin: cmake
+        cmake-generator: Ninja
+        cmake-parameters:
+        - -DCMAKE_INSTALL_PREFIX=/usr
+        - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+        - -DQT_MAJOR_VERSION=6
+        - -DBUILD_WITH_QT6=ON
+        - -DBUILD_TESTING=OFF
+        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE"
+    karchive:
+        after:
+        - kauth
+        source: https://invent.kde.org/frameworks/karchive.git
+        source-branch: master
+        build-packages:
+        - cmake
+        build-snaps:
+        - qt-framework-sdk
+        plugin: cmake
+        cmake-generator: Ninja
+        cmake-parameters:
+        - -DCMAKE_INSTALL_PREFIX=/usr
+        - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+        - -DQT_MAJOR_VERSION=6
+        - -DBUILD_WITH_QT6=ON
+        - -DBUILD_TESTING=OFF
+        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE"
+    kcodecs:
+        after:
+        - karchive
+        source: https://invent.kde.org/frameworks/kcodecs.git
+        source-branch: master
+        build-packages:
+        - cmake
+        build-snaps:
+        - qt-framework-sdk
+        plugin: cmake
+        cmake-generator: Ninja
+        cmake-parameters:
+        - -DCMAKE_INSTALL_PREFIX=/usr
+        - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+        - -DQT_MAJOR_VERSION=6
+        - -DBUILD_WITH_QT6=ON
+        - -DBUILD_TESTING=OFF
+        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE"
+    kcolorscheme:
+        after:
+        - kcodecs
+        source: https://invent.kde.org/frameworks/kcolorscheme.git
+        source-branch: master
+        build-packages:
+        - cmake
+        build-snaps:
+        - qt-framework-sdk
+        plugin: cmake
+        cmake-generator: Ninja
+        cmake-parameters:
+        - -DCMAKE_INSTALL_PREFIX=/usr
+        - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+        - -DQT_MAJOR_VERSION=6
+        - -DBUILD_WITH_QT6=ON
+        - -DBUILD_TESTING=OFF
+        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE"
+    kconfigwidgets:
+        after:
+        - kcolorscheme
+        source: https://invent.kde.org/frameworks/kconfigwidgets.git
+        source-branch: master
+        build-packages:
+        - cmake
+        build-snaps:
+        - qt-framework-sdk
+        plugin: cmake
+        cmake-generator: Ninja
+        cmake-parameters:
+        - -DCMAKE_INSTALL_PREFIX=/usr
+        - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+        - -DQT_MAJOR_VERSION=6
+        - -DBUILD_WITH_QT6=ON
+        - -DBUILD_TESTING=OFF
+        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE"
+    kitemviews:
+        after:
+        - kconfigwidgets
+        source: https://invent.kde.org/frameworks/kitemviews.git
+        source-branch: master
+        build-packages:
+        - cmake
+        build-snaps:
+        - qt-framework-sdk
+        plugin: cmake
+        cmake-generator: Ninja
+        cmake-parameters:
+        - -DCMAKE_INSTALL_PREFIX=/usr
+        - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+        - -DQT_MAJOR_VERSION=6
+        - -DBUILD_WITH_QT6=ON
+        - -DBUILD_TESTING=OFF
+        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE"
+    kiconthemes:
+        after:
+        - kitemviews
+        source: https://invent.kde.org/frameworks/kiconthemes.git
+        source-branch: master
+        build-packages:
+        - cmake
+        build-snaps:
+        - qt-framework-sdk
+        plugin: cmake
+        cmake-generator: Ninja
+        cmake-parameters:
+        - -DCMAKE_INSTALL_PREFIX=/usr
+        - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+        - -DQT_MAJOR_VERSION=6
+        - -DBUILD_WITH_QT6=ON
+        - -DBUILD_TESTING=OFF
+        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE"
+    kwindowsystem:
+        after:
+        - kiconthemes
+        source: https://invent.kde.org/frameworks/kwindowsystem.git
+        source-branch: master
+        build-packages:
+        - cmake
+        build-snaps:
+        - qt-framework-sdk
+        plugin: cmake
+        cmake-generator: Ninja
+        cmake-parameters:
+        - -DCMAKE_INSTALL_PREFIX=/usr
+        - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+        - -DQT_MAJOR_VERSION=6
+        - -DBUILD_WITH_QT6=ON
+        - -DBUILD_TESTING=OFF
+        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE"
+    kcrash:
+        after:
+        - kwindowsystem
+        source: https://invent.kde.org/frameworks/kcrash.git
+        source-branch: master
+        build-packages:
+        - cmake
+        build-snaps:
+        - qt-framework-sdk
+        plugin: cmake
+        cmake-generator: Ninja
+        cmake-parameters:
+        - -DCMAKE_INSTALL_PREFIX=/usr
+        - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+        - -DQT_MAJOR_VERSION=6
+        - -DBUILD_WITH_QT6=ON
+        - -DBUILD_TESTING=OFF
+        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE"
+    kdbusaddons:
+        after:
+        - kcrash
+        source: https://invent.kde.org/frameworks/kdbusaddons.git
+        source-branch: master
+        build-packages:
+        - cmake
+        build-snaps:
+        - qt-framework-sdk
+        plugin: cmake
+        cmake-generator: Ninja
+        cmake-parameters:
+        - -DCMAKE_INSTALL_PREFIX=/usr
+        - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+        - -DQT_MAJOR_VERSION=6
+        - -DBUILD_WITH_QT6=ON
+        - -DBUILD_TESTING=OFF
+        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE"
+    kservice:
+        after:
+        - kdbusaddons
+        source: https://invent.kde.org/frameworks/kservice.git
+        source-branch: master
+        build-packages:
+        - cmake
+        build-snaps:
+        - qt-framework-sdk
+        plugin: cmake
+        cmake-generator: Ninja
+        cmake-parameters:
+        - -DCMAKE_INSTALL_PREFIX=/usr
+        - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+        - -DQT_MAJOR_VERSION=6
+        - -DBUILD_WITH_QT6=ON
+        - -DBUILD_TESTING=OFF
+        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE"
+    kglobalaccel:
+        after:
+        - kservice
+        source: https://invent.kde.org/frameworks/kglobalaccel.git
+        source-branch: master
+        build-packages:
+        - cmake
+        build-snaps:
+        - qt-framework-sdk
+        plugin: cmake
+        cmake-generator: Ninja
+        cmake-parameters:
+        - -DCMAKE_INSTALL_PREFIX=/usr
+        - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+        - -DQT_MAJOR_VERSION=6
+        - -DBUILD_WITH_QT6=ON
+        - -DBUILD_TESTING=OFF
+        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE"
+    sonnet:
+        after:
+        - kglobalaccel
+        source: https://invent.kde.org/frameworks/sonnet.git
+        source-branch: master
+        build-packages:
+        - cmake
+        build-snaps:
+        - qt-framework-sdk
+        plugin: cmake
+        cmake-generator: Ninja
+        cmake-parameters:
+        - -DCMAKE_INSTALL_PREFIX=/usr
+        - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+        - -DQT_MAJOR_VERSION=6
+        - -DBUILD_WITH_QT6=ON
+        - -DBUILD_TESTING=OFF
+        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE"
+    kcompletion:
+        after:
+        - sonnet
+        source: https://invent.kde.org/frameworks/kcompletion.git
+        source-branch: master
+        build-packages:
+        - cmake
+        build-snaps:
+        - qt-framework-sdk
+        plugin: cmake
+        cmake-generator: Ninja
+        cmake-parameters:
+        - -DCMAKE_INSTALL_PREFIX=/usr
+        - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+        - -DQT_MAJOR_VERSION=6
+        - -DBUILD_WITH_QT6=ON
+        - -DBUILD_TESTING=OFF
+        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE"
+    ktextwidgets:
+        after:
+        - kcompletion
+        source: https://invent.kde.org/frameworks/ktextwidgets.git
+        source-branch: master
+        build-packages:
+        - cmake
+        build-snaps:
+        - qt-framework-sdk
+        plugin: cmake
+        cmake-generator: Ninja
+        cmake-parameters:
+        - -DCMAKE_INSTALL_PREFIX=/usr
+        - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+        - -DQT_MAJOR_VERSION=6
+        - -DBUILD_WITH_QT6=ON
+        - -DBUILD_TESTING=OFF
+        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE"
+    kxmlgui:
+        after:
+        - ktextwidgets
+        source: https://invent.kde.org/frameworks/kxmlgui.git
+        source-branch: master
+        build-packages:
+        - cmake
+        build-snaps:
+        - qt-framework-sdk
+        plugin: cmake
+        cmake-generator: Ninja
+        cmake-parameters:
+        - -DCMAKE_INSTALL_PREFIX=/usr
+        - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+        - -DQT_MAJOR_VERSION=6
+        - -DBUILD_WITH_QT6=ON
+        - -DBUILD_TESTING=OFF
+        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE"
+    perl-uri-escape:
+        after:
+        - kxmlgui
+        source: https://cpan.metacpan.org/authors/id/O/OA/OALDERS/URI-5.21.tar.gz
+        source-type: tar
+        build-packages:
+        - perl
+        build-snaps:
+        - qt-framework-sdk
+        plugin: nil
+        override-build: |
+            craftctl default
+            perl Makefile.PL INSTALLDIRS=/usr
+    kdoctools:
+        after:
+        - perl-uri-escape
+        source: https://invent.kde.org/frameworks/kdoctools.git
+        source-branch: master
+        build-packages:
+        - cmake
+        build-snaps:
+        - qt-framework-sdk
+        plugin: cmake
+        cmake-generator: Ninja
+        cmake-parameters:
+        - -DCMAKE_INSTALL_PREFIX=/usr
+        - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+        - -DQT_MAJOR_VERSION=6
+        - -DBUILD_WITH_QT6=ON
+        - -DBUILD_TESTING=OFF
+        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE"
+    kpackage:
+        after:
+        - kdoctools
+        source: https://invent.kde.org/frameworks/kpackage.git
+        source-branch: master
+        build-packages:
+        - cmake
+        build-snaps:
+        - qt-framework-sdk
+        plugin: cmake
+        cmake-generator: Ninja
+        cmake-parameters:
+        - -DCMAKE_INSTALL_PREFIX=/usr
+        - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+        - -DQT_MAJOR_VERSION=6
+        - -DBUILD_WITH_QT6=ON
+        - -DBUILD_TESTING=OFF
+        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE"
+    kbookmarks:
+        after:
+        - kpackage
+        source: https://invent.kde.org/frameworks/kbookmarks.git
+        source-branch: master
+        build-packages:
+        - cmake
+        build-snaps:
+        - qt-framework-sdk
+        plugin: cmake
+        cmake-generator: Ninja
+        cmake-parameters:
+        - -DCMAKE_INSTALL_PREFIX=/usr
+        - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+        - -DQT_MAJOR_VERSION=6
+        - -DBUILD_WITH_QT6=ON
+        - -DBUILD_TESTING=OFF
+        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE"
+    kfilemetadata:
+        after:
+        - kbookmarks
+        source: https://invent.kde.org/frameworks/kfilemetadata.git
+        source-branch: master
+        build-packages:
+        - cmake
+        - libtag1-dev
+        build-snaps:
+        - qt-framework-sdk
+        plugin: cmake
+        cmake-generator: Ninja
+        cmake-parameters:
+        - -DCMAKE_INSTALL_PREFIX=/usr
+        - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+        - -DQT_MAJOR_VERSION=6
+        - -DBUILD_WITH_QT6=ON
+        - -DBUILD_TESTING=OFF
+        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE"
+    phonon:
+        after:
+        - kfilemetadata
+        source: https://invent.kde.org/libraries/phonon.git
+        source-branch: master
+        build-packages:
+        - cmake
+        build-snaps:
+        - qt-framework-sdk
+        plugin: cmake
+        cmake-generator: Ninja
+        cmake-parameters:
+        - -DCMAKE_INSTALL_PREFIX=/usr
+        - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+        - -DQT_MAJOR_VERSION=6
+        - -DPHONON_BUILD_QT5=OFF
+ 		- -DPHONON_BUILD_QT6=ON
+        - -DBUILD_TESTING=OFF
+        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE"
+    knotifications:
+        after:
+        - phonon
+        source: https://invent.kde.org/frameworks/knotifications.git
+        source-branch: master
+        build-packages:
+        - cmake
+        - libcanberra-dev
+        stage-packages:
+        - libcanberra0
+        build-snaps:
+        - qt-framework-sdk
+        plugin: cmake
+        cmake-generator: Ninja
+        cmake-parameters:
+        - -DCMAKE_INSTALL_PREFIX=/usr
+        - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+        - -DQT_MAJOR_VERSION=6
+        - -DBUILD_WITH_QT6=ON
+        - -DBUILD_TESTING=OFF
+        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE"
+    qca:
+        after:
+        - knotifications
+        source: https://invent.kde.org/libraries/qca.git
+        source-branch: master
+        build-packages:
+        - cmake
+        build-snaps:
+        - qt-framework-sdk
+        plugin: cmake
+        cmake-generator: Ninja
+        cmake-parameters:
+        - -DCMAKE_INSTALL_PREFIX=/usr
+        - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+        - -DQT_MAJOR_VERSION=6
+        - -DBUILD_WITH_QT6=ON
+        - -DBUILD_TESTING=OFF
+        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE"
+    kwallet:
+        after:
+        - qca
+        source: https://invent.kde.org/frameworks/kwallet.git
+        source-branch: master
+        build-packages:
+        - cmake
+        build-snaps:
+        - qt-framework-sdk
+        plugin: cmake
+        cmake-generator: Ninja
+        cmake-parameters:
+        - -DCMAKE_INSTALL_PREFIX=/usr
+        - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+        - -DQT_MAJOR_VERSION=6
+        - -DBUILD_WITH_QT6=ON
+        - -DBUILD_TESTING=OFF
+        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE"
+    kjobwidgets:
+        after:
+        - kwallet
+        source: https://invent.kde.org/frameworks/kjobwidgets.git
+        source-branch: master
+        build-packages:
+        - cmake
+        build-snaps:
+        - qt-framework-sdk
+        plugin: cmake
+        cmake-generator: Ninja
+        cmake-parameters:
+        - -DCMAKE_INSTALL_PREFIX=/usr
+        - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+        - -DQT_MAJOR_VERSION=6
+        - -DBUILD_WITH_QT6=ON
+        - -DBUILD_TESTING=OFF
+        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE"
+    solid:
+        after:
+        - kjobwidgets
+        source: https://invent.kde.org/frameworks/solid.git
+        source-branch: master
+        build-packages:
+        - cmake
+        build-snaps:
+        - qt-framework-sdk
+        plugin: cmake
+        cmake-generator: Ninja
+        cmake-parameters:
+        - -DCMAKE_INSTALL_PREFIX=/usr
+        - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+        - -DQT_MAJOR_VERSION=6
+        - -DBUILD_WITH_QT6=ON
+        - -DBUILD_TESTING=OFF
+        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE"
+    kio:
+        after:
+        - solid
+        source: https://invent.kde.org/frameworks/kio.git
+        source-branch: master
+        build-packages:
+        - cmake
+        build-snaps:
+        - qt-framework-sdk
+        plugin: cmake
+        cmake-generator: Ninja
+        cmake-parameters:
+        - -DCMAKE_INSTALL_PREFIX=/usr
+        - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+        - -DQT_MAJOR_VERSION=6
+        - -DBUILD_WITH_QT6=ON
+        - -DBUILD_TESTING=OFF
+        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE"
+    kparts:
+        after:
+        - kio
+        source: https://invent.kde.org/frameworks/kparts.git
+        source-branch: master
+        build-packages:
+        - cmake
+        build-snaps:
+        - qt-framework-sdk
+        plugin: cmake
+        cmake-generator: Ninja
+        cmake-parameters:
+        - -DCMAKE_INSTALL_PREFIX=/usr
+        - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+        - -DQT_MAJOR_VERSION=6
+        - -DBUILD_WITH_QT6=ON
+        - -DBUILD_TESTING=OFF
+        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE"
+    kplotting:
+        after:
+        - kparts
+        source: https://invent.kde.org/frameworks/kplotting.git
+        source-branch: master
+        build-packages:
+        - cmake
+        build-snaps:
+        - qt-framework-sdk
+        plugin: cmake
+        cmake-generator: Ninja
+        cmake-parameters:
+        - -DCMAKE_INSTALL_PREFIX=/usr
+        - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+        - -DQT_MAJOR_VERSION=6
+        - -DBUILD_WITH_QT6=ON
+        - -DBUILD_TESTING=OFF
+        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE"
+    kded:
+        after:
+        - kplotting
+        source: https://invent.kde.org/frameworks/kded.git
+        source-branch: master
+        build-packages:
+        - cmake
+        build-snaps:
+        - qt-framework-sdk
+        plugin: cmake
+        cmake-generator: Ninja
+        cmake-parameters:
+        - -DCMAKE_INSTALL_PREFIX=/usr
+        - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+        - -DQT_MAJOR_VERSION=6
+        - -DBUILD_WITH_QT6=ON
+        - -DBUILD_TESTING=OFF
+        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE"
+    kunitconversion:
+        after:
+        - kded
+        source: https://invent.kde.org/frameworks/kunitconversion.git
+        source-branch: master
+        build-packages:
+        - cmake
+        build-snaps:
+        - qt-framework-sdk
+        plugin: cmake
+        cmake-generator: Ninja
+        cmake-parameters:
+        - -DCMAKE_INSTALL_PREFIX=/usr
+        - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+        - -DQT_MAJOR_VERSION=6
+        - -DBUILD_WITH_QT6=ON
+        - -DBUILD_TESTING=OFF
+        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE"
+    kdeclarative:
+        after:
+        - kunitconversion
+        source: https://invent.kde.org/frameworks/kdeclarative.git
+        source-branch: master
+        build-packages:
+        - cmake
+        build-snaps:
+        - qt-framework-sdk
+        plugin: cmake
+        cmake-generator: Ninja
+        cmake-parameters:
+        - -DCMAKE_INSTALL_PREFIX=/usr
+        - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+        - -DQT_MAJOR_VERSION=6
+        - -DBUILD_WITH_QT6=ON
+        - -DBUILD_TESTING=OFF
+        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE"
+    kactivities:
+        after:
+        - kdeclarative
+        source: https://invent.kde.org/frameworks/kactivities.git
+        source-branch: master
+        build-packages:
+        - cmake
+        build-snaps:
+        - qt-framework-sdk
+        plugin: cmake
+        cmake-generator: Ninja
+        cmake-parameters:
+        - -DCMAKE_INSTALL_PREFIX=/usr
+        - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+        - -DQT_MAJOR_VERSION=6
+        - -DBUILD_WITH_QT6=ON
+        - -DBUILD_TESTING=OFF
+        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE"
+    kcmutils:
+        after:
+        - kactivities
+        source: https://invent.kde.org/frameworks/kcmutils.git
+        source-branch: master
+        build-packages:
+        - cmake
+        build-snaps:
+        - qt-framework-sdk
+        plugin: cmake
+        cmake-generator: Ninja
+        cmake-parameters:
+        - -DCMAKE_INSTALL_PREFIX=/usr
+        - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+        - -DQT_MAJOR_VERSION=6
+        - -DBUILD_WITH_QT6=ON
+        - -DBUILD_TESTING=OFF
+        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE"
+    knotifyconfig:
+        after:
+        - kcmutils
+        source: https://invent.kde.org/frameworks/knotifyconfig.git
+        source-branch: master
+        build-packages:
+        - cmake
+        build-snaps:
+        - qt-framework-sdk
+        plugin: cmake
+        cmake-generator: Ninja
+        cmake-parameters:
+        - -DCMAKE_INSTALL_PREFIX=/usr
+        - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+        - -DQT_MAJOR_VERSION=6
+        - -DBUILD_WITH_QT6=ON
+        - -DBUILD_TESTING=OFF
+        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE"
+    knewstuff:
+        after:
+        - knotifyconfig
+        source: https://invent.kde.org/frameworks/knewstuff.git
+        source-branch: master
+        build-packages:
+        - cmake
+        build-snaps:
+        - qt-framework-sdk
+        plugin: cmake
+        cmake-generator: Ninja
+        cmake-parameters:
+        - -DCMAKE_INSTALL_PREFIX=/usr
+        - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+        - -DQT_MAJOR_VERSION=6
+        - -DBUILD_WITH_QT6=ON
+        - -DBUILD_TESTING=OFF
+        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE"
+    kidletime:
+        after:
+        - knewstuff
+        source: https://invent.kde.org/frameworks/kidletime.git
+        source-branch: master
+        build-packages:
+        - cmake
+        build-snaps:
+        - qt-framework-sdk
+        plugin: cmake
+        cmake-generator: Ninja
+        cmake-parameters:
+        - -DCMAKE_INSTALL_PREFIX=/usr
+        - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+        - -DQT_MAJOR_VERSION=6
+        - -DBUILD_WITH_QT6=ON
+        - -DBUILD_TESTING=OFF
+        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE"
+    threadweaver:
+        after:
+        - kidletime
+        source: https://invent.kde.org/frameworks/threadweaver.git
+        source-branch: master
+        build-packages:
+        - cmake
+        build-snaps:
+        - qt-framework-sdk
+        plugin: cmake
+        cmake-generator: Ninja
+        cmake-parameters:
+        - -DCMAKE_INSTALL_PREFIX=/usr
+        - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+        - -DQT_MAJOR_VERSION=6
+        - -DBUILD_WITH_QT6=ON
+        - -DBUILD_TESTING=OFF
+        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE"
+    kitemmodels:
+        after:
+        - threadweaver
+        source: https://invent.kde.org/frameworks/kitemmodels.git
+        source-branch: master
+        build-packages:
+        - cmake
+        build-snaps:
+        - qt-framework-sdk
+        plugin: cmake
+        cmake-generator: Ninja
+        cmake-parameters:
+        - -DCMAKE_INSTALL_PREFIX=/usr
+        - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+        - -DQT_MAJOR_VERSION=6
+        - -DBUILD_WITH_QT6=ON
+        - -DBUILD_TESTING=OFF
+        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE"
+    kdnssd:
+        after:
+        - kitemmodels
+        source: https://invent.kde.org/frameworks/kdnssd.git
+        source-branch: master
+        build-packages:
+        - cmake
+        build-snaps:
+        - qt-framework-sdk
+        plugin: cmake
+        cmake-generator: Ninja
+        cmake-parameters:
+        - -DCMAKE_INSTALL_PREFIX=/usr
+        - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+        - -DQT_MAJOR_VERSION=6
+        - -DBUILD_WITH_QT6=ON
+        - -DBUILD_TESTING=OFF
+        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE"
+    kquickcharts:
+        after:
+        - kdnssd
+        source: https://invent.kde.org/frameworks/kquickcharts.git
+        source-branch: master
+        build-packages:
+        - cmake
+        build-snaps:
+        - qt-framework-sdk
+        plugin: cmake
+        cmake-generator: Ninja
+        cmake-parameters:
+        - -DCMAKE_INSTALL_PREFIX=/usr
+        - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+        - -DQT_MAJOR_VERSION=6
+        - -DBUILD_WITH_QT6=ON
+        - -DBUILD_TESTING=OFF
+        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE"
+    syntax-highlighting:
+        after:
+        - kquickcharts
+        source: https://invent.kde.org/frameworks/syntax-highlighting.git
+        source-branch: master
+        build-packages:
+        - cmake
+        build-snaps:
+        - qt-framework-sdk
+        plugin: cmake
+        cmake-generator: Ninja
+        cmake-parameters:
+        - -DCMAKE_INSTALL_PREFIX=/usr
+        - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+        - -DQT_MAJOR_VERSION=6
+        - -DBUILD_WITH_QT6=ON
+        - -DBUILD_TESTING=OFF
+        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE"
+    ktexteditor:
+        after:
+        - syntax-highlighting
+        source: https://invent.kde.org/frameworks/ktexteditor.git
+        source-branch: master
+        build-packages:
+        - cmake
+        build-snaps:
+        - qt-framework-sdk
+        plugin: cmake
+        cmake-generator: Ninja
+        cmake-parameters:
+        - -DCMAKE_INSTALL_PREFIX=/usr
+        - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+        - -DQT_MAJOR_VERSION=6
+        - -DBUILD_WITH_QT6=ON
+        - -DBUILD_TESTING=OFF
+        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE"
+    frameworkintegration:
+        after:
+        - ktexteditor
+        source: https://invent.kde.org/frameworks/frameworkintegration.git
+        source-branch: master
+        build-packages:
+        - cmake
+        build-snaps:
+        - qt-framework-sdk
+        plugin: cmake
+        cmake-generator: Ninja
+        cmake-parameters:
+        - -DCMAKE_INSTALL_PREFIX=/usr
+        - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+        - -DQT_MAJOR_VERSION=6
+        - -DBUILD_WITH_QT6=ON
+        - -DBUILD_TESTING=OFF
+        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE"
+    kpty:
+        after:
+        - frameworkintegration
+        source: https://invent.kde.org/frameworks/kpty.git
+        source-branch: master
+        build-packages:
+        - cmake
+        build-snaps:
+        - qt-framework-sdk
+        plugin: cmake
+        cmake-generator: Ninja
+        cmake-parameters:
+        - -DCMAKE_INSTALL_PREFIX=/usr
+        - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+        - -DQT_MAJOR_VERSION=6
+        - -DBUILD_WITH_QT6=ON
+        - -DBUILD_TESTING=OFF
+        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE"
+    kwayland:
+        after:
+        - kpty
+        source: https://invent.kde.org/frameworks/kwayland.git
+        source-branch: master
+        build-packages:
+        - cmake
+        build-snaps:
+        - qt-framework-sdk
+        plugin: cmake
+        cmake-generator: Ninja
+        cmake-parameters:
+        - -DCMAKE_INSTALL_PREFIX=/usr
+        - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+        - -DQT_MAJOR_VERSION=6
+        - -DBUILD_WITH_QT6=ON
+        - -DBUILD_TESTING=OFF
+        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE"
+    kirigami:
+        after:
+        - kwayland
+        source: https://invent.kde.org/frameworks/kirigami.git
+        source-branch: master
+        build-packages:
+        - cmake
+        build-snaps:
+        - qt-framework-sdk
+        plugin: cmake
+        cmake-generator: Ninja
+        cmake-parameters:
+        - -DCMAKE_INSTALL_PREFIX=/usr
+        - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+        - -DQT_MAJOR_VERSION=6
+        - -DBUILD_WITH_QT6=ON
+        - -DBUILD_TESTING=OFF
+        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE"
+    qqc2-desktop-style:
+        after:
+        - kirigami
+        source: https://invent.kde.org/frameworks/qqc2-desktop-style.git
+        source-branch: master
+        build-packages:
+        - cmake
+        build-snaps:
+        - qt-framework-sdk
+        plugin: cmake
+        cmake-generator: Ninja
+        cmake-parameters:
+        - -DCMAKE_INSTALL_PREFIX=/usr
+        - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+        - -DQT_MAJOR_VERSION=6
+        - -DBUILD_WITH_QT6=ON
+        - -DBUILD_TESTING=OFF
+        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE"
+    kcontacts:
+        after:
+        - qqc2-desktop-style
+        source: https://invent.kde.org/frameworks/kcontacts.git
+        source-branch: master
+        build-packages:
+        - cmake
+        build-snaps:
+        - qt-framework-sdk
+        plugin: cmake
+        cmake-generator: Ninja
+        cmake-parameters:
+        - -DCMAKE_INSTALL_PREFIX=/usr
+        - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+        - -DQT_MAJOR_VERSION=6
+        - -DBUILD_WITH_QT6=ON
+        - -DBUILD_TESTING=OFF
+        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE"
+    kcalendarcore:
+        after:
+        - kcontacts
+        source: https://invent.kde.org/frameworks/kcalendarcore.git
+        source-branch: master
+        build-packages:
+        - cmake
+        - libical-dev
+        stage-packages:
+        - libical3
+        build-snaps:
+        - qt-framework-sdk
+        plugin: cmake
+        cmake-generator: Ninja
+        cmake-parameters:
+        - -DCMAKE_INSTALL_PREFIX=/usr
+        - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+        - -DQT_MAJOR_VERSION=6
+        - -DBUILD_WITH_QT6=ON
+        - -DBUILD_TESTING=OFF
+        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE"
+    kholidays:
+        after:
+        - kcalendarcore
+        source: https://invent.kde.org/frameworks/kholidays.git
+        source-branch: master
+        build-packages:
+        - cmake
+        build-snaps:
+        - qt-framework-sdk
+        plugin: cmake
+        cmake-generator: Ninja
+        cmake-parameters:
+        - -DCMAKE_INSTALL_PREFIX=/usr
+        - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+        - -DQT_MAJOR_VERSION=6
+        - -DBUILD_WITH_QT6=ON
+        - -DBUILD_TESTING=OFF
+        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE"
+    prison:
+        after:
+        - kholidays
+        source: https://invent.kde.org/frameworks/prison.git
+        source-branch: master
+        build-packages:
+        - cmake
+        - libqrencode-dev
+        - libdmtx-dev
+        - libzxing-dev
+        stage-packages:
+        - libqrencode4
+        - libdmtx0b
+        - libzxing2
+        build-snaps:
+        - qt-framework-sdk
+        plugin: cmake
+        cmake-generator: Ninja
+        cmake-parameters:
+        - -DCMAKE_INSTALL_PREFIX=/usr
+        - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+        - -DQT_MAJOR_VERSION=6
+        - -DBUILD_WITH_QT6=ON
+        - -DBUILD_TESTING=OFF
+        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE"
+    syndication:
+        after:
+        - prison
+        source: https://invent.kde.org/frameworks/syndication.git
+        source-branch: master
+        build-packages:
+        - cmake
+        build-snaps:
+        - qt-framework-sdk
+        plugin: cmake
+        cmake-generator: Ninja
+        cmake-parameters:
+        - -DCMAKE_INSTALL_PREFIX=/usr
+        - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+        - -DQT_MAJOR_VERSION=6
+        - -DBUILD_WITH_QT6=ON
+        - -DBUILD_TESTING=OFF
+        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE"
+    purpose:
+        after:
+        - syndication
+        source: https://invent.kde.org/frameworks/purpose.git
+        source-branch: master
+        build-packages:
+        - cmake
+        build-snaps:
+        - qt-framework-sdk
+        plugin: cmake
+        cmake-generator: Ninja
+        cmake-parameters:
+        - -DCMAKE_INSTALL_PREFIX=/usr
+        - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+        - -DQT_MAJOR_VERSION=6
+        - -DBUILD_WITH_QT6=ON
+        - -DBUILD_TESTING=OFF
+        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE"
+    kdav:
+        after:
+        - purpose
+        source: https://invent.kde.org/frameworks/kdav.git
+        source-branch: master
+        build-packages:
+        - cmake
+        build-snaps:
+        - qt-framework-sdk
+        plugin: cmake
+        cmake-generator: Ninja
+        cmake-parameters:
+        - -DCMAKE_INSTALL_PREFIX=/usr
+        - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+        - -DQT_MAJOR_VERSION=6
+        - -DBUILD_WITH_QT6=ON
+        - -DBUILD_TESTING=OFF
+        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE"
+    ksvg:
+        after:
+        - kdav
+        source: https://invent.kde.org/frameworks/ksvg.git
+        source-branch: master
+        build-packages:
+        - cmake
+        build-snaps:
+        - qt-framework-sdk
+        plugin: cmake
+        cmake-generator: Ninja
+        cmake-parameters:
+        - -DCMAKE_INSTALL_PREFIX=/usr
+        - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+        - -DQT_MAJOR_VERSION=6
+        - -DBUILD_WITH_QT6=ON
+        - -DBUILD_TESTING=OFF
+        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE"
+    plasma-framework:
+        after:
+        - ksvg
+        source: https://invent.kde.org/frameworks/plasma-framework.git
+        source-branch: master
+        build-packages:
+        - cmake
+        build-snaps:
+        - qt-framework-sdk
+        plugin: cmake
+        cmake-generator: Ninja
+        cmake-parameters:
+        - -DCMAKE_INSTALL_PREFIX=/usr
+        - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+        - -DQT_MAJOR_VERSION=6
+        - -DBUILD_WITH_QT6=ON
+        - -DBUILD_TESTING=OFF
+        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE"
+    breeze-icons:
+        after:
+        - plasma-framework
+        source: https://invent.kde.org/frameworks/breeze-icons.git
+        source-branch: master
+        build-packages:
+        - cmake
+        build-snaps:
+        - qt-framework-sdk
+        plugin: cmake
+        cmake-generator: Ninja
+        cmake-parameters:
+        - -DCMAKE_INSTALL_PREFIX=/usr
+        - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+        - -DQT_MAJOR_VERSION=6
+        - -DBUILD_WITH_QT6=ON
+        - -DBUILD_TESTING=OFF
+        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE"
+        prime:
+        - "-*.rcc"
+    libjxl:
+        after:
+        - breeze-icons
+        source: https://github.com/libjxl/libjxl.git
+        source-tag: v0.7.0
+        build-packages:
+        - cmake
+        build-snaps:
+        - qt-framework-sdk
+        plugin: cmake
+        cmake-generator: Ninja
+        cmake-parameters:
+        - -DCMAKE_INSTALL_PREFIX=/usr
+        - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+        - -DQT_MAJOR_VERSION=6
+        - -DBUILD_WITH_QT6=ON
+        - -DBUILD_TESTING=OFF
+        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE"
+        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE"
+        - "-DJPEGXL_ENABLE_BENCHMARK=OFF",
+        - "-DJPEGXL_ENABLE_DOXYGEN=OFF",
+        - "-DJPEGXL_ENABLE_EXAMPLES=OFF",
+        - "-DJPEGXL_ENABLE_JNI=OFF",
+        - "-DJPEGXL_ENABLE_MANPAGES=OFF",
+        - "-DJPEGXL_ENABLE_PLUGINS=OFF",
+        - "-DJPEGXL_ENABLE_SJPEG=OFF",
+        - "-DJPEGXL_ENABLE_SKCMS=ON",
+        - "-DJPEGXL_ENABLE_TCMALLOC=OFF",
+        - "-DJPEGXL_ENABLE_TOOLS=OFF",
+        - "-DJPEGXL_FORCE_SYSTEM_BROTLI=ON",
+        - "-DJPEGXL_WARNINGS_AS_ERRORS=OFF"
+        prime:
+        - "-*.a"
+        - "-/include/hwy"
+        - "-/include/jxl"
+        - "-*.pc"
+        - "-libjxl_threads.so",
+        - "-libjxl.so"
+    kimageformats:
+        after:
+        - libjxl
+        source: https://invent.kde.org/frameworks/imageformats.git
+        source-branch: master
+        build-packages:
+        - cmake
+        - libavif-dev
+        stage-packages:
+        - libavif13
+        build-snaps:
+        - qt-framework-sdk
+        plugin: cmake
+        cmake-generator: Ninja
+        cmake-parameters:
+        - -DCMAKE_INSTALL_PREFIX=/usr
+        - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+        - -DQT_MAJOR_VERSION=6
+        - -DBUILD_WITH_QT6=ON
+        - -DBUILD_TESTING=OFF
+    bluez-qt:
+        after:
+        - kimageformats
+        source: https://invent.kde.org/frameworks/bluez-qt.git
+        source-branch: master
+        build-packages:
+        - cmake
+        build-snaps:
+        - qt-framework-sdk
+        plugin: cmake
+        cmake-generator: Ninja
+        cmake-parameters:
+        - -DCMAKE_INSTALL_PREFIX=/usr
+        - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+        - -DQT_MAJOR_VERSION=6
+        - -DBUILD_WITH_QT6=ON
+        - -DBUILD_TESTING=OFF
+        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE"
+    kstatusnotifieritem:
+        after:
+        - bluez-qt
+        source: https://invent.kde.org/frameworks/kstatusnotifieritem.git
+        source-branch: master
+        build-packages:
+        - cmake
+        build-snaps:
+        - qt-framework-sdk
+        plugin: cmake
+        cmake-generator: Ninja
+        cmake-parameters:
+        - -DCMAKE_INSTALL_PREFIX=/usr
+        - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+        - -DQT_MAJOR_VERSION=6
+        - -DBUILD_WITH_QT6=ON
+        - -DBUILD_TESTING=OFF
+        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE"
+    kio-extras:
+        after:
+        - kstatusnotifieritem
+        source: https://invent.kde.org/frameworks/kio-extras.git
+        source-branch: master
+        build-packages:
+        - cmake
+        build-snaps:
+        - qt-framework-sdk
+        plugin: cmake
+        cmake-generator: Ninja
+        cmake-parameters:
+        - -DCMAKE_INSTALL_PREFIX=/usr
+        - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+        - -DQT_MAJOR_VERSION=6
+        - -DBUILD_WITH_QT6=ON
+        - -DBUILD_TESTING=OFF
+        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE"
+    breeze:
+        after:
+        - kio-extras
+        source: https://invent.kde.org/plasma/breeze.git
+        source-branch: master
+        build-packages:
+        - cmake
+        build-snaps:
+        - qt-framework-sdk
+        plugin: cmake
+        cmake-generator: Ninja
+        cmake-parameters:
+        - -DCMAKE_INSTALL_PREFIX=/usr
+        - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+        - -DQT_MAJOR_VERSION=6
+        - -DBUILD_WITH_QT6=ON
+        - -DBUILD_TESTING=OFF
+        - "-DWITH_DECORATIONS=OFF"
+        - "-DWITH_WALLPAPERS=OFF"
+        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE"
+    plasma-integration:
+        after:
+        - breeze
+        source: https://invent.kde.org/plasma/plasma-integration.git
+        source-branch: master
+        build-packages:
+        - cmake
+        build-snaps:
+        - qt-framework-sdk
+        plugin: cmake
+        cmake-generator: Ninja
+        cmake-parameters:
+        - -DCMAKE_INSTALL_PREFIX=/usr
+        - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+        - -DQT_MAJOR_VERSION=6
+        - -DBUILD_WITH_QT6=ON
+        - -DBUILD_TESTING=OFF
+        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE"
+    kwayland-integration:
+        after:
+        - plasma-integration
+        source: https://invent.kde.org/plasma/kwayland-integration.git
+        source-branch: master
+        build-packages:
+        - cmake
+        build-snaps:
+        - qt-framework-sdk
+        plugin: cmake
+        cmake-generator: Ninja
+        cmake-parameters:
+        - -DCMAKE_INSTALL_PREFIX=/usr
+        - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+        - -DQT_MAJOR_VERSION=6
+        - -DBUILD_WITH_QT6=ON
+        - -DBUILD_TESTING=OFF
+        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE"
+    qqc2-breeze-style:
+        after:
+        - kwayland-integration
+        source: https://invent.kde.org/plasma/qqc2-breeze-style.git
+        source-branch: master
+        build-packages:
+        - cmake
+        build-snaps:
+        - qt-framework-sdk
+        plugin: cmake
+        cmake-generator: Ninja
+        cmake-parameters:
+        - -DCMAKE_INSTALL_PREFIX=/usr
+        - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+        - -DQT_MAJOR_VERSION=6
+        - -DBUILD_WITH_QT6=ON
+        - -DBUILD_TESTING=OFF
+        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE"
