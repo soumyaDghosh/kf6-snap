@@ -1158,11 +1158,11 @@ parts:
         - cmake
         - libqrencode-dev
         - libdmtx-dev
-        - libzxing-dev
+        - libzxingcore-dev
         stage-packages:
         - libqrencode4
         - libdmtx0b
-        - libzxing2
+        - libzxingcore1
         build-snaps:
         - qt-framework-sdk
         plugin: cmake
