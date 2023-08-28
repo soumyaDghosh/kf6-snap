@@ -69,6 +69,8 @@ parts:
         - extra-cmake-modules
         source: https://github.com/fcitx/fcitx5-qt.git
         source-tag: 5.0.15
+        build-environment:
+        - CMAKE_MODULE_PATH: $CRAFT_STAGE/usr/share/ECM/cmake:$CRAFT_STAGE/usr/share/ECM:$CRAFT_STAGE/usr/share${CMAKE_MODULE_PATH:+:$CMAKE_MODULE_PATH}
         build-packages:
         - cmake
         build-snaps:
