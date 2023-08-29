@@ -1380,7 +1380,7 @@ parts:
     kio-extras:
         after:
         - kstatusnotifieritem
-        source: https://invent.kde.org/frameworks/kio-extras.git
+        source: https://invent.kde.org/network/kio-extras.git
         source-branch: master
         build-packages:
         - cmake
