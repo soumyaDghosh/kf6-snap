@@ -1324,7 +1324,7 @@ parts:
     kimageformats:
         after:
         - libjxl
-        source: https://invent.kde.org/frameworks/imageformats.git
+        source: https://invent.kde.org/frameworks/kimageformats.git
         source-branch: master
         build-packages:
         - cmake
