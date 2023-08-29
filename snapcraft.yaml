@@ -73,6 +73,9 @@ parts:
         - CMAKE_MODULE_PATH: $CRAFT_STAGE/usr/share/ECM/cmake:$CRAFT_STAGE/usr/share/ECM:$CRAFT_STAGE/usr/share${CMAKE_MODULE_PATH:+:$CMAKE_MODULE_PATH}
         build-packages:
         - cmake
+        - libxcb1-dev
+        stage-packages:
+        - libxcb1
         build-snaps:
         - qt-framework-sdk
         plugin: cmake
