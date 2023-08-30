@@ -90,7 +90,7 @@ parts:
         - libxcb-icccm4-dev
         - libxcb-randr0-dev
         - libxcb-xinerama0-dev
-        - libxcb-xkb0-dev
+        - libxcb-xkb-dev
         stage-packages:
         - libxcb1
         - libexpat1
@@ -107,7 +107,7 @@ parts:
         - libxcb-icccm4
         - libxcb-randr0
         - libxcb-xinerama0
-        - libxcb-xkb0
+        - libxcb-xkb1
         build-snaps:
         - qt-framework-sdk
         plugin: cmake
