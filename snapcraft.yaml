@@ -81,6 +81,7 @@ parts:
         - libfmt-dev
         - libxcb-imdkit-dev
         - libevent-dev
+        - uuid-dev
         stage-packages:
         - libxcb1
         - libexpat1
@@ -89,6 +90,7 @@ parts:
         - libfmt8
         - libxcb-imdkit1
         - libevent-2.1-7
+        - libuuid1
         build-snaps:
         - qt-framework-sdk
         plugin: cmake
