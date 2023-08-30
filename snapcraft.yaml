@@ -91,6 +91,7 @@ parts:
         - libxcb-randr0-dev
         - libxcb-xinerama0-dev
         - libxcb-xkb-dev
+        - libcairo2-dev
         stage-packages:
         - libxcb1
         - libexpat1
