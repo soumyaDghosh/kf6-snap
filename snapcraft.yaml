@@ -9,9 +9,9 @@ base: core22
 compression: lzo
 architectures:
   - build-on: amd64
-  - build-on: arm64
-  - build-on: armhf
-  - build-on: ppc64el
+  # - build-on: arm64
+  # - build-on: armhf
+  # - build-on: ppc64el
 slots: {}
 # package-repositories:
 # -   type: apt
@@ -94,6 +94,7 @@ parts:
         - libcairo2-dev
         - libxkbfile-dev
         - libxkbcommon-dev
+        - libxkbcommon-x11-dev
         stage-packages:
         - libxcb1
         - libexpat1
@@ -113,6 +114,7 @@ parts:
         - libxcb-xkb1
         - libxkbfile1
         - libxkbcommon0
+        - libxkbcommon-x11-0
         build-snaps:
         - qt-framework-sdk
         plugin: cmake
