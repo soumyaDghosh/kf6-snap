@@ -83,6 +83,9 @@ parts:
         - libevent-dev
         - uuid-dev
         - gettext
+        - libxcb-render0-dev
+        - libxcb-shape0-dev
+        - libxcb-xfixes0-dev
         stage-packages:
         - libxcb1
         - libexpat1
@@ -92,6 +95,9 @@ parts:
         - libxcb-imdkit1
         - libevent-2.1-7
         - libuuid1
+        - libxcb-render0
+        - libxcb-shape0
+        - libxcb-xfixes0
         build-snaps:
         - qt-framework-sdk
         plugin: cmake
