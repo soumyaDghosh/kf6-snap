@@ -86,6 +86,11 @@ parts:
         - libxcb-render0-dev
         - libxcb-shape0-dev
         - libxcb-xfixes0-dev
+        - libxcb-ewmh0-dev
+        - libxcb-icccm0-dev
+        - libxcb-randr0-dev
+        - libxcb-xinerama0-dev
+        - libxcb-xkb0-dev
         stage-packages:
         - libxcb1
         - libexpat1
@@ -98,6 +103,11 @@ parts:
         - libxcb-render0
         - libxcb-shape0
         - libxcb-xfixes0
+        - libxcb-ewmh0
+        - libxcb-icccm0
+        - libxcb-randr0
+        - libxcb-xinerama0
+        - libxcb-xkb0
         build-snaps:
         - qt-framework-sdk
         plugin: cmake
