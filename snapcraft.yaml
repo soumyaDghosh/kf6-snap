@@ -74,8 +74,10 @@ parts:
         build-packages:
         - cmake
         - libxcb1-dev
+        - libxkbcommon-dev
         stage-packages:
         - libxcb1
+        - libxkbcommon0
         build-snaps:
         - qt-framework-sdk
         plugin: cmake
