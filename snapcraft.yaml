@@ -82,6 +82,7 @@ parts:
         - libxcb-imdkit-dev
         - libevent-dev
         - uuid-dev
+        - gettext
         stage-packages:
         - libxcb1
         - libexpat1
