@@ -87,7 +87,7 @@ parts:
         - libxcb-shape0-dev
         - libxcb-xfixes0-dev
         - libxcb-ewmh0-dev
-        - libxcb-icccm0-dev
+        - libxcb-icccm4-dev
         - libxcb-randr0-dev
         - libxcb-xinerama0-dev
         - libxcb-xkb0-dev
@@ -104,7 +104,7 @@ parts:
         - libxcb-shape0
         - libxcb-xfixes0
         - libxcb-ewmh0
-        - libxcb-icccm0
+        - libxcb-icccm4
         - libxcb-randr0
         - libxcb-xinerama0
         - libxcb-xkb0
