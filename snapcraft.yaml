@@ -92,6 +92,7 @@ parts:
         - libxcb-xinerama0-dev
         - libxcb-xkb-dev
         - libcairo2-dev
+        - libxkbfile-dev
         stage-packages:
         - libxcb1
         - libexpat1
@@ -109,6 +110,7 @@ parts:
         - libxcb-randr0
         - libxcb-xinerama0
         - libxcb-xkb1
+        - libxkbfile1
         build-snaps:
         - qt-framework-sdk
         plugin: cmake
