@@ -101,6 +101,8 @@ parts:
         - libwayland-dev
         - wayland-protocols
         - libenchant-2-dev
+        - libpango1.0-dev
+        - libgdk-pixbuf-2.0-dev
         stage-packages:
         - libxcb1
         - libexpat1
@@ -124,6 +126,8 @@ parts:
         - libisocodes1
         - libwayland-client0
         - libenchant-2-2
+        - libpango1.0-0
+        - libgdk-pixbuf-2.0-0
         build-snaps:
         - qt-framework-sdk
         plugin: cmake
