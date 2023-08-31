@@ -97,6 +97,8 @@ parts:
         - libxkbcommon-x11-dev
         - libisocodes-dev
         - iso-codes
+        - libwayland-client0
+        - libwayland-dev
         stage-packages:
         - libxcb1
         - libexpat1
@@ -118,6 +120,7 @@ parts:
         - libxkbcommon0
         - libxkbcommon-x11-0
         - libisocodes1
+        - libwayland-client0
         build-snaps:
         - qt-framework-sdk
         plugin: cmake
