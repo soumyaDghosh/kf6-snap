@@ -99,6 +99,7 @@ parts:
         - iso-codes
         - libwayland-client0
         - libwayland-dev
+        - wayland-protocols
         stage-packages:
         - libxcb1
         - libexpat1
