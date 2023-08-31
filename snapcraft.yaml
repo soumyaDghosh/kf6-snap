@@ -149,6 +149,8 @@ parts:
         - cmake
         - libxcb1-dev
         - libxkbcommon-dev
+        - libglx-dev
+        - libgl1-mesa-dev
         stage-packages:
         - libxcb1
         - libxkbcommon0
