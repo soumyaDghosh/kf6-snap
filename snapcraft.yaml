@@ -95,6 +95,7 @@ parts:
         - libxkbfile-dev
         - libxkbcommon-dev
         - libxkbcommon-x11-dev
+        - libisocodes-dev
         stage-packages:
         - libxcb1
         - libexpat1
@@ -115,6 +116,7 @@ parts:
         - libxkbfile1
         - libxkbcommon0
         - libxkbcommon-x11-0
+        - libisocodes1
         build-snaps:
         - qt-framework-sdk
         plugin: cmake
