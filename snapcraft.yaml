@@ -163,7 +163,7 @@ parts:
         - -DENABLE_QT5=OFF
         - -DENABLE_QT4=OFF
         - -DBUILD_TESTING=OFF
-        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE"
+        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5"
     plasma-wayland-protocols:
         after:
         - fcitx5-platforminputcontext
@@ -181,7 +181,7 @@ parts:
         - -DQT_MAJOR_VERSION=6
         - -DBUILD_WITH_QT6=ON
         - -DBUILD_TESTING=OFF
-        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE"
+        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5"
     kwidgetsaddons:
         after:
         - plasma-wayland-protocols
@@ -199,7 +199,7 @@ parts:
         - -DQT_MAJOR_VERSION=6
         - -DBUILD_WITH_QT6=ON
         - -DBUILD_TESTING=OFF
-        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE"
+        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5"
     ki18n:
         after:
         - kwidgetsaddons
@@ -217,7 +217,7 @@ parts:
         - -DQT_MAJOR_VERSION=6
         - -DBUILD_WITH_QT6=ON
         - -DBUILD_TESTING=OFF
-        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE"
+        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5"
     kconfig:
         after:
         - ki18n
@@ -235,7 +235,7 @@ parts:
         - -DQT_MAJOR_VERSION=6
         - -DBUILD_WITH_QT6=ON
         - -DBUILD_TESTING=OFF
-        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE"
+        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5"
     attica:
         after:
         - kconfig
@@ -253,7 +253,7 @@ parts:
         - -DQT_MAJOR_VERSION=6
         - -DBUILD_WITH_QT6=ON
         - -DBUILD_TESTING=OFF
-        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE"
+        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5"
     kguiaddons:
         after:
         - attica
@@ -271,7 +271,7 @@ parts:
         - -DQT_MAJOR_VERSION=6
         - -DBUILD_WITH_QT6=ON
         - -DBUILD_TESTING=OFF
-        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE"
+        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5"
     kcoreaddons:
         after:
         - kguiaddons
@@ -289,7 +289,7 @@ parts:
         - -DQT_MAJOR_VERSION=6
         - -DBUILD_WITH_QT6=ON
         - -DBUILD_TESTING=OFF
-        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE"
+        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5"
     kauth:
         after:
         - kguiaddons
@@ -307,7 +307,7 @@ parts:
         - -DQT_MAJOR_VERSION=6
         - -DBUILD_WITH_QT6=ON
         - -DBUILD_TESTING=OFF
-        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE"
+        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5"
     karchive:
         after:
         - kauth
@@ -325,7 +325,7 @@ parts:
         - -DQT_MAJOR_VERSION=6
         - -DBUILD_WITH_QT6=ON
         - -DBUILD_TESTING=OFF
-        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE"
+        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5"
     kcodecs:
         after:
         - karchive
@@ -343,7 +343,7 @@ parts:
         - -DQT_MAJOR_VERSION=6
         - -DBUILD_WITH_QT6=ON
         - -DBUILD_TESTING=OFF
-        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE"
+        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5"
     kcolorscheme:
         after:
         - kcodecs
@@ -361,7 +361,7 @@ parts:
         - -DQT_MAJOR_VERSION=6
         - -DBUILD_WITH_QT6=ON
         - -DBUILD_TESTING=OFF
-        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE"
+        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5"
     kconfigwidgets:
         after:
         - kcolorscheme
@@ -379,7 +379,7 @@ parts:
         - -DQT_MAJOR_VERSION=6
         - -DBUILD_WITH_QT6=ON
         - -DBUILD_TESTING=OFF
-        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE"
+        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5"
     kitemviews:
         after:
         - kconfigwidgets
@@ -397,7 +397,7 @@ parts:
         - -DQT_MAJOR_VERSION=6
         - -DBUILD_WITH_QT6=ON
         - -DBUILD_TESTING=OFF
-        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE"
+        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5"
     kiconthemes:
         after:
         - kitemviews
@@ -415,7 +415,7 @@ parts:
         - -DQT_MAJOR_VERSION=6
         - -DBUILD_WITH_QT6=ON
         - -DBUILD_TESTING=OFF
-        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE"
+        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5"
     kwindowsystem:
         after:
         - kiconthemes
@@ -433,7 +433,7 @@ parts:
         - -DQT_MAJOR_VERSION=6
         - -DBUILD_WITH_QT6=ON
         - -DBUILD_TESTING=OFF
-        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE"
+        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5"
     kcrash:
         after:
         - kwindowsystem
@@ -451,7 +451,7 @@ parts:
         - -DQT_MAJOR_VERSION=6
         - -DBUILD_WITH_QT6=ON
         - -DBUILD_TESTING=OFF
-        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE"
+        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5"
     kdbusaddons:
         after:
         - kcrash
@@ -469,7 +469,7 @@ parts:
         - -DQT_MAJOR_VERSION=6
         - -DBUILD_WITH_QT6=ON
         - -DBUILD_TESTING=OFF
-        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE"
+        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5"
     kservice:
         after:
         - kdbusaddons
@@ -487,7 +487,7 @@ parts:
         - -DQT_MAJOR_VERSION=6
         - -DBUILD_WITH_QT6=ON
         - -DBUILD_TESTING=OFF
-        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE"
+        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5"
     kglobalaccel:
         after:
         - kservice
@@ -505,7 +505,7 @@ parts:
         - -DQT_MAJOR_VERSION=6
         - -DBUILD_WITH_QT6=ON
         - -DBUILD_TESTING=OFF
-        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE"
+        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5"
     sonnet:
         after:
         - kglobalaccel
@@ -523,7 +523,7 @@ parts:
         - -DQT_MAJOR_VERSION=6
         - -DBUILD_WITH_QT6=ON
         - -DBUILD_TESTING=OFF
-        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE"
+        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5"
     kcompletion:
         after:
         - sonnet
@@ -541,7 +541,7 @@ parts:
         - -DQT_MAJOR_VERSION=6
         - -DBUILD_WITH_QT6=ON
         - -DBUILD_TESTING=OFF
-        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE"
+        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5"
     ktextwidgets:
         after:
         - kcompletion
@@ -559,7 +559,7 @@ parts:
         - -DQT_MAJOR_VERSION=6
         - -DBUILD_WITH_QT6=ON
         - -DBUILD_TESTING=OFF
-        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE"
+        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5"
     kxmlgui:
         after:
         - ktextwidgets
@@ -577,7 +577,7 @@ parts:
         - -DQT_MAJOR_VERSION=6
         - -DBUILD_WITH_QT6=ON
         - -DBUILD_TESTING=OFF
-        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE"
+        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5"
     perl-uri-escape:
         after:
         - kxmlgui
@@ -608,7 +608,7 @@ parts:
         - -DQT_MAJOR_VERSION=6
         - -DBUILD_WITH_QT6=ON
         - -DBUILD_TESTING=OFF
-        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE"
+        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5"
     kpackage:
         after:
         - kdoctools
@@ -626,7 +626,7 @@ parts:
         - -DQT_MAJOR_VERSION=6
         - -DBUILD_WITH_QT6=ON
         - -DBUILD_TESTING=OFF
-        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE"
+        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5"
     kbookmarks:
         after:
         - kpackage
@@ -644,7 +644,7 @@ parts:
         - -DQT_MAJOR_VERSION=6
         - -DBUILD_WITH_QT6=ON
         - -DBUILD_TESTING=OFF
-        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE"
+        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5"
     kfilemetadata:
         after:
         - kbookmarks
@@ -663,7 +663,7 @@ parts:
         - -DQT_MAJOR_VERSION=6
         - -DBUILD_WITH_QT6=ON
         - -DBUILD_TESTING=OFF
-        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE"
+        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5"
     phonon:
         after:
         - kfilemetadata
@@ -682,7 +682,7 @@ parts:
         - -DPHONON_BUILD_QT5=OFF
         - -DPHONON_BUILD_QT6=ON
         - -DBUILD_TESTING=OFF
-        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE"
+        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5"
     knotifications:
         after:
         - phonon
@@ -703,7 +703,7 @@ parts:
         - -DQT_MAJOR_VERSION=6
         - -DBUILD_WITH_QT6=ON
         - -DBUILD_TESTING=OFF
-        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE"
+        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5"
     qca:
         after:
         - knotifications
@@ -721,7 +721,7 @@ parts:
         - -DQT_MAJOR_VERSION=6
         - -DBUILD_WITH_QT6=ON
         - -DBUILD_TESTING=OFF
-        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE"
+        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5"
     kwallet:
         after:
         - qca
@@ -739,7 +739,7 @@ parts:
         - -DQT_MAJOR_VERSION=6
         - -DBUILD_WITH_QT6=ON
         - -DBUILD_TESTING=OFF
-        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE"
+        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5"
     kjobwidgets:
         after:
         - kwallet
@@ -757,7 +757,7 @@ parts:
         - -DQT_MAJOR_VERSION=6
         - -DBUILD_WITH_QT6=ON
         - -DBUILD_TESTING=OFF
-        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE"
+        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5"
     solid:
         after:
         - kjobwidgets
@@ -775,7 +775,7 @@ parts:
         - -DQT_MAJOR_VERSION=6
         - -DBUILD_WITH_QT6=ON
         - -DBUILD_TESTING=OFF
-        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE"
+        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5"
     kio:
         after:
         - solid
@@ -793,7 +793,7 @@ parts:
         - -DQT_MAJOR_VERSION=6
         - -DBUILD_WITH_QT6=ON
         - -DBUILD_TESTING=OFF
-        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE"
+        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5"
     kparts:
         after:
         - kio
@@ -811,7 +811,7 @@ parts:
         - -DQT_MAJOR_VERSION=6
         - -DBUILD_WITH_QT6=ON
         - -DBUILD_TESTING=OFF
-        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE"
+        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5"
     kplotting:
         after:
         - kparts
@@ -829,7 +829,7 @@ parts:
         - -DQT_MAJOR_VERSION=6
         - -DBUILD_WITH_QT6=ON
         - -DBUILD_TESTING=OFF
-        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE"
+        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5"
     kded:
         after:
         - kplotting
@@ -847,7 +847,7 @@ parts:
         - -DQT_MAJOR_VERSION=6
         - -DBUILD_WITH_QT6=ON
         - -DBUILD_TESTING=OFF
-        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE"
+        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5"
     kunitconversion:
         after:
         - kded
@@ -865,7 +865,7 @@ parts:
         - -DQT_MAJOR_VERSION=6
         - -DBUILD_WITH_QT6=ON
         - -DBUILD_TESTING=OFF
-        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE"
+        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5"
     kdeclarative:
         after:
         - kunitconversion
@@ -883,7 +883,7 @@ parts:
         - -DQT_MAJOR_VERSION=6
         - -DBUILD_WITH_QT6=ON
         - -DBUILD_TESTING=OFF
-        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE"
+        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5"
     kactivities:
         after:
         - kdeclarative
@@ -901,7 +901,7 @@ parts:
         - -DQT_MAJOR_VERSION=6
         - -DBUILD_WITH_QT6=ON
         - -DBUILD_TESTING=OFF
-        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE"
+        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5"
     kcmutils:
         after:
         - kactivities
@@ -919,7 +919,7 @@ parts:
         - -DQT_MAJOR_VERSION=6
         - -DBUILD_WITH_QT6=ON
         - -DBUILD_TESTING=OFF
-        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE"
+        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5"
     knotifyconfig:
         after:
         - kcmutils
@@ -937,7 +937,7 @@ parts:
         - -DQT_MAJOR_VERSION=6
         - -DBUILD_WITH_QT6=ON
         - -DBUILD_TESTING=OFF
-        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE"
+        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5"
     knewstuff:
         after:
         - knotifyconfig
@@ -955,7 +955,7 @@ parts:
         - -DQT_MAJOR_VERSION=6
         - -DBUILD_WITH_QT6=ON
         - -DBUILD_TESTING=OFF
-        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE"
+        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5"
     kidletime:
         after:
         - knewstuff
@@ -973,7 +973,7 @@ parts:
         - -DQT_MAJOR_VERSION=6
         - -DBUILD_WITH_QT6=ON
         - -DBUILD_TESTING=OFF
-        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE"
+        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5"
     threadweaver:
         after:
         - kidletime
@@ -991,7 +991,7 @@ parts:
         - -DQT_MAJOR_VERSION=6
         - -DBUILD_WITH_QT6=ON
         - -DBUILD_TESTING=OFF
-        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE"
+        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5"
     kitemmodels:
         after:
         - threadweaver
@@ -1009,7 +1009,7 @@ parts:
         - -DQT_MAJOR_VERSION=6
         - -DBUILD_WITH_QT6=ON
         - -DBUILD_TESTING=OFF
-        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE"
+        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5"
     kdnssd:
         after:
         - kitemmodels
@@ -1027,7 +1027,7 @@ parts:
         - -DQT_MAJOR_VERSION=6
         - -DBUILD_WITH_QT6=ON
         - -DBUILD_TESTING=OFF
-        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE"
+        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5"
     kquickcharts:
         after:
         - kdnssd
@@ -1045,7 +1045,7 @@ parts:
         - -DQT_MAJOR_VERSION=6
         - -DBUILD_WITH_QT6=ON
         - -DBUILD_TESTING=OFF
-        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE"
+        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5"
     syntax-highlighting:
         after:
         - kquickcharts
@@ -1063,7 +1063,7 @@ parts:
         - -DQT_MAJOR_VERSION=6
         - -DBUILD_WITH_QT6=ON
         - -DBUILD_TESTING=OFF
-        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE"
+        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5"
     ktexteditor:
         after:
         - syntax-highlighting
@@ -1081,7 +1081,7 @@ parts:
         - -DQT_MAJOR_VERSION=6
         - -DBUILD_WITH_QT6=ON
         - -DBUILD_TESTING=OFF
-        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE"
+        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5"
     frameworkintegration:
         after:
         - ktexteditor
@@ -1099,7 +1099,7 @@ parts:
         - -DQT_MAJOR_VERSION=6
         - -DBUILD_WITH_QT6=ON
         - -DBUILD_TESTING=OFF
-        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE"
+        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5"
     kpty:
         after:
         - frameworkintegration
@@ -1117,7 +1117,7 @@ parts:
         - -DQT_MAJOR_VERSION=6
         - -DBUILD_WITH_QT6=ON
         - -DBUILD_TESTING=OFF
-        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE"
+        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5"
     kwayland:
         after:
         - kpty
@@ -1135,7 +1135,7 @@ parts:
         - -DQT_MAJOR_VERSION=6
         - -DBUILD_WITH_QT6=ON
         - -DBUILD_TESTING=OFF
-        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE"
+        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5"
     kirigami:
         after:
         - kwayland
@@ -1153,7 +1153,7 @@ parts:
         - -DQT_MAJOR_VERSION=6
         - -DBUILD_WITH_QT6=ON
         - -DBUILD_TESTING=OFF
-        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE"
+        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5"
     qqc2-desktop-style:
         after:
         - kirigami
@@ -1171,7 +1171,7 @@ parts:
         - -DQT_MAJOR_VERSION=6
         - -DBUILD_WITH_QT6=ON
         - -DBUILD_TESTING=OFF
-        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE"
+        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5"
     kcontacts:
         after:
         - qqc2-desktop-style
@@ -1189,7 +1189,7 @@ parts:
         - -DQT_MAJOR_VERSION=6
         - -DBUILD_WITH_QT6=ON
         - -DBUILD_TESTING=OFF
-        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE"
+        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5"
     kcalendarcore:
         after:
         - kcontacts
@@ -1210,7 +1210,7 @@ parts:
         - -DQT_MAJOR_VERSION=6
         - -DBUILD_WITH_QT6=ON
         - -DBUILD_TESTING=OFF
-        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE"
+        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5"
     kholidays:
         after:
         - kcalendarcore
@@ -1228,7 +1228,7 @@ parts:
         - -DQT_MAJOR_VERSION=6
         - -DBUILD_WITH_QT6=ON
         - -DBUILD_TESTING=OFF
-        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE"
+        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5"
     prison:
         after:
         - kholidays
@@ -1253,7 +1253,7 @@ parts:
         - -DQT_MAJOR_VERSION=6
         - -DBUILD_WITH_QT6=ON
         - -DBUILD_TESTING=OFF
-        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE"
+        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5"
     syndication:
         after:
         - prison
@@ -1271,7 +1271,7 @@ parts:
         - -DQT_MAJOR_VERSION=6
         - -DBUILD_WITH_QT6=ON
         - -DBUILD_TESTING=OFF
-        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE"
+        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5"
     purpose:
         after:
         - syndication
@@ -1289,7 +1289,7 @@ parts:
         - -DQT_MAJOR_VERSION=6
         - -DBUILD_WITH_QT6=ON
         - -DBUILD_TESTING=OFF
-        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE"
+        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5"
     kdav:
         after:
         - purpose
@@ -1307,7 +1307,7 @@ parts:
         - -DQT_MAJOR_VERSION=6
         - -DBUILD_WITH_QT6=ON
         - -DBUILD_TESTING=OFF
-        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE"
+        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5"
     ksvg:
         after:
         - kdav
@@ -1325,7 +1325,7 @@ parts:
         - -DQT_MAJOR_VERSION=6
         - -DBUILD_WITH_QT6=ON
         - -DBUILD_TESTING=OFF
-        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE"
+        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5"
     plasma-framework:
         after:
         - ksvg
@@ -1343,7 +1343,7 @@ parts:
         - -DQT_MAJOR_VERSION=6
         - -DBUILD_WITH_QT6=ON
         - -DBUILD_TESTING=OFF
-        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE"
+        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5"
     breeze-icons:
         after:
         - plasma-framework
@@ -1361,7 +1361,7 @@ parts:
         - -DQT_MAJOR_VERSION=6
         - -DBUILD_WITH_QT6=ON
         - -DBUILD_TESTING=OFF
-        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE"
+        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5"
         prime:
         - "-*.rcc"
     libjxl:
@@ -1381,7 +1381,7 @@ parts:
         - -DQT_MAJOR_VERSION=6
         - -DBUILD_WITH_QT6=ON
         - -DBUILD_TESTING=OFF
-        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE"
+        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5"
         - "-DJPEGXL_ENABLE_BENCHMARK=OFF"
         - "-DJPEGXL_ENABLE_DOXYGEN=OFF"
         - "-DJPEGXL_ENABLE_EXAMPLES=OFF"
@@ -1421,6 +1421,7 @@ parts:
         - -DQT_MAJOR_VERSION=6
         - -DBUILD_WITH_QT6=ON
         - -DBUILD_TESTING=OFF
+        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5"
     bluez-qt:
         after:
         - kimageformats
@@ -1438,7 +1439,7 @@ parts:
         - -DQT_MAJOR_VERSION=6
         - -DBUILD_WITH_QT6=ON
         - -DBUILD_TESTING=OFF
-        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE"
+        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5"
     kstatusnotifieritem:
         after:
         - bluez-qt
@@ -1456,7 +1457,7 @@ parts:
         - -DQT_MAJOR_VERSION=6
         - -DBUILD_WITH_QT6=ON
         - -DBUILD_TESTING=OFF
-        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE"
+        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5"
     kio-extras:
         after:
         - kstatusnotifieritem
@@ -1474,7 +1475,7 @@ parts:
         - -DQT_MAJOR_VERSION=6
         - -DBUILD_WITH_QT6=ON
         - -DBUILD_TESTING=OFF
-        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE"
+        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5"
     breeze:
         after:
         - kio-extras
@@ -1494,7 +1495,7 @@ parts:
         - -DBUILD_TESTING=OFF
         - "-DWITH_DECORATIONS=OFF"
         - "-DWITH_WALLPAPERS=OFF"
-        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE"
+        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5"
     plasma-integration:
         after:
         - breeze
@@ -1512,7 +1513,7 @@ parts:
         - -DQT_MAJOR_VERSION=6
         - -DBUILD_WITH_QT6=ON
         - -DBUILD_TESTING=OFF
-        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE"
+        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5"
     kwayland-integration:
         after:
         - plasma-integration
@@ -1530,7 +1531,7 @@ parts:
         - -DQT_MAJOR_VERSION=6
         - -DBUILD_WITH_QT6=ON
         - -DBUILD_TESTING=OFF
-        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE"
+        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5"
     qqc2-breeze-style:
         after:
         - kwayland-integration
@@ -1548,4 +1549,4 @@ parts:
         - -DQT_MAJOR_VERSION=6
         - -DBUILD_WITH_QT6=ON
         - -DBUILD_TESTING=OFF
-        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE"
+        - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5"
