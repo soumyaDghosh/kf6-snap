@@ -164,6 +164,7 @@ parts:
         - -DENABLE_QT4=OFF
         - -DBUILD_TESTING=OFF
         - "-DCMAKE_FIND_ROOT_PATH=/usr\\;$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5"
+        - -DCMAKE_PREFIX_PATH=/snap/qt-framework-sdk/current/opt/qt6-5
     plasma-wayland-protocols:
         after:
         - fcitx5-platforminputcontext
