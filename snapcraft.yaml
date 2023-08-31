@@ -96,6 +96,7 @@ parts:
         - libxkbcommon-dev
         - libxkbcommon-x11-dev
         - libisocodes-dev
+        - iso-codes
         stage-packages:
         - libxcb1
         - libexpat1
