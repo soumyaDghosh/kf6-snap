@@ -30,6 +30,8 @@ parts:
         - no-patchelf
         build-packages: []
         stage-packages:
+        - libglx-dev
+        - libgl1-mesa-dev
         - libgl1-mesa-dri
         - libglx-mesa0
         prime:
