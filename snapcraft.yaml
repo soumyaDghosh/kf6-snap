@@ -216,6 +216,9 @@ parts:
         source-branch: master
         build-packages:
         - cmake
+        - libisocodes-dev
+        - iso-codes
+        - gettext
         build-snaps:
         - qt-framework-sdk
         plugin: cmake
