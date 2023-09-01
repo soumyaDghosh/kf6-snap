@@ -273,7 +273,7 @@ parts:
         after:
         - attica
         source: https://invent.kde.org/qt/qt/qtwayland.git
-        source-branch: 6.5
+        source-tag: v6.5.2
         build-packages:
         - cmake
         build-snaps:
