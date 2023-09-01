@@ -290,7 +290,7 @@ parts:
         - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
     kguiaddons:
         after:
-        - attica
+        - qtwayland
         source: https://invent.kde.org/frameworks/kguiaddons.git
         source-branch: master
         build-packages:
