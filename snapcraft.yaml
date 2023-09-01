@@ -171,7 +171,7 @@ parts:
     #     - "-DFCITX_INSTALL_CMAKECONFIG_DIR=$CRAFT_STAGE/usr/lib/$CRAFT_ARCH_TRIPLET/cmake"
     plasma-wayland-protocols:
         after:
-        - fcitx5-platforminputcontext
+        - extra-cmake-modules
         source: https://invent.kde.org/libraries/plasma-wayland-protocols.git
         source-tag: v1.10.0
         build-packages:
