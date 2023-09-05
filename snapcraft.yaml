@@ -376,7 +376,7 @@ parts:
         - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
     kcolorscheme:
         after:
-        - kcodecs
+        - kguiaddons
         source: https://invent.kde.org/frameworks/kcolorscheme.git
         source-branch: master
         build-packages:
