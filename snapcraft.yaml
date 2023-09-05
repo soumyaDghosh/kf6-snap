@@ -276,6 +276,11 @@ parts:
         source-branch: master
         build-packages:
         - cmake
+        - libxkbcommon-dev
+        - libwayland-client0
+        - libwayland-dev
+        stage-packages:
+        - libwayland-client0
         build-snaps:
         - qt-framework-sdk
         plugin: cmake
@@ -307,9 +312,28 @@ parts:
         - -DBUILD_TESTING=OFF
         - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
         - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-    kauth:
+    polkit-qt-1:
         after:
         - kcoreaddons
+        source: https://invent.kde.org/libraries/polkit-qt-1.git
+        source-branch: master
+        build-packages:
+        - cmake
+        build-snaps:
+        - qt-framework-sdk
+        plugin: cmake
+        cmake-generator: Ninja
+        cmake-parameters:
+        - -DCMAKE_INSTALL_PREFIX=/usr
+        - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+        - -DQT_MAJOR_VERSION=6
+        - -DBUILD_WITH_QT6=ON
+        - -DBUILD_TESTING=OFF
+        - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+        - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+    kauth:
+        after:
+        - polkit-qt-1
         source: https://invent.kde.org/frameworks/kauth.git
         source-branch: master
         build-packages:
