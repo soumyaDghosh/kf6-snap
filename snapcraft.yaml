@@ -361,6 +361,7 @@ parts:
         source-branch: master
         build-packages:
         - cmake
+        - gperf
         build-snaps:
         - qt-framework-sdk
         plugin: cmake
