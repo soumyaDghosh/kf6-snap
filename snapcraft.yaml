@@ -279,6 +279,7 @@ parts:
         - libxkbcommon-dev
         - libwayland-client0
         - libwayland-dev
+        - wayland-protocols
         stage-packages:
         - libwayland-client0
         build-snaps:
