@@ -282,7 +282,6 @@ parts:
         - libwayland-client0
         - libwayland-dev
         - wayland-protocols
-        - wayland-scanner
         stage-packages:
         - libwayland-client0
         build-snaps:
