@@ -274,6 +274,7 @@ parts:
     kguiaddons:
         after:
         - attica
+        - plasma-wayland-protocols
         source: https://invent.kde.org/frameworks/kguiaddons.git
         source-branch: master
         build-packages:
@@ -282,12 +283,17 @@ parts:
         - libwayland-client0
         - libwayland-dev
         - wayland-protocols
+        - doxygen
+        - graphviz
+        - libx11-dev
+        - libxcb1-dev
+        - pkg-config
         stage-packages:
         - libwayland-client0
         build-snaps:
         - qt-framework-sdk
         plugin: cmake
-        cmake-generator: Ninja
+#        cmake-generator: Ninja
         cmake-parameters:
         - -DCMAKE_INSTALL_PREFIX=/usr
         - -DCMAKE_BUILD_TYPE=RelWithDebInfo
