@@ -288,6 +288,9 @@ parts:
         - libx11-dev
         - libxcb1-dev
         - pkg-config
+        - libglx-dev
+        - libgl1-mesa-dev
+        - libmd4c-dev
         stage-packages:
         - libwayland-client0
         build-snaps:
