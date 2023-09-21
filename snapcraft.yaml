@@ -174,43 +174,43 @@ parts:
         - -DBUILD_TESTING=OFF
         - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
         - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-    kguiaddons:
-        after:
-        - attica
-        - plasma-wayland-protocols
-        source: https://invent.kde.org/frameworks/kguiaddons.git
-        source-branch: master
-        build-packages:
-        - cmake
-        - libxkbcommon-dev
-        - libwayland-client0
-        - libwayland-dev
-        - wayland-protocols
-        - doxygen
-        - graphviz
-        - libx11-dev
-        - libxcb1-dev
-        - pkg-config
-        - libglx-dev
-        - libgl1-mesa-dev
-        - libmd4c-dev
-        stage-packages:
-        - libwayland-client0
-        build-snaps:
-        - qt-framework-sdk
-        plugin: cmake
-        cmake-generator: Ninja
-        cmake-parameters:
-        - -DCMAKE_INSTALL_PREFIX=/usr
-        - -DCMAKE_BUILD_TYPE=RelWithDebInfo
-        - -DQT_MAJOR_VERSION=6
-        - -DBUILD_WITH_QT6=ON
-        - -DBUILD_TESTING=OFF
-        - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-        - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-        override-stage: |
-            craftctl default
-            cp $CRAFT_STAGE/usr/share/wayland/wayland.xml $CRAFT_PART_BUILD
+    # kguiaddons:
+    #     after:
+    #     - attica
+    #     - plasma-wayland-protocols
+    #     source: https://invent.kde.org/frameworks/kguiaddons.git
+    #     source-branch: master
+    #     build-packages:
+    #     - cmake
+    #     - libxkbcommon-dev
+    #     - libwayland-client0
+    #     - libwayland-dev
+    #     - wayland-protocols
+    #     - doxygen
+    #     - graphviz
+    #     - libx11-dev
+    #     - libxcb1-dev
+    #     - pkg-config
+    #     - libglx-dev
+    #     - libgl1-mesa-dev
+    #     - libmd4c-dev
+    #     stage-packages:
+    #     - libwayland-client0
+    #     build-snaps:
+    #     - qt-framework-sdk
+    #     plugin: cmake
+    #     cmake-generator: Ninja
+    #     cmake-parameters:
+    #     - -DCMAKE_INSTALL_PREFIX=/usr
+    #     - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+    #     - -DQT_MAJOR_VERSION=6
+    #     - -DBUILD_WITH_QT6=ON
+    #     - -DBUILD_TESTING=OFF
+    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+    #     override-stage: |
+    #         craftctl default
+    #         cp $CRAFT_STAGE/usr/share/wayland/wayland.xml $CRAFT_PART_BUILD
     kcoreaddons:
         after:
         - attica
