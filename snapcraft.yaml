@@ -76,7 +76,7 @@ parts:
         - extra-cmake-modules
         - qtconf
         source: https://invent.kde.org/libraries/plasma-wayland-protocols.git
-        source-tag: v1.10.0
+        source-branch: master
         build-packages:
         - cmake
         stage-packages:
@@ -184,43 +184,44 @@ parts:
         - -DBUILD_TESTING=OFF
         - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
         - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-    # kguiaddons:
-    #     after:
-    #     - attica
-    #     - plasma-wayland-protocols
-    #     source: https://invent.kde.org/frameworks/kguiaddons.git
-    #     source-branch: master
-    #     build-packages:
-    #     - cmake
-    #     - libxkbcommon-dev
-    #     - libwayland-client0
-    #     - libwayland-dev
-    #     - wayland-protocols
-    #     - doxygen
-    #     - graphviz
-    #     - libx11-dev
-    #     - libxcb1-dev
-    #     - pkg-config
-    #     - libglx-dev
-    #     - libgl1-mesa-dev
-    #     - libmd4c-dev
-    #     stage-packages:
-    #     - libwayland-client0
-    #     build-snaps:
-    #     - qt-framework-sdk
-    #     plugin: cmake
-    #     cmake-generator: Ninja
-    #     cmake-parameters:
-    #     - -DCMAKE_INSTALL_PREFIX=/usr
-    #     - -DCMAKE_BUILD_TYPE=RelWithDebInfo
-    #     - -DQT_MAJOR_VERSION=6
-    #     - -DBUILD_WITH_QT6=ON
-    #     - -DBUILD_TESTING=OFF
-    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-    #     override-stage: |
-    #         craftctl default
-    #         cp $CRAFT_STAGE/usr/share/wayland/wayland.xml $CRAFT_PART_BUILD
+    kguiaddons:
+        after:
+        - qtconf
+        - extra-cmake-modules
+        - plasma-wayland-protocols
+        source: https://invent.kde.org/frameworks/kguiaddons.git
+        source-branch: master
+        build-packages:
+        - cmake
+        - libxkbcommon-dev
+        - libwayland-client0
+        - libwayland-dev
+        - wayland-protocols
+        - doxygen
+        - graphviz
+        - libx11-dev
+        - libxcb1-dev
+        - pkg-config
+        - libglx-dev
+        - libgl1-mesa-dev
+        - libmd4c-dev
+        stage-packages:
+        - libwayland-client0
+        build-snaps:
+        - qt-framework-sdk
+        plugin: cmake
+        cmake-generator: Ninja
+        cmake-parameters:
+        - -DCMAKE_INSTALL_PREFIX=/usr
+        - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+        - -DQT_MAJOR_VERSION=6
+        - -DBUILD_WITH_QT6=ON
+        - -DBUILD_TESTING=OFF
+        - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+        - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+        override-stage: |
+            craftctl default
+            cp $CRAFT_STAGE/usr/share/wayland/wayland.xml $CRAFT_PART_BUILD
     kcoreaddons:
         after:
         - extra-cmake-modules
@@ -250,30 +251,16 @@ parts:
         - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
     polkit-qt-1:
         after:
-        - kcoreaddons
+        - qtconf
         source: https://invent.kde.org/libraries/polkit-qt-1.git
         source-branch: master
         build-packages:
         - cmake
-        build-snaps:
-        - qt-framework-sdk
-        plugin: cmake
-        cmake-generator: Ninja
-        cmake-parameters:
-        - -DCMAKE_INSTALL_PREFIX=/usr
-        - -DCMAKE_BUILD_TYPE=RelWithDebInfo
-        - -DQT_MAJOR_VERSION=6
-        - -DBUILD_WITH_QT6=ON
-        - -DBUILD_TESTING=OFF
-        - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-        - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-    kauth:
-        after:
-        - polkit-qt-1
-        source: https://invent.kde.org/frameworks/kauth.git
-        source-branch: master
-        build-packages:
-        - cmake
+        - libglib2.0-dev
+        - libpolkit-agent-1-dev
+        - libpolkit-gobject-1-dev
+        stage-packages:
+        - default-logind
         build-snaps:
         - qt-framework-sdk
         plugin: cmake
@@ -288,11 +275,14 @@ parts:
         - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
     karchive:
         after:
-        - kauth
+        - extra-cmake-modules
+        - qtconf
         source: https://invent.kde.org/frameworks/karchive.git
         source-branch: master
         build-packages:
         - cmake
+        - doxygen
+        - graphviz
         - libzstd-dev
         - liblzma-dev
         - zlib1g-dev
@@ -316,50 +306,15 @@ parts:
         - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
     kcodecs:
         after:
-        - karchive
+        - extra-cmake-modules
+        - qtconf
         source: https://invent.kde.org/frameworks/kcodecs.git
         source-branch: master
         build-packages:
         - cmake
         - gperf
-        build-snaps:
-        - qt-framework-sdk
-        plugin: cmake
-        cmake-generator: Ninja
-        cmake-parameters:
-        - -DCMAKE_INSTALL_PREFIX=/usr
-        - -DCMAKE_BUILD_TYPE=RelWithDebInfo
-        - -DQT_MAJOR_VERSION=6
-        - -DBUILD_WITH_QT6=ON
-        - -DBUILD_TESTING=OFF
-        - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-        - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-    kcolorscheme:
-        after:
-        - extra-cmake-modules
-        source: https://invent.kde.org/frameworks/kcolorscheme.git
-        source-branch: master
-        build-packages:
-        - cmake
-        build-snaps:
-        - qt-framework-sdk
-        plugin: cmake
-        cmake-generator: Ninja
-        cmake-parameters:
-        - -DCMAKE_INSTALL_PREFIX=/usr
-        - -DCMAKE_BUILD_TYPE=RelWithDebInfo
-        - -DQT_MAJOR_VERSION=6
-        - -DBUILD_WITH_QT6=ON
-        - -DBUILD_TESTING=OFF
-        - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current/usr\\;/usr"
-        - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current/usr\\;/usr"
-    kconfigwidgets:
-        after:
-        - kcolorscheme
-        source: https://invent.kde.org/frameworks/kconfigwidgets.git
-        source-branch: master
-        build-packages:
-        - cmake
+        - doxygen
+        - graphviz
         build-snaps:
         - qt-framework-sdk
         plugin: cmake
@@ -374,30 +329,14 @@ parts:
         - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
     kitemviews:
         after:
-        - kconfigwidgets
+        - extra-cmake-modules
+        - qtconf
         source: https://invent.kde.org/frameworks/kitemviews.git
         source-branch: master
         build-packages:
         - cmake
-        build-snaps:
-        - qt-framework-sdk
-        plugin: cmake
-        cmake-generator: Ninja
-        cmake-parameters:
-        - -DCMAKE_INSTALL_PREFIX=/usr
-        - -DCMAKE_BUILD_TYPE=RelWithDebInfo
-        - -DQT_MAJOR_VERSION=6
-        - -DBUILD_WITH_QT6=ON
-        - -DBUILD_TESTING=OFF
-        - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-        - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-    kiconthemes:
-        after:
-        - kitemviews
-        source: https://invent.kde.org/frameworks/kiconthemes.git
-        source-branch: master
-        build-packages:
-        - cmake
+        - doxygen
+        - graphviz
         build-snaps:
         - qt-framework-sdk
         plugin: cmake
@@ -412,30 +351,21 @@ parts:
         - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
     kwindowsystem:
         after:
-        - kiconthemes
+        - extra-cmake-modules
+        - qtconf
         source: https://invent.kde.org/frameworks/kwindowsystem.git
         source-branch: master
         build-packages:
         - cmake
-        build-snaps:
-        - qt-framework-sdk
-        plugin: cmake
-        cmake-generator: Ninja
-        cmake-parameters:
-        - -DCMAKE_INSTALL_PREFIX=/usr
-        - -DCMAKE_BUILD_TYPE=RelWithDebInfo
-        - -DQT_MAJOR_VERSION=6
-        - -DBUILD_WITH_QT6=ON
-        - -DBUILD_TESTING=OFF
-        - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-        - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-    kcrash:
-        after:
-        - kwindowsystem
-        source: https://invent.kde.org/frameworks/kcrash.git
-        source-branch: master
-        build-packages:
-        - cmake
+        - libx11-dev
+        - libxcb-icccm4-dev
+        - libxcb-keysyms1-dev
+        - libxcb-res0-dev
+        - libxcb-xfixes0-dev
+        - libxcb1-dev
+        - libxfixes-dev
+        - libxrender-dev
+        - pkg-config
         build-snaps:
         - qt-framework-sdk
         plugin: cmake
@@ -450,11 +380,86 @@ parts:
         - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
     kdbusaddons:
         after:
-        - kcrash
+        - extra-cmake-modules
+        - qtconf
         source: https://invent.kde.org/frameworks/kdbusaddons.git
         source-branch: master
         build-packages:
         - cmake
+        - dbus-x11
+        build-snaps:
+        - qt-framework-sdk
+        plugin: cmake
+        cmake-generator: Ninja
+        cmake-parameters:
+        - -DCMAKE_INSTALL_PREFIX=/usr
+        - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+        - -DQT_MAJOR_VERSION=6
+        - -DBUILD_WITH_QT6=ON
+        - -DBUILD_TESTING=OFF
+        - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+        - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+## Tier 2
+    kauth:
+        after:
+        - polkit-qt-1
+        - extra-cmake-modules
+        - kcoreaddons
+        source: https://invent.kde.org/frameworks/kauth.git
+        source-branch: master
+        build-packages:
+        - cmake
+        - doxygen
+        - graphviz
+        build-snaps:
+        - qt-framework-sdk
+        plugin: cmake
+        cmake-generator: Ninja
+        cmake-parameters:
+        - -DCMAKE_INSTALL_PREFIX=/usr
+        - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+        - -DQT_MAJOR_VERSION=6
+        - -DBUILD_WITH_QT6=ON
+        - -DBUILD_TESTING=OFF
+        - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+        - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+    kglobalaccel:
+        after:
+        - extra-cmake-modules
+        - ki18n
+        source: https://invent.kde.org/frameworks/kglobalaccel.git
+        source-branch: master
+        build-packages:
+        - cmake
+        - doxygen
+        - graphviz
+        - libx11-dev
+        - libxcb1-dev
+        - pkg-config
+        build-snaps:
+        - qt-framework-sdk
+        plugin: cmake
+        cmake-generator: Ninja
+        cmake-parameters:
+        - -DCMAKE_INSTALL_PREFIX=/usr
+        - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+        - -DQT_MAJOR_VERSION=6
+        - -DBUILD_WITH_QT6=ON
+        - -DBUILD_TESTING=OFF
+        - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+        - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+    kcrash:
+        after:
+        - extra-cmake-modules
+        - kcoreaddons
+        - kwindowsystem
+        source: https://invent.kde.org/frameworks/kcrash.git
+        source-branch: master
+        build-packages:
+        - cmake
+        - doxygen
+        - graphviz
+        - libx11-dev
         build-snaps:
         - qt-framework-sdk
         plugin: cmake
@@ -470,10 +475,25 @@ parts:
     kservice:
         after:
         - kdbusaddons
+        - extra-cmake-modules
+        - kconfig
+        - kcoreaddons
+        - kcrash
+        - kdbusaddons
+        - kdoctools
+        - ki18n
         source: https://invent.kde.org/frameworks/kservice.git
         source-branch: master
         build-packages:
         - cmake
+        - bison
+        - dbus-x11
+        - docbook-xml
+        - docbook-xsl
+        - doxygen
+        - flex
+        - graphviz
+        - libxml2-utils
         build-snaps:
         - qt-framework-sdk
         plugin: cmake
@@ -486,1121 +506,1194 @@ parts:
         - -DBUILD_TESTING=OFF
         - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
         - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-    kglobalaccel:
-        after:
-        - kservice
-        source: https://invent.kde.org/frameworks/kglobalaccel.git
-        source-branch: master
-        build-packages:
-        - cmake
-        build-snaps:
-        - qt-framework-sdk
-        plugin: cmake
-        cmake-generator: Ninja
-        cmake-parameters:
-        - -DCMAKE_INSTALL_PREFIX=/usr
-        - -DCMAKE_BUILD_TYPE=RelWithDebInfo
-        - -DQT_MAJOR_VERSION=6
-        - -DBUILD_WITH_QT6=ON
-        - -DBUILD_TESTING=OFF
-        - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-        - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-    sonnet:
-        after:
-        - kglobalaccel
-        source: https://invent.kde.org/frameworks/sonnet.git
-        source-branch: master
-        build-packages:
-        - cmake
-        build-snaps:
-        - qt-framework-sdk
-        plugin: cmake
-        cmake-generator: Ninja
-        cmake-parameters:
-        - -DCMAKE_INSTALL_PREFIX=/usr
-        - -DCMAKE_BUILD_TYPE=RelWithDebInfo
-        - -DQT_MAJOR_VERSION=6
-        - -DBUILD_WITH_QT6=ON
-        - -DBUILD_TESTING=OFF
-        - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-        - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-    kcompletion:
-        after:
-        - sonnet
-        source: https://invent.kde.org/frameworks/kcompletion.git
-        source-branch: master
-        build-packages:
-        - cmake
-        build-snaps:
-        - qt-framework-sdk
-        plugin: cmake
-        cmake-generator: Ninja
-        cmake-parameters:
-        - -DCMAKE_INSTALL_PREFIX=/usr
-        - -DCMAKE_BUILD_TYPE=RelWithDebInfo
-        - -DQT_MAJOR_VERSION=6
-        - -DBUILD_WITH_QT6=ON
-        - -DBUILD_TESTING=OFF
-        - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-        - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-    ktextwidgets:
-        after:
-        - kcompletion
-        source: https://invent.kde.org/frameworks/ktextwidgets.git
-        source-branch: master
-        build-packages:
-        - cmake
-        build-snaps:
-        - qt-framework-sdk
-        plugin: cmake
-        cmake-generator: Ninja
-        cmake-parameters:
-        - -DCMAKE_INSTALL_PREFIX=/usr
-        - -DCMAKE_BUILD_TYPE=RelWithDebInfo
-        - -DQT_MAJOR_VERSION=6
-        - -DBUILD_WITH_QT6=ON
-        - -DBUILD_TESTING=OFF
-        - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-        - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-    kxmlgui:
-        after:
-        - ktextwidgets
-        source: https://invent.kde.org/frameworks/kxmlgui.git
-        source-branch: master
-        build-packages:
-        - cmake
-        build-snaps:
-        - qt-framework-sdk
-        plugin: cmake
-        cmake-generator: Ninja
-        cmake-parameters:
-        - -DCMAKE_INSTALL_PREFIX=/usr
-        - -DCMAKE_BUILD_TYPE=RelWithDebInfo
-        - -DQT_MAJOR_VERSION=6
-        - -DBUILD_WITH_QT6=ON
-        - -DBUILD_TESTING=OFF
-        - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-        - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-    perl-uri-escape:
-        after:
-        - kxmlgui
-        source: https://cpan.metacpan.org/authors/id/O/OA/OALDERS/URI-5.21.tar.gz
-        source-type: tar
-        build-packages:
-        - perl
-        build-snaps:
-        - qt-framework-sdk
-        plugin: nil
-        override-build: |
-            craftctl default
-            perl Makefile.PL INSTALLDIRS=/usr
-    kdoctools:
-        after:
-        - perl-uri-escape
-        source: https://invent.kde.org/frameworks/kdoctools.git
-        source-branch: master
-        build-packages:
-        - cmake
-        build-snaps:
-        - qt-framework-sdk
-        plugin: cmake
-        cmake-generator: Ninja
-        cmake-parameters:
-        - -DCMAKE_INSTALL_PREFIX=/usr
-        - -DCMAKE_BUILD_TYPE=RelWithDebInfo
-        - -DQT_MAJOR_VERSION=6
-        - -DBUILD_WITH_QT6=ON
-        - -DBUILD_TESTING=OFF
-        - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-        - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-    kpackage:
-        after:
-        - kdoctools
-        source: https://invent.kde.org/frameworks/kpackage.git
-        source-branch: master
-        build-packages:
-        - cmake
-        build-snaps:
-        - qt-framework-sdk
-        plugin: cmake
-        cmake-generator: Ninja
-        cmake-parameters:
-        - -DCMAKE_INSTALL_PREFIX=/usr
-        - -DCMAKE_BUILD_TYPE=RelWithDebInfo
-        - -DQT_MAJOR_VERSION=6
-        - -DBUILD_WITH_QT6=ON
-        - -DBUILD_TESTING=OFF
-        - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-        - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-    kbookmarks:
-        after:
-        - kpackage
-        source: https://invent.kde.org/frameworks/kbookmarks.git
-        source-branch: master
-        build-packages:
-        - cmake
-        build-snaps:
-        - qt-framework-sdk
-        plugin: cmake
-        cmake-generator: Ninja
-        cmake-parameters:
-        - -DCMAKE_INSTALL_PREFIX=/usr
-        - -DCMAKE_BUILD_TYPE=RelWithDebInfo
-        - -DQT_MAJOR_VERSION=6
-        - -DBUILD_WITH_QT6=ON
-        - -DBUILD_TESTING=OFF
-        - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-        - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-    kfilemetadata:
-        after:
-        - kbookmarks
-        source: https://invent.kde.org/frameworks/kfilemetadata.git
-        source-branch: master
-        build-packages:
-        - cmake
-        - libtag1-dev
-        build-snaps:
-        - qt-framework-sdk
-        plugin: cmake
-        cmake-generator: Ninja
-        cmake-parameters:
-        - -DCMAKE_INSTALL_PREFIX=/usr
-        - -DCMAKE_BUILD_TYPE=RelWithDebInfo
-        - -DQT_MAJOR_VERSION=6
-        - -DBUILD_WITH_QT6=ON
-        - -DBUILD_TESTING=OFF
-        - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-        - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-    phonon:
-        after:
-        - kfilemetadata
-        source: https://invent.kde.org/libraries/phonon.git
-        source-branch: master
-        build-packages:
-        - cmake
-        build-snaps:
-        - qt-framework-sdk
-        plugin: cmake
-        cmake-generator: Ninja
-        cmake-parameters:
-        - -DCMAKE_INSTALL_PREFIX=/usr
-        - -DCMAKE_BUILD_TYPE=RelWithDebInfo
-        - -DQT_MAJOR_VERSION=6
-        - -DPHONON_BUILD_QT5=OFF
-        - -DPHONON_BUILD_QT6=ON
-        - -DBUILD_TESTING=OFF
-        - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-        - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-    knotifications:
-        after:
-        - phonon
-        source: https://invent.kde.org/frameworks/knotifications.git
-        source-branch: master
-        build-packages:
-        - cmake
-        - libcanberra-dev
-        stage-packages:
-        - libcanberra0
-        build-snaps:
-        - qt-framework-sdk
-        plugin: cmake
-        cmake-generator: Ninja
-        cmake-parameters:
-        - -DCMAKE_INSTALL_PREFIX=/usr
-        - -DCMAKE_BUILD_TYPE=RelWithDebInfo
-        - -DQT_MAJOR_VERSION=6
-        - -DBUILD_WITH_QT6=ON
-        - -DBUILD_TESTING=OFF
-        - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-        - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-    qca:
-        after:
-        - knotifications
-        source: https://invent.kde.org/libraries/qca.git
-        source-branch: master
-        build-packages:
-        - cmake
-        build-snaps:
-        - qt-framework-sdk
-        plugin: cmake
-        cmake-generator: Ninja
-        cmake-parameters:
-        - -DCMAKE_INSTALL_PREFIX=/usr
-        - -DCMAKE_BUILD_TYPE=RelWithDebInfo
-        - -DQT_MAJOR_VERSION=6
-        - -DBUILD_WITH_QT6=ON
-        - -DBUILD_TESTING=OFF
-        - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-        - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-    kwallet:
-        after:
-        - qca
-        source: https://invent.kde.org/frameworks/kwallet.git
-        source-branch: master
-        build-packages:
-        - cmake
-        build-snaps:
-        - qt-framework-sdk
-        plugin: cmake
-        cmake-generator: Ninja
-        cmake-parameters:
-        - -DCMAKE_INSTALL_PREFIX=/usr
-        - -DCMAKE_BUILD_TYPE=RelWithDebInfo
-        - -DQT_MAJOR_VERSION=6
-        - -DBUILD_WITH_QT6=ON
-        - -DBUILD_TESTING=OFF
-        - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-        - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-    kjobwidgets:
-        after:
-        - kwallet
-        source: https://invent.kde.org/frameworks/kjobwidgets.git
-        source-branch: master
-        build-packages:
-        - cmake
-        build-snaps:
-        - qt-framework-sdk
-        plugin: cmake
-        cmake-generator: Ninja
-        cmake-parameters:
-        - -DCMAKE_INSTALL_PREFIX=/usr
-        - -DCMAKE_BUILD_TYPE=RelWithDebInfo
-        - -DQT_MAJOR_VERSION=6
-        - -DBUILD_WITH_QT6=ON
-        - -DBUILD_TESTING=OFF
-        - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-        - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-    solid:
-        after:
-        - kjobwidgets
-        source: https://invent.kde.org/frameworks/solid.git
-        source-branch: master
-        build-packages:
-        - cmake
-        build-snaps:
-        - qt-framework-sdk
-        plugin: cmake
-        cmake-generator: Ninja
-        cmake-parameters:
-        - -DCMAKE_INSTALL_PREFIX=/usr
-        - -DCMAKE_BUILD_TYPE=RelWithDebInfo
-        - -DQT_MAJOR_VERSION=6
-        - -DBUILD_WITH_QT6=ON
-        - -DBUILD_TESTING=OFF
-        - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-        - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-    kio:
-        after:
-        - solid
-        source: https://invent.kde.org/frameworks/kio.git
-        source-branch: master
-        build-packages:
-        - cmake
-        build-snaps:
-        - qt-framework-sdk
-        plugin: cmake
-        cmake-generator: Ninja
-        cmake-parameters:
-        - -DCMAKE_INSTALL_PREFIX=/usr
-        - -DCMAKE_BUILD_TYPE=RelWithDebInfo
-        - -DQT_MAJOR_VERSION=6
-        - -DBUILD_WITH_QT6=ON
-        - -DBUILD_TESTING=OFF
-        - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-        - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-    kparts:
-        after:
-        - kio
-        source: https://invent.kde.org/frameworks/kparts.git
-        source-branch: master
-        build-packages:
-        - cmake
-        build-snaps:
-        - qt-framework-sdk
-        plugin: cmake
-        cmake-generator: Ninja
-        cmake-parameters:
-        - -DCMAKE_INSTALL_PREFIX=/usr
-        - -DCMAKE_BUILD_TYPE=RelWithDebInfo
-        - -DQT_MAJOR_VERSION=6
-        - -DBUILD_WITH_QT6=ON
-        - -DBUILD_TESTING=OFF
-        - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-        - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-    kplotting:
-        after:
-        - kparts
-        source: https://invent.kde.org/frameworks/kplotting.git
-        source-branch: master
-        build-packages:
-        - cmake
-        build-snaps:
-        - qt-framework-sdk
-        plugin: cmake
-        cmake-generator: Ninja
-        cmake-parameters:
-        - -DCMAKE_INSTALL_PREFIX=/usr
-        - -DCMAKE_BUILD_TYPE=RelWithDebInfo
-        - -DQT_MAJOR_VERSION=6
-        - -DBUILD_WITH_QT6=ON
-        - -DBUILD_TESTING=OFF
-        - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-        - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-    kded:
-        after:
-        - kplotting
-        source: https://invent.kde.org/frameworks/kded.git
-        source-branch: master
-        build-packages:
-        - cmake
-        build-snaps:
-        - qt-framework-sdk
-        plugin: cmake
-        cmake-generator: Ninja
-        cmake-parameters:
-        - -DCMAKE_INSTALL_PREFIX=/usr
-        - -DCMAKE_BUILD_TYPE=RelWithDebInfo
-        - -DQT_MAJOR_VERSION=6
-        - -DBUILD_WITH_QT6=ON
-        - -DBUILD_TESTING=OFF
-        - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-        - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-    kunitconversion:
-        after:
-        - kded
-        source: https://invent.kde.org/frameworks/kunitconversion.git
-        source-branch: master
-        build-packages:
-        - cmake
-        build-snaps:
-        - qt-framework-sdk
-        plugin: cmake
-        cmake-generator: Ninja
-        cmake-parameters:
-        - -DCMAKE_INSTALL_PREFIX=/usr
-        - -DCMAKE_BUILD_TYPE=RelWithDebInfo
-        - -DQT_MAJOR_VERSION=6
-        - -DBUILD_WITH_QT6=ON
-        - -DBUILD_TESTING=OFF
-        - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-        - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-    kdeclarative:
-        after:
-        - kunitconversion
-        source: https://invent.kde.org/frameworks/kdeclarative.git
-        source-branch: master
-        build-packages:
-        - cmake
-        build-snaps:
-        - qt-framework-sdk
-        plugin: cmake
-        cmake-generator: Ninja
-        cmake-parameters:
-        - -DCMAKE_INSTALL_PREFIX=/usr
-        - -DCMAKE_BUILD_TYPE=RelWithDebInfo
-        - -DQT_MAJOR_VERSION=6
-        - -DBUILD_WITH_QT6=ON
-        - -DBUILD_TESTING=OFF
-        - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-        - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-    kactivities:
-        after:
-        - kdeclarative
-        source: https://invent.kde.org/frameworks/kactivities.git
-        source-branch: master
-        build-packages:
-        - cmake
-        build-snaps:
-        - qt-framework-sdk
-        plugin: cmake
-        cmake-generator: Ninja
-        cmake-parameters:
-        - -DCMAKE_INSTALL_PREFIX=/usr
-        - -DCMAKE_BUILD_TYPE=RelWithDebInfo
-        - -DQT_MAJOR_VERSION=6
-        - -DBUILD_WITH_QT6=ON
-        - -DBUILD_TESTING=OFF
-        - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-        - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-    kcmutils:
-        after:
-        - kactivities
-        source: https://invent.kde.org/frameworks/kcmutils.git
-        source-branch: master
-        build-packages:
-        - cmake
-        build-snaps:
-        - qt-framework-sdk
-        plugin: cmake
-        cmake-generator: Ninja
-        cmake-parameters:
-        - -DCMAKE_INSTALL_PREFIX=/usr
-        - -DCMAKE_BUILD_TYPE=RelWithDebInfo
-        - -DQT_MAJOR_VERSION=6
-        - -DBUILD_WITH_QT6=ON
-        - -DBUILD_TESTING=OFF
-        - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-        - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-    knotifyconfig:
-        after:
-        - kcmutils
-        source: https://invent.kde.org/frameworks/knotifyconfig.git
-        source-branch: master
-        build-packages:
-        - cmake
-        build-snaps:
-        - qt-framework-sdk
-        plugin: cmake
-        cmake-generator: Ninja
-        cmake-parameters:
-        - -DCMAKE_INSTALL_PREFIX=/usr
-        - -DCMAKE_BUILD_TYPE=RelWithDebInfo
-        - -DQT_MAJOR_VERSION=6
-        - -DBUILD_WITH_QT6=ON
-        - -DBUILD_TESTING=OFF
-        - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-        - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-    knewstuff:
-        after:
-        - knotifyconfig
-        source: https://invent.kde.org/frameworks/knewstuff.git
-        source-branch: master
-        build-packages:
-        - cmake
-        build-snaps:
-        - qt-framework-sdk
-        plugin: cmake
-        cmake-generator: Ninja
-        cmake-parameters:
-        - -DCMAKE_INSTALL_PREFIX=/usr
-        - -DCMAKE_BUILD_TYPE=RelWithDebInfo
-        - -DQT_MAJOR_VERSION=6
-        - -DBUILD_WITH_QT6=ON
-        - -DBUILD_TESTING=OFF
-        - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-        - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-    kidletime:
-        after:
-        - knewstuff
-        source: https://invent.kde.org/frameworks/kidletime.git
-        source-branch: master
-        build-packages:
-        - cmake
-        build-snaps:
-        - qt-framework-sdk
-        plugin: cmake
-        cmake-generator: Ninja
-        cmake-parameters:
-        - -DCMAKE_INSTALL_PREFIX=/usr
-        - -DCMAKE_BUILD_TYPE=RelWithDebInfo
-        - -DQT_MAJOR_VERSION=6
-        - -DBUILD_WITH_QT6=ON
-        - -DBUILD_TESTING=OFF
-        - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-        - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-    threadweaver:
-        after:
-        - kidletime
-        source: https://invent.kde.org/frameworks/threadweaver.git
-        source-branch: master
-        build-packages:
-        - cmake
-        build-snaps:
-        - qt-framework-sdk
-        plugin: cmake
-        cmake-generator: Ninja
-        cmake-parameters:
-        - -DCMAKE_INSTALL_PREFIX=/usr
-        - -DCMAKE_BUILD_TYPE=RelWithDebInfo
-        - -DQT_MAJOR_VERSION=6
-        - -DBUILD_WITH_QT6=ON
-        - -DBUILD_TESTING=OFF
-        - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-        - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-    kitemmodels:
-        after:
-        - threadweaver
-        source: https://invent.kde.org/frameworks/kitemmodels.git
-        source-branch: master
-        build-packages:
-        - cmake
-        build-snaps:
-        - qt-framework-sdk
-        plugin: cmake
-        cmake-generator: Ninja
-        cmake-parameters:
-        - -DCMAKE_INSTALL_PREFIX=/usr
-        - -DCMAKE_BUILD_TYPE=RelWithDebInfo
-        - -DQT_MAJOR_VERSION=6
-        - -DBUILD_WITH_QT6=ON
-        - -DBUILD_TESTING=OFF
-        - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-        - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-    kdnssd:
-        after:
-        - kitemmodels
-        source: https://invent.kde.org/frameworks/kdnssd.git
-        source-branch: master
-        build-packages:
-        - cmake
-        build-snaps:
-        - qt-framework-sdk
-        plugin: cmake
-        cmake-generator: Ninja
-        cmake-parameters:
-        - -DCMAKE_INSTALL_PREFIX=/usr
-        - -DCMAKE_BUILD_TYPE=RelWithDebInfo
-        - -DQT_MAJOR_VERSION=6
-        - -DBUILD_WITH_QT6=ON
-        - -DBUILD_TESTING=OFF
-        - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-        - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-    kquickcharts:
-        after:
-        - kdnssd
-        source: https://invent.kde.org/frameworks/kquickcharts.git
-        source-branch: master
-        build-packages:
-        - cmake
-        build-snaps:
-        - qt-framework-sdk
-        plugin: cmake
-        cmake-generator: Ninja
-        cmake-parameters:
-        - -DCMAKE_INSTALL_PREFIX=/usr
-        - -DCMAKE_BUILD_TYPE=RelWithDebInfo
-        - -DQT_MAJOR_VERSION=6
-        - -DBUILD_WITH_QT6=ON
-        - -DBUILD_TESTING=OFF
-        - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-        - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-    syntax-highlighting:
-        after:
-        - kquickcharts
-        source: https://invent.kde.org/frameworks/syntax-highlighting.git
-        source-branch: master
-        build-packages:
-        - cmake
-        build-snaps:
-        - qt-framework-sdk
-        plugin: cmake
-        cmake-generator: Ninja
-        cmake-parameters:
-        - -DCMAKE_INSTALL_PREFIX=/usr
-        - -DCMAKE_BUILD_TYPE=RelWithDebInfo
-        - -DQT_MAJOR_VERSION=6
-        - -DBUILD_WITH_QT6=ON
-        - -DBUILD_TESTING=OFF
-        - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-        - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-    ktexteditor:
-        after:
-        - syntax-highlighting
-        source: https://invent.kde.org/frameworks/ktexteditor.git
-        source-branch: master
-        build-packages:
-        - cmake
-        build-snaps:
-        - qt-framework-sdk
-        plugin: cmake
-        cmake-generator: Ninja
-        cmake-parameters:
-        - -DCMAKE_INSTALL_PREFIX=/usr
-        - -DCMAKE_BUILD_TYPE=RelWithDebInfo
-        - -DQT_MAJOR_VERSION=6
-        - -DBUILD_WITH_QT6=ON
-        - -DBUILD_TESTING=OFF
-        - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-        - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-    frameworkintegration:
-        after:
-        - ktexteditor
-        source: https://invent.kde.org/frameworks/frameworkintegration.git
-        source-branch: master
-        build-packages:
-        - cmake
-        build-snaps:
-        - qt-framework-sdk
-        plugin: cmake
-        cmake-generator: Ninja
-        cmake-parameters:
-        - -DCMAKE_INSTALL_PREFIX=/usr
-        - -DCMAKE_BUILD_TYPE=RelWithDebInfo
-        - -DQT_MAJOR_VERSION=6
-        - -DBUILD_WITH_QT6=ON
-        - -DBUILD_TESTING=OFF
-        - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-        - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-    kpty:
-        after:
-        - frameworkintegration
-        source: https://invent.kde.org/frameworks/kpty.git
-        source-branch: master
-        build-packages:
-        - cmake
-        build-snaps:
-        - qt-framework-sdk
-        plugin: cmake
-        cmake-generator: Ninja
-        cmake-parameters:
-        - -DCMAKE_INSTALL_PREFIX=/usr
-        - -DCMAKE_BUILD_TYPE=RelWithDebInfo
-        - -DQT_MAJOR_VERSION=6
-        - -DBUILD_WITH_QT6=ON
-        - -DBUILD_TESTING=OFF
-        - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-        - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-    kwayland:
-        after:
-        - kpty
-        source: https://invent.kde.org/frameworks/kwayland.git
-        source-branch: master
-        build-packages:
-        - cmake
-        build-snaps:
-        - qt-framework-sdk
-        plugin: cmake
-        cmake-generator: Ninja
-        cmake-parameters:
-        - -DCMAKE_INSTALL_PREFIX=/usr
-        - -DCMAKE_BUILD_TYPE=RelWithDebInfo
-        - -DQT_MAJOR_VERSION=6
-        - -DBUILD_WITH_QT6=ON
-        - -DBUILD_TESTING=OFF
-        - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-        - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-    kirigami:
-        after:
-        - kwayland
-        source: https://invent.kde.org/frameworks/kirigami.git
-        source-branch: master
-        build-packages:
-        - cmake
-        build-snaps:
-        - qt-framework-sdk
-        plugin: cmake
-        cmake-generator: Ninja
-        cmake-parameters:
-        - -DCMAKE_INSTALL_PREFIX=/usr
-        - -DCMAKE_BUILD_TYPE=RelWithDebInfo
-        - -DQT_MAJOR_VERSION=6
-        - -DBUILD_WITH_QT6=ON
-        - -DBUILD_TESTING=OFF
-        - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-        - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-    qqc2-desktop-style:
-        after:
-        - kirigami
-        source: https://invent.kde.org/frameworks/qqc2-desktop-style.git
-        source-branch: master
-        build-packages:
-        - cmake
-        build-snaps:
-        - qt-framework-sdk
-        plugin: cmake
-        cmake-generator: Ninja
-        cmake-parameters:
-        - -DCMAKE_INSTALL_PREFIX=/usr
-        - -DCMAKE_BUILD_TYPE=RelWithDebInfo
-        - -DQT_MAJOR_VERSION=6
-        - -DBUILD_WITH_QT6=ON
-        - -DBUILD_TESTING=OFF
-        - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-        - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-    kcontacts:
-        after:
-        - qqc2-desktop-style
-        source: https://invent.kde.org/frameworks/kcontacts.git
-        source-branch: master
-        build-packages:
-        - cmake
-        build-snaps:
-        - qt-framework-sdk
-        plugin: cmake
-        cmake-generator: Ninja
-        cmake-parameters:
-        - -DCMAKE_INSTALL_PREFIX=/usr
-        - -DCMAKE_BUILD_TYPE=RelWithDebInfo
-        - -DQT_MAJOR_VERSION=6
-        - -DBUILD_WITH_QT6=ON
-        - -DBUILD_TESTING=OFF
-        - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-        - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-    kcalendarcore:
-        after:
-        - kcontacts
-        source: https://invent.kde.org/frameworks/kcalendarcore.git
-        source-branch: master
-        build-packages:
-        - cmake
-        - libical-dev
-        stage-packages:
-        - libical3
-        build-snaps:
-        - qt-framework-sdk
-        plugin: cmake
-        cmake-generator: Ninja
-        cmake-parameters:
-        - -DCMAKE_INSTALL_PREFIX=/usr
-        - -DCMAKE_BUILD_TYPE=RelWithDebInfo
-        - -DQT_MAJOR_VERSION=6
-        - -DBUILD_WITH_QT6=ON
-        - -DBUILD_TESTING=OFF
-        - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-        - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-    kholidays:
-        after:
-        - kcalendarcore
-        source: https://invent.kde.org/frameworks/kholidays.git
-        source-branch: master
-        build-packages:
-        - cmake
-        build-snaps:
-        - qt-framework-sdk
-        plugin: cmake
-        cmake-generator: Ninja
-        cmake-parameters:
-        - -DCMAKE_INSTALL_PREFIX=/usr
-        - -DCMAKE_BUILD_TYPE=RelWithDebInfo
-        - -DQT_MAJOR_VERSION=6
-        - -DBUILD_WITH_QT6=ON
-        - -DBUILD_TESTING=OFF
-        - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-        - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-    prison:
-        after:
-        - kholidays
-        source: https://invent.kde.org/frameworks/prison.git
-        source-branch: master
-        build-packages:
-        - cmake
-        - libqrencode-dev
-        - libdmtx-dev
-        - libzxingcore-dev
-        stage-packages:
-        - libqrencode4
-        - libdmtx0b
-        - libzxingcore1
-        build-snaps:
-        - qt-framework-sdk
-        plugin: cmake
-        cmake-generator: Ninja
-        cmake-parameters:
-        - -DCMAKE_INSTALL_PREFIX=/usr
-        - -DCMAKE_BUILD_TYPE=RelWithDebInfo
-        - -DQT_MAJOR_VERSION=6
-        - -DBUILD_WITH_QT6=ON
-        - -DBUILD_TESTING=OFF
-        - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-        - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-    syndication:
-        after:
-        - prison
-        source: https://invent.kde.org/frameworks/syndication.git
-        source-branch: master
-        build-packages:
-        - cmake
-        build-snaps:
-        - qt-framework-sdk
-        plugin: cmake
-        cmake-generator: Ninja
-        cmake-parameters:
-        - -DCMAKE_INSTALL_PREFIX=/usr
-        - -DCMAKE_BUILD_TYPE=RelWithDebInfo
-        - -DQT_MAJOR_VERSION=6
-        - -DBUILD_WITH_QT6=ON
-        - -DBUILD_TESTING=OFF
-        - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-        - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-    purpose:
-        after:
-        - syndication
-        source: https://invent.kde.org/frameworks/purpose.git
-        source-branch: master
-        build-packages:
-        - cmake
-        build-snaps:
-        - qt-framework-sdk
-        plugin: cmake
-        cmake-generator: Ninja
-        cmake-parameters:
-        - -DCMAKE_INSTALL_PREFIX=/usr
-        - -DCMAKE_BUILD_TYPE=RelWithDebInfo
-        - -DQT_MAJOR_VERSION=6
-        - -DBUILD_WITH_QT6=ON
-        - -DBUILD_TESTING=OFF
-        - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-        - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-    kdav:
-        after:
-        - purpose
-        source: https://invent.kde.org/frameworks/kdav.git
-        source-branch: master
-        build-packages:
-        - cmake
-        build-snaps:
-        - qt-framework-sdk
-        plugin: cmake
-        cmake-generator: Ninja
-        cmake-parameters:
-        - -DCMAKE_INSTALL_PREFIX=/usr
-        - -DCMAKE_BUILD_TYPE=RelWithDebInfo
-        - -DQT_MAJOR_VERSION=6
-        - -DBUILD_WITH_QT6=ON
-        - -DBUILD_TESTING=OFF
-        - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-        - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-    ksvg:
-        after:
-        - kdav
-        source: https://invent.kde.org/frameworks/ksvg.git
-        source-branch: master
-        build-packages:
-        - cmake
-        build-snaps:
-        - qt-framework-sdk
-        plugin: cmake
-        cmake-generator: Ninja
-        cmake-parameters:
-        - -DCMAKE_INSTALL_PREFIX=/usr
-        - -DCMAKE_BUILD_TYPE=RelWithDebInfo
-        - -DQT_MAJOR_VERSION=6
-        - -DBUILD_WITH_QT6=ON
-        - -DBUILD_TESTING=OFF
-        - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-        - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-    plasma-framework:
-        after:
-        - ksvg
-        source: https://invent.kde.org/frameworks/plasma-framework.git
-        source-branch: master
-        build-packages:
-        - cmake
-        build-snaps:
-        - qt-framework-sdk
-        plugin: cmake
-        cmake-generator: Ninja
-        cmake-parameters:
-        - -DCMAKE_INSTALL_PREFIX=/usr
-        - -DCMAKE_BUILD_TYPE=RelWithDebInfo
-        - -DQT_MAJOR_VERSION=6
-        - -DBUILD_WITH_QT6=ON
-        - -DBUILD_TESTING=OFF
-        - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-        - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-    breeze-icons:
-        after:
-        - plasma-framework
-        source: https://invent.kde.org/frameworks/breeze-icons.git
-        source-branch: master
-        build-packages:
-        - cmake
-        build-snaps:
-        - qt-framework-sdk
-        plugin: cmake
-        cmake-generator: Ninja
-        cmake-parameters:
-        - -DCMAKE_INSTALL_PREFIX=/usr
-        - -DCMAKE_BUILD_TYPE=RelWithDebInfo
-        - -DQT_MAJOR_VERSION=6
-        - -DBUILD_WITH_QT6=ON
-        - -DBUILD_TESTING=OFF
-        - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-        - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-        prime:
-        - "-*.rcc"
-    libjxl:
-        after:
-        - breeze-icons
-        source: https://github.com/libjxl/libjxl.git
-        source-tag: v0.7.0
-        build-packages:
-        - cmake
-        build-snaps:
-        - qt-framework-sdk
-        plugin: cmake
-        cmake-generator: Ninja
-        cmake-parameters:
-        - -DCMAKE_INSTALL_PREFIX=/usr
-        - -DCMAKE_BUILD_TYPE=RelWithDebInfo
-        - -DQT_MAJOR_VERSION=6
-        - -DBUILD_WITH_QT6=ON
-        - -DBUILD_TESTING=OFF
-        - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-        - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-        - "-DJPEGXL_ENABLE_BENCHMARK=OFF"
-        - "-DJPEGXL_ENABLE_DOXYGEN=OFF"
-        - "-DJPEGXL_ENABLE_EXAMPLES=OFF"
-        - "-DJPEGXL_ENABLE_JNI=OFF"
-        - "-DJPEGXL_ENABLE_MANPAGES=OFF"
-        - "-DJPEGXL_ENABLE_PLUGINS=OFF"
-        - "-DJPEGXL_ENABLE_SJPEG=OFF"
-        - "-DJPEGXL_ENABLE_SKCMS=ON"
-        - "-DJPEGXL_ENABLE_TCMALLOC=OFF"
-        - "-DJPEGXL_ENABLE_TOOLS=OFF"
-        - "-DJPEGXL_FORCE_SYSTEM_BROTLI=ON"
-        - "-DJPEGXL_WARNINGS_AS_ERRORS=OFF"
-        prime:
-        - "-*.a"
-        - "-/include/hwy"
-        - "-/include/jxl"
-        - "-*.pc"
-        - "-libjxl_threads.so"
-        - "-libjxl.so"
-    kimageformats:
-        after:
-        - libjxl
-        source: https://invent.kde.org/frameworks/kimageformats.git
-        source-branch: master
-        build-packages:
-        - cmake
-        - libavif-dev
-        stage-packages:
-        - libavif13
-        build-snaps:
-        - qt-framework-sdk
-        plugin: cmake
-        cmake-generator: Ninja
-        cmake-parameters:
-        - -DCMAKE_INSTALL_PREFIX=/usr
-        - -DCMAKE_BUILD_TYPE=RelWithDebInfo
-        - -DQT_MAJOR_VERSION=6
-        - -DBUILD_WITH_QT6=ON
-        - -DBUILD_TESTING=OFF
-        - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-        - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-    bluez-qt:
-        after:
-        - kimageformats
-        source: https://invent.kde.org/frameworks/bluez-qt.git
-        source-branch: master
-        build-packages:
-        - cmake
-        build-snaps:
-        - qt-framework-sdk
-        plugin: cmake
-        cmake-generator: Ninja
-        cmake-parameters:
-        - -DCMAKE_INSTALL_PREFIX=/usr
-        - -DCMAKE_BUILD_TYPE=RelWithDebInfo
-        - -DQT_MAJOR_VERSION=6
-        - -DBUILD_WITH_QT6=ON
-        - -DBUILD_TESTING=OFF
-        - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-        - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-    kstatusnotifieritem:
-        after:
-        - bluez-qt
-        source: https://invent.kde.org/frameworks/kstatusnotifieritem.git
-        source-branch: master
-        build-packages:
-        - cmake
-        build-snaps:
-        - qt-framework-sdk
-        plugin: cmake
-        cmake-generator: Ninja
-        cmake-parameters:
-        - -DCMAKE_INSTALL_PREFIX=/usr
-        - -DCMAKE_BUILD_TYPE=RelWithDebInfo
-        - -DQT_MAJOR_VERSION=6
-        - -DBUILD_WITH_QT6=ON
-        - -DBUILD_TESTING=OFF
-        - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-        - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-    kio-extras:
-        after:
-        - kstatusnotifieritem
-        source: https://invent.kde.org/network/kio-extras.git
-        source-branch: master
-        build-packages:
-        - cmake
-        build-snaps:
-        - qt-framework-sdk
-        plugin: cmake
-        cmake-generator: Ninja
-        cmake-parameters:
-        - -DCMAKE_INSTALL_PREFIX=/usr
-        - -DCMAKE_BUILD_TYPE=RelWithDebInfo
-        - -DQT_MAJOR_VERSION=6
-        - -DBUILD_WITH_QT6=ON
-        - -DBUILD_TESTING=OFF
-        - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-        - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-    breeze:
-        after:
-        - kio-extras
-        source: https://invent.kde.org/plasma/breeze.git
-        source-branch: master
-        build-packages:
-        - cmake
-        build-snaps:
-        - qt-framework-sdk
-        plugin: cmake
-        cmake-generator: Ninja
-        cmake-parameters:
-        - -DCMAKE_INSTALL_PREFIX=/usr
-        - -DCMAKE_BUILD_TYPE=RelWithDebInfo
-        - -DQT_MAJOR_VERSION=6
-        - -DBUILD_WITH_QT6=ON
-        - -DBUILD_TESTING=OFF
-        - "-DWITH_DECORATIONS=OFF"
-        - "-DWITH_WALLPAPERS=OFF"
-        - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-        - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-    plasma-integration:
-        after:
-        - breeze
-        source: https://invent.kde.org/plasma/plasma-integration.git
-        source-branch: master
-        build-packages:
-        - cmake
-        build-snaps:
-        - qt-framework-sdk
-        plugin: cmake
-        cmake-generator: Ninja
-        cmake-parameters:
-        - -DCMAKE_INSTALL_PREFIX=/usr
-        - -DCMAKE_BUILD_TYPE=RelWithDebInfo
-        - -DQT_MAJOR_VERSION=6
-        - -DBUILD_WITH_QT6=ON
-        - -DBUILD_TESTING=OFF
-        - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-        - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-    kwayland-integration:
-        after:
-        - plasma-integration
-        source: https://invent.kde.org/plasma/kwayland-integration.git
-        source-branch: master
-        build-packages:
-        - cmake
-        build-snaps:
-        - qt-framework-sdk
-        plugin: cmake
-        cmake-generator: Ninja
-        cmake-parameters:
-        - -DCMAKE_INSTALL_PREFIX=/usr
-        - -DCMAKE_BUILD_TYPE=RelWithDebInfo
-        - -DQT_MAJOR_VERSION=6
-        - -DBUILD_WITH_QT6=ON
-        - -DBUILD_TESTING=OFF
-        - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-        - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-    qqc2-breeze-style:
-        after:
-        - kwayland-integration
-        source: https://invent.kde.org/plasma/qqc2-breeze-style.git
-        source-branch: master
-        build-packages:
-        - cmake
-        build-snaps:
-        - qt-framework-sdk
-        plugin: cmake
-        cmake-generator: Ninja
-        cmake-parameters:
-        - -DCMAKE_INSTALL_PREFIX=/usr
-        - -DCMAKE_BUILD_TYPE=RelWithDebInfo
-        - -DQT_MAJOR_VERSION=6
-        - -DBUILD_WITH_QT6=ON
-        - -DBUILD_TESTING=OFF
-        - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-        - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+    # kcolorscheme:
+    #     after:
+    #     - extra-cmake-modules
+    #     - kconfig
+    #     - kguiaddons
+    #     - ki18n
+    #     source: https://invent.kde.org/frameworks/kcolorscheme.git
+    #     source-branch: master
+    #     build-packages:
+    #     - cmake
+    #     - libglx-dev
+    #     - libgl1-mesa-dev
+    #     build-snaps:
+    #     - qt-framework-sdk
+    #     plugin: cmake
+    #     cmake-generator: Ninja
+    #     cmake-parameters:
+    #     - -DCMAKE_INSTALL_PREFIX=/usr
+    #     - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+    #     - -DQT_MAJOR_VERSION=6
+    #     - -DBUILD_WITH_QT6=ON
+    #     - -DBUILD_TESTING=OFF
+    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current/usr\\;/usr"
+    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current/usr\\;/usr"
+    # kconfigwidgets:
+    #     after:
+    #     - kcolorscheme
+    #     - extra-cmake-modules
+    #     - kauth
+    #     - kcodecs
+    #     - kcolorscheme
+    #     - kconfig
+    #     - kcoreaddons
+    #     - kdoctools
+    #     - kguiaddons
+    #     - ki18n
+    #     - kwidgetsaddons
+    #     source: https://invent.kde.org/frameworks/kconfigwidgets.git
+    #     source-branch: master
+    #     build-packages:
+    #     - cmake
+    #     - docbook-xml
+    #     - docbook-xsl
+    #     - doxygen
+    #     - graphviz
+    #     - libxml2-utils
+    #     stage-packages:
+    #     - perl
+    #     build-snaps:
+    #     - qt-framework-sdk
+    #     plugin: cmake
+    #     cmake-generator: Ninja
+    #     cmake-parameters:
+    #     - -DCMAKE_INSTALL_PREFIX=/usr
+    #     - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+    #     - -DQT_MAJOR_VERSION=6
+    #     - -DBUILD_WITH_QT6=ON
+    #     - -DBUILD_TESTING=OFF
+    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+    # kiconthemes:
+    #     after:
+    #     - kitemviews
+    #     - extra-cmake-modules
+    #     - karchive
+    #     - kauth
+    #     - kcodecs
+    #     - kcolorscheme
+    #     - kconfig
+    #     - kconfigwidgets
+    #     - kcoreaddons
+    #     - ki18n
+    #     - kitemviews
+    #     - kwidgetsaddons
+    #     source: https://invent.kde.org/frameworks/kiconthemes.git
+    #     source-branch: master
+    #     build-packages:
+    #     - cmake
+    #     - doxygen
+    #     - graphviz
+    #     build-snaps:
+    #     - qt-framework-sdk
+    #     plugin: cmake
+    #     cmake-generator: Ninja
+    #     cmake-parameters:
+    #     - -DCMAKE_INSTALL_PREFIX=/usr
+    #     - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+    #     - -DQT_MAJOR_VERSION=6
+    #     - -DBUILD_WITH_QT6=ON
+    #     - -DBUILD_TESTING=OFF
+    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+    # sonnet:
+    #     after:
+    #     - kglobalaccel
+    #     source: https://invent.kde.org/frameworks/sonnet.git
+    #     source-branch: master
+    #     build-packages:
+    #     - cmake
+    #     build-snaps:
+    #     - qt-framework-sdk
+    #     plugin: cmake
+    #     cmake-generator: Ninja
+    #     cmake-parameters:
+    #     - -DCMAKE_INSTALL_PREFIX=/usr
+    #     - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+    #     - -DQT_MAJOR_VERSION=6
+    #     - -DBUILD_WITH_QT6=ON
+    #     - -DBUILD_TESTING=OFF
+    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+    # kcompletion:
+    #     after:
+    #     - sonnet
+    #     source: https://invent.kde.org/frameworks/kcompletion.git
+    #     source-branch: master
+    #     build-packages:
+    #     - cmake
+    #     build-snaps:
+    #     - qt-framework-sdk
+    #     plugin: cmake
+    #     cmake-generator: Ninja
+    #     cmake-parameters:
+    #     - -DCMAKE_INSTALL_PREFIX=/usr
+    #     - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+    #     - -DQT_MAJOR_VERSION=6
+    #     - -DBUILD_WITH_QT6=ON
+    #     - -DBUILD_TESTING=OFF
+    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+    # ktextwidgets:
+    #     after:
+    #     - kcompletion
+    #     source: https://invent.kde.org/frameworks/ktextwidgets.git
+    #     source-branch: master
+    #     build-packages:
+    #     - cmake
+    #     build-snaps:
+    #     - qt-framework-sdk
+    #     plugin: cmake
+    #     cmake-generator: Ninja
+    #     cmake-parameters:
+    #     - -DCMAKE_INSTALL_PREFIX=/usr
+    #     - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+    #     - -DQT_MAJOR_VERSION=6
+    #     - -DBUILD_WITH_QT6=ON
+    #     - -DBUILD_TESTING=OFF
+    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+    # kxmlgui:
+    #     after:
+    #     - ktextwidgets
+    #     source: https://invent.kde.org/frameworks/kxmlgui.git
+    #     source-branch: master
+    #     build-packages:
+    #     - cmake
+    #     build-snaps:
+    #     - qt-framework-sdk
+    #     plugin: cmake
+    #     cmake-generator: Ninja
+    #     cmake-parameters:
+    #     - -DCMAKE_INSTALL_PREFIX=/usr
+    #     - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+    #     - -DQT_MAJOR_VERSION=6
+    #     - -DBUILD_WITH_QT6=ON
+    #     - -DBUILD_TESTING=OFF
+    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+    # perl-uri-escape:
+    #     after:
+    #     - kxmlgui
+    #     source: https://cpan.metacpan.org/authors/id/O/OA/OALDERS/URI-5.21.tar.gz
+    #     source-type: tar
+    #     build-packages:
+    #     - perl
+    #     build-snaps:
+    #     - qt-framework-sdk
+    #     plugin: nil
+    #     override-build: |
+    #         craftctl default
+    #         perl Makefile.PL INSTALLDIRS=/usr
+    # kdoctools:
+    #     after:
+    #     - perl-uri-escape
+    #     source: https://invent.kde.org/frameworks/kdoctools.git
+    #     source-branch: master
+    #     build-packages:
+    #     - cmake
+    #     build-snaps:
+    #     - qt-framework-sdk
+    #     plugin: cmake
+    #     cmake-generator: Ninja
+    #     cmake-parameters:
+    #     - -DCMAKE_INSTALL_PREFIX=/usr
+    #     - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+    #     - -DQT_MAJOR_VERSION=6
+    #     - -DBUILD_WITH_QT6=ON
+    #     - -DBUILD_TESTING=OFF
+    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+    # kpackage:
+    #     after:
+    #     - kdoctools
+    #     source: https://invent.kde.org/frameworks/kpackage.git
+    #     source-branch: master
+    #     build-packages:
+    #     - cmake
+    #     build-snaps:
+    #     - qt-framework-sdk
+    #     plugin: cmake
+    #     cmake-generator: Ninja
+    #     cmake-parameters:
+    #     - -DCMAKE_INSTALL_PREFIX=/usr
+    #     - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+    #     - -DQT_MAJOR_VERSION=6
+    #     - -DBUILD_WITH_QT6=ON
+    #     - -DBUILD_TESTING=OFF
+    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+    # kbookmarks:
+    #     after:
+    #     - kpackage
+    #     source: https://invent.kde.org/frameworks/kbookmarks.git
+    #     source-branch: master
+    #     build-packages:
+    #     - cmake
+    #     build-snaps:
+    #     - qt-framework-sdk
+    #     plugin: cmake
+    #     cmake-generator: Ninja
+    #     cmake-parameters:
+    #     - -DCMAKE_INSTALL_PREFIX=/usr
+    #     - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+    #     - -DQT_MAJOR_VERSION=6
+    #     - -DBUILD_WITH_QT6=ON
+    #     - -DBUILD_TESTING=OFF
+    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+    # kfilemetadata:
+    #     after:
+    #     - kbookmarks
+    #     source: https://invent.kde.org/frameworks/kfilemetadata.git
+    #     source-branch: master
+    #     build-packages:
+    #     - cmake
+    #     - libtag1-dev
+    #     build-snaps:
+    #     - qt-framework-sdk
+    #     plugin: cmake
+    #     cmake-generator: Ninja
+    #     cmake-parameters:
+    #     - -DCMAKE_INSTALL_PREFIX=/usr
+    #     - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+    #     - -DQT_MAJOR_VERSION=6
+    #     - -DBUILD_WITH_QT6=ON
+    #     - -DBUILD_TESTING=OFF
+    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+    # phonon:
+    #     after:
+    #     - kfilemetadata
+    #     source: https://invent.kde.org/libraries/phonon.git
+    #     source-branch: master
+    #     build-packages:
+    #     - cmake
+    #     build-snaps:
+    #     - qt-framework-sdk
+    #     plugin: cmake
+    #     cmake-generator: Ninja
+    #     cmake-parameters:
+    #     - -DCMAKE_INSTALL_PREFIX=/usr
+    #     - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+    #     - -DQT_MAJOR_VERSION=6
+    #     - -DPHONON_BUILD_QT5=OFF
+    #     - -DPHONON_BUILD_QT6=ON
+    #     - -DBUILD_TESTING=OFF
+    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+    # knotifications:
+    #     after:
+    #     - phonon
+    #     source: https://invent.kde.org/frameworks/knotifications.git
+    #     source-branch: master
+    #     build-packages:
+    #     - cmake
+    #     - libcanberra-dev
+    #     stage-packages:
+    #     - libcanberra0
+    #     build-snaps:
+    #     - qt-framework-sdk
+    #     plugin: cmake
+    #     cmake-generator: Ninja
+    #     cmake-parameters:
+    #     - -DCMAKE_INSTALL_PREFIX=/usr
+    #     - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+    #     - -DQT_MAJOR_VERSION=6
+    #     - -DBUILD_WITH_QT6=ON
+    #     - -DBUILD_TESTING=OFF
+    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+    # qca:
+    #     after:
+    #     - knotifications
+    #     source: https://invent.kde.org/libraries/qca.git
+    #     source-branch: master
+    #     build-packages:
+    #     - cmake
+    #     build-snaps:
+    #     - qt-framework-sdk
+    #     plugin: cmake
+    #     cmake-generator: Ninja
+    #     cmake-parameters:
+    #     - -DCMAKE_INSTALL_PREFIX=/usr
+    #     - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+    #     - -DQT_MAJOR_VERSION=6
+    #     - -DBUILD_WITH_QT6=ON
+    #     - -DBUILD_TESTING=OFF
+    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+    # kwallet:
+    #     after:
+    #     - qca
+    #     source: https://invent.kde.org/frameworks/kwallet.git
+    #     source-branch: master
+    #     build-packages:
+    #     - cmake
+    #     build-snaps:
+    #     - qt-framework-sdk
+    #     plugin: cmake
+    #     cmake-generator: Ninja
+    #     cmake-parameters:
+    #     - -DCMAKE_INSTALL_PREFIX=/usr
+    #     - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+    #     - -DQT_MAJOR_VERSION=6
+    #     - -DBUILD_WITH_QT6=ON
+    #     - -DBUILD_TESTING=OFF
+    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+    # kjobwidgets:
+    #     after:
+    #     - kwallet
+    #     source: https://invent.kde.org/frameworks/kjobwidgets.git
+    #     source-branch: master
+    #     build-packages:
+    #     - cmake
+    #     build-snaps:
+    #     - qt-framework-sdk
+    #     plugin: cmake
+    #     cmake-generator: Ninja
+    #     cmake-parameters:
+    #     - -DCMAKE_INSTALL_PREFIX=/usr
+    #     - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+    #     - -DQT_MAJOR_VERSION=6
+    #     - -DBUILD_WITH_QT6=ON
+    #     - -DBUILD_TESTING=OFF
+    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+    # solid:
+    #     after:
+    #     - kjobwidgets
+    #     source: https://invent.kde.org/frameworks/solid.git
+    #     source-branch: master
+    #     build-packages:
+    #     - cmake
+    #     build-snaps:
+    #     - qt-framework-sdk
+    #     plugin: cmake
+    #     cmake-generator: Ninja
+    #     cmake-parameters:
+    #     - -DCMAKE_INSTALL_PREFIX=/usr
+    #     - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+    #     - -DQT_MAJOR_VERSION=6
+    #     - -DBUILD_WITH_QT6=ON
+    #     - -DBUILD_TESTING=OFF
+    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+    # kio:
+    #     after:
+    #     - solid
+    #     source: https://invent.kde.org/frameworks/kio.git
+    #     source-branch: master
+    #     build-packages:
+    #     - cmake
+    #     build-snaps:
+    #     - qt-framework-sdk
+    #     plugin: cmake
+    #     cmake-generator: Ninja
+    #     cmake-parameters:
+    #     - -DCMAKE_INSTALL_PREFIX=/usr
+    #     - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+    #     - -DQT_MAJOR_VERSION=6
+    #     - -DBUILD_WITH_QT6=ON
+    #     - -DBUILD_TESTING=OFF
+    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+    # kparts:
+    #     after:
+    #     - kio
+    #     source: https://invent.kde.org/frameworks/kparts.git
+    #     source-branch: master
+    #     build-packages:
+    #     - cmake
+    #     build-snaps:
+    #     - qt-framework-sdk
+    #     plugin: cmake
+    #     cmake-generator: Ninja
+    #     cmake-parameters:
+    #     - -DCMAKE_INSTALL_PREFIX=/usr
+    #     - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+    #     - -DQT_MAJOR_VERSION=6
+    #     - -DBUILD_WITH_QT6=ON
+    #     - -DBUILD_TESTING=OFF
+    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+    # kplotting:
+    #     after:
+    #     - kparts
+    #     source: https://invent.kde.org/frameworks/kplotting.git
+    #     source-branch: master
+    #     build-packages:
+    #     - cmake
+    #     build-snaps:
+    #     - qt-framework-sdk
+    #     plugin: cmake
+    #     cmake-generator: Ninja
+    #     cmake-parameters:
+    #     - -DCMAKE_INSTALL_PREFIX=/usr
+    #     - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+    #     - -DQT_MAJOR_VERSION=6
+    #     - -DBUILD_WITH_QT6=ON
+    #     - -DBUILD_TESTING=OFF
+    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+    # kded:
+    #     after:
+    #     - kplotting
+    #     source: https://invent.kde.org/frameworks/kded.git
+    #     source-branch: master
+    #     build-packages:
+    #     - cmake
+    #     build-snaps:
+    #     - qt-framework-sdk
+    #     plugin: cmake
+    #     cmake-generator: Ninja
+    #     cmake-parameters:
+    #     - -DCMAKE_INSTALL_PREFIX=/usr
+    #     - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+    #     - -DQT_MAJOR_VERSION=6
+    #     - -DBUILD_WITH_QT6=ON
+    #     - -DBUILD_TESTING=OFF
+    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+    # kunitconversion:
+    #     after:
+    #     - kded
+    #     source: https://invent.kde.org/frameworks/kunitconversion.git
+    #     source-branch: master
+    #     build-packages:
+    #     - cmake
+    #     build-snaps:
+    #     - qt-framework-sdk
+    #     plugin: cmake
+    #     cmake-generator: Ninja
+    #     cmake-parameters:
+    #     - -DCMAKE_INSTALL_PREFIX=/usr
+    #     - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+    #     - -DQT_MAJOR_VERSION=6
+    #     - -DBUILD_WITH_QT6=ON
+    #     - -DBUILD_TESTING=OFF
+    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+    # kdeclarative:
+    #     after:
+    #     - kunitconversion
+    #     source: https://invent.kde.org/frameworks/kdeclarative.git
+    #     source-branch: master
+    #     build-packages:
+    #     - cmake
+    #     build-snaps:
+    #     - qt-framework-sdk
+    #     plugin: cmake
+    #     cmake-generator: Ninja
+    #     cmake-parameters:
+    #     - -DCMAKE_INSTALL_PREFIX=/usr
+    #     - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+    #     - -DQT_MAJOR_VERSION=6
+    #     - -DBUILD_WITH_QT6=ON
+    #     - -DBUILD_TESTING=OFF
+    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+    # kactivities:
+    #     after:
+    #     - kdeclarative
+    #     source: https://invent.kde.org/frameworks/kactivities.git
+    #     source-branch: master
+    #     build-packages:
+    #     - cmake
+    #     build-snaps:
+    #     - qt-framework-sdk
+    #     plugin: cmake
+    #     cmake-generator: Ninja
+    #     cmake-parameters:
+    #     - -DCMAKE_INSTALL_PREFIX=/usr
+    #     - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+    #     - -DQT_MAJOR_VERSION=6
+    #     - -DBUILD_WITH_QT6=ON
+    #     - -DBUILD_TESTING=OFF
+    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+    # kcmutils:
+    #     after:
+    #     - kactivities
+    #     source: https://invent.kde.org/frameworks/kcmutils.git
+    #     source-branch: master
+    #     build-packages:
+    #     - cmake
+    #     build-snaps:
+    #     - qt-framework-sdk
+    #     plugin: cmake
+    #     cmake-generator: Ninja
+    #     cmake-parameters:
+    #     - -DCMAKE_INSTALL_PREFIX=/usr
+    #     - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+    #     - -DQT_MAJOR_VERSION=6
+    #     - -DBUILD_WITH_QT6=ON
+    #     - -DBUILD_TESTING=OFF
+    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+    # knotifyconfig:
+    #     after:
+    #     - kcmutils
+    #     source: https://invent.kde.org/frameworks/knotifyconfig.git
+    #     source-branch: master
+    #     build-packages:
+    #     - cmake
+    #     build-snaps:
+    #     - qt-framework-sdk
+    #     plugin: cmake
+    #     cmake-generator: Ninja
+    #     cmake-parameters:
+    #     - -DCMAKE_INSTALL_PREFIX=/usr
+    #     - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+    #     - -DQT_MAJOR_VERSION=6
+    #     - -DBUILD_WITH_QT6=ON
+    #     - -DBUILD_TESTING=OFF
+    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+    # knewstuff:
+    #     after:
+    #     - knotifyconfig
+    #     source: https://invent.kde.org/frameworks/knewstuff.git
+    #     source-branch: master
+    #     build-packages:
+    #     - cmake
+    #     build-snaps:
+    #     - qt-framework-sdk
+    #     plugin: cmake
+    #     cmake-generator: Ninja
+    #     cmake-parameters:
+    #     - -DCMAKE_INSTALL_PREFIX=/usr
+    #     - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+    #     - -DQT_MAJOR_VERSION=6
+    #     - -DBUILD_WITH_QT6=ON
+    #     - -DBUILD_TESTING=OFF
+    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+    # kidletime:
+    #     after:
+    #     - knewstuff
+    #     source: https://invent.kde.org/frameworks/kidletime.git
+    #     source-branch: master
+    #     build-packages:
+    #     - cmake
+    #     build-snaps:
+    #     - qt-framework-sdk
+    #     plugin: cmake
+    #     cmake-generator: Ninja
+    #     cmake-parameters:
+    #     - -DCMAKE_INSTALL_PREFIX=/usr
+    #     - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+    #     - -DQT_MAJOR_VERSION=6
+    #     - -DBUILD_WITH_QT6=ON
+    #     - -DBUILD_TESTING=OFF
+    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+    # threadweaver:
+    #     after:
+    #     - kidletime
+    #     source: https://invent.kde.org/frameworks/threadweaver.git
+    #     source-branch: master
+    #     build-packages:
+    #     - cmake
+    #     build-snaps:
+    #     - qt-framework-sdk
+    #     plugin: cmake
+    #     cmake-generator: Ninja
+    #     cmake-parameters:
+    #     - -DCMAKE_INSTALL_PREFIX=/usr
+    #     - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+    #     - -DQT_MAJOR_VERSION=6
+    #     - -DBUILD_WITH_QT6=ON
+    #     - -DBUILD_TESTING=OFF
+    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+    # kitemmodels:
+    #     after:
+    #     - threadweaver
+    #     source: https://invent.kde.org/frameworks/kitemmodels.git
+    #     source-branch: master
+    #     build-packages:
+    #     - cmake
+    #     build-snaps:
+    #     - qt-framework-sdk
+    #     plugin: cmake
+    #     cmake-generator: Ninja
+    #     cmake-parameters:
+    #     - -DCMAKE_INSTALL_PREFIX=/usr
+    #     - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+    #     - -DQT_MAJOR_VERSION=6
+    #     - -DBUILD_WITH_QT6=ON
+    #     - -DBUILD_TESTING=OFF
+    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+    # kdnssd:
+    #     after:
+    #     - kitemmodels
+    #     source: https://invent.kde.org/frameworks/kdnssd.git
+    #     source-branch: master
+    #     build-packages:
+    #     - cmake
+    #     build-snaps:
+    #     - qt-framework-sdk
+    #     plugin: cmake
+    #     cmake-generator: Ninja
+    #     cmake-parameters:
+    #     - -DCMAKE_INSTALL_PREFIX=/usr
+    #     - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+    #     - -DQT_MAJOR_VERSION=6
+    #     - -DBUILD_WITH_QT6=ON
+    #     - -DBUILD_TESTING=OFF
+    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+    # kquickcharts:
+    #     after:
+    #     - kdnssd
+    #     source: https://invent.kde.org/frameworks/kquickcharts.git
+    #     source-branch: master
+    #     build-packages:
+    #     - cmake
+    #     build-snaps:
+    #     - qt-framework-sdk
+    #     plugin: cmake
+    #     cmake-generator: Ninja
+    #     cmake-parameters:
+    #     - -DCMAKE_INSTALL_PREFIX=/usr
+    #     - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+    #     - -DQT_MAJOR_VERSION=6
+    #     - -DBUILD_WITH_QT6=ON
+    #     - -DBUILD_TESTING=OFF
+    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+    # syntax-highlighting:
+    #     after:
+    #     - kquickcharts
+    #     source: https://invent.kde.org/frameworks/syntax-highlighting.git
+    #     source-branch: master
+    #     build-packages:
+    #     - cmake
+    #     build-snaps:
+    #     - qt-framework-sdk
+    #     plugin: cmake
+    #     cmake-generator: Ninja
+    #     cmake-parameters:
+    #     - -DCMAKE_INSTALL_PREFIX=/usr
+    #     - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+    #     - -DQT_MAJOR_VERSION=6
+    #     - -DBUILD_WITH_QT6=ON
+    #     - -DBUILD_TESTING=OFF
+    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+    # ktexteditor:
+    #     after:
+    #     - syntax-highlighting
+    #     source: https://invent.kde.org/frameworks/ktexteditor.git
+    #     source-branch: master
+    #     build-packages:
+    #     - cmake
+    #     build-snaps:
+    #     - qt-framework-sdk
+    #     plugin: cmake
+    #     cmake-generator: Ninja
+    #     cmake-parameters:
+    #     - -DCMAKE_INSTALL_PREFIX=/usr
+    #     - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+    #     - -DQT_MAJOR_VERSION=6
+    #     - -DBUILD_WITH_QT6=ON
+    #     - -DBUILD_TESTING=OFF
+    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+    # frameworkintegration:
+    #     after:
+    #     - ktexteditor
+    #     source: https://invent.kde.org/frameworks/frameworkintegration.git
+    #     source-branch: master
+    #     build-packages:
+    #     - cmake
+    #     build-snaps:
+    #     - qt-framework-sdk
+    #     plugin: cmake
+    #     cmake-generator: Ninja
+    #     cmake-parameters:
+    #     - -DCMAKE_INSTALL_PREFIX=/usr
+    #     - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+    #     - -DQT_MAJOR_VERSION=6
+    #     - -DBUILD_WITH_QT6=ON
+    #     - -DBUILD_TESTING=OFF
+    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+    # kpty:
+    #     after:
+    #     - frameworkintegration
+    #     source: https://invent.kde.org/frameworks/kpty.git
+    #     source-branch: master
+    #     build-packages:
+    #     - cmake
+    #     build-snaps:
+    #     - qt-framework-sdk
+    #     plugin: cmake
+    #     cmake-generator: Ninja
+    #     cmake-parameters:
+    #     - -DCMAKE_INSTALL_PREFIX=/usr
+    #     - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+    #     - -DQT_MAJOR_VERSION=6
+    #     - -DBUILD_WITH_QT6=ON
+    #     - -DBUILD_TESTING=OFF
+    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+    # kwayland:
+    #     after:
+    #     - kpty
+    #     source: https://invent.kde.org/frameworks/kwayland.git
+    #     source-branch: master
+    #     build-packages:
+    #     - cmake
+    #     build-snaps:
+    #     - qt-framework-sdk
+    #     plugin: cmake
+    #     cmake-generator: Ninja
+    #     cmake-parameters:
+    #     - -DCMAKE_INSTALL_PREFIX=/usr
+    #     - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+    #     - -DQT_MAJOR_VERSION=6
+    #     - -DBUILD_WITH_QT6=ON
+    #     - -DBUILD_TESTING=OFF
+    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+    # kirigami:
+    #     after:
+    #     - kwayland
+    #     source: https://invent.kde.org/frameworks/kirigami.git
+    #     source-branch: master
+    #     build-packages:
+    #     - cmake
+    #     build-snaps:
+    #     - qt-framework-sdk
+    #     plugin: cmake
+    #     cmake-generator: Ninja
+    #     cmake-parameters:
+    #     - -DCMAKE_INSTALL_PREFIX=/usr
+    #     - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+    #     - -DQT_MAJOR_VERSION=6
+    #     - -DBUILD_WITH_QT6=ON
+    #     - -DBUILD_TESTING=OFF
+    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+    # qqc2-desktop-style:
+    #     after:
+    #     - kirigami
+    #     source: https://invent.kde.org/frameworks/qqc2-desktop-style.git
+    #     source-branch: master
+    #     build-packages:
+    #     - cmake
+    #     build-snaps:
+    #     - qt-framework-sdk
+    #     plugin: cmake
+    #     cmake-generator: Ninja
+    #     cmake-parameters:
+    #     - -DCMAKE_INSTALL_PREFIX=/usr
+    #     - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+    #     - -DQT_MAJOR_VERSION=6
+    #     - -DBUILD_WITH_QT6=ON
+    #     - -DBUILD_TESTING=OFF
+    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+    # kcontacts:
+    #     after:
+    #     - qqc2-desktop-style
+    #     source: https://invent.kde.org/frameworks/kcontacts.git
+    #     source-branch: master
+    #     build-packages:
+    #     - cmake
+    #     build-snaps:
+    #     - qt-framework-sdk
+    #     plugin: cmake
+    #     cmake-generator: Ninja
+    #     cmake-parameters:
+    #     - -DCMAKE_INSTALL_PREFIX=/usr
+    #     - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+    #     - -DQT_MAJOR_VERSION=6
+    #     - -DBUILD_WITH_QT6=ON
+    #     - -DBUILD_TESTING=OFF
+    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+    # kcalendarcore:
+    #     after:
+    #     - kcontacts
+    #     source: https://invent.kde.org/frameworks/kcalendarcore.git
+    #     source-branch: master
+    #     build-packages:
+    #     - cmake
+    #     - libical-dev
+    #     stage-packages:
+    #     - libical3
+    #     build-snaps:
+    #     - qt-framework-sdk
+    #     plugin: cmake
+    #     cmake-generator: Ninja
+    #     cmake-parameters:
+    #     - -DCMAKE_INSTALL_PREFIX=/usr
+    #     - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+    #     - -DQT_MAJOR_VERSION=6
+    #     - -DBUILD_WITH_QT6=ON
+    #     - -DBUILD_TESTING=OFF
+    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+    # kholidays:
+    #     after:
+    #     - kcalendarcore
+    #     source: https://invent.kde.org/frameworks/kholidays.git
+    #     source-branch: master
+    #     build-packages:
+    #     - cmake
+    #     build-snaps:
+    #     - qt-framework-sdk
+    #     plugin: cmake
+    #     cmake-generator: Ninja
+    #     cmake-parameters:
+    #     - -DCMAKE_INSTALL_PREFIX=/usr
+    #     - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+    #     - -DQT_MAJOR_VERSION=6
+    #     - -DBUILD_WITH_QT6=ON
+    #     - -DBUILD_TESTING=OFF
+    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+    # prison:
+    #     after:
+    #     - kholidays
+    #     source: https://invent.kde.org/frameworks/prison.git
+    #     source-branch: master
+    #     build-packages:
+    #     - cmake
+    #     - libqrencode-dev
+    #     - libdmtx-dev
+    #     - libzxingcore-dev
+    #     stage-packages:
+    #     - libqrencode4
+    #     - libdmtx0b
+    #     - libzxingcore1
+    #     build-snaps:
+    #     - qt-framework-sdk
+    #     plugin: cmake
+    #     cmake-generator: Ninja
+    #     cmake-parameters:
+    #     - -DCMAKE_INSTALL_PREFIX=/usr
+    #     - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+    #     - -DQT_MAJOR_VERSION=6
+    #     - -DBUILD_WITH_QT6=ON
+    #     - -DBUILD_TESTING=OFF
+    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+    # syndication:
+    #     after:
+    #     - prison
+    #     source: https://invent.kde.org/frameworks/syndication.git
+    #     source-branch: master
+    #     build-packages:
+    #     - cmake
+    #     build-snaps:
+    #     - qt-framework-sdk
+    #     plugin: cmake
+    #     cmake-generator: Ninja
+    #     cmake-parameters:
+    #     - -DCMAKE_INSTALL_PREFIX=/usr
+    #     - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+    #     - -DQT_MAJOR_VERSION=6
+    #     - -DBUILD_WITH_QT6=ON
+    #     - -DBUILD_TESTING=OFF
+    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+    # purpose:
+    #     after:
+    #     - syndication
+    #     source: https://invent.kde.org/frameworks/purpose.git
+    #     source-branch: master
+    #     build-packages:
+    #     - cmake
+    #     build-snaps:
+    #     - qt-framework-sdk
+    #     plugin: cmake
+    #     cmake-generator: Ninja
+    #     cmake-parameters:
+    #     - -DCMAKE_INSTALL_PREFIX=/usr
+    #     - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+    #     - -DQT_MAJOR_VERSION=6
+    #     - -DBUILD_WITH_QT6=ON
+    #     - -DBUILD_TESTING=OFF
+    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+    # kdav:
+    #     after:
+    #     - purpose
+    #     source: https://invent.kde.org/frameworks/kdav.git
+    #     source-branch: master
+    #     build-packages:
+    #     - cmake
+    #     build-snaps:
+    #     - qt-framework-sdk
+    #     plugin: cmake
+    #     cmake-generator: Ninja
+    #     cmake-parameters:
+    #     - -DCMAKE_INSTALL_PREFIX=/usr
+    #     - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+    #     - -DQT_MAJOR_VERSION=6
+    #     - -DBUILD_WITH_QT6=ON
+    #     - -DBUILD_TESTING=OFF
+    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+    # ksvg:
+    #     after:
+    #     - kdav
+    #     source: https://invent.kde.org/frameworks/ksvg.git
+    #     source-branch: master
+    #     build-packages:
+    #     - cmake
+    #     build-snaps:
+    #     - qt-framework-sdk
+    #     plugin: cmake
+    #     cmake-generator: Ninja
+    #     cmake-parameters:
+    #     - -DCMAKE_INSTALL_PREFIX=/usr
+    #     - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+    #     - -DQT_MAJOR_VERSION=6
+    #     - -DBUILD_WITH_QT6=ON
+    #     - -DBUILD_TESTING=OFF
+    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+    # plasma-framework:
+    #     after:
+    #     - ksvg
+    #     source: https://invent.kde.org/frameworks/plasma-framework.git
+    #     source-branch: master
+    #     build-packages:
+    #     - cmake
+    #     build-snaps:
+    #     - qt-framework-sdk
+    #     plugin: cmake
+    #     cmake-generator: Ninja
+    #     cmake-parameters:
+    #     - -DCMAKE_INSTALL_PREFIX=/usr
+    #     - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+    #     - -DQT_MAJOR_VERSION=6
+    #     - -DBUILD_WITH_QT6=ON
+    #     - -DBUILD_TESTING=OFF
+    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+    # breeze-icons:
+    #     after:
+    #     - plasma-framework
+    #     source: https://invent.kde.org/frameworks/breeze-icons.git
+    #     source-branch: master
+    #     build-packages:
+    #     - cmake
+    #     build-snaps:
+    #     - qt-framework-sdk
+    #     plugin: cmake
+    #     cmake-generator: Ninja
+    #     cmake-parameters:
+    #     - -DCMAKE_INSTALL_PREFIX=/usr
+    #     - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+    #     - -DQT_MAJOR_VERSION=6
+    #     - -DBUILD_WITH_QT6=ON
+    #     - -DBUILD_TESTING=OFF
+    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+    #     prime:
+    #     - "-*.rcc"
+    # libjxl:
+    #     after:
+    #     - breeze-icons
+    #     source: https://github.com/libjxl/libjxl.git
+    #     source-tag: v0.7.0
+    #     build-packages:
+    #     - cmake
+    #     build-snaps:
+    #     - qt-framework-sdk
+    #     plugin: cmake
+    #     cmake-generator: Ninja
+    #     cmake-parameters:
+    #     - -DCMAKE_INSTALL_PREFIX=/usr
+    #     - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+    #     - -DQT_MAJOR_VERSION=6
+    #     - -DBUILD_WITH_QT6=ON
+    #     - -DBUILD_TESTING=OFF
+    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+    #     - "-DJPEGXL_ENABLE_BENCHMARK=OFF"
+    #     - "-DJPEGXL_ENABLE_DOXYGEN=OFF"
+    #     - "-DJPEGXL_ENABLE_EXAMPLES=OFF"
+    #     - "-DJPEGXL_ENABLE_JNI=OFF"
+    #     - "-DJPEGXL_ENABLE_MANPAGES=OFF"
+    #     - "-DJPEGXL_ENABLE_PLUGINS=OFF"
+    #     - "-DJPEGXL_ENABLE_SJPEG=OFF"
+    #     - "-DJPEGXL_ENABLE_SKCMS=ON"
+    #     - "-DJPEGXL_ENABLE_TCMALLOC=OFF"
+    #     - "-DJPEGXL_ENABLE_TOOLS=OFF"
+    #     - "-DJPEGXL_FORCE_SYSTEM_BROTLI=ON"
+    #     - "-DJPEGXL_WARNINGS_AS_ERRORS=OFF"
+    #     prime:
+    #     - "-*.a"
+    #     - "-/include/hwy"
+    #     - "-/include/jxl"
+    #     - "-*.pc"
+    #     - "-libjxl_threads.so"
+    #     - "-libjxl.so"
+    # kimageformats:
+    #     after:
+    #     - libjxl
+    #     source: https://invent.kde.org/frameworks/kimageformats.git
+    #     source-branch: master
+    #     build-packages:
+    #     - cmake
+    #     - libavif-dev
+    #     stage-packages:
+    #     - libavif13
+    #     build-snaps:
+    #     - qt-framework-sdk
+    #     plugin: cmake
+    #     cmake-generator: Ninja
+    #     cmake-parameters:
+    #     - -DCMAKE_INSTALL_PREFIX=/usr
+    #     - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+    #     - -DQT_MAJOR_VERSION=6
+    #     - -DBUILD_WITH_QT6=ON
+    #     - -DBUILD_TESTING=OFF
+    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+    # bluez-qt:
+    #     after:
+    #     - kimageformats
+    #     source: https://invent.kde.org/frameworks/bluez-qt.git
+    #     source-branch: master
+    #     build-packages:
+    #     - cmake
+    #     build-snaps:
+    #     - qt-framework-sdk
+    #     plugin: cmake
+    #     cmake-generator: Ninja
+    #     cmake-parameters:
+    #     - -DCMAKE_INSTALL_PREFIX=/usr
+    #     - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+    #     - -DQT_MAJOR_VERSION=6
+    #     - -DBUILD_WITH_QT6=ON
+    #     - -DBUILD_TESTING=OFF
+    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+    # kstatusnotifieritem:
+    #     after:
+    #     - bluez-qt
+    #     source: https://invent.kde.org/frameworks/kstatusnotifieritem.git
+    #     source-branch: master
+    #     build-packages:
+    #     - cmake
+    #     build-snaps:
+    #     - qt-framework-sdk
+    #     plugin: cmake
+    #     cmake-generator: Ninja
+    #     cmake-parameters:
+    #     - -DCMAKE_INSTALL_PREFIX=/usr
+    #     - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+    #     - -DQT_MAJOR_VERSION=6
+    #     - -DBUILD_WITH_QT6=ON
+    #     - -DBUILD_TESTING=OFF
+    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+    # kio-extras:
+    #     after:
+    #     - kstatusnotifieritem
+    #     source: https://invent.kde.org/network/kio-extras.git
+    #     source-branch: master
+    #     build-packages:
+    #     - cmake
+    #     build-snaps:
+    #     - qt-framework-sdk
+    #     plugin: cmake
+    #     cmake-generator: Ninja
+    #     cmake-parameters:
+    #     - -DCMAKE_INSTALL_PREFIX=/usr
+    #     - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+    #     - -DQT_MAJOR_VERSION=6
+    #     - -DBUILD_WITH_QT6=ON
+    #     - -DBUILD_TESTING=OFF
+    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+    # breeze:
+    #     after:
+    #     - kio-extras
+    #     source: https://invent.kde.org/plasma/breeze.git
+    #     source-branch: master
+    #     build-packages:
+    #     - cmake
+    #     build-snaps:
+    #     - qt-framework-sdk
+    #     plugin: cmake
+    #     cmake-generator: Ninja
+    #     cmake-parameters:
+    #     - -DCMAKE_INSTALL_PREFIX=/usr
+    #     - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+    #     - -DQT_MAJOR_VERSION=6
+    #     - -DBUILD_WITH_QT6=ON
+    #     - -DBUILD_TESTING=OFF
+    #     - "-DWITH_DECORATIONS=OFF"
+    #     - "-DWITH_WALLPAPERS=OFF"
+    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+    # plasma-integration:
+    #     after:
+    #     - breeze
+    #     source: https://invent.kde.org/plasma/plasma-integration.git
+    #     source-branch: master
+    #     build-packages:
+    #     - cmake
+    #     build-snaps:
+    #     - qt-framework-sdk
+    #     plugin: cmake
+    #     cmake-generator: Ninja
+    #     cmake-parameters:
+    #     - -DCMAKE_INSTALL_PREFIX=/usr
+    #     - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+    #     - -DQT_MAJOR_VERSION=6
+    #     - -DBUILD_WITH_QT6=ON
+    #     - -DBUILD_TESTING=OFF
+    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+    # kwayland-integration:
+    #     after:
+    #     - plasma-integration
+    #     source: https://invent.kde.org/plasma/kwayland-integration.git
+    #     source-branch: master
+    #     build-packages:
+    #     - cmake
+    #     build-snaps:
+    #     - qt-framework-sdk
+    #     plugin: cmake
+    #     cmake-generator: Ninja
+    #     cmake-parameters:
+    #     - -DCMAKE_INSTALL_PREFIX=/usr
+    #     - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+    #     - -DQT_MAJOR_VERSION=6
+    #     - -DBUILD_WITH_QT6=ON
+    #     - -DBUILD_TESTING=OFF
+    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+    # qqc2-breeze-style:
+    #     after:
+    #     - kwayland-integration
+    #     source: https://invent.kde.org/plasma/qqc2-breeze-style.git
+    #     source-branch: master
+    #     build-packages:
+    #     - cmake
+    #     build-snaps:
+    #     - qt-framework-sdk
+    #     plugin: cmake
+    #     cmake-generator: Ninja
+    #     cmake-parameters:
+    #     - -DCMAKE_INSTALL_PREFIX=/usr
+    #     - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+    #     - -DQT_MAJOR_VERSION=6
+    #     - -DBUILD_WITH_QT6=ON
+    #     - -DBUILD_TESTING=OFF
+    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
