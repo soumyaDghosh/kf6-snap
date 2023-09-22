@@ -23,35 +23,40 @@ package-repositories:
     url: http://origin.archive.neon.kde.org/unstable
     key-server: keyserver.ubuntu.com
 parts:
-    mesa:
-        after: []
+    mesa-patchelf:
         plugin: nil
+        stage-packages:
+        - libgl1-mesa-dri
+        - freeglut3
+        - libglu1-mesa
+        stage:
+        - "-usr/lib/${CRAFT_ARCH_TRIPLET}/dri"
+    mesa-no-patchelf:
+        plugin: nil
+        stage-packages:
+        - libgl1-mesa-dri
         build-attributes:
         - no-patchelf
-        build-packages: []
-        stage-packages:
-        - libglx-dev
-        - libgl1-mesa-dev
-        - libgl1-mesa-dri
-        - libglx-mesa0
-        prime:
-        - "-lib/udev"
-        - "-usr/doc"
-        - "-usr/doc-base"
-        - "-usr/share/applications"
-        - "-usr/share/apport"
-        - "-usr/share/bug"
-        - "-usr/share/doc"
-        - "-usr/share/doc-base"
-        - "-usr/share/icons"
-        - "-usr/share/libdrm"
-        - "-usr/share/libwacom"
-        - "-usr/share/lintian"
-        - "-usr/share/man"
-        - "-usr/share/pkgconfig"
+        stage:
+        - usr/lib/${CRAFT_ARCH_TRIPLET}/dri
+    qtconf:
+        plugin: nil
+        override-build: |
+            mkdir -p $CRAFT_PART_INSTALL/usr/bin
+            cat <<EOF > $CRAFT_PART_INSTALL/usr/bin/qt.conf
+            [Paths]
+            Prefix = ../../
+            LibraryExecutables = usr/lib/$CRAFT_ARCH_TRIPLET/qt5/libexec
+            Plugins = usr/lib/$CRAFT_ARCH_TRIPLET/qt5/plugins
+            Qml2Imports = usr/lib/$CRAFT_ARCH_TRIPLET/qt5/qml
+            Translations = usr/share/qt5/translations
+            Data = usr/share/qt5
+            EOF
     extra-cmake-modules:
         after:
-        - mesa
+        - mesa-patchelf
+        - mesa-no-patchelf
+        - qtconf
         source: https://invent.kde.org/frameworks/extra-cmake-modules.git
         source-branch: master
         build-packages:
@@ -69,6 +74,7 @@ parts:
     plasma-wayland-protocols:
         after:
         - extra-cmake-modules
+        - qtconf
         source: https://invent.kde.org/libraries/plasma-wayland-protocols.git
         source-tag: v1.10.0
         build-packages:
@@ -90,6 +96,7 @@ parts:
     kwidgetsaddons:
         after:
         - plasma-wayland-protocols
+        - qtconf
         source: https://invent.kde.org/frameworks/kwidgetsaddons.git
         source-branch: master
         build-packages:
@@ -110,7 +117,8 @@ parts:
         - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
     ki18n:
         after:
-        - kwidgetsaddons
+        - extra-cmake-modules
+        - qtconf
         source: https://invent.kde.org/frameworks/ki18n.git
         source-branch: master
         build-packages:
@@ -135,7 +143,8 @@ parts:
         - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
     kconfig:
         after:
-        - ki18n
+        - extra-cmake-modules
+        - qtconf
         source: https://invent.kde.org/frameworks/kconfig.git
         source-branch: master
         build-packages:
@@ -157,7 +166,8 @@ parts:
         - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
     attica:
         after:
-        - kconfig
+        - extra-cmake-modules
+        - qtconf
         source: https://invent.kde.org/frameworks/attica.git
         source-branch: master
         build-packages:
@@ -213,11 +223,19 @@ parts:
     #         cp $CRAFT_STAGE/usr/share/wayland/wayland.xml $CRAFT_PART_BUILD
     kcoreaddons:
         after:
-        - attica
+        - extra-cmake-modules
+        - qtconf
         source: https://invent.kde.org/frameworks/kcoreaddons.git
         source-branch: master
         build-packages:
         - cmake
+        - doxygen
+        - graphviz
+        - libgamin-dev
+        - libudev-dev
+        - shared-mime-info
+        stage-packages:
+        - shared-mime-info
         build-snaps:
         - qt-framework-sdk
         plugin: cmake
