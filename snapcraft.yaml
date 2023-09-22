@@ -351,8 +351,8 @@ parts:
         - -DQT_MAJOR_VERSION=6
         - -DBUILD_WITH_QT6=ON
         - -DBUILD_TESTING=OFF
-        - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-        - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+        - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current/usr\\;/usr"
+        - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current/usr\\;/usr"
     kconfigwidgets:
         after:
         - kcolorscheme
