@@ -338,7 +338,7 @@ parts:
         - doxygen
         - graphviz
         build-snaps:
-        - qt-framework-sdk/6.5/stable/6.5/stable
+        - qt-framework-sdk/6.5/stable
         plugin: cmake
         cmake-generator: Ninja
         cmake-parameters:
