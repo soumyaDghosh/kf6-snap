@@ -62,7 +62,7 @@ parts:
         build-packages:
         - cmake
         build-snaps:
-        - qt-framework-sdk
+        - qt-framework-sdk/6.5/stable
         plugin: cmake
         cmake-generator: Ninja
         cmake-parameters:
@@ -82,7 +82,7 @@ parts:
         stage-packages:
         - wayland-protocols
         build-snaps:
-        - qt-framework-sdk
+        - qt-framework-sdk/6.5/stable
         plugin: cmake
         cmake-generator: Ninja
         cmake-parameters:
@@ -104,7 +104,7 @@ parts:
         - graphviz
         - doxygen
         build-snaps:
-        - qt-framework-sdk
+        - qt-framework-sdk/6.5/stable
         plugin: cmake
         cmake-generator: Ninja
         cmake-parameters:
@@ -130,7 +130,7 @@ parts:
         - graphviz
         - python3
         build-snaps:
-        - qt-framework-sdk
+        - qt-framework-sdk/6.5/stable
         plugin: cmake
         cmake-generator: Ninja
         cmake-parameters:
@@ -153,7 +153,7 @@ parts:
         - graphviz
         - libxkbcommon-dev
         build-snaps:
-        - qt-framework-sdk
+        - qt-framework-sdk/6.5/stable
         plugin: cmake
         cmake-generator: Ninja
         cmake-parameters:
@@ -173,7 +173,7 @@ parts:
         build-packages:
         - cmake
         build-snaps:
-        - qt-framework-sdk
+        - qt-framework-sdk/6.5/stable
         plugin: cmake
         cmake-generator: Ninja
         cmake-parameters:
@@ -208,7 +208,7 @@ parts:
         stage-packages:
         - libwayland-client0
         build-snaps:
-        - qt-framework-sdk
+        - qt-framework-sdk/6.5/stable
         plugin: cmake
         cmake-generator: Ninja
         cmake-parameters:
@@ -238,7 +238,7 @@ parts:
         stage-packages:
         - shared-mime-info
         build-snaps:
-        - qt-framework-sdk
+        - qt-framework-sdk/6.5/stable
         plugin: cmake
         cmake-generator: Ninja
         cmake-parameters:
@@ -262,7 +262,7 @@ parts:
         stage-packages:
         - default-logind
         build-snaps:
-        - qt-framework-sdk
+        - qt-framework-sdk/6.5/stable
         plugin: cmake
         cmake-generator: Ninja
         cmake-parameters:
@@ -293,7 +293,7 @@ parts:
         - zlib1g
         - bzip2
         build-snaps:
-        - qt-framework-sdk
+        - qt-framework-sdk/6.5/stable
         plugin: cmake
         cmake-generator: Ninja
         cmake-parameters:
@@ -316,7 +316,7 @@ parts:
         - doxygen
         - graphviz
         build-snaps:
-        - qt-framework-sdk
+        - qt-framework-sdk/6.5/stable
         plugin: cmake
         cmake-generator: Ninja
         cmake-parameters:
@@ -338,7 +338,7 @@ parts:
         - doxygen
         - graphviz
         build-snaps:
-        - qt-framework-sdk
+        - qt-framework-sdk/6.5/stable/6.5/stable
         plugin: cmake
         cmake-generator: Ninja
         cmake-parameters:
@@ -350,35 +350,35 @@ parts:
         - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
         - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
 # Waiting on private qt lib
-    # kwindowsystem:
-    #     after:
-    #     - extra-cmake-modules
-    #     - qtconf
-    #     source: https://invent.kde.org/frameworks/kwindowsystem.git
-    #     source-branch: master
-    #     build-packages:
-    #     - cmake
-    #     - libx11-dev
-    #     - libxcb-icccm4-dev
-    #     - libxcb-keysyms1-dev
-    #     - libxcb-res0-dev
-    #     - libxcb-xfixes0-dev
-    #     - libxcb1-dev
-    #     - libxfixes-dev
-    #     - libxrender-dev
-    #     - pkg-config
-    #     build-snaps:
-    #     - qt-framework-sdk
-    #     plugin: cmake
-    #     cmake-generator: Ninja
-    #     cmake-parameters:
-    #     - -DCMAKE_INSTALL_PREFIX=/usr
-    #     - -DCMAKE_BUILD_TYPE=RelWithDebInfo
-    #     - -DQT_MAJOR_VERSION=6
-    #     - -DBUILD_WITH_QT6=ON
-    #     - -DBUILD_TESTING=OFF
-    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+    kwindowsystem:
+        after:
+        - extra-cmake-modules
+        - qtconf
+        source: https://invent.kde.org/frameworks/kwindowsystem.git
+        source-branch: master
+        build-packages:
+        - cmake
+        - libx11-dev
+        - libxcb-icccm4-dev
+        - libxcb-keysyms1-dev
+        - libxcb-res0-dev
+        - libxcb-xfixes0-dev
+        - libxcb1-dev
+        - libxfixes-dev
+        - libxrender-dev
+        - pkg-config
+        build-snaps:
+        - qt-framework-sdk/6.5/stable
+        plugin: cmake
+        cmake-generator: Ninja
+        cmake-parameters:
+        - -DCMAKE_INSTALL_PREFIX=/usr
+        - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+        - -DQT_MAJOR_VERSION=6
+        - -DBUILD_WITH_QT6=ON
+        - -DBUILD_TESTING=OFF
+        - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+        - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
     kdbusaddons:
         after:
         - extra-cmake-modules
@@ -389,7 +389,7 @@ parts:
         - cmake
         - dbus-x11
         build-snaps:
-        - qt-framework-sdk
+        - qt-framework-sdk/6.5/stable
         plugin: cmake
         cmake-generator: Ninja
         cmake-parameters:
@@ -413,7 +413,7 @@ parts:
         - doxygen
         - graphviz
         build-snaps:
-        - qt-framework-sdk
+        - qt-framework-sdk/6.5/stable
         plugin: cmake
         cmake-generator: Ninja
         cmake-parameters:
@@ -438,7 +438,7 @@ parts:
         - libxcb1-dev
         - pkg-config
         build-snaps:
-        - qt-framework-sdk
+        - qt-framework-sdk/6.5/stable
         plugin: cmake
         cmake-generator: Ninja
         cmake-parameters:
@@ -462,7 +462,7 @@ parts:
         - graphviz
         - libx11-dev
         build-snaps:
-        - qt-framework-sdk
+        - qt-framework-sdk/6.5/stable
         plugin: cmake
         cmake-generator: Ninja
         cmake-parameters:
@@ -496,7 +496,7 @@ parts:
         - graphviz
         - libxml2-utils
         build-snaps:
-        - qt-framework-sdk
+        - qt-framework-sdk/6.5/stable
         plugin: cmake
         cmake-generator: Ninja
         cmake-parameters:
@@ -520,7 +520,7 @@ parts:
     #     - libglx-dev
     #     - libgl1-mesa-dev
     #     build-snaps:
-    #     - qt-framework-sdk
+    #     - qt-framework-sdk/6.5/stable
     #     plugin: cmake
     #     cmake-generator: Ninja
     #     cmake-parameters:
@@ -556,7 +556,7 @@ parts:
     #     stage-packages:
     #     - perl
     #     build-snaps:
-    #     - qt-framework-sdk
+    #     - qt-framework-sdk/6.5/stable
     #     plugin: cmake
     #     cmake-generator: Ninja
     #     cmake-parameters:
@@ -588,7 +588,7 @@ parts:
     #     - doxygen
     #     - graphviz
     #     build-snaps:
-    #     - qt-framework-sdk
+    #     - qt-framework-sdk/6.5/stable
     #     plugin: cmake
     #     cmake-generator: Ninja
     #     cmake-parameters:
@@ -607,7 +607,7 @@ parts:
     #     build-packages:
     #     - cmake
     #     build-snaps:
-    #     - qt-framework-sdk
+    #     - qt-framework-sdk/6.5/stable
     #     plugin: cmake
     #     cmake-generator: Ninja
     #     cmake-parameters:
@@ -626,7 +626,7 @@ parts:
     #     build-packages:
     #     - cmake
     #     build-snaps:
-    #     - qt-framework-sdk
+    #     - qt-framework-sdk/6.5/stable
     #     plugin: cmake
     #     cmake-generator: Ninja
     #     cmake-parameters:
@@ -645,7 +645,7 @@ parts:
     #     build-packages:
     #     - cmake
     #     build-snaps:
-    #     - qt-framework-sdk
+    #     - qt-framework-sdk/6.5/stable
     #     plugin: cmake
     #     cmake-generator: Ninja
     #     cmake-parameters:
@@ -664,7 +664,7 @@ parts:
     #     build-packages:
     #     - cmake
     #     build-snaps:
-    #     - qt-framework-sdk
+    #     - qt-framework-sdk/6.5/stable
     #     plugin: cmake
     #     cmake-generator: Ninja
     #     cmake-parameters:
@@ -683,7 +683,7 @@ parts:
     #     build-packages:
     #     - perl
     #     build-snaps:
-    #     - qt-framework-sdk
+    #     - qt-framework-sdk/6.5/stable
     #     plugin: nil
     #     override-build: |
     #         craftctl default
@@ -696,7 +696,7 @@ parts:
     #     build-packages:
     #     - cmake
     #     build-snaps:
-    #     - qt-framework-sdk
+    #     - qt-framework-sdk/6.5/stable
     #     plugin: cmake
     #     cmake-generator: Ninja
     #     cmake-parameters:
@@ -715,7 +715,7 @@ parts:
     #     build-packages:
     #     - cmake
     #     build-snaps:
-    #     - qt-framework-sdk
+    #     - qt-framework-sdk/6.5/stable
     #     plugin: cmake
     #     cmake-generator: Ninja
     #     cmake-parameters:
@@ -734,7 +734,7 @@ parts:
     #     build-packages:
     #     - cmake
     #     build-snaps:
-    #     - qt-framework-sdk
+    #     - qt-framework-sdk/6.5/stable
     #     plugin: cmake
     #     cmake-generator: Ninja
     #     cmake-parameters:
@@ -754,7 +754,7 @@ parts:
     #     - cmake
     #     - libtag1-dev
     #     build-snaps:
-    #     - qt-framework-sdk
+    #     - qt-framework-sdk/6.5/stable
     #     plugin: cmake
     #     cmake-generator: Ninja
     #     cmake-parameters:
@@ -773,7 +773,7 @@ parts:
     #     build-packages:
     #     - cmake
     #     build-snaps:
-    #     - qt-framework-sdk
+    #     - qt-framework-sdk/6.5/stable
     #     plugin: cmake
     #     cmake-generator: Ninja
     #     cmake-parameters:
@@ -796,7 +796,7 @@ parts:
     #     stage-packages:
     #     - libcanberra0
     #     build-snaps:
-    #     - qt-framework-sdk
+    #     - qt-framework-sdk/6.5/stable
     #     plugin: cmake
     #     cmake-generator: Ninja
     #     cmake-parameters:
@@ -815,7 +815,7 @@ parts:
     #     build-packages:
     #     - cmake
     #     build-snaps:
-    #     - qt-framework-sdk
+    #     - qt-framework-sdk/6.5/stable
     #     plugin: cmake
     #     cmake-generator: Ninja
     #     cmake-parameters:
@@ -834,7 +834,7 @@ parts:
     #     build-packages:
     #     - cmake
     #     build-snaps:
-    #     - qt-framework-sdk
+    #     - qt-framework-sdk/6.5/stable
     #     plugin: cmake
     #     cmake-generator: Ninja
     #     cmake-parameters:
@@ -853,7 +853,7 @@ parts:
     #     build-packages:
     #     - cmake
     #     build-snaps:
-    #     - qt-framework-sdk
+    #     - qt-framework-sdk/6.5/stable
     #     plugin: cmake
     #     cmake-generator: Ninja
     #     cmake-parameters:
@@ -872,7 +872,7 @@ parts:
     #     build-packages:
     #     - cmake
     #     build-snaps:
-    #     - qt-framework-sdk
+    #     - qt-framework-sdk/6.5/stable
     #     plugin: cmake
     #     cmake-generator: Ninja
     #     cmake-parameters:
@@ -891,7 +891,7 @@ parts:
     #     build-packages:
     #     - cmake
     #     build-snaps:
-    #     - qt-framework-sdk
+    #     - qt-framework-sdk/6.5/stable
     #     plugin: cmake
     #     cmake-generator: Ninja
     #     cmake-parameters:
@@ -910,7 +910,7 @@ parts:
     #     build-packages:
     #     - cmake
     #     build-snaps:
-    #     - qt-framework-sdk
+    #     - qt-framework-sdk/6.5/stable
     #     plugin: cmake
     #     cmake-generator: Ninja
     #     cmake-parameters:
@@ -929,7 +929,7 @@ parts:
     #     build-packages:
     #     - cmake
     #     build-snaps:
-    #     - qt-framework-sdk
+    #     - qt-framework-sdk/6.5/stable
     #     plugin: cmake
     #     cmake-generator: Ninja
     #     cmake-parameters:
@@ -948,7 +948,7 @@ parts:
     #     build-packages:
     #     - cmake
     #     build-snaps:
-    #     - qt-framework-sdk
+    #     - qt-framework-sdk/6.5/stable
     #     plugin: cmake
     #     cmake-generator: Ninja
     #     cmake-parameters:
@@ -967,7 +967,7 @@ parts:
     #     build-packages:
     #     - cmake
     #     build-snaps:
-    #     - qt-framework-sdk
+    #     - qt-framework-sdk/6.5/stable
     #     plugin: cmake
     #     cmake-generator: Ninja
     #     cmake-parameters:
@@ -986,7 +986,7 @@ parts:
     #     build-packages:
     #     - cmake
     #     build-snaps:
-    #     - qt-framework-sdk
+    #     - qt-framework-sdk/6.5/stable
     #     plugin: cmake
     #     cmake-generator: Ninja
     #     cmake-parameters:
@@ -1005,7 +1005,7 @@ parts:
     #     build-packages:
     #     - cmake
     #     build-snaps:
-    #     - qt-framework-sdk
+    #     - qt-framework-sdk/6.5/stable
     #     plugin: cmake
     #     cmake-generator: Ninja
     #     cmake-parameters:
@@ -1024,7 +1024,7 @@ parts:
     #     build-packages:
     #     - cmake
     #     build-snaps:
-    #     - qt-framework-sdk
+    #     - qt-framework-sdk/6.5/stable
     #     plugin: cmake
     #     cmake-generator: Ninja
     #     cmake-parameters:
@@ -1043,7 +1043,7 @@ parts:
     #     build-packages:
     #     - cmake
     #     build-snaps:
-    #     - qt-framework-sdk
+    #     - qt-framework-sdk/6.5/stable
     #     plugin: cmake
     #     cmake-generator: Ninja
     #     cmake-parameters:
@@ -1062,7 +1062,7 @@ parts:
     #     build-packages:
     #     - cmake
     #     build-snaps:
-    #     - qt-framework-sdk
+    #     - qt-framework-sdk/6.5/stable
     #     plugin: cmake
     #     cmake-generator: Ninja
     #     cmake-parameters:
@@ -1081,7 +1081,7 @@ parts:
     #     build-packages:
     #     - cmake
     #     build-snaps:
-    #     - qt-framework-sdk
+    #     - qt-framework-sdk/6.5/stable
     #     plugin: cmake
     #     cmake-generator: Ninja
     #     cmake-parameters:
@@ -1100,7 +1100,7 @@ parts:
     #     build-packages:
     #     - cmake
     #     build-snaps:
-    #     - qt-framework-sdk
+    #     - qt-framework-sdk/6.5/stable
     #     plugin: cmake
     #     cmake-generator: Ninja
     #     cmake-parameters:
@@ -1119,7 +1119,7 @@ parts:
     #     build-packages:
     #     - cmake
     #     build-snaps:
-    #     - qt-framework-sdk
+    #     - qt-framework-sdk/6.5/stable
     #     plugin: cmake
     #     cmake-generator: Ninja
     #     cmake-parameters:
@@ -1138,7 +1138,7 @@ parts:
     #     build-packages:
     #     - cmake
     #     build-snaps:
-    #     - qt-framework-sdk
+    #     - qt-framework-sdk/6.5/stable
     #     plugin: cmake
     #     cmake-generator: Ninja
     #     cmake-parameters:
@@ -1157,7 +1157,7 @@ parts:
     #     build-packages:
     #     - cmake
     #     build-snaps:
-    #     - qt-framework-sdk
+    #     - qt-framework-sdk/6.5/stable
     #     plugin: cmake
     #     cmake-generator: Ninja
     #     cmake-parameters:
@@ -1176,7 +1176,7 @@ parts:
     #     build-packages:
     #     - cmake
     #     build-snaps:
-    #     - qt-framework-sdk
+    #     - qt-framework-sdk/6.5/stable
     #     plugin: cmake
     #     cmake-generator: Ninja
     #     cmake-parameters:
@@ -1195,7 +1195,7 @@ parts:
     #     build-packages:
     #     - cmake
     #     build-snaps:
-    #     - qt-framework-sdk
+    #     - qt-framework-sdk/6.5/stable
     #     plugin: cmake
     #     cmake-generator: Ninja
     #     cmake-parameters:
@@ -1214,7 +1214,7 @@ parts:
     #     build-packages:
     #     - cmake
     #     build-snaps:
-    #     - qt-framework-sdk
+    #     - qt-framework-sdk/6.5/stable
     #     plugin: cmake
     #     cmake-generator: Ninja
     #     cmake-parameters:
@@ -1233,7 +1233,7 @@ parts:
     #     build-packages:
     #     - cmake
     #     build-snaps:
-    #     - qt-framework-sdk
+    #     - qt-framework-sdk/6.5/stable
     #     plugin: cmake
     #     cmake-generator: Ninja
     #     cmake-parameters:
@@ -1252,7 +1252,7 @@ parts:
     #     build-packages:
     #     - cmake
     #     build-snaps:
-    #     - qt-framework-sdk
+    #     - qt-framework-sdk/6.5/stable
     #     plugin: cmake
     #     cmake-generator: Ninja
     #     cmake-parameters:
@@ -1271,7 +1271,7 @@ parts:
     #     build-packages:
     #     - cmake
     #     build-snaps:
-    #     - qt-framework-sdk
+    #     - qt-framework-sdk/6.5/stable
     #     plugin: cmake
     #     cmake-generator: Ninja
     #     cmake-parameters:
@@ -1290,7 +1290,7 @@ parts:
     #     build-packages:
     #     - cmake
     #     build-snaps:
-    #     - qt-framework-sdk
+    #     - qt-framework-sdk/6.5/stable
     #     plugin: cmake
     #     cmake-generator: Ninja
     #     cmake-parameters:
@@ -1309,7 +1309,7 @@ parts:
     #     build-packages:
     #     - cmake
     #     build-snaps:
-    #     - qt-framework-sdk
+    #     - qt-framework-sdk/6.5/stable
     #     plugin: cmake
     #     cmake-generator: Ninja
     #     cmake-parameters:
@@ -1331,7 +1331,7 @@ parts:
     #     stage-packages:
     #     - libical3
     #     build-snaps:
-    #     - qt-framework-sdk
+    #     - qt-framework-sdk/6.5/stable
     #     plugin: cmake
     #     cmake-generator: Ninja
     #     cmake-parameters:
@@ -1350,7 +1350,7 @@ parts:
     #     build-packages:
     #     - cmake
     #     build-snaps:
-    #     - qt-framework-sdk
+    #     - qt-framework-sdk/6.5/stable
     #     plugin: cmake
     #     cmake-generator: Ninja
     #     cmake-parameters:
@@ -1376,7 +1376,7 @@ parts:
     #     - libdmtx0b
     #     - libzxingcore1
     #     build-snaps:
-    #     - qt-framework-sdk
+    #     - qt-framework-sdk/6.5/stable
     #     plugin: cmake
     #     cmake-generator: Ninja
     #     cmake-parameters:
@@ -1395,7 +1395,7 @@ parts:
     #     build-packages:
     #     - cmake
     #     build-snaps:
-    #     - qt-framework-sdk
+    #     - qt-framework-sdk/6.5/stable
     #     plugin: cmake
     #     cmake-generator: Ninja
     #     cmake-parameters:
@@ -1414,7 +1414,7 @@ parts:
     #     build-packages:
     #     - cmake
     #     build-snaps:
-    #     - qt-framework-sdk
+    #     - qt-framework-sdk/6.5/stable
     #     plugin: cmake
     #     cmake-generator: Ninja
     #     cmake-parameters:
@@ -1433,7 +1433,7 @@ parts:
     #     build-packages:
     #     - cmake
     #     build-snaps:
-    #     - qt-framework-sdk
+    #     - qt-framework-sdk/6.5/stable
     #     plugin: cmake
     #     cmake-generator: Ninja
     #     cmake-parameters:
@@ -1452,7 +1452,7 @@ parts:
     #     build-packages:
     #     - cmake
     #     build-snaps:
-    #     - qt-framework-sdk
+    #     - qt-framework-sdk/6.5/stable
     #     plugin: cmake
     #     cmake-generator: Ninja
     #     cmake-parameters:
@@ -1471,7 +1471,7 @@ parts:
     #     build-packages:
     #     - cmake
     #     build-snaps:
-    #     - qt-framework-sdk
+    #     - qt-framework-sdk/6.5/stable
     #     plugin: cmake
     #     cmake-generator: Ninja
     #     cmake-parameters:
@@ -1490,7 +1490,7 @@ parts:
     #     build-packages:
     #     - cmake
     #     build-snaps:
-    #     - qt-framework-sdk
+    #     - qt-framework-sdk/6.5/stable
     #     plugin: cmake
     #     cmake-generator: Ninja
     #     cmake-parameters:
@@ -1511,7 +1511,7 @@ parts:
     #     build-packages:
     #     - cmake
     #     build-snaps:
-    #     - qt-framework-sdk
+    #     - qt-framework-sdk/6.5/stable
     #     plugin: cmake
     #     cmake-generator: Ninja
     #     cmake-parameters:
@@ -1552,7 +1552,7 @@ parts:
     #     stage-packages:
     #     - libavif13
     #     build-snaps:
-    #     - qt-framework-sdk
+    #     - qt-framework-sdk/6.5/stable
     #     plugin: cmake
     #     cmake-generator: Ninja
     #     cmake-parameters:
@@ -1571,7 +1571,7 @@ parts:
     #     build-packages:
     #     - cmake
     #     build-snaps:
-    #     - qt-framework-sdk
+    #     - qt-framework-sdk/6.5/stable
     #     plugin: cmake
     #     cmake-generator: Ninja
     #     cmake-parameters:
@@ -1590,7 +1590,7 @@ parts:
     #     build-packages:
     #     - cmake
     #     build-snaps:
-    #     - qt-framework-sdk
+    #     - qt-framework-sdk/6.5/stable
     #     plugin: cmake
     #     cmake-generator: Ninja
     #     cmake-parameters:
@@ -1609,7 +1609,7 @@ parts:
     #     build-packages:
     #     - cmake
     #     build-snaps:
-    #     - qt-framework-sdk
+    #     - qt-framework-sdk/6.5/stable
     #     plugin: cmake
     #     cmake-generator: Ninja
     #     cmake-parameters:
@@ -1628,7 +1628,7 @@ parts:
     #     build-packages:
     #     - cmake
     #     build-snaps:
-    #     - qt-framework-sdk
+    #     - qt-framework-sdk/6.5/stable
     #     plugin: cmake
     #     cmake-generator: Ninja
     #     cmake-parameters:
@@ -1649,7 +1649,7 @@ parts:
     #     build-packages:
     #     - cmake
     #     build-snaps:
-    #     - qt-framework-sdk
+    #     - qt-framework-sdk/6.5/stable
     #     plugin: cmake
     #     cmake-generator: Ninja
     #     cmake-parameters:
@@ -1668,7 +1668,7 @@ parts:
     #     build-packages:
     #     - cmake
     #     build-snaps:
-    #     - qt-framework-sdk
+    #     - qt-framework-sdk/6.5/stable
     #     plugin: cmake
     #     cmake-generator: Ninja
     #     cmake-parameters:
@@ -1687,7 +1687,7 @@ parts:
     #     build-packages:
     #     - cmake
     #     build-snaps:
-    #     - qt-framework-sdk
+    #     - qt-framework-sdk/6.5/stable
     #     plugin: cmake
     #     cmake-generator: Ninja
     #     cmake-parameters:
