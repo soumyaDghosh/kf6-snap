@@ -62,7 +62,7 @@ parts:
         build-packages:
         - cmake
         build-snaps:
-        - qt-framework-sdk
+        - qt-framework-sdk/6.6/stable
         plugin: cmake
         cmake-generator: Ninja
         cmake-parameters:
@@ -82,7 +82,7 @@ parts:
         stage-packages:
         - wayland-protocols
         build-snaps:
-        - qt-framework-sdk
+        - qt-framework-sdk/6.6/stable
         plugin: cmake
         cmake-generator: Ninja
         cmake-parameters:
@@ -91,8 +91,8 @@ parts:
         - -DQT_MAJOR_VERSION=6
         - -DBUILD_WITH_QT6=ON
         - -DBUILD_TESTING=OFF
-        - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-        - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+        - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/6.6/stable/current/opt/qt6-5\\;/snap/qt-framework-sdk/6.6/stable/current\\;/usr"
+        - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/6.6/stable/current/opt/qt6-5\\;/snap/qt-framework-sdk/6.6/stable/current\\;/usr"
     kwidgetsaddons:
         after:
         - plasma-wayland-protocols
@@ -104,7 +104,7 @@ parts:
         - graphviz
         - doxygen
         build-snaps:
-        - qt-framework-sdk
+        - qt-framework-sdk/6.6/stable
         plugin: cmake
         cmake-generator: Ninja
         cmake-parameters:
@@ -113,8 +113,8 @@ parts:
         - -DQT_MAJOR_VERSION=6
         - -DBUILD_WITH_QT6=ON
         - -DBUILD_TESTING=OFF
-        - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-        - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+        - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/6.6/stable/current/opt/qt6-5\\;/snap/qt-framework-sdk/6.6/stable/current\\;/usr"
+        - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/6.6/stable/current/opt/qt6-5\\;/snap/qt-framework-sdk/6.6/stable/current\\;/usr"
     ki18n:
         after:
         - extra-cmake-modules
@@ -130,7 +130,7 @@ parts:
         - graphviz
         - python3
         build-snaps:
-        - qt-framework-sdk
+        - qt-framework-sdk/6.6/stable
         plugin: cmake
         cmake-generator: Ninja
         cmake-parameters:
@@ -139,8 +139,8 @@ parts:
         - -DQT_MAJOR_VERSION=6
         - -DBUILD_WITH_QT6=ON
         - -DBUILD_TESTING=OFF
-        - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-        - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+        - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/6.6/stable/current/opt/qt6-5\\;/snap/qt-framework-sdk/6.6/stable/current\\;/usr"
+        - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/6.6/stable/current/opt/qt6-5\\;/snap/qt-framework-sdk/6.6/stable/current\\;/usr"
     kconfig:
         after:
         - extra-cmake-modules
@@ -153,7 +153,7 @@ parts:
         - graphviz
         - libxkbcommon-dev
         build-snaps:
-        - qt-framework-sdk
+        - qt-framework-sdk/6.6/stable
         plugin: cmake
         cmake-generator: Ninja
         cmake-parameters:
@@ -162,8 +162,8 @@ parts:
         - -DQT_MAJOR_VERSION=6
         - -DBUILD_WITH_QT6=ON
         - -DBUILD_TESTING=OFF
-        - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-        - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+        - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/6.6/stable/current/opt/qt6-5\\;/snap/qt-framework-sdk/6.6/stable/current\\;/usr"
+        - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/6.6/stable/current/opt/qt6-5\\;/snap/qt-framework-sdk/6.6/stable/current\\;/usr"
     attica:
         after:
         - extra-cmake-modules
@@ -173,7 +173,7 @@ parts:
         build-packages:
         - cmake
         build-snaps:
-        - qt-framework-sdk
+        - qt-framework-sdk/6.6/stable
         plugin: cmake
         cmake-generator: Ninja
         cmake-parameters:
@@ -182,8 +182,8 @@ parts:
         - -DQT_MAJOR_VERSION=6
         - -DBUILD_WITH_QT6=ON
         - -DBUILD_TESTING=OFF
-        - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-        - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+        - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/6.6/stable/current/opt/qt6-5\\;/snap/qt-framework-sdk/6.6/stable/current\\;/usr"
+        - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/6.6/stable/current/opt/qt6-5\\;/snap/qt-framework-sdk/6.6/stable/current\\;/usr"
     kguiaddons:
         after:
         - qtconf
@@ -208,7 +208,7 @@ parts:
         stage-packages:
         - libwayland-client0
         build-snaps:
-        - qt-framework-sdk
+        - qt-framework-sdk/6.6/stable
         plugin: cmake
         cmake-generator: Ninja
         cmake-parameters:
@@ -217,8 +217,8 @@ parts:
         - -DQT_MAJOR_VERSION=6
         - -DBUILD_WITH_QT6=ON
         - -DBUILD_TESTING=OFF
-        - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-        - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+        - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/6.6/stable/current/opt/qt6-5\\;/snap/qt-framework-sdk/6.6/stable/current\\;/usr"
+        - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/6.6/stable/current/opt/qt6-5\\;/snap/qt-framework-sdk/6.6/stable/current\\;/usr"
         override-stage: |
             craftctl default
             cp $CRAFT_STAGE/usr/share/wayland/wayland.xml $CRAFT_PART_BUILD
@@ -238,7 +238,7 @@ parts:
         stage-packages:
         - shared-mime-info
         build-snaps:
-        - qt-framework-sdk
+        - qt-framework-sdk/6.6/stable
         plugin: cmake
         cmake-generator: Ninja
         cmake-parameters:
@@ -247,8 +247,8 @@ parts:
         - -DQT_MAJOR_VERSION=6
         - -DBUILD_WITH_QT6=ON
         - -DBUILD_TESTING=OFF
-        - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-        - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+        - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/6.6/stable/current/opt/qt6-5\\;/snap/qt-framework-sdk/6.6/stable/current\\;/usr"
+        - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/6.6/stable/current/opt/qt6-5\\;/snap/qt-framework-sdk/6.6/stable/current\\;/usr"
     polkit-qt-1:
         after:
         - qtconf
@@ -262,7 +262,7 @@ parts:
         stage-packages:
         - default-logind
         build-snaps:
-        - qt-framework-sdk
+        - qt-framework-sdk/6.6/stable
         plugin: cmake
         cmake-generator: Ninja
         cmake-parameters:
@@ -271,8 +271,8 @@ parts:
         - -DQT_MAJOR_VERSION=6
         - -DBUILD_WITH_QT6=ON
         - -DBUILD_TESTING=OFF
-        - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-        - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+        - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/6.6/stable/current/opt/qt6-5\\;/snap/qt-framework-sdk/6.6/stable/current\\;/usr"
+        - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/6.6/stable/current/opt/qt6-5\\;/snap/qt-framework-sdk/6.6/stable/current\\;/usr"
     karchive:
         after:
         - extra-cmake-modules
@@ -293,7 +293,7 @@ parts:
         - zlib1g
         - bzip2
         build-snaps:
-        - qt-framework-sdk
+        - qt-framework-sdk/6.6/stable
         plugin: cmake
         cmake-generator: Ninja
         cmake-parameters:
@@ -302,8 +302,8 @@ parts:
         - -DQT_MAJOR_VERSION=6
         - -DBUILD_WITH_QT6=ON
         - -DBUILD_TESTING=OFF
-        - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-        - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+        - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/6.6/stable/current/opt/qt6-5\\;/snap/qt-framework-sdk/6.6/stable/current\\;/usr"
+        - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/6.6/stable/current/opt/qt6-5\\;/snap/qt-framework-sdk/6.6/stable/current\\;/usr"
     kcodecs:
         after:
         - extra-cmake-modules
@@ -316,7 +316,7 @@ parts:
         - doxygen
         - graphviz
         build-snaps:
-        - qt-framework-sdk
+        - qt-framework-sdk/6.6/stable
         plugin: cmake
         cmake-generator: Ninja
         cmake-parameters:
@@ -325,8 +325,8 @@ parts:
         - -DQT_MAJOR_VERSION=6
         - -DBUILD_WITH_QT6=ON
         - -DBUILD_TESTING=OFF
-        - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-        - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+        - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/6.6/stable/current/opt/qt6-5\\;/snap/qt-framework-sdk/6.6/stable/current\\;/usr"
+        - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/6.6/stable/current/opt/qt6-5\\;/snap/qt-framework-sdk/6.6/stable/current\\;/usr"
     kitemviews:
         after:
         - extra-cmake-modules
@@ -338,7 +338,7 @@ parts:
         - doxygen
         - graphviz
         build-snaps:
-        - qt-framework-sdk
+        - qt-framework-sdk/6.6/stable
         plugin: cmake
         cmake-generator: Ninja
         cmake-parameters:
@@ -347,8 +347,8 @@ parts:
         - -DQT_MAJOR_VERSION=6
         - -DBUILD_WITH_QT6=ON
         - -DBUILD_TESTING=OFF
-        - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-        - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+        - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/6.6/stable/current/opt/qt6-5\\;/snap/qt-framework-sdk/6.6/stable/current\\;/usr"
+        - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/6.6/stable/current/opt/qt6-5\\;/snap/qt-framework-sdk/6.6/stable/current\\;/usr"
 # Waiting on private qt lib
     # kwindowsystem:
     #     after:
@@ -368,7 +368,7 @@ parts:
     #     - libxrender-dev
     #     - pkg-config
     #     build-snaps:
-    #     - qt-framework-sdk
+    #     - qt-framework-sdk/6.6/stable
     #     plugin: cmake
     #     cmake-generator: Ninja
     #     cmake-parameters:
@@ -377,8 +377,8 @@ parts:
     #     - -DQT_MAJOR_VERSION=6
     #     - -DBUILD_WITH_QT6=ON
     #     - -DBUILD_TESTING=OFF
-    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/6.6/stable/current/opt/qt6-5\\;/snap/qt-framework-sdk/6.6/stable/current\\;/usr"
+    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/6.6/stable/current/opt/qt6-5\\;/snap/qt-framework-sdk/6.6/stable/current\\;/usr"
     # kdbusaddons:
     #     after:
     #     - extra-cmake-modules
@@ -389,7 +389,7 @@ parts:
     #     - cmake
     #     - dbus-x11
     #     build-snaps:
-    #     - qt-framework-sdk
+    #     - qt-framework-sdk/6.6/stable
     #     plugin: cmake
     #     cmake-generator: Ninja
     #     cmake-parameters:
@@ -398,8 +398,8 @@ parts:
     #     - -DQT_MAJOR_VERSION=6
     #     - -DBUILD_WITH_QT6=ON
     #     - -DBUILD_TESTING=OFF
-    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/6.6/stable/current/opt/qt6-5\\;/snap/qt-framework-sdk/6.6/stable/current\\;/usr"
+    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/6.6/stable/current/opt/qt6-5\\;/snap/qt-framework-sdk/6.6/stable/current\\;/usr"
 ## Tier 2
     kauth:
         after:
@@ -413,7 +413,7 @@ parts:
         - doxygen
         - graphviz
         build-snaps:
-        - qt-framework-sdk
+        - qt-framework-sdk/6.6/stable
         plugin: cmake
         cmake-generator: Ninja
         cmake-parameters:
@@ -422,8 +422,8 @@ parts:
         - -DQT_MAJOR_VERSION=6
         - -DBUILD_WITH_QT6=ON
         - -DBUILD_TESTING=OFF
-        - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-        - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+        - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/6.6/stable/current/opt/qt6-5\\;/snap/qt-framework-sdk/6.6/stable/current\\;/usr"
+        - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/6.6/stable/current/opt/qt6-5\\;/snap/qt-framework-sdk/6.6/stable/current\\;/usr"
     kglobalaccel:
         after:
         - extra-cmake-modules
@@ -438,7 +438,7 @@ parts:
         - libxcb1-dev
         - pkg-config
         build-snaps:
-        - qt-framework-sdk
+        - qt-framework-sdk/6.6/stable
         plugin: cmake
         cmake-generator: Ninja
         cmake-parameters:
@@ -447,8 +447,8 @@ parts:
         - -DQT_MAJOR_VERSION=6
         - -DBUILD_WITH_QT6=ON
         - -DBUILD_TESTING=OFF
-        - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-        - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+        - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/6.6/stable/current/opt/qt6-5\\;/snap/qt-framework-sdk/6.6/stable/current\\;/usr"
+        - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/6.6/stable/current/opt/qt6-5\\;/snap/qt-framework-sdk/6.6/stable/current\\;/usr"
     # kcrash:
     #     after:
     #     - extra-cmake-modules
@@ -462,7 +462,7 @@ parts:
     #     - graphviz
     #     - libx11-dev
     #     build-snaps:
-    #     - qt-framework-sdk
+    #     - qt-framework-sdk/6.6/stable
     #     plugin: cmake
     #     cmake-generator: Ninja
     #     cmake-parameters:
@@ -471,8 +471,8 @@ parts:
     #     - -DQT_MAJOR_VERSION=6
     #     - -DBUILD_WITH_QT6=ON
     #     - -DBUILD_TESTING=OFF
-    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/6.6/stable/current/opt/qt6-5\\;/snap/qt-framework-sdk/6.6/stable/current\\;/usr"
+    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/6.6/stable/current/opt/qt6-5\\;/snap/qt-framework-sdk/6.6/stable/current\\;/usr"
     kservice:
         after:
         - kdbusaddons
@@ -496,7 +496,7 @@ parts:
         - graphviz
         - libxml2-utils
         build-snaps:
-        - qt-framework-sdk
+        - qt-framework-sdk/6.6/stable
         plugin: cmake
         cmake-generator: Ninja
         cmake-parameters:
@@ -505,8 +505,8 @@ parts:
         - -DQT_MAJOR_VERSION=6
         - -DBUILD_WITH_QT6=ON
         - -DBUILD_TESTING=OFF
-        - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-        - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+        - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/6.6/stable/current/opt/qt6-5\\;/snap/qt-framework-sdk/6.6/stable/current\\;/usr"
+        - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/6.6/stable/current/opt/qt6-5\\;/snap/qt-framework-sdk/6.6/stable/current\\;/usr"
     # kcolorscheme:
     #     after:
     #     - extra-cmake-modules
@@ -520,7 +520,7 @@ parts:
     #     - libglx-dev
     #     - libgl1-mesa-dev
     #     build-snaps:
-    #     - qt-framework-sdk
+    #     - qt-framework-sdk/6.6/stable
     #     plugin: cmake
     #     cmake-generator: Ninja
     #     cmake-parameters:
@@ -529,8 +529,8 @@ parts:
     #     - -DQT_MAJOR_VERSION=6
     #     - -DBUILD_WITH_QT6=ON
     #     - -DBUILD_TESTING=OFF
-    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current/usr\\;/usr"
-    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current/usr\\;/usr"
+    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/6.6/stable/current/opt/qt6-5\\;/snap/qt-framework-sdk/6.6/stable/current/usr\\;/usr"
+    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/6.6/stable/current/opt/qt6-5\\;/snap/qt-framework-sdk/6.6/stable/current/usr\\;/usr"
     # kconfigwidgets:
     #     after:
     #     - kcolorscheme
@@ -556,7 +556,7 @@ parts:
     #     stage-packages:
     #     - perl
     #     build-snaps:
-    #     - qt-framework-sdk
+    #     - qt-framework-sdk/6.6/stable
     #     plugin: cmake
     #     cmake-generator: Ninja
     #     cmake-parameters:
@@ -565,8 +565,8 @@ parts:
     #     - -DQT_MAJOR_VERSION=6
     #     - -DBUILD_WITH_QT6=ON
     #     - -DBUILD_TESTING=OFF
-    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/6.6/stable/current/opt/qt6-5\\;/snap/qt-framework-sdk/6.6/stable/current\\;/usr"
+    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/6.6/stable/current/opt/qt6-5\\;/snap/qt-framework-sdk/6.6/stable/current\\;/usr"
     # kiconthemes:
     #     after:
     #     - kitemviews
@@ -588,7 +588,7 @@ parts:
     #     - doxygen
     #     - graphviz
     #     build-snaps:
-    #     - qt-framework-sdk
+    #     - qt-framework-sdk/6.6/stable
     #     plugin: cmake
     #     cmake-generator: Ninja
     #     cmake-parameters:
@@ -597,8 +597,8 @@ parts:
     #     - -DQT_MAJOR_VERSION=6
     #     - -DBUILD_WITH_QT6=ON
     #     - -DBUILD_TESTING=OFF
-    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/6.6/stable/current/opt/qt6-5\\;/snap/qt-framework-sdk/6.6/stable/current\\;/usr"
+    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/6.6/stable/current/opt/qt6-5\\;/snap/qt-framework-sdk/6.6/stable/current\\;/usr"
     # sonnet:
     #     after:
     #     - kglobalaccel
@@ -607,7 +607,7 @@ parts:
     #     build-packages:
     #     - cmake
     #     build-snaps:
-    #     - qt-framework-sdk
+    #     - qt-framework-sdk/6.6/stable
     #     plugin: cmake
     #     cmake-generator: Ninja
     #     cmake-parameters:
@@ -616,8 +616,8 @@ parts:
     #     - -DQT_MAJOR_VERSION=6
     #     - -DBUILD_WITH_QT6=ON
     #     - -DBUILD_TESTING=OFF
-    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/6.6/stable/current/opt/qt6-5\\;/snap/qt-framework-sdk/6.6/stable/current\\;/usr"
+    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/6.6/stable/current/opt/qt6-5\\;/snap/qt-framework-sdk/6.6/stable/current\\;/usr"
     # kcompletion:
     #     after:
     #     - sonnet
@@ -626,7 +626,7 @@ parts:
     #     build-packages:
     #     - cmake
     #     build-snaps:
-    #     - qt-framework-sdk
+    #     - qt-framework-sdk/6.6/stable
     #     plugin: cmake
     #     cmake-generator: Ninja
     #     cmake-parameters:
@@ -635,8 +635,8 @@ parts:
     #     - -DQT_MAJOR_VERSION=6
     #     - -DBUILD_WITH_QT6=ON
     #     - -DBUILD_TESTING=OFF
-    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/6.6/stable/current/opt/qt6-5\\;/snap/qt-framework-sdk/6.6/stable/current\\;/usr"
+    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/6.6/stable/current/opt/qt6-5\\;/snap/qt-framework-sdk/6.6/stable/current\\;/usr"
     # ktextwidgets:
     #     after:
     #     - kcompletion
@@ -645,7 +645,7 @@ parts:
     #     build-packages:
     #     - cmake
     #     build-snaps:
-    #     - qt-framework-sdk
+    #     - qt-framework-sdk/6.6/stable
     #     plugin: cmake
     #     cmake-generator: Ninja
     #     cmake-parameters:
@@ -654,8 +654,8 @@ parts:
     #     - -DQT_MAJOR_VERSION=6
     #     - -DBUILD_WITH_QT6=ON
     #     - -DBUILD_TESTING=OFF
-    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/6.6/stable/current/opt/qt6-5\\;/snap/qt-framework-sdk/6.6/stable/current\\;/usr"
+    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/6.6/stable/current/opt/qt6-5\\;/snap/qt-framework-sdk/6.6/stable/current\\;/usr"
     # kxmlgui:
     #     after:
     #     - ktextwidgets
@@ -664,7 +664,7 @@ parts:
     #     build-packages:
     #     - cmake
     #     build-snaps:
-    #     - qt-framework-sdk
+    #     - qt-framework-sdk/6.6/stable
     #     plugin: cmake
     #     cmake-generator: Ninja
     #     cmake-parameters:
@@ -673,8 +673,8 @@ parts:
     #     - -DQT_MAJOR_VERSION=6
     #     - -DBUILD_WITH_QT6=ON
     #     - -DBUILD_TESTING=OFF
-    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/6.6/stable/current/opt/qt6-5\\;/snap/qt-framework-sdk/6.6/stable/current\\;/usr"
+    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/6.6/stable/current/opt/qt6-5\\;/snap/qt-framework-sdk/6.6/stable/current\\;/usr"
     # perl-uri-escape:
     #     after:
     #     - kxmlgui
@@ -683,7 +683,7 @@ parts:
     #     build-packages:
     #     - perl
     #     build-snaps:
-    #     - qt-framework-sdk
+    #     - qt-framework-sdk/6.6/stable
     #     plugin: nil
     #     override-build: |
     #         craftctl default
@@ -696,7 +696,7 @@ parts:
     #     build-packages:
     #     - cmake
     #     build-snaps:
-    #     - qt-framework-sdk
+    #     - qt-framework-sdk/6.6/stable
     #     plugin: cmake
     #     cmake-generator: Ninja
     #     cmake-parameters:
@@ -705,8 +705,8 @@ parts:
     #     - -DQT_MAJOR_VERSION=6
     #     - -DBUILD_WITH_QT6=ON
     #     - -DBUILD_TESTING=OFF
-    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/6.6/stable/current/opt/qt6-5\\;/snap/qt-framework-sdk/6.6/stable/current\\;/usr"
+    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/6.6/stable/current/opt/qt6-5\\;/snap/qt-framework-sdk/6.6/stable/current\\;/usr"
     # kpackage:
     #     after:
     #     - kdoctools
@@ -715,7 +715,7 @@ parts:
     #     build-packages:
     #     - cmake
     #     build-snaps:
-    #     - qt-framework-sdk
+    #     - qt-framework-sdk/6.6/stable
     #     plugin: cmake
     #     cmake-generator: Ninja
     #     cmake-parameters:
@@ -724,8 +724,8 @@ parts:
     #     - -DQT_MAJOR_VERSION=6
     #     - -DBUILD_WITH_QT6=ON
     #     - -DBUILD_TESTING=OFF
-    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/6.6/stable/current/opt/qt6-5\\;/snap/qt-framework-sdk/6.6/stable/current\\;/usr"
+    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/6.6/stable/current/opt/qt6-5\\;/snap/qt-framework-sdk/6.6/stable/current\\;/usr"
     # kbookmarks:
     #     after:
     #     - kpackage
@@ -734,7 +734,7 @@ parts:
     #     build-packages:
     #     - cmake
     #     build-snaps:
-    #     - qt-framework-sdk
+    #     - qt-framework-sdk/6.6/stable
     #     plugin: cmake
     #     cmake-generator: Ninja
     #     cmake-parameters:
@@ -743,8 +743,8 @@ parts:
     #     - -DQT_MAJOR_VERSION=6
     #     - -DBUILD_WITH_QT6=ON
     #     - -DBUILD_TESTING=OFF
-    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/6.6/stable/current/opt/qt6-5\\;/snap/qt-framework-sdk/6.6/stable/current\\;/usr"
+    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/6.6/stable/current/opt/qt6-5\\;/snap/qt-framework-sdk/6.6/stable/current\\;/usr"
     # kfilemetadata:
     #     after:
     #     - kbookmarks
@@ -754,7 +754,7 @@ parts:
     #     - cmake
     #     - libtag1-dev
     #     build-snaps:
-    #     - qt-framework-sdk
+    #     - qt-framework-sdk/6.6/stable
     #     plugin: cmake
     #     cmake-generator: Ninja
     #     cmake-parameters:
@@ -763,8 +763,8 @@ parts:
     #     - -DQT_MAJOR_VERSION=6
     #     - -DBUILD_WITH_QT6=ON
     #     - -DBUILD_TESTING=OFF
-    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/6.6/stable/current/opt/qt6-5\\;/snap/qt-framework-sdk/6.6/stable/current\\;/usr"
+    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/6.6/stable/current/opt/qt6-5\\;/snap/qt-framework-sdk/6.6/stable/current\\;/usr"
     # phonon:
     #     after:
     #     - kfilemetadata
@@ -773,7 +773,7 @@ parts:
     #     build-packages:
     #     - cmake
     #     build-snaps:
-    #     - qt-framework-sdk
+    #     - qt-framework-sdk/6.6/stable
     #     plugin: cmake
     #     cmake-generator: Ninja
     #     cmake-parameters:
@@ -783,8 +783,8 @@ parts:
     #     - -DPHONON_BUILD_QT5=OFF
     #     - -DPHONON_BUILD_QT6=ON
     #     - -DBUILD_TESTING=OFF
-    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/6.6/stable/current/opt/qt6-5\\;/snap/qt-framework-sdk/6.6/stable/current\\;/usr"
+    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/6.6/stable/current/opt/qt6-5\\;/snap/qt-framework-sdk/6.6/stable/current\\;/usr"
     # knotifications:
     #     after:
     #     - phonon
@@ -796,7 +796,7 @@ parts:
     #     stage-packages:
     #     - libcanberra0
     #     build-snaps:
-    #     - qt-framework-sdk
+    #     - qt-framework-sdk/6.6/stable
     #     plugin: cmake
     #     cmake-generator: Ninja
     #     cmake-parameters:
@@ -805,8 +805,8 @@ parts:
     #     - -DQT_MAJOR_VERSION=6
     #     - -DBUILD_WITH_QT6=ON
     #     - -DBUILD_TESTING=OFF
-    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/6.6/stable/current/opt/qt6-5\\;/snap/qt-framework-sdk/6.6/stable/current\\;/usr"
+    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/6.6/stable/current/opt/qt6-5\\;/snap/qt-framework-sdk/6.6/stable/current\\;/usr"
     # qca:
     #     after:
     #     - knotifications
@@ -815,7 +815,7 @@ parts:
     #     build-packages:
     #     - cmake
     #     build-snaps:
-    #     - qt-framework-sdk
+    #     - qt-framework-sdk/6.6/stable
     #     plugin: cmake
     #     cmake-generator: Ninja
     #     cmake-parameters:
@@ -824,8 +824,8 @@ parts:
     #     - -DQT_MAJOR_VERSION=6
     #     - -DBUILD_WITH_QT6=ON
     #     - -DBUILD_TESTING=OFF
-    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/6.6/stable/current/opt/qt6-5\\;/snap/qt-framework-sdk/6.6/stable/current\\;/usr"
+    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/6.6/stable/current/opt/qt6-5\\;/snap/qt-framework-sdk/6.6/stable/current\\;/usr"
     # kwallet:
     #     after:
     #     - qca
@@ -834,7 +834,7 @@ parts:
     #     build-packages:
     #     - cmake
     #     build-snaps:
-    #     - qt-framework-sdk
+    #     - qt-framework-sdk/6.6/stable
     #     plugin: cmake
     #     cmake-generator: Ninja
     #     cmake-parameters:
@@ -843,8 +843,8 @@ parts:
     #     - -DQT_MAJOR_VERSION=6
     #     - -DBUILD_WITH_QT6=ON
     #     - -DBUILD_TESTING=OFF
-    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/6.6/stable/current/opt/qt6-5\\;/snap/qt-framework-sdk/6.6/stable/current\\;/usr"
+    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/6.6/stable/current/opt/qt6-5\\;/snap/qt-framework-sdk/6.6/stable/current\\;/usr"
     # kjobwidgets:
     #     after:
     #     - kwallet
@@ -853,7 +853,7 @@ parts:
     #     build-packages:
     #     - cmake
     #     build-snaps:
-    #     - qt-framework-sdk
+    #     - qt-framework-sdk/6.6/stable
     #     plugin: cmake
     #     cmake-generator: Ninja
     #     cmake-parameters:
@@ -862,8 +862,8 @@ parts:
     #     - -DQT_MAJOR_VERSION=6
     #     - -DBUILD_WITH_QT6=ON
     #     - -DBUILD_TESTING=OFF
-    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/6.6/stable/current/opt/qt6-5\\;/snap/qt-framework-sdk/6.6/stable/current\\;/usr"
+    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/6.6/stable/current/opt/qt6-5\\;/snap/qt-framework-sdk/6.6/stable/current\\;/usr"
     # solid:
     #     after:
     #     - kjobwidgets
@@ -872,7 +872,7 @@ parts:
     #     build-packages:
     #     - cmake
     #     build-snaps:
-    #     - qt-framework-sdk
+    #     - qt-framework-sdk/6.6/stable
     #     plugin: cmake
     #     cmake-generator: Ninja
     #     cmake-parameters:
@@ -881,8 +881,8 @@ parts:
     #     - -DQT_MAJOR_VERSION=6
     #     - -DBUILD_WITH_QT6=ON
     #     - -DBUILD_TESTING=OFF
-    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/6.6/stable/current/opt/qt6-5\\;/snap/qt-framework-sdk/6.6/stable/current\\;/usr"
+    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/6.6/stable/current/opt/qt6-5\\;/snap/qt-framework-sdk/6.6/stable/current\\;/usr"
     # kio:
     #     after:
     #     - solid
@@ -891,7 +891,7 @@ parts:
     #     build-packages:
     #     - cmake
     #     build-snaps:
-    #     - qt-framework-sdk
+    #     - qt-framework-sdk/6.6/stable
     #     plugin: cmake
     #     cmake-generator: Ninja
     #     cmake-parameters:
@@ -900,8 +900,8 @@ parts:
     #     - -DQT_MAJOR_VERSION=6
     #     - -DBUILD_WITH_QT6=ON
     #     - -DBUILD_TESTING=OFF
-    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/6.6/stable/current/opt/qt6-5\\;/snap/qt-framework-sdk/6.6/stable/current\\;/usr"
+    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/6.6/stable/current/opt/qt6-5\\;/snap/qt-framework-sdk/6.6/stable/current\\;/usr"
     # kparts:
     #     after:
     #     - kio
@@ -910,7 +910,7 @@ parts:
     #     build-packages:
     #     - cmake
     #     build-snaps:
-    #     - qt-framework-sdk
+    #     - qt-framework-sdk/6.6/stable
     #     plugin: cmake
     #     cmake-generator: Ninja
     #     cmake-parameters:
@@ -919,8 +919,8 @@ parts:
     #     - -DQT_MAJOR_VERSION=6
     #     - -DBUILD_WITH_QT6=ON
     #     - -DBUILD_TESTING=OFF
-    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/6.6/stable/current/opt/qt6-5\\;/snap/qt-framework-sdk/6.6/stable/current\\;/usr"
+    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/6.6/stable/current/opt/qt6-5\\;/snap/qt-framework-sdk/6.6/stable/current\\;/usr"
     # kplotting:
     #     after:
     #     - kparts
@@ -929,7 +929,7 @@ parts:
     #     build-packages:
     #     - cmake
     #     build-snaps:
-    #     - qt-framework-sdk
+    #     - qt-framework-sdk/6.6/stable
     #     plugin: cmake
     #     cmake-generator: Ninja
     #     cmake-parameters:
@@ -938,8 +938,8 @@ parts:
     #     - -DQT_MAJOR_VERSION=6
     #     - -DBUILD_WITH_QT6=ON
     #     - -DBUILD_TESTING=OFF
-    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/6.6/stable/current/opt/qt6-5\\;/snap/qt-framework-sdk/6.6/stable/current\\;/usr"
+    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/6.6/stable/current/opt/qt6-5\\;/snap/qt-framework-sdk/6.6/stable/current\\;/usr"
     # kded:
     #     after:
     #     - kplotting
@@ -948,7 +948,7 @@ parts:
     #     build-packages:
     #     - cmake
     #     build-snaps:
-    #     - qt-framework-sdk
+    #     - qt-framework-sdk/6.6/stable
     #     plugin: cmake
     #     cmake-generator: Ninja
     #     cmake-parameters:
@@ -957,8 +957,8 @@ parts:
     #     - -DQT_MAJOR_VERSION=6
     #     - -DBUILD_WITH_QT6=ON
     #     - -DBUILD_TESTING=OFF
-    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/6.6/stable/current/opt/qt6-5\\;/snap/qt-framework-sdk/6.6/stable/current\\;/usr"
+    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/6.6/stable/current/opt/qt6-5\\;/snap/qt-framework-sdk/6.6/stable/current\\;/usr"
     # kunitconversion:
     #     after:
     #     - kded
@@ -967,7 +967,7 @@ parts:
     #     build-packages:
     #     - cmake
     #     build-snaps:
-    #     - qt-framework-sdk
+    #     - qt-framework-sdk/6.6/stable
     #     plugin: cmake
     #     cmake-generator: Ninja
     #     cmake-parameters:
@@ -976,8 +976,8 @@ parts:
     #     - -DQT_MAJOR_VERSION=6
     #     - -DBUILD_WITH_QT6=ON
     #     - -DBUILD_TESTING=OFF
-    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/6.6/stable/current/opt/qt6-5\\;/snap/qt-framework-sdk/6.6/stable/current\\;/usr"
+    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/6.6/stable/current/opt/qt6-5\\;/snap/qt-framework-sdk/6.6/stable/current\\;/usr"
     # kdeclarative:
     #     after:
     #     - kunitconversion
@@ -986,7 +986,7 @@ parts:
     #     build-packages:
     #     - cmake
     #     build-snaps:
-    #     - qt-framework-sdk
+    #     - qt-framework-sdk/6.6/stable
     #     plugin: cmake
     #     cmake-generator: Ninja
     #     cmake-parameters:
@@ -995,8 +995,8 @@ parts:
     #     - -DQT_MAJOR_VERSION=6
     #     - -DBUILD_WITH_QT6=ON
     #     - -DBUILD_TESTING=OFF
-    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/6.6/stable/current/opt/qt6-5\\;/snap/qt-framework-sdk/6.6/stable/current\\;/usr"
+    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/6.6/stable/current/opt/qt6-5\\;/snap/qt-framework-sdk/6.6/stable/current\\;/usr"
     # kactivities:
     #     after:
     #     - kdeclarative
@@ -1005,7 +1005,7 @@ parts:
     #     build-packages:
     #     - cmake
     #     build-snaps:
-    #     - qt-framework-sdk
+    #     - qt-framework-sdk/6.6/stable
     #     plugin: cmake
     #     cmake-generator: Ninja
     #     cmake-parameters:
@@ -1014,8 +1014,8 @@ parts:
     #     - -DQT_MAJOR_VERSION=6
     #     - -DBUILD_WITH_QT6=ON
     #     - -DBUILD_TESTING=OFF
-    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/6.6/stable/current/opt/qt6-5\\;/snap/qt-framework-sdk/6.6/stable/current\\;/usr"
+    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/6.6/stable/current/opt/qt6-5\\;/snap/qt-framework-sdk/6.6/stable/current\\;/usr"
     # kcmutils:
     #     after:
     #     - kactivities
@@ -1024,7 +1024,7 @@ parts:
     #     build-packages:
     #     - cmake
     #     build-snaps:
-    #     - qt-framework-sdk
+    #     - qt-framework-sdk/6.6/stable
     #     plugin: cmake
     #     cmake-generator: Ninja
     #     cmake-parameters:
@@ -1033,8 +1033,8 @@ parts:
     #     - -DQT_MAJOR_VERSION=6
     #     - -DBUILD_WITH_QT6=ON
     #     - -DBUILD_TESTING=OFF
-    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/6.6/stable/current/opt/qt6-5\\;/snap/qt-framework-sdk/6.6/stable/current\\;/usr"
+    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/6.6/stable/current/opt/qt6-5\\;/snap/qt-framework-sdk/6.6/stable/current\\;/usr"
     # knotifyconfig:
     #     after:
     #     - kcmutils
@@ -1043,7 +1043,7 @@ parts:
     #     build-packages:
     #     - cmake
     #     build-snaps:
-    #     - qt-framework-sdk
+    #     - qt-framework-sdk/6.6/stable
     #     plugin: cmake
     #     cmake-generator: Ninja
     #     cmake-parameters:
@@ -1052,8 +1052,8 @@ parts:
     #     - -DQT_MAJOR_VERSION=6
     #     - -DBUILD_WITH_QT6=ON
     #     - -DBUILD_TESTING=OFF
-    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/6.6/stable/current/opt/qt6-5\\;/snap/qt-framework-sdk/6.6/stable/current\\;/usr"
+    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/6.6/stable/current/opt/qt6-5\\;/snap/qt-framework-sdk/6.6/stable/current\\;/usr"
     # knewstuff:
     #     after:
     #     - knotifyconfig
@@ -1062,7 +1062,7 @@ parts:
     #     build-packages:
     #     - cmake
     #     build-snaps:
-    #     - qt-framework-sdk
+    #     - qt-framework-sdk/6.6/stable
     #     plugin: cmake
     #     cmake-generator: Ninja
     #     cmake-parameters:
@@ -1071,8 +1071,8 @@ parts:
     #     - -DQT_MAJOR_VERSION=6
     #     - -DBUILD_WITH_QT6=ON
     #     - -DBUILD_TESTING=OFF
-    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/6.6/stable/current/opt/qt6-5\\;/snap/qt-framework-sdk/6.6/stable/current\\;/usr"
+    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/6.6/stable/current/opt/qt6-5\\;/snap/qt-framework-sdk/6.6/stable/current\\;/usr"
     # kidletime:
     #     after:
     #     - knewstuff
@@ -1081,7 +1081,7 @@ parts:
     #     build-packages:
     #     - cmake
     #     build-snaps:
-    #     - qt-framework-sdk
+    #     - qt-framework-sdk/6.6/stable
     #     plugin: cmake
     #     cmake-generator: Ninja
     #     cmake-parameters:
@@ -1090,8 +1090,8 @@ parts:
     #     - -DQT_MAJOR_VERSION=6
     #     - -DBUILD_WITH_QT6=ON
     #     - -DBUILD_TESTING=OFF
-    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/6.6/stable/current/opt/qt6-5\\;/snap/qt-framework-sdk/6.6/stable/current\\;/usr"
+    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/6.6/stable/current/opt/qt6-5\\;/snap/qt-framework-sdk/6.6/stable/current\\;/usr"
     # threadweaver:
     #     after:
     #     - kidletime
@@ -1100,7 +1100,7 @@ parts:
     #     build-packages:
     #     - cmake
     #     build-snaps:
-    #     - qt-framework-sdk
+    #     - qt-framework-sdk/6.6/stable
     #     plugin: cmake
     #     cmake-generator: Ninja
     #     cmake-parameters:
@@ -1109,8 +1109,8 @@ parts:
     #     - -DQT_MAJOR_VERSION=6
     #     - -DBUILD_WITH_QT6=ON
     #     - -DBUILD_TESTING=OFF
-    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/6.6/stable/current/opt/qt6-5\\;/snap/qt-framework-sdk/6.6/stable/current\\;/usr"
+    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/6.6/stable/current/opt/qt6-5\\;/snap/qt-framework-sdk/6.6/stable/current\\;/usr"
     # kitemmodels:
     #     after:
     #     - threadweaver
@@ -1119,7 +1119,7 @@ parts:
     #     build-packages:
     #     - cmake
     #     build-snaps:
-    #     - qt-framework-sdk
+    #     - qt-framework-sdk/6.6/stable
     #     plugin: cmake
     #     cmake-generator: Ninja
     #     cmake-parameters:
@@ -1128,8 +1128,8 @@ parts:
     #     - -DQT_MAJOR_VERSION=6
     #     - -DBUILD_WITH_QT6=ON
     #     - -DBUILD_TESTING=OFF
-    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/6.6/stable/current/opt/qt6-5\\;/snap/qt-framework-sdk/6.6/stable/current\\;/usr"
+    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/6.6/stable/current/opt/qt6-5\\;/snap/qt-framework-sdk/6.6/stable/current\\;/usr"
     # kdnssd:
     #     after:
     #     - kitemmodels
@@ -1138,7 +1138,7 @@ parts:
     #     build-packages:
     #     - cmake
     #     build-snaps:
-    #     - qt-framework-sdk
+    #     - qt-framework-sdk/6.6/stable
     #     plugin: cmake
     #     cmake-generator: Ninja
     #     cmake-parameters:
@@ -1147,8 +1147,8 @@ parts:
     #     - -DQT_MAJOR_VERSION=6
     #     - -DBUILD_WITH_QT6=ON
     #     - -DBUILD_TESTING=OFF
-    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/6.6/stable/current/opt/qt6-5\\;/snap/qt-framework-sdk/6.6/stable/current\\;/usr"
+    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/6.6/stable/current/opt/qt6-5\\;/snap/qt-framework-sdk/6.6/stable/current\\;/usr"
     # kquickcharts:
     #     after:
     #     - kdnssd
@@ -1157,7 +1157,7 @@ parts:
     #     build-packages:
     #     - cmake
     #     build-snaps:
-    #     - qt-framework-sdk
+    #     - qt-framework-sdk/6.6/stable
     #     plugin: cmake
     #     cmake-generator: Ninja
     #     cmake-parameters:
@@ -1166,8 +1166,8 @@ parts:
     #     - -DQT_MAJOR_VERSION=6
     #     - -DBUILD_WITH_QT6=ON
     #     - -DBUILD_TESTING=OFF
-    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/6.6/stable/current/opt/qt6-5\\;/snap/qt-framework-sdk/6.6/stable/current\\;/usr"
+    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/6.6/stable/current/opt/qt6-5\\;/snap/qt-framework-sdk/6.6/stable/current\\;/usr"
     # syntax-highlighting:
     #     after:
     #     - kquickcharts
@@ -1176,7 +1176,7 @@ parts:
     #     build-packages:
     #     - cmake
     #     build-snaps:
-    #     - qt-framework-sdk
+    #     - qt-framework-sdk/6.6/stable
     #     plugin: cmake
     #     cmake-generator: Ninja
     #     cmake-parameters:
@@ -1185,8 +1185,8 @@ parts:
     #     - -DQT_MAJOR_VERSION=6
     #     - -DBUILD_WITH_QT6=ON
     #     - -DBUILD_TESTING=OFF
-    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/6.6/stable/current/opt/qt6-5\\;/snap/qt-framework-sdk/6.6/stable/current\\;/usr"
+    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/6.6/stable/current/opt/qt6-5\\;/snap/qt-framework-sdk/6.6/stable/current\\;/usr"
     # ktexteditor:
     #     after:
     #     - syntax-highlighting
@@ -1195,7 +1195,7 @@ parts:
     #     build-packages:
     #     - cmake
     #     build-snaps:
-    #     - qt-framework-sdk
+    #     - qt-framework-sdk/6.6/stable
     #     plugin: cmake
     #     cmake-generator: Ninja
     #     cmake-parameters:
@@ -1204,8 +1204,8 @@ parts:
     #     - -DQT_MAJOR_VERSION=6
     #     - -DBUILD_WITH_QT6=ON
     #     - -DBUILD_TESTING=OFF
-    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/6.6/stable/current/opt/qt6-5\\;/snap/qt-framework-sdk/6.6/stable/current\\;/usr"
+    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/6.6/stable/current/opt/qt6-5\\;/snap/qt-framework-sdk/6.6/stable/current\\;/usr"
     # frameworkintegration:
     #     after:
     #     - ktexteditor
@@ -1214,7 +1214,7 @@ parts:
     #     build-packages:
     #     - cmake
     #     build-snaps:
-    #     - qt-framework-sdk
+    #     - qt-framework-sdk/6.6/stable
     #     plugin: cmake
     #     cmake-generator: Ninja
     #     cmake-parameters:
@@ -1223,8 +1223,8 @@ parts:
     #     - -DQT_MAJOR_VERSION=6
     #     - -DBUILD_WITH_QT6=ON
     #     - -DBUILD_TESTING=OFF
-    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/6.6/stable/current/opt/qt6-5\\;/snap/qt-framework-sdk/6.6/stable/current\\;/usr"
+    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/6.6/stable/current/opt/qt6-5\\;/snap/qt-framework-sdk/6.6/stable/current\\;/usr"
     # kpty:
     #     after:
     #     - frameworkintegration
@@ -1233,7 +1233,7 @@ parts:
     #     build-packages:
     #     - cmake
     #     build-snaps:
-    #     - qt-framework-sdk
+    #     - qt-framework-sdk/6.6/stable
     #     plugin: cmake
     #     cmake-generator: Ninja
     #     cmake-parameters:
@@ -1242,8 +1242,8 @@ parts:
     #     - -DQT_MAJOR_VERSION=6
     #     - -DBUILD_WITH_QT6=ON
     #     - -DBUILD_TESTING=OFF
-    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/6.6/stable/current/opt/qt6-5\\;/snap/qt-framework-sdk/6.6/stable/current\\;/usr"
+    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/6.6/stable/current/opt/qt6-5\\;/snap/qt-framework-sdk/6.6/stable/current\\;/usr"
     # kwayland:
     #     after:
     #     - kpty
@@ -1252,7 +1252,7 @@ parts:
     #     build-packages:
     #     - cmake
     #     build-snaps:
-    #     - qt-framework-sdk
+    #     - qt-framework-sdk/6.6/stable
     #     plugin: cmake
     #     cmake-generator: Ninja
     #     cmake-parameters:
@@ -1261,8 +1261,8 @@ parts:
     #     - -DQT_MAJOR_VERSION=6
     #     - -DBUILD_WITH_QT6=ON
     #     - -DBUILD_TESTING=OFF
-    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/6.6/stable/current/opt/qt6-5\\;/snap/qt-framework-sdk/6.6/stable/current\\;/usr"
+    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/6.6/stable/current/opt/qt6-5\\;/snap/qt-framework-sdk/6.6/stable/current\\;/usr"
     # kirigami:
     #     after:
     #     - kwayland
@@ -1271,7 +1271,7 @@ parts:
     #     build-packages:
     #     - cmake
     #     build-snaps:
-    #     - qt-framework-sdk
+    #     - qt-framework-sdk/6.6/stable
     #     plugin: cmake
     #     cmake-generator: Ninja
     #     cmake-parameters:
@@ -1280,8 +1280,8 @@ parts:
     #     - -DQT_MAJOR_VERSION=6
     #     - -DBUILD_WITH_QT6=ON
     #     - -DBUILD_TESTING=OFF
-    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/6.6/stable/current/opt/qt6-5\\;/snap/qt-framework-sdk/6.6/stable/current\\;/usr"
+    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/6.6/stable/current/opt/qt6-5\\;/snap/qt-framework-sdk/6.6/stable/current\\;/usr"
     # qqc2-desktop-style:
     #     after:
     #     - kirigami
@@ -1290,7 +1290,7 @@ parts:
     #     build-packages:
     #     - cmake
     #     build-snaps:
-    #     - qt-framework-sdk
+    #     - qt-framework-sdk/6.6/stable
     #     plugin: cmake
     #     cmake-generator: Ninja
     #     cmake-parameters:
@@ -1299,8 +1299,8 @@ parts:
     #     - -DQT_MAJOR_VERSION=6
     #     - -DBUILD_WITH_QT6=ON
     #     - -DBUILD_TESTING=OFF
-    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/6.6/stable/current/opt/qt6-5\\;/snap/qt-framework-sdk/6.6/stable/current\\;/usr"
+    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/6.6/stable/current/opt/qt6-5\\;/snap/qt-framework-sdk/6.6/stable/current\\;/usr"
     # kcontacts:
     #     after:
     #     - qqc2-desktop-style
@@ -1309,7 +1309,7 @@ parts:
     #     build-packages:
     #     - cmake
     #     build-snaps:
-    #     - qt-framework-sdk
+    #     - qt-framework-sdk/6.6/stable
     #     plugin: cmake
     #     cmake-generator: Ninja
     #     cmake-parameters:
@@ -1318,8 +1318,8 @@ parts:
     #     - -DQT_MAJOR_VERSION=6
     #     - -DBUILD_WITH_QT6=ON
     #     - -DBUILD_TESTING=OFF
-    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/6.6/stable/current/opt/qt6-5\\;/snap/qt-framework-sdk/6.6/stable/current\\;/usr"
+    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/6.6/stable/current/opt/qt6-5\\;/snap/qt-framework-sdk/6.6/stable/current\\;/usr"
     # kcalendarcore:
     #     after:
     #     - kcontacts
@@ -1331,7 +1331,7 @@ parts:
     #     stage-packages:
     #     - libical3
     #     build-snaps:
-    #     - qt-framework-sdk
+    #     - qt-framework-sdk/6.6/stable
     #     plugin: cmake
     #     cmake-generator: Ninja
     #     cmake-parameters:
@@ -1340,8 +1340,8 @@ parts:
     #     - -DQT_MAJOR_VERSION=6
     #     - -DBUILD_WITH_QT6=ON
     #     - -DBUILD_TESTING=OFF
-    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/6.6/stable/current/opt/qt6-5\\;/snap/qt-framework-sdk/6.6/stable/current\\;/usr"
+    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/6.6/stable/current/opt/qt6-5\\;/snap/qt-framework-sdk/6.6/stable/current\\;/usr"
     # kholidays:
     #     after:
     #     - kcalendarcore
@@ -1350,7 +1350,7 @@ parts:
     #     build-packages:
     #     - cmake
     #     build-snaps:
-    #     - qt-framework-sdk
+    #     - qt-framework-sdk/6.6/stable
     #     plugin: cmake
     #     cmake-generator: Ninja
     #     cmake-parameters:
@@ -1359,8 +1359,8 @@ parts:
     #     - -DQT_MAJOR_VERSION=6
     #     - -DBUILD_WITH_QT6=ON
     #     - -DBUILD_TESTING=OFF
-    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/6.6/stable/current/opt/qt6-5\\;/snap/qt-framework-sdk/6.6/stable/current\\;/usr"
+    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/6.6/stable/current/opt/qt6-5\\;/snap/qt-framework-sdk/6.6/stable/current\\;/usr"
     # prison:
     #     after:
     #     - kholidays
@@ -1376,7 +1376,7 @@ parts:
     #     - libdmtx0b
     #     - libzxingcore1
     #     build-snaps:
-    #     - qt-framework-sdk
+    #     - qt-framework-sdk/6.6/stable
     #     plugin: cmake
     #     cmake-generator: Ninja
     #     cmake-parameters:
@@ -1385,8 +1385,8 @@ parts:
     #     - -DQT_MAJOR_VERSION=6
     #     - -DBUILD_WITH_QT6=ON
     #     - -DBUILD_TESTING=OFF
-    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/6.6/stable/current/opt/qt6-5\\;/snap/qt-framework-sdk/6.6/stable/current\\;/usr"
+    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/6.6/stable/current/opt/qt6-5\\;/snap/qt-framework-sdk/6.6/stable/current\\;/usr"
     # syndication:
     #     after:
     #     - prison
@@ -1395,7 +1395,7 @@ parts:
     #     build-packages:
     #     - cmake
     #     build-snaps:
-    #     - qt-framework-sdk
+    #     - qt-framework-sdk/6.6/stable
     #     plugin: cmake
     #     cmake-generator: Ninja
     #     cmake-parameters:
@@ -1404,8 +1404,8 @@ parts:
     #     - -DQT_MAJOR_VERSION=6
     #     - -DBUILD_WITH_QT6=ON
     #     - -DBUILD_TESTING=OFF
-    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/6.6/stable/current/opt/qt6-5\\;/snap/qt-framework-sdk/6.6/stable/current\\;/usr"
+    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/6.6/stable/current/opt/qt6-5\\;/snap/qt-framework-sdk/6.6/stable/current\\;/usr"
     # purpose:
     #     after:
     #     - syndication
@@ -1414,7 +1414,7 @@ parts:
     #     build-packages:
     #     - cmake
     #     build-snaps:
-    #     - qt-framework-sdk
+    #     - qt-framework-sdk/6.6/stable
     #     plugin: cmake
     #     cmake-generator: Ninja
     #     cmake-parameters:
@@ -1423,8 +1423,8 @@ parts:
     #     - -DQT_MAJOR_VERSION=6
     #     - -DBUILD_WITH_QT6=ON
     #     - -DBUILD_TESTING=OFF
-    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/6.6/stable/current/opt/qt6-5\\;/snap/qt-framework-sdk/6.6/stable/current\\;/usr"
+    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/6.6/stable/current/opt/qt6-5\\;/snap/qt-framework-sdk/6.6/stable/current\\;/usr"
     # kdav:
     #     after:
     #     - purpose
@@ -1433,7 +1433,7 @@ parts:
     #     build-packages:
     #     - cmake
     #     build-snaps:
-    #     - qt-framework-sdk
+    #     - qt-framework-sdk/6.6/stable
     #     plugin: cmake
     #     cmake-generator: Ninja
     #     cmake-parameters:
@@ -1442,8 +1442,8 @@ parts:
     #     - -DQT_MAJOR_VERSION=6
     #     - -DBUILD_WITH_QT6=ON
     #     - -DBUILD_TESTING=OFF
-    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/6.6/stable/current/opt/qt6-5\\;/snap/qt-framework-sdk/6.6/stable/current\\;/usr"
+    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/6.6/stable/current/opt/qt6-5\\;/snap/qt-framework-sdk/6.6/stable/current\\;/usr"
     # ksvg:
     #     after:
     #     - kdav
@@ -1452,7 +1452,7 @@ parts:
     #     build-packages:
     #     - cmake
     #     build-snaps:
-    #     - qt-framework-sdk
+    #     - qt-framework-sdk/6.6/stable
     #     plugin: cmake
     #     cmake-generator: Ninja
     #     cmake-parameters:
@@ -1461,8 +1461,8 @@ parts:
     #     - -DQT_MAJOR_VERSION=6
     #     - -DBUILD_WITH_QT6=ON
     #     - -DBUILD_TESTING=OFF
-    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/6.6/stable/current/opt/qt6-5\\;/snap/qt-framework-sdk/6.6/stable/current\\;/usr"
+    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/6.6/stable/current/opt/qt6-5\\;/snap/qt-framework-sdk/6.6/stable/current\\;/usr"
     # plasma-framework:
     #     after:
     #     - ksvg
@@ -1471,7 +1471,7 @@ parts:
     #     build-packages:
     #     - cmake
     #     build-snaps:
-    #     - qt-framework-sdk
+    #     - qt-framework-sdk/6.6/stable
     #     plugin: cmake
     #     cmake-generator: Ninja
     #     cmake-parameters:
@@ -1480,8 +1480,8 @@ parts:
     #     - -DQT_MAJOR_VERSION=6
     #     - -DBUILD_WITH_QT6=ON
     #     - -DBUILD_TESTING=OFF
-    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/6.6/stable/current/opt/qt6-5\\;/snap/qt-framework-sdk/6.6/stable/current\\;/usr"
+    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/6.6/stable/current/opt/qt6-5\\;/snap/qt-framework-sdk/6.6/stable/current\\;/usr"
     # breeze-icons:
     #     after:
     #     - plasma-framework
@@ -1490,7 +1490,7 @@ parts:
     #     build-packages:
     #     - cmake
     #     build-snaps:
-    #     - qt-framework-sdk
+    #     - qt-framework-sdk/6.6/stable
     #     plugin: cmake
     #     cmake-generator: Ninja
     #     cmake-parameters:
@@ -1499,8 +1499,8 @@ parts:
     #     - -DQT_MAJOR_VERSION=6
     #     - -DBUILD_WITH_QT6=ON
     #     - -DBUILD_TESTING=OFF
-    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/6.6/stable/current/opt/qt6-5\\;/snap/qt-framework-sdk/6.6/stable/current\\;/usr"
+    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/6.6/stable/current/opt/qt6-5\\;/snap/qt-framework-sdk/6.6/stable/current\\;/usr"
     #     prime:
     #     - "-*.rcc"
     # libjxl:
@@ -1511,7 +1511,7 @@ parts:
     #     build-packages:
     #     - cmake
     #     build-snaps:
-    #     - qt-framework-sdk
+    #     - qt-framework-sdk/6.6/stable
     #     plugin: cmake
     #     cmake-generator: Ninja
     #     cmake-parameters:
@@ -1520,8 +1520,8 @@ parts:
     #     - -DQT_MAJOR_VERSION=6
     #     - -DBUILD_WITH_QT6=ON
     #     - -DBUILD_TESTING=OFF
-    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/6.6/stable/current/opt/qt6-5\\;/snap/qt-framework-sdk/6.6/stable/current\\;/usr"
+    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/6.6/stable/current/opt/qt6-5\\;/snap/qt-framework-sdk/6.6/stable/current\\;/usr"
     #     - "-DJPEGXL_ENABLE_BENCHMARK=OFF"
     #     - "-DJPEGXL_ENABLE_DOXYGEN=OFF"
     #     - "-DJPEGXL_ENABLE_EXAMPLES=OFF"
@@ -1552,7 +1552,7 @@ parts:
     #     stage-packages:
     #     - libavif13
     #     build-snaps:
-    #     - qt-framework-sdk
+    #     - qt-framework-sdk/6.6/stable
     #     plugin: cmake
     #     cmake-generator: Ninja
     #     cmake-parameters:
@@ -1561,8 +1561,8 @@ parts:
     #     - -DQT_MAJOR_VERSION=6
     #     - -DBUILD_WITH_QT6=ON
     #     - -DBUILD_TESTING=OFF
-    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/6.6/stable/current/opt/qt6-5\\;/snap/qt-framework-sdk/6.6/stable/current\\;/usr"
+    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/6.6/stable/current/opt/qt6-5\\;/snap/qt-framework-sdk/6.6/stable/current\\;/usr"
     # bluez-qt:
     #     after:
     #     - kimageformats
@@ -1571,7 +1571,7 @@ parts:
     #     build-packages:
     #     - cmake
     #     build-snaps:
-    #     - qt-framework-sdk
+    #     - qt-framework-sdk/6.6/stable
     #     plugin: cmake
     #     cmake-generator: Ninja
     #     cmake-parameters:
@@ -1580,8 +1580,8 @@ parts:
     #     - -DQT_MAJOR_VERSION=6
     #     - -DBUILD_WITH_QT6=ON
     #     - -DBUILD_TESTING=OFF
-    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/6.6/stable/current/opt/qt6-5\\;/snap/qt-framework-sdk/6.6/stable/current\\;/usr"
+    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/6.6/stable/current/opt/qt6-5\\;/snap/qt-framework-sdk/6.6/stable/current\\;/usr"
     # kstatusnotifieritem:
     #     after:
     #     - bluez-qt
@@ -1590,7 +1590,7 @@ parts:
     #     build-packages:
     #     - cmake
     #     build-snaps:
-    #     - qt-framework-sdk
+    #     - qt-framework-sdk/6.6/stable
     #     plugin: cmake
     #     cmake-generator: Ninja
     #     cmake-parameters:
@@ -1599,8 +1599,8 @@ parts:
     #     - -DQT_MAJOR_VERSION=6
     #     - -DBUILD_WITH_QT6=ON
     #     - -DBUILD_TESTING=OFF
-    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/6.6/stable/current/opt/qt6-5\\;/snap/qt-framework-sdk/6.6/stable/current\\;/usr"
+    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/6.6/stable/current/opt/qt6-5\\;/snap/qt-framework-sdk/6.6/stable/current\\;/usr"
     # kio-extras:
     #     after:
     #     - kstatusnotifieritem
@@ -1609,7 +1609,7 @@ parts:
     #     build-packages:
     #     - cmake
     #     build-snaps:
-    #     - qt-framework-sdk
+    #     - qt-framework-sdk/6.6/stable
     #     plugin: cmake
     #     cmake-generator: Ninja
     #     cmake-parameters:
@@ -1618,8 +1618,8 @@ parts:
     #     - -DQT_MAJOR_VERSION=6
     #     - -DBUILD_WITH_QT6=ON
     #     - -DBUILD_TESTING=OFF
-    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/6.6/stable/current/opt/qt6-5\\;/snap/qt-framework-sdk/6.6/stable/current\\;/usr"
+    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/6.6/stable/current/opt/qt6-5\\;/snap/qt-framework-sdk/6.6/stable/current\\;/usr"
     # breeze:
     #     after:
     #     - kio-extras
@@ -1628,7 +1628,7 @@ parts:
     #     build-packages:
     #     - cmake
     #     build-snaps:
-    #     - qt-framework-sdk
+    #     - qt-framework-sdk/6.6/stable
     #     plugin: cmake
     #     cmake-generator: Ninja
     #     cmake-parameters:
@@ -1639,8 +1639,8 @@ parts:
     #     - -DBUILD_TESTING=OFF
     #     - "-DWITH_DECORATIONS=OFF"
     #     - "-DWITH_WALLPAPERS=OFF"
-    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/6.6/stable/current/opt/qt6-5\\;/snap/qt-framework-sdk/6.6/stable/current\\;/usr"
+    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/6.6/stable/current/opt/qt6-5\\;/snap/qt-framework-sdk/6.6/stable/current\\;/usr"
     # plasma-integration:
     #     after:
     #     - breeze
@@ -1649,7 +1649,7 @@ parts:
     #     build-packages:
     #     - cmake
     #     build-snaps:
-    #     - qt-framework-sdk
+    #     - qt-framework-sdk/6.6/stable
     #     plugin: cmake
     #     cmake-generator: Ninja
     #     cmake-parameters:
@@ -1658,8 +1658,8 @@ parts:
     #     - -DQT_MAJOR_VERSION=6
     #     - -DBUILD_WITH_QT6=ON
     #     - -DBUILD_TESTING=OFF
-    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/6.6/stable/current/opt/qt6-5\\;/snap/qt-framework-sdk/6.6/stable/current\\;/usr"
+    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/6.6/stable/current/opt/qt6-5\\;/snap/qt-framework-sdk/6.6/stable/current\\;/usr"
     # kwayland-integration:
     #     after:
     #     - plasma-integration
@@ -1668,7 +1668,7 @@ parts:
     #     build-packages:
     #     - cmake
     #     build-snaps:
-    #     - qt-framework-sdk
+    #     - qt-framework-sdk/6.6/stable
     #     plugin: cmake
     #     cmake-generator: Ninja
     #     cmake-parameters:
@@ -1677,8 +1677,8 @@ parts:
     #     - -DQT_MAJOR_VERSION=6
     #     - -DBUILD_WITH_QT6=ON
     #     - -DBUILD_TESTING=OFF
-    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/6.6/stable/current/opt/qt6-5\\;/snap/qt-framework-sdk/6.6/stable/current\\;/usr"
+    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/6.6/stable/current/opt/qt6-5\\;/snap/qt-framework-sdk/6.6/stable/current\\;/usr"
     # qqc2-breeze-style:
     #     after:
     #     - kwayland-integration
@@ -1687,7 +1687,7 @@ parts:
     #     build-packages:
     #     - cmake
     #     build-snaps:
-    #     - qt-framework-sdk
+    #     - qt-framework-sdk/6.6/stable
     #     plugin: cmake
     #     cmake-generator: Ninja
     #     cmake-parameters:
@@ -1696,5 +1696,5 @@ parts:
     #     - -DQT_MAJOR_VERSION=6
     #     - -DBUILD_WITH_QT6=ON
     #     - -DBUILD_TESTING=OFF
-    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
-    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/opt/qt6-5\\;/snap/qt-framework-sdk/current\\;/usr"
+    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/6.6/stable/current/opt/qt6-5\\;/snap/qt-framework-sdk/6.6/stable/current\\;/usr"
+    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/6.6/stable/current/opt/qt6-5\\;/snap/qt-framework-sdk/6.6/stable/current\\;/usr"
