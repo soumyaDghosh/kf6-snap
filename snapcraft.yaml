@@ -71,6 +71,11 @@ parts:
         - -DQT_MAJOR_VERSION=6
         - -DBUILD_WITH_QT6=ON
         - -DBUILD_TESTING=OFF
+        build-environment:
+        - PATH: /snap/qt-framework-sdk/current/usr/bin${PATH:+:$PATH}
+        - XDG_DATA_DIRS: $CRAFT_STAGE/usr/share:/snap/qt-framework-sdk/current/usr/share:/usr/share${XDG_DATA_DIRS:+:$XDG_DATA_DIRS}
+        - XDG_CONFIG_HOME: $CRAFT_STAGE/etc/xdg:/snap/qt-framework-sdk/current/etc/xdg:/etc/xdg${XDG_CONFIG_HOME:+:$XDG_CONFIG_HOME}
+        - LD_LIBRARY_PATH: "/snap/qt-framework-sdk/current/usr/lib/$CRAFT_ARCH_TRIPLET:/snap/qt-framework-sdk/current/usr/lib:$CRAFT_STAGE/usr/lib:$CRAFT_STAGE/lib/:$CRAFT_STAGE/usr/lib/$CRAFT_ARCH_TRIPLET:/usr/lib/$CRAFT_ARCH_TRIPLET:/usr/lib:/lib"
     plasma-wayland-protocols:
         after:
         - extra-cmake-modules
@@ -93,6 +98,11 @@ parts:
         - -DBUILD_TESTING=OFF
         - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current\\;/usr"
         - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current\\;/usr"
+        build-environment:
+        - PATH: /snap/qt-framework-sdk/current/usr/bin${PATH:+:$PATH}
+        - XDG_DATA_DIRS: $CRAFT_STAGE/usr/share:/snap/qt-framework-sdk/current/usr/share:/usr/share${XDG_DATA_DIRS:+:$XDG_DATA_DIRS}
+        - XDG_CONFIG_HOME: $CRAFT_STAGE/etc/xdg:/snap/qt-framework-sdk/current/etc/xdg:/etc/xdg${XDG_CONFIG_HOME:+:$XDG_CONFIG_HOME}
+        - LD_LIBRARY_PATH: "/snap/qt-framework-sdk/current/usr/lib/$CRAFT_ARCH_TRIPLET:/snap/qt-framework-sdk/current/usr/lib:$CRAFT_STAGE/usr/lib:$CRAFT_STAGE/lib/:$CRAFT_STAGE/usr/lib/$CRAFT_ARCH_TRIPLET:/usr/lib/$CRAFT_ARCH_TRIPLET:/usr/lib:/lib"
     kwidgetsaddons:
         after:
         - plasma-wayland-protocols
@@ -115,6 +125,11 @@ parts:
         - -DBUILD_TESTING=OFF
         - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current\\;/usr"
         - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current\\;/usr"
+        build-environment:
+        - PATH: /snap/qt-framework-sdk/current/usr/bin${PATH:+:$PATH}
+        - XDG_DATA_DIRS: $CRAFT_STAGE/usr/share:/snap/qt-framework-sdk/current/usr/share:/usr/share${XDG_DATA_DIRS:+:$XDG_DATA_DIRS}
+        - XDG_CONFIG_HOME: $CRAFT_STAGE/etc/xdg:/snap/qt-framework-sdk/current/etc/xdg:/etc/xdg${XDG_CONFIG_HOME:+:$XDG_CONFIG_HOME}
+        - LD_LIBRARY_PATH: "/snap/qt-framework-sdk/current/usr/lib/$CRAFT_ARCH_TRIPLET:/snap/qt-framework-sdk/current/usr/lib:$CRAFT_STAGE/usr/lib:$CRAFT_STAGE/lib/:$CRAFT_STAGE/usr/lib/$CRAFT_ARCH_TRIPLET:/usr/lib/$CRAFT_ARCH_TRIPLET:/usr/lib:/lib"
     ki18n:
         after:
         - extra-cmake-modules
@@ -141,6 +156,11 @@ parts:
         - -DBUILD_TESTING=OFF
         - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current\\;/usr"
         - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current\\;/usr"
+        build-environment:
+        - PATH: /snap/qt-framework-sdk/current/usr/bin${PATH:+:$PATH}
+        - XDG_DATA_DIRS: $CRAFT_STAGE/usr/share:/snap/qt-framework-sdk/current/usr/share:/usr/share${XDG_DATA_DIRS:+:$XDG_DATA_DIRS}
+        - XDG_CONFIG_HOME: $CRAFT_STAGE/etc/xdg:/snap/qt-framework-sdk/current/etc/xdg:/etc/xdg${XDG_CONFIG_HOME:+:$XDG_CONFIG_HOME}
+        - LD_LIBRARY_PATH: "/snap/qt-framework-sdk/current/usr/lib/$CRAFT_ARCH_TRIPLET:/snap/qt-framework-sdk/current/usr/lib:$CRAFT_STAGE/usr/lib:$CRAFT_STAGE/lib/:$CRAFT_STAGE/usr/lib/$CRAFT_ARCH_TRIPLET:/usr/lib/$CRAFT_ARCH_TRIPLET:/usr/lib:/lib"
     kconfig:
         after:
         - extra-cmake-modules
@@ -164,6 +184,11 @@ parts:
         - -DBUILD_TESTING=OFF
         - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current\\;/usr"
         - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current\\;/usr"
+        build-environment:
+        - PATH: /snap/qt-framework-sdk/current/usr/bin${PATH:+:$PATH}
+        - XDG_DATA_DIRS: $CRAFT_STAGE/usr/share:/snap/qt-framework-sdk/current/usr/share:/usr/share${XDG_DATA_DIRS:+:$XDG_DATA_DIRS}
+        - XDG_CONFIG_HOME: $CRAFT_STAGE/etc/xdg:/snap/qt-framework-sdk/current/etc/xdg:/etc/xdg${XDG_CONFIG_HOME:+:$XDG_CONFIG_HOME}
+        - LD_LIBRARY_PATH: "/snap/qt-framework-sdk/current/usr/lib/$CRAFT_ARCH_TRIPLET:/snap/qt-framework-sdk/current/usr/lib:$CRAFT_STAGE/usr/lib:$CRAFT_STAGE/lib/:$CRAFT_STAGE/usr/lib/$CRAFT_ARCH_TRIPLET:/usr/lib/$CRAFT_ARCH_TRIPLET:/usr/lib:/lib"
     attica:
         after:
         - extra-cmake-modules
@@ -182,8 +207,13 @@ parts:
         - -DQT_MAJOR_VERSION=6
         - -DBUILD_WITH_QT6=ON
         - -DBUILD_TESTING=OFF
-        - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/usr\\;/usr"
-        - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/usr\\;/usr"
+        - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current\\;/usr"
+        - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current\\;/usr"
+        build-environment:
+        - PATH: /snap/qt-framework-sdk/current/usr/bin${PATH:+:$PATH}
+        - XDG_DATA_DIRS: $CRAFT_STAGE/usr/share:/snap/qt-framework-sdk/current/usr/share:/usr/share${XDG_DATA_DIRS:+:$XDG_DATA_DIRS}
+        - XDG_CONFIG_HOME: $CRAFT_STAGE/etc/xdg:/snap/qt-framework-sdk/current/etc/xdg:/etc/xdg${XDG_CONFIG_HOME:+:$XDG_CONFIG_HOME}
+        - LD_LIBRARY_PATH: "/snap/qt-framework-sdk/current/usr/lib/$CRAFT_ARCH_TRIPLET:/snap/qt-framework-sdk/current/usr/lib:$CRAFT_STAGE/usr/lib:$CRAFT_STAGE/lib/:$CRAFT_STAGE/usr/lib/$CRAFT_ARCH_TRIPLET:/usr/lib/$CRAFT_ARCH_TRIPLET:/usr/lib:/lib"
     kguiaddons:
         after:
         - qtconf
@@ -220,6 +250,11 @@ parts:
         - -DBUILD_GEO_SCHEME_HANDLER=ON
         - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current\\;/usr"
         - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current\\;/usr"
+        build-environment:
+        - PATH: /snap/qt-framework-sdk/current/usr/bin${PATH:+:$PATH}
+        - XDG_DATA_DIRS: $CRAFT_STAGE/usr/share:/snap/qt-framework-sdk/current/usr/share:/usr/share${XDG_DATA_DIRS:+:$XDG_DATA_DIRS}
+        - XDG_CONFIG_HOME: $CRAFT_STAGE/etc/xdg:/snap/qt-framework-sdk/current/etc/xdg:/etc/xdg${XDG_CONFIG_HOME:+:$XDG_CONFIG_HOME}
+        - LD_LIBRARY_PATH: "/snap/qt-framework-sdk/current/usr/lib/$CRAFT_ARCH_TRIPLET:/snap/qt-framework-sdk/current/usr/lib:$CRAFT_STAGE/usr/lib:$CRAFT_STAGE/lib/:$CRAFT_STAGE/usr/lib/$CRAFT_ARCH_TRIPLET:/usr/lib/$CRAFT_ARCH_TRIPLET:/usr/lib:/lib"
     kcoreaddons:
         after:
         - extra-cmake-modules
@@ -247,6 +282,11 @@ parts:
         - -DBUILD_TESTING=OFF
         - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current\\;/usr"
         - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current\\;/usr"
+        build-environment:
+        - PATH: /snap/qt-framework-sdk/current/usr/bin${PATH:+:$PATH}
+        - XDG_DATA_DIRS: $CRAFT_STAGE/usr/share:/snap/qt-framework-sdk/current/usr/share:/usr/share${XDG_DATA_DIRS:+:$XDG_DATA_DIRS}
+        - XDG_CONFIG_HOME: $CRAFT_STAGE/etc/xdg:/snap/qt-framework-sdk/current/etc/xdg:/etc/xdg${XDG_CONFIG_HOME:+:$XDG_CONFIG_HOME}
+        - LD_LIBRARY_PATH: "/snap/qt-framework-sdk/current/usr/lib/$CRAFT_ARCH_TRIPLET:/snap/qt-framework-sdk/current/usr/lib:$CRAFT_STAGE/usr/lib:$CRAFT_STAGE/lib/:$CRAFT_STAGE/usr/lib/$CRAFT_ARCH_TRIPLET:/usr/lib/$CRAFT_ARCH_TRIPLET:/usr/lib:/lib"
     polkit-qt-1:
         after:
         - qtconf
@@ -271,6 +311,11 @@ parts:
         - -DBUILD_TESTING=OFF
         - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current\\;/usr"
         - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current\\;/usr"
+        build-environment:
+        - PATH: /snap/qt-framework-sdk/current/usr/bin${PATH:+:$PATH}
+        - XDG_DATA_DIRS: $CRAFT_STAGE/usr/share:/snap/qt-framework-sdk/current/usr/share:/usr/share${XDG_DATA_DIRS:+:$XDG_DATA_DIRS}
+        - XDG_CONFIG_HOME: $CRAFT_STAGE/etc/xdg:/snap/qt-framework-sdk/current/etc/xdg:/etc/xdg${XDG_CONFIG_HOME:+:$XDG_CONFIG_HOME}
+        - LD_LIBRARY_PATH: "/snap/qt-framework-sdk/current/usr/lib/$CRAFT_ARCH_TRIPLET:/snap/qt-framework-sdk/current/usr/lib:$CRAFT_STAGE/usr/lib:$CRAFT_STAGE/lib/:$CRAFT_STAGE/usr/lib/$CRAFT_ARCH_TRIPLET:/usr/lib/$CRAFT_ARCH_TRIPLET:/usr/lib:/lib"
     karchive:
         after:
         - extra-cmake-modules
@@ -302,6 +347,11 @@ parts:
         - -DBUILD_TESTING=OFF
         - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current\\;/usr"
         - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current\\;/usr"
+        build-environment:
+        - PATH: /snap/qt-framework-sdk/current/usr/bin${PATH:+:$PATH}
+        - XDG_DATA_DIRS: $CRAFT_STAGE/usr/share:/snap/qt-framework-sdk/current/usr/share:/usr/share${XDG_DATA_DIRS:+:$XDG_DATA_DIRS}
+        - XDG_CONFIG_HOME: $CRAFT_STAGE/etc/xdg:/snap/qt-framework-sdk/current/etc/xdg:/etc/xdg${XDG_CONFIG_HOME:+:$XDG_CONFIG_HOME}
+        - LD_LIBRARY_PATH: "/snap/qt-framework-sdk/current/usr/lib/$CRAFT_ARCH_TRIPLET:/snap/qt-framework-sdk/current/usr/lib:$CRAFT_STAGE/usr/lib:$CRAFT_STAGE/lib/:$CRAFT_STAGE/usr/lib/$CRAFT_ARCH_TRIPLET:/usr/lib/$CRAFT_ARCH_TRIPLET:/usr/lib:/lib"
     kcodecs:
         after:
         - extra-cmake-modules
@@ -325,6 +375,11 @@ parts:
         - -DBUILD_TESTING=OFF
         - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current\\;/usr"
         - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current\\;/usr"
+        build-environment:
+        - PATH: /snap/qt-framework-sdk/current/usr/bin${PATH:+:$PATH}
+        - XDG_DATA_DIRS: $CRAFT_STAGE/usr/share:/snap/qt-framework-sdk/current/usr/share:/usr/share${XDG_DATA_DIRS:+:$XDG_DATA_DIRS}
+        - XDG_CONFIG_HOME: $CRAFT_STAGE/etc/xdg:/snap/qt-framework-sdk/current/etc/xdg:/etc/xdg${XDG_CONFIG_HOME:+:$XDG_CONFIG_HOME}
+        - LD_LIBRARY_PATH: "/snap/qt-framework-sdk/current/usr/lib/$CRAFT_ARCH_TRIPLET:/snap/qt-framework-sdk/current/usr/lib:$CRAFT_STAGE/usr/lib:$CRAFT_STAGE/lib/:$CRAFT_STAGE/usr/lib/$CRAFT_ARCH_TRIPLET:/usr/lib/$CRAFT_ARCH_TRIPLET:/usr/lib:/lib"
     kitemviews:
         after:
         - extra-cmake-modules
@@ -347,57 +402,72 @@ parts:
         - -DBUILD_TESTING=OFF
         - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current\\;/usr"
         - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current\\;/usr"
+        build-environment:
+        - PATH: /snap/qt-framework-sdk/current/usr/bin${PATH:+:$PATH}
+        - XDG_DATA_DIRS: $CRAFT_STAGE/usr/share:/snap/qt-framework-sdk/current/usr/share:/usr/share${XDG_DATA_DIRS:+:$XDG_DATA_DIRS}
+        - XDG_CONFIG_HOME: $CRAFT_STAGE/etc/xdg:/snap/qt-framework-sdk/current/etc/xdg:/etc/xdg${XDG_CONFIG_HOME:+:$XDG_CONFIG_HOME}
+        - LD_LIBRARY_PATH: "/snap/qt-framework-sdk/current/usr/lib/$CRAFT_ARCH_TRIPLET:/snap/qt-framework-sdk/current/usr/lib:$CRAFT_STAGE/usr/lib:$CRAFT_STAGE/lib/:$CRAFT_STAGE/usr/lib/$CRAFT_ARCH_TRIPLET:/usr/lib/$CRAFT_ARCH_TRIPLET:/usr/lib:/lib"
 # Waiting on private qt lib
-    # kwindowsystem:
-    #     after:
-    #     - extra-cmake-modules
-    #     - qtconf
-    #     source: https://invent.kde.org/frameworks/kwindowsystem.git
-    #     source-branch: master
-    #     build-packages:
-    #     - cmake
-    #     - libx11-dev
-    #     - libxcb-icccm4-dev
-    #     - libxcb-keysyms1-dev
-    #     - libxcb-res0-dev
-    #     - libxcb-xfixes0-dev
-    #     - libxcb1-dev
-    #     - libxfixes-dev
-    #     - libxrender-dev
-    #     - pkg-config
-    #     build-snaps:
-    #     - qt-framework-sdk/6.6/stable
-    #     plugin: cmake
-    #     cmake-generator: Ninja
-    #     cmake-parameters:
-    #     - -DCMAKE_INSTALL_PREFIX=/usr
-    #     - -DCMAKE_BUILD_TYPE=RelWithDebInfo
-    #     - -DQT_MAJOR_VERSION=6
-    #     - -DBUILD_WITH_QT6=ON
-    #     - -DBUILD_TESTING=OFF
-    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current\\;/usr"
-    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current\\;/usr"
-    # kdbusaddons:
-    #     after:
-    #     - extra-cmake-modules
-    #     - qtconf
-    #     source: https://invent.kde.org/frameworks/kdbusaddons.git
-    #     source-branch: master
-    #     build-packages:
-    #     - cmake
-    #     - dbus-x11
-    #     build-snaps:
-    #     - qt-framework-sdk/6.6/stable
-    #     plugin: cmake
-    #     cmake-generator: Ninja
-    #     cmake-parameters:
-    #     - -DCMAKE_INSTALL_PREFIX=/usr
-    #     - -DCMAKE_BUILD_TYPE=RelWithDebInfo
-    #     - -DQT_MAJOR_VERSION=6
-    #     - -DBUILD_WITH_QT6=ON
-    #     - -DBUILD_TESTING=OFF
-    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current\\;/usr"
-    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current\\;/usr"
+    kwindowsystem:
+        after:
+        - extra-cmake-modules
+        - qtconf
+        source: https://invent.kde.org/frameworks/kwindowsystem.git
+        source-branch: master
+        build-packages:
+        - cmake
+        - libx11-dev
+        - libxcb-icccm4-dev
+        - libxcb-keysyms1-dev
+        - libxcb-res0-dev
+        - libxcb-xfixes0-dev
+        - libxcb1-dev
+        - libxfixes-dev
+        - libxrender-dev
+        - pkg-config
+        build-snaps:
+        - qt-framework-sdk/6.6/stable
+        plugin: cmake
+        cmake-generator: Ninja
+        cmake-parameters:
+        - -DCMAKE_INSTALL_PREFIX=/usr
+        - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+        - -DQT_MAJOR_VERSION=6
+        - -DBUILD_WITH_QT6=ON
+        - -DBUILD_TESTING=OFF
+        - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current\\;/usr"
+        - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current\\;/usr"
+        build-environment:
+        - PATH: /snap/qt-framework-sdk/current/usr/bin${PATH:+:$PATH}
+        - XDG_DATA_DIRS: $CRAFT_STAGE/usr/share:/snap/qt-framework-sdk/current/usr/share:/usr/share${XDG_DATA_DIRS:+:$XDG_DATA_DIRS}
+        - XDG_CONFIG_HOME: $CRAFT_STAGE/etc/xdg:/snap/qt-framework-sdk/current/etc/xdg:/etc/xdg${XDG_CONFIG_HOME:+:$XDG_CONFIG_HOME}
+        - LD_LIBRARY_PATH: "/snap/qt-framework-sdk/current/usr/lib/$CRAFT_ARCH_TRIPLET:/snap/qt-framework-sdk/current/usr/lib:$CRAFT_STAGE/usr/lib:$CRAFT_STAGE/lib/:$CRAFT_STAGE/usr/lib/$CRAFT_ARCH_TRIPLET:/usr/lib/$CRAFT_ARCH_TRIPLET:/usr/lib:/lib"
+    kdbusaddons:
+        after:
+        - extra-cmake-modules
+        - qtconf
+        source: https://invent.kde.org/frameworks/kdbusaddons.git
+        source-branch: master
+        build-packages:
+        - cmake
+        - dbus-x11
+        build-snaps:
+        - qt-framework-sdk/6.6/stable
+        plugin: cmake
+        cmake-generator: Ninja
+        cmake-parameters:
+        - -DCMAKE_INSTALL_PREFIX=/usr
+        - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+        - -DQT_MAJOR_VERSION=6
+        - -DBUILD_WITH_QT6=ON
+        - -DBUILD_TESTING=OFF
+        - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current\\;/usr"
+        - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current\\;/usr"
+        build-environment:
+        - PATH: /snap/qt-framework-sdk/current/usr/bin${PATH:+:$PATH}
+        - XDG_DATA_DIRS: $CRAFT_STAGE/usr/share:/snap/qt-framework-sdk/current/usr/share:/usr/share${XDG_DATA_DIRS:+:$XDG_DATA_DIRS}
+        - XDG_CONFIG_HOME: $CRAFT_STAGE/etc/xdg:/snap/qt-framework-sdk/current/etc/xdg:/etc/xdg${XDG_CONFIG_HOME:+:$XDG_CONFIG_HOME}
+        - LD_LIBRARY_PATH: "/snap/qt-framework-sdk/current/usr/lib/$CRAFT_ARCH_TRIPLET:/snap/qt-framework-sdk/current/usr/lib:$CRAFT_STAGE/usr/lib:$CRAFT_STAGE/lib/:$CRAFT_STAGE/usr/lib/$CRAFT_ARCH_TRIPLET:/usr/lib/$CRAFT_ARCH_TRIPLET:/usr/lib:/lib"
 ## Tier 2
     kauth:
         after:
@@ -422,6 +492,11 @@ parts:
         - -DBUILD_TESTING=OFF
         - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current\\;/usr"
         - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current\\;/usr"
+        build-environment:
+        - PATH: /snap/qt-framework-sdk/current/usr/bin${PATH:+:$PATH}
+        - XDG_DATA_DIRS: $CRAFT_STAGE/usr/share:/snap/qt-framework-sdk/current/usr/share:/usr/share${XDG_DATA_DIRS:+:$XDG_DATA_DIRS}
+        - XDG_CONFIG_HOME: $CRAFT_STAGE/etc/xdg:/snap/qt-framework-sdk/current/etc/xdg:/etc/xdg${XDG_CONFIG_HOME:+:$XDG_CONFIG_HOME}
+        - LD_LIBRARY_PATH: "/snap/qt-framework-sdk/current/usr/lib/$CRAFT_ARCH_TRIPLET:/snap/qt-framework-sdk/current/usr/lib:$CRAFT_STAGE/usr/lib:$CRAFT_STAGE/lib/:$CRAFT_STAGE/usr/lib/$CRAFT_ARCH_TRIPLET:/usr/lib/$CRAFT_ARCH_TRIPLET:/usr/lib:/lib"
     kglobalaccel:
         after:
         - extra-cmake-modules
@@ -447,6 +522,11 @@ parts:
         - -DBUILD_TESTING=OFF
         - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current\\;/usr"
         - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current\\;/usr"
+        build-environment:
+        - PATH: /snap/qt-framework-sdk/current/usr/bin${PATH:+:$PATH}
+        - XDG_DATA_DIRS: $CRAFT_STAGE/usr/share:/snap/qt-framework-sdk/current/usr/share:/usr/share${XDG_DATA_DIRS:+:$XDG_DATA_DIRS}
+        - XDG_CONFIG_HOME: $CRAFT_STAGE/etc/xdg:/snap/qt-framework-sdk/current/etc/xdg:/etc/xdg${XDG_CONFIG_HOME:+:$XDG_CONFIG_HOME}
+        - LD_LIBRARY_PATH: "/snap/qt-framework-sdk/current/usr/lib/$CRAFT_ARCH_TRIPLET:/snap/qt-framework-sdk/current/usr/lib:$CRAFT_STAGE/usr/lib:$CRAFT_STAGE/lib/:$CRAFT_STAGE/usr/lib/$CRAFT_ARCH_TRIPLET:/usr/lib/$CRAFT_ARCH_TRIPLET:/usr/lib:/lib"
     # kcrash:
     #     after:
     #     - extra-cmake-modules
@@ -505,6 +585,11 @@ parts:
         - -DBUILD_TESTING=OFF
         - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current\\;/usr"
         - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current\\;/usr"
+        build-environment:
+        - PATH: /snap/qt-framework-sdk/current/usr/bin${PATH:+:$PATH}
+        - XDG_DATA_DIRS: $CRAFT_STAGE/usr/share:/snap/qt-framework-sdk/current/usr/share:/usr/share${XDG_DATA_DIRS:+:$XDG_DATA_DIRS}
+        - XDG_CONFIG_HOME: $CRAFT_STAGE/etc/xdg:/snap/qt-framework-sdk/current/etc/xdg:/etc/xdg${XDG_CONFIG_HOME:+:$XDG_CONFIG_HOME}
+        - LD_LIBRARY_PATH: "/snap/qt-framework-sdk/current/usr/lib/$CRAFT_ARCH_TRIPLET:/snap/qt-framework-sdk/current/usr/lib:$CRAFT_STAGE/usr/lib:$CRAFT_STAGE/lib/:$CRAFT_STAGE/usr/lib/$CRAFT_ARCH_TRIPLET:/usr/lib/$CRAFT_ARCH_TRIPLET:/usr/lib:/lib"
     # kcolorscheme:
     #     after:
     #     - extra-cmake-modules
