@@ -527,30 +527,30 @@ parts:
         - XDG_DATA_DIRS: $CRAFT_STAGE/usr/share:/snap/qt-framework-sdk/current/usr/share:/usr/share${XDG_DATA_DIRS:+:$XDG_DATA_DIRS}
         - XDG_CONFIG_HOME: $CRAFT_STAGE/etc/xdg:/snap/qt-framework-sdk/current/etc/xdg:/etc/xdg${XDG_CONFIG_HOME:+:$XDG_CONFIG_HOME}
         - LD_LIBRARY_PATH: "/snap/qt-framework-sdk/current/usr/lib/$CRAFT_ARCH_TRIPLET:/snap/qt-framework-sdk/current/usr/lib:$CRAFT_STAGE/usr/lib:$CRAFT_STAGE/lib/:$CRAFT_STAGE/usr/lib/$CRAFT_ARCH_TRIPLET:/usr/lib/$CRAFT_ARCH_TRIPLET:/usr/lib:/lib"
-    # kcrash:
-    #     after:
-    #     - extra-cmake-modules
-    #     - kcoreaddons
-    #     - kwindowsystem
-    #     source: https://invent.kde.org/frameworks/kcrash.git
-    #     source-branch: master
-    #     build-packages:
-    #     - cmake
-    #     - doxygen
-    #     - graphviz
-    #     - libx11-dev
-    #     build-snaps:
-    #     - qt-framework-sdk/6.6/stable
-    #     plugin: cmake
-    #     cmake-generator: Ninja
-    #     cmake-parameters:
-    #     - -DCMAKE_INSTALL_PREFIX=/usr
-    #     - -DCMAKE_BUILD_TYPE=RelWithDebInfo
-    #     - -DQT_MAJOR_VERSION=6
-    #     - -DBUILD_WITH_QT6=ON
-    #     - -DBUILD_TESTING=OFF
-    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current\\;/usr"
-    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current\\;/usr"
+    kcrash:
+        after:
+        - extra-cmake-modules
+        - kcoreaddons
+        - kwindowsystem
+        source: https://invent.kde.org/frameworks/kcrash.git
+        source-branch: master
+        build-packages:
+        - cmake
+        - doxygen
+        - graphviz
+        - libx11-dev
+        build-snaps:
+        - qt-framework-sdk/6.6/stable
+        plugin: cmake
+        cmake-generator: Ninja
+        cmake-parameters:
+        - -DCMAKE_INSTALL_PREFIX=/usr
+        - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+        - -DQT_MAJOR_VERSION=6
+        - -DBUILD_WITH_QT6=ON
+        - -DBUILD_TESTING=OFF
+        - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current\\;/usr"
+        - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current\\;/usr"
     kservice:
         after:
         - kdbusaddons
@@ -590,98 +590,98 @@ parts:
         - XDG_DATA_DIRS: $CRAFT_STAGE/usr/share:/snap/qt-framework-sdk/current/usr/share:/usr/share${XDG_DATA_DIRS:+:$XDG_DATA_DIRS}
         - XDG_CONFIG_HOME: $CRAFT_STAGE/etc/xdg:/snap/qt-framework-sdk/current/etc/xdg:/etc/xdg${XDG_CONFIG_HOME:+:$XDG_CONFIG_HOME}
         - LD_LIBRARY_PATH: "/snap/qt-framework-sdk/current/usr/lib/$CRAFT_ARCH_TRIPLET:/snap/qt-framework-sdk/current/usr/lib:$CRAFT_STAGE/usr/lib:$CRAFT_STAGE/lib/:$CRAFT_STAGE/usr/lib/$CRAFT_ARCH_TRIPLET:/usr/lib/$CRAFT_ARCH_TRIPLET:/usr/lib:/lib"
-    # kcolorscheme:
-    #     after:
-    #     - extra-cmake-modules
-    #     - kconfig
-    #     - kguiaddons
-    #     - ki18n
-    #     source: https://invent.kde.org/frameworks/kcolorscheme.git
-    #     source-branch: master
-    #     build-packages:
-    #     - cmake
-    #     - libglx-dev
-    #     - libgl1-mesa-dev
-    #     build-snaps:
-    #     - qt-framework-sdk/6.6/stable
-    #     plugin: cmake
-    #     cmake-generator: Ninja
-    #     cmake-parameters:
-    #     - -DCMAKE_INSTALL_PREFIX=/usr
-    #     - -DCMAKE_BUILD_TYPE=RelWithDebInfo
-    #     - -DQT_MAJOR_VERSION=6
-    #     - -DBUILD_WITH_QT6=ON
-    #     - -DBUILD_TESTING=OFF
-    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/usr\\;/usr"
-    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/usr\\;/usr"
-    # kconfigwidgets:
-    #     after:
-    #     - kcolorscheme
-    #     - extra-cmake-modules
-    #     - kauth
-    #     - kcodecs
-    #     - kcolorscheme
-    #     - kconfig
-    #     - kcoreaddons
-    #     - kdoctools
-    #     - kguiaddons
-    #     - ki18n
-    #     - kwidgetsaddons
-    #     source: https://invent.kde.org/frameworks/kconfigwidgets.git
-    #     source-branch: master
-    #     build-packages:
-    #     - cmake
-    #     - docbook-xml
-    #     - docbook-xsl
-    #     - doxygen
-    #     - graphviz
-    #     - libxml2-utils
-    #     stage-packages:
-    #     - perl
-    #     build-snaps:
-    #     - qt-framework-sdk/6.6/stable
-    #     plugin: cmake
-    #     cmake-generator: Ninja
-    #     cmake-parameters:
-    #     - -DCMAKE_INSTALL_PREFIX=/usr
-    #     - -DCMAKE_BUILD_TYPE=RelWithDebInfo
-    #     - -DQT_MAJOR_VERSION=6
-    #     - -DBUILD_WITH_QT6=ON
-    #     - -DBUILD_TESTING=OFF
-    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current\\;/usr"
-    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current\\;/usr"
-    # kiconthemes:
-    #     after:
-    #     - kitemviews
-    #     - extra-cmake-modules
-    #     - karchive
-    #     - kauth
-    #     - kcodecs
-    #     - kcolorscheme
-    #     - kconfig
-    #     - kconfigwidgets
-    #     - kcoreaddons
-    #     - ki18n
-    #     - kitemviews
-    #     - kwidgetsaddons
-    #     source: https://invent.kde.org/frameworks/kiconthemes.git
-    #     source-branch: master
-    #     build-packages:
-    #     - cmake
-    #     - doxygen
-    #     - graphviz
-    #     build-snaps:
-    #     - qt-framework-sdk/6.6/stable
-    #     plugin: cmake
-    #     cmake-generator: Ninja
-    #     cmake-parameters:
-    #     - -DCMAKE_INSTALL_PREFIX=/usr
-    #     - -DCMAKE_BUILD_TYPE=RelWithDebInfo
-    #     - -DQT_MAJOR_VERSION=6
-    #     - -DBUILD_WITH_QT6=ON
-    #     - -DBUILD_TESTING=OFF
-    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current\\;/usr"
-    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current\\;/usr"
+    kcolorscheme:
+        after:
+        - extra-cmake-modules
+        - kconfig
+        - kguiaddons
+        - ki18n
+        source: https://invent.kde.org/frameworks/kcolorscheme.git
+        source-branch: master
+        build-packages:
+        - cmake
+        - libglx-dev
+        - libgl1-mesa-dev
+        build-snaps:
+        - qt-framework-sdk/6.6/stable
+        plugin: cmake
+        cmake-generator: Ninja
+        cmake-parameters:
+        - -DCMAKE_INSTALL_PREFIX=/usr
+        - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+        - -DQT_MAJOR_VERSION=6
+        - -DBUILD_WITH_QT6=ON
+        - -DBUILD_TESTING=OFF
+        - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/usr\\;/usr"
+        - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/usr\\;/usr"
+    kconfigwidgets:
+        after:
+        - kcolorscheme
+        - extra-cmake-modules
+        - kauth
+        - kcodecs
+        - kcolorscheme
+        - kconfig
+        - kcoreaddons
+        - kdoctools
+        - kguiaddons
+        - ki18n
+        - kwidgetsaddons
+        source: https://invent.kde.org/frameworks/kconfigwidgets.git
+        source-branch: master
+        build-packages:
+        - cmake
+        - docbook-xml
+        - docbook-xsl
+        - doxygen
+        - graphviz
+        - libxml2-utils
+        stage-packages:
+        - perl
+        build-snaps:
+        - qt-framework-sdk/6.6/stable
+        plugin: cmake
+        cmake-generator: Ninja
+        cmake-parameters:
+        - -DCMAKE_INSTALL_PREFIX=/usr
+        - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+        - -DQT_MAJOR_VERSION=6
+        - -DBUILD_WITH_QT6=ON
+        - -DBUILD_TESTING=OFF
+        - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current\\;/usr"
+        - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current\\;/usr"
+    kiconthemes:
+        after:
+        - kitemviews
+        - extra-cmake-modules
+        - karchive
+        - kauth
+        - kcodecs
+        - kcolorscheme
+        - kconfig
+        - kconfigwidgets
+        - kcoreaddons
+        - ki18n
+        - kitemviews
+        - kwidgetsaddons
+        source: https://invent.kde.org/frameworks/kiconthemes.git
+        source-branch: master
+        build-packages:
+        - cmake
+        - doxygen
+        - graphviz
+        build-snaps:
+        - qt-framework-sdk/6.6/stable
+        plugin: cmake
+        cmake-generator: Ninja
+        cmake-parameters:
+        - -DCMAKE_INSTALL_PREFIX=/usr
+        - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+        - -DQT_MAJOR_VERSION=6
+        - -DBUILD_WITH_QT6=ON
+        - -DBUILD_TESTING=OFF
+        - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current\\;/usr"
+        - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current\\;/usr"
     # sonnet:
     #     after:
     #     - kglobalaccel
