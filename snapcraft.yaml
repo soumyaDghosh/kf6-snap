@@ -614,6 +614,33 @@ parts:
         - -DBUILD_TESTING=OFF
         - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/usr\\;/usr"
         - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/usr\\;/usr"
+    kdoctools:
+        after:
+        - extra-cmake-modules
+        - karchive
+        - ki18n
+        source: https://invent.kde.org/frameworks/kdoctools.git
+        source-branch: master
+        build-packages:
+        - cmake
+        - docbook-xml
+        - docbook-xsl
+        - liburi-perl
+        - libxml2-dev
+        - libxml2-utils
+        - libxslt1-dev
+        build-snaps:
+        - qt-framework-sdk/6.6/stable
+        plugin: cmake
+        cmake-generator: Ninja
+        cmake-parameters:
+        - -DCMAKE_INSTALL_PREFIX=/usr
+        - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+        - -DQT_MAJOR_VERSION=6
+        - -DBUILD_WITH_QT6=ON
+        - -DBUILD_TESTING=OFF
+        - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current\\;/usr"
+        - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current\\;/usr"
     kconfigwidgets:
         after:
         - kcolorscheme
@@ -743,38 +770,6 @@ parts:
     #     after:
     #     - ktextwidgets
     #     source: https://invent.kde.org/frameworks/kxmlgui.git
-    #     source-branch: master
-    #     build-packages:
-    #     - cmake
-    #     build-snaps:
-    #     - qt-framework-sdk/6.6/stable
-    #     plugin: cmake
-    #     cmake-generator: Ninja
-    #     cmake-parameters:
-    #     - -DCMAKE_INSTALL_PREFIX=/usr
-    #     - -DCMAKE_BUILD_TYPE=RelWithDebInfo
-    #     - -DQT_MAJOR_VERSION=6
-    #     - -DBUILD_WITH_QT6=ON
-    #     - -DBUILD_TESTING=OFF
-    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current\\;/usr"
-    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current\\;/usr"
-    # perl-uri-escape:
-    #     after:
-    #     - kxmlgui
-    #     source: https://cpan.metacpan.org/authors/id/O/OA/OALDERS/URI-5.21.tar.gz
-    #     source-type: tar
-    #     build-packages:
-    #     - perl
-    #     build-snaps:
-    #     - qt-framework-sdk/6.6/stable
-    #     plugin: nil
-    #     override-build: |
-    #         craftctl default
-    #         perl Makefile.PL INSTALLDIRS=/usr
-    # kdoctools:
-    #     after:
-    #     - perl-uri-escape
-    #     source: https://invent.kde.org/frameworks/kdoctools.git
     #     source-branch: master
     #     build-packages:
     #     - cmake
