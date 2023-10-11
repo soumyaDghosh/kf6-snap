@@ -614,6 +614,8 @@ parts:
         - -DBUILD_TESTING=OFF
         - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/usr\\;/usr"
         - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current/usr\\;/usr"
+        build-environment:
+        - LD_LIBRARY_PATH: "/snap/qt-framework-sdk/current/usr/lib/$CRAFT_ARCH_TRIPLET:/snap/qt-framework-sdk/current/usr/lib:$CRAFT_STAGE/usr/lib:$CRAFT_STAGE/lib/:$CRAFT_STAGE/usr/lib/$CRAFT_ARCH_TRIPLET:/usr/lib/$CRAFT_ARCH_TRIPLET:/usr/lib:/lib"
     kdoctools:
         after:
         - extra-cmake-modules
