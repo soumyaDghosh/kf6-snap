@@ -963,7 +963,7 @@ parts:
         - pkg-config
         build-snaps:
         - qt-framework-sdk/6.6/stable
-        - ffmepg-2204
+        - ffmpeg-2204
         plugin: cmake
         cmake-generator: Ninja
         cmake-parameters:
