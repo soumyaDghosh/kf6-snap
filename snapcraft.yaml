@@ -1149,7 +1149,7 @@ parts:
         - knotifications
         - kservice
         - kwidgetsaddons
-        - kwindowsystem-dev
+        - kwindowsystem
         source: https://invent.kde.org/frameworks/kwallet.git
         source-branch: master
         build-packages:
