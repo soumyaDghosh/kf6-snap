@@ -62,8 +62,7 @@ parts:
             EOF
     extra-cmake-modules:
         after:
-        - mesa-patchelf
-        - mesa-no-patchelf
+        - mesa
         - qtconf
         source: https://invent.kde.org/frameworks/extra-cmake-modules.git
         source-branch: master
