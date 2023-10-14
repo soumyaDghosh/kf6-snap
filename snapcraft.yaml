@@ -1161,6 +1161,7 @@ parts:
         - libgpgme-dev
         - libgpgmepp-dev
         - libqgpgme15-qt6-dev
+        - libqca-qt6-2-dev
         build-snaps:
         - qt-framework-sdk/6.6/stable
         plugin: cmake
