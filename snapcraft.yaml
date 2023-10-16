@@ -1210,108 +1210,108 @@ parts:
         - XDG_DATA_DIRS: $CRAFT_STAGE/usr/share:/snap/qt-framework-sdk/current/usr/share:/usr/share${XDG_DATA_DIRS:+:$XDG_DATA_DIRS}
         - XDG_CONFIG_HOME: $CRAFT_STAGE/etc/xdg:/snap/qt-framework-sdk/current/etc/xdg:/etc/xdg${XDG_CONFIG_HOME:+:$XDG_CONFIG_HOME}
         - LD_LIBRARY_PATH: "/snap/qt-framework-sdk/current/usr/lib/$CRAFT_ARCH_TRIPLET:/snap/qt-framework-sdk/current/usr/lib:$CRAFT_STAGE/usr/lib:$CRAFT_STAGE/lib/:$CRAFT_STAGE/usr/lib/$CRAFT_ARCH_TRIPLET:/usr/lib/$CRAFT_ARCH_TRIPLET:/usr/lib:/lib"
-    kio:
-        after:
-        - extra-cmake-modules
-        - karchive
-        - kauth
-        - kbookmarks
-        - kcolorscheme
-        - kcompletion
-        - kconfig
-        - kconfigwidgets
-        - kcoreaddons
-        - kcrash
-        - kdbusaddons
-        - kded
-        - kdoctools
-        - kguiaddons
-        - ki18n
-        - kiconthemes
-        - kitemviews
-        - kjobwidgets
-        - knotifications
-        - kservice
-        - solid
-        - sonnet
-        - ktextwidgets
-        - kwallet
-        - kwidgetsaddons
-        - kwindowsystem
-        - kxmlgui
-        source: https://invent.kde.org/frameworks/kio.git
-        source-branch: master
-        build-packages:
-        - cmake
-        - doxygen
-        - graphviz
-        - libacl1-dev
-        - libkrb5-dev
-        - libmount-dev
-        - libxml2-dev
-        - libxslt1-dev
-        - switcheroo-control
-        - zlib1g-dev
-        build-snaps:
-        - qt-framework-sdk/6.6/stable
-        plugin: cmake
-        cmake-generator: Ninja
-        cmake-parameters:
-        - -DCMAKE_INSTALL_PREFIX=/usr
-        - -DCMAKE_BUILD_TYPE=RelWithDebInfo
-        - -DQT_MAJOR_VERSION=6
-        - -DBUILD_WITH_QT6=ON
-        - -DBUILD_TESTING=OFF
-        - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current\\;/usr"
-        - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current\\;/usr"
-        build-environment:
-        - PATH: /snap/qt-framework-sdk/current/usr/bin${PATH:+:$PATH}
-        - XDG_DATA_DIRS: $CRAFT_STAGE/usr/share:/snap/qt-framework-sdk/current/usr/share:/usr/share${XDG_DATA_DIRS:+:$XDG_DATA_DIRS}
-        - XDG_CONFIG_HOME: $CRAFT_STAGE/etc/xdg:/snap/qt-framework-sdk/current/etc/xdg:/etc/xdg${XDG_CONFIG_HOME:+:$XDG_CONFIG_HOME}
-        - LD_LIBRARY_PATH: "/snap/qt-framework-sdk/current/usr/lib/$CRAFT_ARCH_TRIPLET:/snap/qt-framework-sdk/current/usr/lib:$CRAFT_STAGE/usr/lib:$CRAFT_STAGE/lib/:$CRAFT_STAGE/usr/lib/$CRAFT_ARCH_TRIPLET:/usr/lib/$CRAFT_ARCH_TRIPLET:/usr/lib:/lib"
-    kparts:
-        after:
-        - extra-cmake-modules
-        - kbookmarks
-        - kcolorscheme
-        - kcompletion
-        - kconfig
-        - kcoreaddons
-        - ki18n
-        - kiconthemes
-        - kio
-        - kitemviews
-        - kjobwidgets
-        - knotifications
-        - kservice
-        - ktextwidgets
-        - kwidgetsaddons
-        - kxmlgui
-        - solid
-        - sonnet
-        source: https://invent.kde.org/frameworks/kparts.git
-        source-branch: master
-        build-packages:
-        - cmake
-        - doxygen
-        - graphviz
-        build-snaps:
-        - qt-framework-sdk/6.6/stable
-        plugin: cmake
-        cmake-generator: Ninja
-        cmake-parameters:
-        - -DCMAKE_INSTALL_PREFIX=/usr
-        - -DCMAKE_BUILD_TYPE=RelWithDebInfo
-        - -DQT_MAJOR_VERSION=6
-        - -DBUILD_WITH_QT6=ON
-        - -DBUILD_TESTING=OFF
-        - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current\\;/usr"
-        - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current\\;/usr"
-        build-environment:
-        - PATH: /snap/qt-framework-sdk/current/usr/bin${PATH:+:$PATH}
-        - XDG_DATA_DIRS: $CRAFT_STAGE/usr/share:/snap/qt-framework-sdk/current/usr/share:/usr/share${XDG_DATA_DIRS:+:$XDG_DATA_DIRS}
-        - XDG_CONFIG_HOME: $CRAFT_STAGE/etc/xdg:/snap/qt-framework-sdk/current/etc/xdg:/etc/xdg${XDG_CONFIG_HOME:+:$XDG_CONFIG_HOME}
-        - LD_LIBRARY_PATH: "/snap/qt-framework-sdk/current/usr/lib/$CRAFT_ARCH_TRIPLET:/snap/qt-framework-sdk/current/usr/lib:$CRAFT_STAGE/usr/lib:$CRAFT_STAGE/lib/:$CRAFT_STAGE/usr/lib/$CRAFT_ARCH_TRIPLET:/usr/lib/$CRAFT_ARCH_TRIPLET:/usr/lib:/lib"
+    # kio:
+    #     after:
+    #     - extra-cmake-modules
+    #     - karchive
+    #     - kauth
+    #     - kbookmarks
+    #     - kcolorscheme
+    #     - kcompletion
+    #     - kconfig
+    #     - kconfigwidgets
+    #     - kcoreaddons
+    #     - kcrash
+    #     - kdbusaddons
+    #     - kded
+    #     - kdoctools
+    #     - kguiaddons
+    #     - ki18n
+    #     - kiconthemes
+    #     - kitemviews
+    #     - kjobwidgets
+    #     - knotifications
+    #     - kservice
+    #     - solid
+    #     - sonnet
+    #     - ktextwidgets
+    #     - kwallet
+    #     - kwidgetsaddons
+    #     - kwindowsystem
+    #     - kxmlgui
+    #     source: https://invent.kde.org/frameworks/kio.git
+    #     source-branch: master
+    #     build-packages:
+    #     - cmake
+    #     - doxygen
+    #     - graphviz
+    #     - libacl1-dev
+    #     - libkrb5-dev
+    #     - libmount-dev
+    #     - libxml2-dev
+    #     - libxslt1-dev
+    #     - switcheroo-control
+    #     - zlib1g-dev
+    #     build-snaps:
+    #     - qt-framework-sdk/6.6/stable
+    #     plugin: cmake
+    #     cmake-generator: Ninja
+    #     cmake-parameters:
+    #     - -DCMAKE_INSTALL_PREFIX=/usr
+    #     - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+    #     - -DQT_MAJOR_VERSION=6
+    #     - -DBUILD_WITH_QT6=ON
+    #     - -DBUILD_TESTING=OFF
+    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current\\;/usr"
+    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current\\;/usr"
+    #     build-environment:
+    #     - PATH: /snap/qt-framework-sdk/current/usr/bin${PATH:+:$PATH}
+    #     - XDG_DATA_DIRS: $CRAFT_STAGE/usr/share:/snap/qt-framework-sdk/current/usr/share:/usr/share${XDG_DATA_DIRS:+:$XDG_DATA_DIRS}
+    #     - XDG_CONFIG_HOME: $CRAFT_STAGE/etc/xdg:/snap/qt-framework-sdk/current/etc/xdg:/etc/xdg${XDG_CONFIG_HOME:+:$XDG_CONFIG_HOME}
+    #     - LD_LIBRARY_PATH: "/snap/qt-framework-sdk/current/usr/lib/$CRAFT_ARCH_TRIPLET:/snap/qt-framework-sdk/current/usr/lib:$CRAFT_STAGE/usr/lib:$CRAFT_STAGE/lib/:$CRAFT_STAGE/usr/lib/$CRAFT_ARCH_TRIPLET:/usr/lib/$CRAFT_ARCH_TRIPLET:/usr/lib:/lib"
+    # kparts:
+    #     after:
+    #     - extra-cmake-modules
+    #     - kbookmarks
+    #     - kcolorscheme
+    #     - kcompletion
+    #     - kconfig
+    #     - kcoreaddons
+    #     - ki18n
+    #     - kiconthemes
+    #     - kio
+    #     - kitemviews
+    #     - kjobwidgets
+    #     - knotifications
+    #     - kservice
+    #     - ktextwidgets
+    #     - kwidgetsaddons
+    #     - kxmlgui
+    #     - solid
+    #     - sonnet
+    #     source: https://invent.kde.org/frameworks/kparts.git
+    #     source-branch: master
+    #     build-packages:
+    #     - cmake
+    #     - doxygen
+    #     - graphviz
+    #     build-snaps:
+    #     - qt-framework-sdk/6.6/stable
+    #     plugin: cmake
+    #     cmake-generator: Ninja
+    #     cmake-parameters:
+    #     - -DCMAKE_INSTALL_PREFIX=/usr
+    #     - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+    #     - -DQT_MAJOR_VERSION=6
+    #     - -DBUILD_WITH_QT6=ON
+    #     - -DBUILD_TESTING=OFF
+    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current\\;/usr"
+    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current\\;/usr"
+    #     build-environment:
+    #     - PATH: /snap/qt-framework-sdk/current/usr/bin${PATH:+:$PATH}
+    #     - XDG_DATA_DIRS: $CRAFT_STAGE/usr/share:/snap/qt-framework-sdk/current/usr/share:/usr/share${XDG_DATA_DIRS:+:$XDG_DATA_DIRS}
+    #     - XDG_CONFIG_HOME: $CRAFT_STAGE/etc/xdg:/snap/qt-framework-sdk/current/etc/xdg:/etc/xdg${XDG_CONFIG_HOME:+:$XDG_CONFIG_HOME}
+    #     - LD_LIBRARY_PATH: "/snap/qt-framework-sdk/current/usr/lib/$CRAFT_ARCH_TRIPLET:/snap/qt-framework-sdk/current/usr/lib:$CRAFT_STAGE/usr/lib:$CRAFT_STAGE/lib/:$CRAFT_STAGE/usr/lib/$CRAFT_ARCH_TRIPLET:/usr/lib/$CRAFT_ARCH_TRIPLET:/usr/lib:/lib"
     kded:
         after:
         - extra-cmake-modules
@@ -1369,40 +1369,40 @@ parts:
         - XDG_DATA_DIRS: $CRAFT_STAGE/usr/share:/snap/qt-framework-sdk/current/usr/share:/usr/share${XDG_DATA_DIRS:+:$XDG_DATA_DIRS}
         - XDG_CONFIG_HOME: $CRAFT_STAGE/etc/xdg:/snap/qt-framework-sdk/current/etc/xdg:/etc/xdg${XDG_CONFIG_HOME:+:$XDG_CONFIG_HOME}
         - LD_LIBRARY_PATH: "/snap/qt-framework-sdk/current/usr/lib/$CRAFT_ARCH_TRIPLET:/snap/qt-framework-sdk/current/usr/lib:$CRAFT_STAGE/usr/lib:$CRAFT_STAGE/lib/:$CRAFT_STAGE/usr/lib/$CRAFT_ARCH_TRIPLET:/usr/lib/$CRAFT_ARCH_TRIPLET:/usr/lib:/lib"
-    kdeclarative:
-        after:
-        - extra-cmake-modules
-        - kcolorscheme
-        - -kconfig
-        - kglobalaccel
-        - ki18n
-        - kiconthemes
-        - kio
-        source: https://invent.kde.org/frameworks/kdeclarative.git
-        source-branch: master
-        build-packages:
-        - cmake
-        - doxygen
-        - graphviz
-        - libepoxy-dev
-        - pkg-config
-        build-snaps:
-        - qt-framework-sdk/6.6/stable
-        plugin: cmake
-        cmake-generator: Ninja
-        cmake-parameters:
-        - -DCMAKE_INSTALL_PREFIX=/usr
-        - -DCMAKE_BUILD_TYPE=RelWithDebInfo
-        - -DQT_MAJOR_VERSION=6
-        - -DBUILD_WITH_QT6=ON
-        - -DBUILD_TESTING=OFF
-        - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current\\;/usr"
-        - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current\\;/usr"
-        build-environment:
-        - PATH: /snap/qt-framework-sdk/current/usr/bin${PATH:+:$PATH}
-        - XDG_DATA_DIRS: $CRAFT_STAGE/usr/share:/snap/qt-framework-sdk/current/usr/share:/usr/share${XDG_DATA_DIRS:+:$XDG_DATA_DIRS}
-        - XDG_CONFIG_HOME: $CRAFT_STAGE/etc/xdg:/snap/qt-framework-sdk/current/etc/xdg:/etc/xdg${XDG_CONFIG_HOME:+:$XDG_CONFIG_HOME}
-        - LD_LIBRARY_PATH: "/snap/qt-framework-sdk/current/usr/lib/$CRAFT_ARCH_TRIPLET:/snap/qt-framework-sdk/current/usr/lib:$CRAFT_STAGE/usr/lib:$CRAFT_STAGE/lib/:$CRAFT_STAGE/usr/lib/$CRAFT_ARCH_TRIPLET:/usr/lib/$CRAFT_ARCH_TRIPLET:/usr/lib:/lib"
+    # kdeclarative:
+    #     after:
+    #     - extra-cmake-modules
+    #     - kcolorscheme
+    #     - -kconfig
+    #     - kglobalaccel
+    #     - ki18n
+    #     - kiconthemes
+    #     - kio
+    #     source: https://invent.kde.org/frameworks/kdeclarative.git
+    #     source-branch: master
+    #     build-packages:
+    #     - cmake
+    #     - doxygen
+    #     - graphviz
+    #     - libepoxy-dev
+    #     - pkg-config
+    #     build-snaps:
+    #     - qt-framework-sdk/6.6/stable
+    #     plugin: cmake
+    #     cmake-generator: Ninja
+    #     cmake-parameters:
+    #     - -DCMAKE_INSTALL_PREFIX=/usr
+    #     - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+    #     - -DQT_MAJOR_VERSION=6
+    #     - -DBUILD_WITH_QT6=ON
+    #     - -DBUILD_TESTING=OFF
+    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current\\;/usr"
+    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current\\;/usr"
+    #     build-environment:
+    #     - PATH: /snap/qt-framework-sdk/current/usr/bin${PATH:+:$PATH}
+    #     - XDG_DATA_DIRS: $CRAFT_STAGE/usr/share:/snap/qt-framework-sdk/current/usr/share:/usr/share${XDG_DATA_DIRS:+:$XDG_DATA_DIRS}
+    #     - XDG_CONFIG_HOME: $CRAFT_STAGE/etc/xdg:/snap/qt-framework-sdk/current/etc/xdg:/etc/xdg${XDG_CONFIG_HOME:+:$XDG_CONFIG_HOME}
+    #     - LD_LIBRARY_PATH: "/snap/qt-framework-sdk/current/usr/lib/$CRAFT_ARCH_TRIPLET:/snap/qt-framework-sdk/current/usr/lib:$CRAFT_STAGE/usr/lib:$CRAFT_STAGE/lib/:$CRAFT_STAGE/usr/lib/$CRAFT_ARCH_TRIPLET:/usr/lib/$CRAFT_ARCH_TRIPLET:/usr/lib:/lib"
     # kactivities:
     #     after:
     #     - kdeclarative
