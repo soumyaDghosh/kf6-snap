@@ -1179,6 +1179,8 @@ parts:
         - XDG_DATA_DIRS: $CRAFT_STAGE/usr/share:/snap/qt-framework-sdk/current/usr/share:/usr/share${XDG_DATA_DIRS:+:$XDG_DATA_DIRS}
         - XDG_CONFIG_HOME: $CRAFT_STAGE/etc/xdg:/snap/qt-framework-sdk/current/etc/xdg:/etc/xdg${XDG_CONFIG_HOME:+:$XDG_CONFIG_HOME}
         - LD_LIBRARY_PATH: "/snap/qt-framework-sdk/current/usr/lib/$CRAFT_ARCH_TRIPLET:/snap/qt-framework-sdk/current/usr/lib:$CRAFT_STAGE/usr/lib:$CRAFT_STAGE/lib/:$CRAFT_STAGE/usr/lib/$CRAFT_ARCH_TRIPLET:/usr/lib/$CRAFT_ARCH_TRIPLET:/usr/lib:/lib"
+        - PKG_CONFIG_PATH: $CRAFT_STAGE/usr/lib/$CRAFT_ARCH_TRIPLET/pkgconfig:$CRAFT_STAGE/usr/lib/$CRAFT_ARCH_TRIPLET/pkgconfig:$CRAFT_STAGE/usr/share/pkgconfig${PKG_CONFIG_PATH:+:$PKG_CONFIG_PATH}
+
     kjobwidgets:
         after:
         - extra-cmake-modules
