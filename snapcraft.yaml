@@ -1134,52 +1134,53 @@ parts:
         - XDG_DATA_DIRS: $CRAFT_STAGE/usr/share:/snap/qt-framework-sdk/current/usr/share:/usr/share${XDG_DATA_DIRS:+:$XDG_DATA_DIRS}
         - XDG_CONFIG_HOME: $CRAFT_STAGE/etc/xdg:/snap/qt-framework-sdk/current/etc/xdg:/etc/xdg${XDG_CONFIG_HOME:+:$XDG_CONFIG_HOME}
         - LD_LIBRARY_PATH: "/snap/qt-framework-sdk/current/usr/lib/$CRAFT_ARCH_TRIPLET:/snap/qt-framework-sdk/current/usr/lib:$CRAFT_STAGE/usr/lib:$CRAFT_STAGE/lib/:$CRAFT_STAGE/usr/lib/$CRAFT_ARCH_TRIPLET:/usr/lib/$CRAFT_ARCH_TRIPLET:/usr/lib:/lib"
-    # kwallet:
-    #     after:
-    #     - qca
-    #     - extra-cmake-modules
-    #     - kcolorscheme
-    #     - kconfig
-    #     - kconfigwidgets
-    #     - kcoreaddons
-    #     - kdbusaddons
-    #     - kdoctools
-    #     - ki18n
-    #     - kiconthemes
-    #     - knotifications
-    #     - kservice
-    #     - kwidgetsaddons
-    #     - kwindowsystem
-    #     source: https://invent.kde.org/frameworks/kwallet.git
-    #     source-branch: master
-    #     build-packages:
-    #     - cmake
-    #     - doxygen
-    #     - graphviz
-    #     - libboost-dev
-    #     - libgcrypt20-dev
-    #     - libgpgme-dev
-    #     - libgpgmepp-dev
-    #     - libqgpgme15-qt6-dev
-    #     - libqca-qt6-2-dev
-    #     build-snaps:
-    #     - qt-framework-sdk/6.6/stable
-    #     plugin: cmake
-    #     cmake-generator: Ninja
-    #     cmake-parameters:
-    #     - -DCMAKE_INSTALL_PREFIX=/usr
-    #     - -DCMAKE_BUILD_TYPE=RelWithDebInfo
-    #     - -DQT_MAJOR_VERSION=6
-    #     - -DBUILD_WITH_QT6=ON
-    #     - -DBUILD_TESTING=OFF
-    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current\\;/usr"
-    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current\\;/usr"
-    #     build-environment:
-    #     - PATH: /snap/qt-framework-sdk/current/usr/bin${PATH:+:$PATH}
-    #     - XDG_DATA_DIRS: $CRAFT_STAGE/usr/share:/snap/qt-framework-sdk/current/usr/share:/usr/share${XDG_DATA_DIRS:+:$XDG_DATA_DIRS}
-    #     - XDG_CONFIG_HOME: $CRAFT_STAGE/etc/xdg:/snap/qt-framework-sdk/current/etc/xdg:/etc/xdg${XDG_CONFIG_HOME:+:$XDG_CONFIG_HOME}
-    #     - LD_LIBRARY_PATH: "/snap/qt-framework-sdk/current/usr/lib/$CRAFT_ARCH_TRIPLET:/snap/qt-framework-sdk/current/usr/lib:$CRAFT_STAGE/usr/lib:$CRAFT_STAGE/lib/:$CRAFT_STAGE/usr/lib/$CRAFT_ARCH_TRIPLET:/usr/lib/$CRAFT_ARCH_TRIPLET:/usr/lib:/lib"
-    #     - PKG_CONFIG_PATH: $CRAFT_STAGE/usr/lib/$CRAFT_ARCH_TRIPLET/pkgconfig:$CRAFT_STAGE/usr/lib/$CRAFT_ARCH_TRIPLET/pkgconfig:$CRAFT_STAGE/usr/share/pkgconfig${PKG_CONFIG_PATH:+:$PKG_CONFIG_PATH}
+    kwallet:
+        after:
+        - qca
+        - extra-cmake-modules
+        - kcolorscheme
+        - kconfig
+        - kconfigwidgets
+        - kcoreaddons
+        - kdbusaddons
+        - kdoctools
+        - ki18n
+        - kiconthemes
+        - knotifications
+        - kservice
+        - kwidgetsaddons
+        - kwindowsystem
+        source: https://invent.kde.org/frameworks/kwallet.git
+        source-branch: master
+        build-packages:
+        - cmake
+        - doxygen
+        - graphviz
+        - libboost-dev
+        - libgcrypt20-dev
+        - libgpgme-dev
+        - libgpgmepp-dev
+        - libqgpgme15-qt6-dev
+        build-snaps:
+        - qt-framework-sdk/6.6/stable
+        plugin: cmake
+        cmake-generator: Ninja
+        cmake-parameters:
+        - -DCMAKE_INSTALL_PREFIX=/usr
+        - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+        - -DQT_MAJOR_VERSION=6
+        - -DBUILD_WITH_QT6=ON
+        - -DBUILD_TESTING=OFF
+        - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current\\;/usr"
+        - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current\\;/usr"
+        build-environment:
+        - PATH: /snap/qt-framework-sdk/current/usr/bin${PATH:+:$PATH}
+        - XDG_DATA_DIRS: $CRAFT_STAGE/usr/share:/snap/qt-framework-sdk/current/usr/share:/usr/share${XDG_DATA_DIRS:+:$XDG_DATA_DIRS}
+        - XDG_CONFIG_HOME: $CRAFT_STAGE/etc/xdg:/snap/qt-framework-sdk/current/etc/xdg:/etc/xdg${XDG_CONFIG_HOME:+:$XDG_CONFIG_HOME}
+        - LD_LIBRARY_PATH: "/snap/qt-framework-sdk/current/usr/lib/$CRAFT_ARCH_TRIPLET:/snap/qt-framework-sdk/current/usr/lib:$CRAFT_STAGE/usr/lib:$CRAFT_STAGE/lib/:$CRAFT_STAGE/usr/lib/$CRAFT_ARCH_TRIPLET:/usr/lib/$CRAFT_ARCH_TRIPLET:/usr/lib:/lib"
+        - PKG_CONFIG_PATH: $CRAFT_STAGE/usr/lib/$CRAFT_ARCH_TRIPLET/pkgconfig:$CRAFT_STAGE/usr/lib/$CRAFT_ARCH_TRIPLET/pkgconfig:$CRAFT_STAGE/usr/share/pkgconfig${PKG_CONFIG_PATH:+:$PKG_CONFIG_PATH}
+        - LDFLAGS: "-L$CRAFT_STAGE/usr/lib/$CRAFT_ARCH_TRIPLET"
+        - CFLAGS: "-I$CRAFT_STAGE/usr/include/KF5"
     kjobwidgets:
         after:
         - extra-cmake-modules
