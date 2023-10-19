@@ -1178,7 +1178,8 @@ parts:
         - XDG_DATA_DIRS: $CRAFT_STAGE/usr/share:/snap/qt-framework-sdk/current/usr/share:/usr/share${XDG_DATA_DIRS:+:$XDG_DATA_DIRS}
         - XDG_CONFIG_HOME: $CRAFT_STAGE/etc/xdg:/snap/qt-framework-sdk/current/etc/xdg:/etc/xdg${XDG_CONFIG_HOME:+:$XDG_CONFIG_HOME}
         - LD_LIBRARY_PATH: "/snap/qt-framework-sdk/current/usr/lib/$CRAFT_ARCH_TRIPLET:/snap/qt-framework-sdk/current/usr/lib:$CRAFT_STAGE/usr/lib:$CRAFT_STAGE/lib/:$CRAFT_STAGE/usr/lib/$CRAFT_ARCH_TRIPLET:/usr/lib/$CRAFT_ARCH_TRIPLET:/usr/lib:/lib"
-        - PKG_CONFIG_PATH: $CRAFT_STAGE/usr/lib/$CRAFT_ARCH_TRIPLET/pkgconfig:$CRAFT_STAGE/usr/lib/$CRAFT_ARCH_TRIPLET/pkgconfig:$CRAFT_STAGE/usr/share/pkgconfig${PKG_CONFIG_PATH:+:$PKG_CONFIG_PATH}
+        - PKG_CONFIG_PATH: $CRAFT_STAGE/usr/lib/$CRAFT_ARCH_TRIPLET/pkgconfig:$CRAFT_STAGE/usr/lib/pkgconfig:$CRAFT_STAGE/usr/share/pkgconfig
+        - PKG_CONFIG_LIBDIR: $CRAFT_STAGE/usr/lib:$CRAFT_STAGE/usr/lib/$CRAFT_ARCH_TRIPLET
         - LDFLAGS: "-L$CRAFT_STAGE/usr/lib/$CRAFT_ARCH_TRIPLET"
         - CFLAGS: "-I$CRAFT_STAGE/usr/include/KF5"
     kjobwidgets:
