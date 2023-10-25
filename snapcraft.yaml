@@ -752,6 +752,7 @@ parts:
     kwindowsystem:
         after:
         - extra-cmake-modules
+        - plasma-wayland-protocols
         - qtconf
         source: https://invent.kde.org/frameworks/kwindowsystem.git
         source-branch: master
