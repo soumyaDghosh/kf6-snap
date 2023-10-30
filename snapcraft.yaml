@@ -3090,7 +3090,7 @@ parts:
         source-branch: master
         build-packages:
         - cmake
-        - fdupes,
+        - fdupes
         - libxml2-utils
         - python3-lxml
         stage-packages:
