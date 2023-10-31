@@ -3251,89 +3251,91 @@ parts:
         - XDG_DATA_DIRS: $CRAFT_STAGE/usr/share:/snap/qt-framework-sdk/current/usr/share:/usr/share${XDG_DATA_DIRS:+:$XDG_DATA_DIRS}
         - XDG_CONFIG_HOME: $CRAFT_STAGE/etc/xdg:/snap/qt-framework-sdk/current/etc/xdg:/etc/xdg${XDG_CONFIG_HOME:+:$XDG_CONFIG_HOME}
         - LD_LIBRARY_PATH: "/snap/qt-framework-sdk/current/usr/lib/${CRAFT_ARCH_TRIPLET}:/snap/qt-framework-sdk/current/usr/lib:$CRAFT_STAGE/usr/lib:$CRAFT_STAGE/lib/:$CRAFT_STAGE/usr/lib/${CRAFT_ARCH_TRIPLET}${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}"
-    kio-extras:
-        after:
-        - extra-cmake-modules
-        - kactivities
-        - kactivities-stats
-        - karchive
-        - kcmutils
-        - kcolorscheme
-        - kconfig
-        - kconfigwidgets
-        - kcoreaddons
-        - kdbusaddons
-        - kdnssd
-        - kdoctools
-        - kguiaddons
-        - ki18n
-        - kio
-        - solid
-        - syntax-highlighting
-        stage-packages:
-        - perl
-        - kdsoap-ws-discovery-client6
-        - libappimage1.0
-        - libimobiledevice6
-        - libkdsoap2-qt6
-        - libkf6kexiv2
-        - libmtp9
-        - libopenexr-3-1-30
-        - libplist3
-        - libsmbclient
-        - libssh-4
-        - libtag1v5
-        - qt6-phonon
-        source: https://invent.kde.org/network/kio-extras.git
-        source-branch: master
-        build-packages:
-        - cmake
-        - gperf
-        - kdsoap-ws-discovery-client6-dev
-        - libappimage-dev
-        - libappstreamqt-dev
-        - libimobiledevice-dev
-        - libkdsoap-qt6-dev
-        - libkf6kexiv2-dev
-        - libmtp-dev
-        - libopenexr-dev
-        - libsmbclient-dev
-        - libssh-dev
-        - libtag1-dev
-        - libtirpc-dev
-        - pkg-config
-        - qcoro-qt6-dev
-        - qt6-phonon-dev
-        - shared-mime-info
-        build-snaps:
-        - qt-framework-sdk/6.6/stable
-        plugin: cmake
-        cmake-generator: Ninja
-        cmake-parameters:
-        - -DCMAKE_INSTALL_PREFIX=/usr
-        - -DCMAKE_BUILD_TYPE=RelWithDebInfo
-        - -DQT_MAJOR_VERSION=6
-        - -DBUILD_WITH_QT6=ON
-        - -DBUILD_TESTING=OFF
-        - -DBUILD_KWALLETD=OFF
-        - -DCMAKE_INSTALL_SYSCONFDIR=/etc
-        - -DCMAKE_INSTALL_LOCALSTATEDIR=/var
-        - -DCMAKE_EXPORT_NO_PACKAGE_REGISTRY=ON
-        - -DCMAKE_FIND_USE_PACKAGE_REGISTRY=OFF
-        - -DCMAKE_FIND_PACKAGE_NO_PACKAGE_REGISTRY=ON
-        - -DCMAKE_INSTALL_RUNSTATEDIR=/run
-        - -DCMAKE_SKIP_INSTALL_ALL_DEPENDENCY=ON
-        - -DCMAKE_VERBOSE_MAKEFILE=ON
-        - -DCMAKE_INSTALL_LIBDIR=lib/$CRAFT_ARCH_TRIPLET
-        - --log-level=STATUS
-        - -DCMAKE_LIBRARY_PATH=lib/$CRAFT_ARCH_TRIPLET
-        - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current\\;/usr\\;/snap/ffmpeg-2204-sdk/current"
-        - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current\\;/usr"
-        build-environment:
-        - PATH: /snap/qt-framework-sdk/current/usr/bin${PATH:+:$PATH}
-        - XDG_DATA_DIRS: $CRAFT_STAGE/usr/share:/snap/qt-framework-sdk/current/usr/share:/usr/share${XDG_DATA_DIRS:+:$XDG_DATA_DIRS}
-        - XDG_CONFIG_HOME: $CRAFT_STAGE/etc/xdg:/snap/qt-framework-sdk/current/etc/xdg:/etc/xdg${XDG_CONFIG_HOME:+:$XDG_CONFIG_HOME}
-        - LD_LIBRARY_PATH: "/snap/qt-framework-sdk/current/usr/lib/${CRAFT_ARCH_TRIPLET}:/snap/qt-framework-sdk/current/usr/lib:$CRAFT_STAGE/usr/lib:$CRAFT_STAGE/lib/:$CRAFT_STAGE/usr/lib/${CRAFT_ARCH_TRIPLET}${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}"
+    # kio-extras:
+    #     after:
+    #     - extra-cmake-modules
+    #     - kactivities
+    #     - kactivities-stats
+    #     - karchive
+    #     - kcmutils
+    #     - kcolorscheme
+    #     - kconfig
+    #     - kconfigwidgets
+    #     - kcoreaddons
+    #     - kdbusaddons
+    #     - kdnssd
+    #     - kdoctools
+    #     - kguiaddons
+    #     - ki18n
+    #     - kio
+    #     - solid
+    #     - syntax-highlighting
+    #     stage-packages:
+    #     - perl
+    #     - kdsoap-ws-discovery-client6
+    #     - libappimage1.0
+    #     - libimobiledevice6
+    #     - libkdsoap2-qt6
+    #     - libkf6kexiv2
+    #     - libmtp9
+    #     - libopenexr-3-1-30
+    #     - libplist3
+    #     - libsmbclient
+    #     - libssh-4
+    #     - libtag1v5
+    #     - qt6-phonon
+    #     - python3-imath
+    #     source: https://invent.kde.org/network/kio-extras.git
+    #     source-branch: master
+    #     build-packages:
+    #     - cmake
+    #     - gperf
+    #     - kdsoap-ws-discovery-client6-dev
+    #     - libappimage-dev
+    #     - libappstreamqt-dev
+    #     - libimobiledevice-dev
+    #     - libkdsoap-qt6-dev
+    #     - libkf6kexiv2-dev
+    #     - libmtp-dev
+    #     - libopenexr-dev
+    #     - libsmbclient-dev
+    #     - libssh-dev
+    #     - libtag1-dev
+    #     - libtirpc-dev
+    #     - pkg-config
+    #     - qcoro-qt6-dev
+    #     - qt6-phonon-dev
+    #     - shared-mime-info
+    #     - python3-imath
+    #     build-snaps:
+    #     - qt-framework-sdk/6.6/stable
+    #     plugin: cmake
+    #     cmake-generator: Ninja
+    #     cmake-parameters:
+    #     - -DCMAKE_INSTALL_PREFIX=/usr
+    #     - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+    #     - -DQT_MAJOR_VERSION=6
+    #     - -DBUILD_WITH_QT6=ON
+    #     - -DBUILD_TESTING=OFF
+    #     - -DBUILD_KWALLETD=OFF
+    #     - -DCMAKE_INSTALL_SYSCONFDIR=/etc
+    #     - -DCMAKE_INSTALL_LOCALSTATEDIR=/var
+    #     - -DCMAKE_EXPORT_NO_PACKAGE_REGISTRY=ON
+    #     - -DCMAKE_FIND_USE_PACKAGE_REGISTRY=OFF
+    #     - -DCMAKE_FIND_PACKAGE_NO_PACKAGE_REGISTRY=ON
+    #     - -DCMAKE_INSTALL_RUNSTATEDIR=/run
+    #     - -DCMAKE_SKIP_INSTALL_ALL_DEPENDENCY=ON
+    #     - -DCMAKE_VERBOSE_MAKEFILE=ON
+    #     - -DCMAKE_INSTALL_LIBDIR=lib/$CRAFT_ARCH_TRIPLET
+    #     - --log-level=STATUS
+    #     - -DCMAKE_LIBRARY_PATH=lib/$CRAFT_ARCH_TRIPLET
+    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current\\;/usr\\;/snap/ffmpeg-2204-sdk/current"
+    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current\\;/usr"
+    #     build-environment:
+    #     - PATH: /snap/qt-framework-sdk/current/usr/bin${PATH:+:$PATH}
+    #     - XDG_DATA_DIRS: $CRAFT_STAGE/usr/share:/snap/qt-framework-sdk/current/usr/share:/usr/share${XDG_DATA_DIRS:+:$XDG_DATA_DIRS}
+    #     - XDG_CONFIG_HOME: $CRAFT_STAGE/etc/xdg:/snap/qt-framework-sdk/current/etc/xdg:/etc/xdg${XDG_CONFIG_HOME:+:$XDG_CONFIG_HOME}
+    #     - LD_LIBRARY_PATH: "/snap/qt-framework-sdk/current/usr/lib/${CRAFT_ARCH_TRIPLET}:/snap/qt-framework-sdk/current/usr/lib:$CRAFT_STAGE/usr/lib:$CRAFT_STAGE/lib/:$CRAFT_STAGE/usr/lib/${CRAFT_ARCH_TRIPLET}${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}"
     breeze:
         after:
         - extra-cmake-modules
