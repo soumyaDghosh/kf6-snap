@@ -3272,7 +3272,7 @@ parts:
         - syntax-highlighting
         stage-packages:
         - perl
-        - kdsoap-ws-discovery-client6
+        - kdsoap-ws-discovery-client
         - libappimage1.0
         - libimobiledevice6
         - libkdsoap2-qt6
@@ -3290,7 +3290,7 @@ parts:
         build-packages:
         - cmake
         - gperf
-        - kdsoap-ws-discovery-client6-dev
+        - kdsoap-ws-discovery-client-dev
         - libappimage-dev
         - libappstreamqt-dev
         - libimobiledevice-dev
