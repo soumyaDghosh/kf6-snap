@@ -3457,25 +3457,26 @@ parts:
         - XDG_DATA_DIRS: $CRAFT_STAGE/usr/share:/snap/qt-framework-sdk/current/usr/share:/usr/share${XDG_DATA_DIRS:+:$XDG_DATA_DIRS}
         - XDG_CONFIG_HOME: $CRAFT_STAGE/etc/xdg:/snap/qt-framework-sdk/current/etc/xdg:/etc/xdg${XDG_CONFIG_HOME:+:$XDG_CONFIG_HOME}
         - LD_LIBRARY_PATH: "/snap/qt-framework-sdk/current/usr/lib/${CRAFT_ARCH_TRIPLET}:/snap/qt-framework-sdk/current/usr/lib:$CRAFT_STAGE/usr/lib:$CRAFT_STAGE/lib/:$CRAFT_STAGE/usr/lib/${CRAFT_ARCH_TRIPLET}${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}"
-    qqc2-breeze-style:
-        after:
-        - kcolorscheme
-        - kconfig
-        - kiconthemes
-        - kirigami
-        source: https://invent.kde.org/plasma/qqc2-breeze-style.git
-        source-branch: master
-        build-packages:
-        - cmake
-        build-snaps:
-        - qt-framework-sdk/6.6/stable
-        plugin: cmake
-        cmake-generator: Ninja
-        cmake-parameters:
-        - -DCMAKE_INSTALL_PREFIX=/usr
-        - -DCMAKE_BUILD_TYPE=RelWithDebInfo
-        - -DQT_MAJOR_VERSION=6
-        - -DBUILD_WITH_QT6=ON
-        - -DBUILD_TESTING=OFF
-        - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current\\;/usr"
-        - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current\\;/usr"
+    # qqc2-breeze-style:
+    #     after:
+    #     - kcolorscheme
+    #     - kconfig
+    #     - kiconthemes
+    #     - kirigami
+    #     - breeze
+    #     source: https://invent.kde.org/plasma/qqc2-breeze-style.git
+    #     source-branch: master
+    #     build-packages:
+    #     - cmake
+    #     build-snaps:
+    #     - qt-framework-sdk/6.6/stable
+    #     plugin: cmake
+    #     cmake-generator: Ninja
+    #     cmake-parameters:
+    #     - -DCMAKE_INSTALL_PREFIX=/usr
+    #     - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+    #     - -DQT_MAJOR_VERSION=6
+    #     - -DBUILD_WITH_QT6=ON
+    #     - -DBUILD_TESTING=OFF
+    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current\\;/usr"
+    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current\\;/usr"
