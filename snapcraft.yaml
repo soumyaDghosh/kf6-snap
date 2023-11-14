@@ -56,11 +56,11 @@ parts:
             cat <<EOF > $CRAFT_PART_INSTALL/usr/bin/qt.conf
             [Paths]
             Prefix = ../../
-            LibraryExecutables = usr/lib/$CRAFT_ARCH_TRIPLET/qt5/libexec
-            Plugins = usr/lib/$CRAFT_ARCH_TRIPLET/qt5/plugins
-            Qml2Imports = usr/lib/$CRAFT_ARCH_TRIPLET/qt5/qml
-            Translations = usr/share/qt5/translations
-            Data = usr/share/qt5
+            LibraryExecutables = usr/lib/$CRAFT_ARCH_TRIPLET/qt6/libexec
+            Plugins = usr/lib/$CRAFT_ARCH_TRIPLET/qt6/plugins
+            Qml2Imports = usr/lib/$CRAFT_ARCH_TRIPLET/qt6/qml
+            Translations = usr/share/qt6/translations
+            Data = usr/share/qt6
             EOF
     missing-deps:
         after:
@@ -265,76 +265,76 @@ parts:
         - XDG_DATA_DIRS: $CRAFT_STAGE/usr/share:/snap/qt-framework-sdk/current/usr/share:/usr/share${XDG_DATA_DIRS:+:$XDG_DATA_DIRS}
         - XDG_CONFIG_HOME: $CRAFT_STAGE/etc/xdg:/snap/qt-framework-sdk/current/etc/xdg:/etc/xdg${XDG_CONFIG_HOME:+:$XDG_CONFIG_HOME}
         - LD_LIBRARY_PATH: "/snap/qt-framework-sdk/current/usr/lib/${CRAFT_ARCH_TRIPLET}:/snap/qt-framework-sdk/current/usr/lib:$CRAFT_STAGE/usr/lib:$CRAFT_STAGE/lib/:$CRAFT_STAGE/usr/lib/${CRAFT_ARCH_TRIPLET}${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}"
-    # kplotting:
-    #     after:
-    #     - extra-cmake-modules
-    #     - missing-deps
-    #     source: https://invent.kde.org/frameworks/kplotting.git
-    #     source-branch: master
-    #     build-packages:
-    #     - cmake
-    #     - libglx-dev
-    #     - libgl1-mesa-dev
-    #     build-snaps:
-    #     - qt-framework-sdk/6.6/stable
-    #     plugin: cmake
-    #     cmake-generator: Ninja
-    #     cmake-parameters:
-    #     - -DCMAKE_INSTALL_PREFIX=/usr
-    #     - -DCMAKE_BUILD_TYPE=RelWithDebInfo
-    #     - -DQT_MAJOR_VERSION=6
-    #     - -DBUILD_WITH_QT6=ON
-    #     - -DBUILD_TESTING=OFF
-    #     - -DCMAKE_INSTALL_SYSCONFDIR=/etc
-    #     - -DCMAKE_INSTALL_LOCALSTATEDIR=/var
-    #     - -DCMAKE_EXPORT_NO_PACKAGE_REGISTRY=ON
-    #     - -DCMAKE_FIND_USE_PACKAGE_REGISTRY=OFF
-    #     - -DCMAKE_FIND_PACKAGE_NO_PACKAGE_REGISTRY=ON
-    #     - -DCMAKE_INSTALL_RUNSTATEDIR=/run
-    #     - -DCMAKE_SKIP_INSTALL_ALL_DEPENDENCY=ON
-    #     - -DCMAKE_VERBOSE_MAKEFILE=ON
-    #     - -DCMAKE_INSTALL_LIBDIR=lib/$CRAFT_ARCH_TRIPLET
-    #     - --log-level=STATUS
-    #     - -DCMAKE_LIBRARY_PATH=lib/$CRAFT_ARCH_TRIPLET
-    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current\\;/usr"
-    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current\\;/usr"
-    #     build-environment:
-    #     - PATH: /snap/qt-framework-sdk/current/usr/bin${PATH:+:$PATH}
-    #     - XDG_DATA_DIRS: $CRAFT_STAGE/usr/share:/snap/qt-framework-sdk/current/usr/share:/usr/share${XDG_DATA_DIRS:+:$XDG_DATA_DIRS}
-    #     - XDG_CONFIG_HOME: $CRAFT_STAGE/etc/xdg:/snap/qt-framework-sdk/current/etc/xdg:/etc/xdg${XDG_CONFIG_HOME:+:$XDG_CONFIG_HOME}
-    #     - LD_LIBRARY_PATH: "/snap/qt-framework-sdk/current/usr/lib/${CRAFT_ARCH_TRIPLET}:/snap/qt-framework-sdk/current/usr/lib:$CRAFT_STAGE/usr/lib:$CRAFT_STAGE/lib/:$CRAFT_STAGE/usr/lib/${CRAFT_ARCH_TRIPLET}${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}"
-    #     stage:
-    #     - -usr/lib/$CRAFT_ARCH_TRIPLET/libdrm_amdgpu.so.1.0.0
-    #     - -usr/lib/$CRAFT_ARCH_TRIPLET/libdrm_intel.so.1.0.0
-    #     - -usr/lib/$CRAFT_ARCH_TRIPLET/libdrm_nouveau.so.2.0.0
-    #     - -usr/lib/$CRAFT_ARCH_TRIPLET/libdrm_radeon.so.1.0.1
-    #     - -usr/share/doc/libdrm-amdgpu1/changelog.Debian.gz
-    #     - -usr/share/doc/libdrm-intel1/changelog.Debian.gz
-    #     - -usr/share/doc/libdrm-nouveau2/changelog.Debian.gz
-    #     - -usr/share/doc/libdrm-radeon1/changelog.Debian.gz
-    #     - -usr/lib/$CRAFT_ARCH_TRIPLET/libwayland-client.so.0
-    #     - -usr/lib/$CRAFT_ARCH_TRIPLET/libwayland-server.so.0
-    #     - -usr/share/doc/libwayland-client0/changelog.Debian.gz
-    #     - -usr/share/doc/libwayland-server0/changelog.Debian.gz
-    #     - -usr/bin/update-mime-database
-    #     - -usr/share/doc/shared-mime-info/NEWS.gz
-    #     - -usr/share/doc/shared-mime-info/README.md
-    #     - -usr/share/doc/shared-mime-info/changelog.Debian.gz
-    #     - -usr/share/doc/shared-mime-info/shared-mime-info-spec.html/x34.html
-    #     - -usr/share/doc/shared-mime-info/shared-mime-info-spec.pdf
-    #     - -usr/share/doc/shared-mime-info/shared-mime-info-spec.xml.gz
-    #     - -usr/share/man/man1/update-mime-database.1.gz
-    #     - -usr/share/mime/packages/freedesktop.org.xml
-    #     - -usr/share/pkgconfig/shared-mime-info.pc
-    #     - -usr/lib/$CRAFT_ARCH_TRIPLET/libjpeg.so.8.2.2
-    #     - -usr/lib/$CRAFT_ARCH_TRIPLET/liblcms2.so.2
-    #     - -usr/lib/$CRAFT_ARCH_TRIPLET/libtiff.so.5.7.0
-    #     - -usr/share/doc/libjpeg-turbo8/changelog.Debian.gz
-    #     - -usr/share/doc/libjpeg-turbo8/copyright
-    #     - -usr/share/doc/liblcms2-2/changelog.Debian.gz
-    #     - -usr/share/doc/liblcms2-2/copyright
-    #     - -usr/share/doc/libtiff5/changelog.Debian.gz
-    #     - -usr/share/lintian/overrides/libjpeg-turbo8
+    kplotting:
+        after:
+        - extra-cmake-modules
+        - missing-deps
+        source: https://invent.kde.org/frameworks/kplotting.git
+        source-branch: master
+        build-packages:
+        - cmake
+        - libglx-dev
+        - libgl1-mesa-dev
+        build-snaps:
+        - qt-framework-sdk/6.6/stable
+        plugin: cmake
+        cmake-generator: Ninja
+        cmake-parameters:
+        - -DCMAKE_INSTALL_PREFIX=/usr
+        - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+        - -DQT_MAJOR_VERSION=6
+        - -DBUILD_WITH_QT6=ON
+        - -DBUILD_TESTING=OFF
+        - -DCMAKE_INSTALL_SYSCONFDIR=/etc
+        - -DCMAKE_INSTALL_LOCALSTATEDIR=/var
+        - -DCMAKE_EXPORT_NO_PACKAGE_REGISTRY=ON
+        - -DCMAKE_FIND_USE_PACKAGE_REGISTRY=OFF
+        - -DCMAKE_FIND_PACKAGE_NO_PACKAGE_REGISTRY=ON
+        - -DCMAKE_INSTALL_RUNSTATEDIR=/run
+        - -DCMAKE_SKIP_INSTALL_ALL_DEPENDENCY=ON
+        - -DCMAKE_VERBOSE_MAKEFILE=ON
+        - -DCMAKE_INSTALL_LIBDIR=lib/$CRAFT_ARCH_TRIPLET
+        - --log-level=STATUS
+        - -DCMAKE_LIBRARY_PATH=lib/$CRAFT_ARCH_TRIPLET
+        - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current\\;/usr"
+        - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current\\;/usr"
+        build-environment:
+        - PATH: /snap/qt-framework-sdk/current/usr/bin${PATH:+:$PATH}
+        - XDG_DATA_DIRS: $CRAFT_STAGE/usr/share:/snap/qt-framework-sdk/current/usr/share:/usr/share${XDG_DATA_DIRS:+:$XDG_DATA_DIRS}
+        - XDG_CONFIG_HOME: $CRAFT_STAGE/etc/xdg:/snap/qt-framework-sdk/current/etc/xdg:/etc/xdg${XDG_CONFIG_HOME:+:$XDG_CONFIG_HOME}
+        - LD_LIBRARY_PATH: "/snap/qt-framework-sdk/current/usr/lib/${CRAFT_ARCH_TRIPLET}:/snap/qt-framework-sdk/current/usr/lib:$CRAFT_STAGE/usr/lib:$CRAFT_STAGE/lib/:$CRAFT_STAGE/usr/lib/${CRAFT_ARCH_TRIPLET}${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}"
+        stage:
+        - -usr/lib/$CRAFT_ARCH_TRIPLET/libdrm_amdgpu.so.1.0.0
+        - -usr/lib/$CRAFT_ARCH_TRIPLET/libdrm_intel.so.1.0.0
+        - -usr/lib/$CRAFT_ARCH_TRIPLET/libdrm_nouveau.so.2.0.0
+        - -usr/lib/$CRAFT_ARCH_TRIPLET/libdrm_radeon.so.1.0.1
+        - -usr/share/doc/libdrm-amdgpu1/changelog.Debian.gz
+        - -usr/share/doc/libdrm-intel1/changelog.Debian.gz
+        - -usr/share/doc/libdrm-nouveau2/changelog.Debian.gz
+        - -usr/share/doc/libdrm-radeon1/changelog.Debian.gz
+        - -usr/lib/$CRAFT_ARCH_TRIPLET/libwayland-client.so.0
+        - -usr/lib/$CRAFT_ARCH_TRIPLET/libwayland-server.so.0
+        - -usr/share/doc/libwayland-client0/changelog.Debian.gz
+        - -usr/share/doc/libwayland-server0/changelog.Debian.gz
+        - -usr/bin/update-mime-database
+        - -usr/share/doc/shared-mime-info/NEWS.gz
+        - -usr/share/doc/shared-mime-info/README.md
+        - -usr/share/doc/shared-mime-info/changelog.Debian.gz
+        - -usr/share/doc/shared-mime-info/shared-mime-info-spec.html/x34.html
+        - -usr/share/doc/shared-mime-info/shared-mime-info-spec.pdf
+        - -usr/share/doc/shared-mime-info/shared-mime-info-spec.xml.gz
+        - -usr/share/man/man1/update-mime-database.1.gz
+        - -usr/share/mime/packages/freedesktop.org.xml
+        - -usr/share/pkgconfig/shared-mime-info.pc
+        - -usr/lib/$CRAFT_ARCH_TRIPLET/libjpeg.so.8.2.2
+        - -usr/lib/$CRAFT_ARCH_TRIPLET/liblcms2.so.2
+        - -usr/lib/$CRAFT_ARCH_TRIPLET/libtiff.so.5.7.0
+        - -usr/share/doc/libjpeg-turbo8/changelog.Debian.gz
+        - -usr/share/doc/libjpeg-turbo8/copyright
+        - -usr/share/doc/liblcms2-2/changelog.Debian.gz
+        - -usr/share/doc/liblcms2-2/copyright
+        - -usr/share/doc/libtiff5/changelog.Debian.gz
+        - -usr/share/lintian/overrides/libjpeg-turbo8
     syntax-highlighting:
         after:
         - extra-cmake-modules
