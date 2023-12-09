@@ -3418,6 +3418,12 @@ parts:
         - libwayland-dev
         - libxcursor-dev
         - pkg-config
+        - fonts-hack
+        - fonts-noto-cjk
+        - fonts-noto-color-emoji
+        - fonts-noto-core
+        - fonts-noto-ui-core
+        - xdg-desktop-portal-kde
         stage-packages:
         - fonts-hack
         - fonts-noto-cjk
