@@ -3424,7 +3424,7 @@ parts:
         - fonts-noto-core
         - fonts-noto-ui-core
         - xdg-desktop-portal-kde
-        - qt6declarative-dev
+        - qt6-declarative-dev
         stage-packages:
         - fonts-hack
         - fonts-noto-cjk
