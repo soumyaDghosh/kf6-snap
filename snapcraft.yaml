@@ -9,7 +9,7 @@ base: core22
 compression: lzo
 architectures:
   - build-on: amd64
-  # - build-on: arm64
+  - build-on: arm64
   # - build-on: armhf
   # - build-on: ppc64el
 environment:
@@ -81,7 +81,7 @@ parts:
         build-packages:
         - cmake
         build-snaps:
-        - qt-framework-sdk/6.6/stable
+        - kde-qt6-sdk
         plugin: cmake
         cmake-generator: Ninja
         cmake-parameters:
@@ -119,7 +119,7 @@ parts:
         stage-packages:
         - wayland-protocols
         build-snaps:
-        - qt-framework-sdk/6.6/stable
+        - kde-qt6-sdk
         plugin: cmake
         cmake-generator: Ninja
         cmake-parameters:
@@ -159,7 +159,7 @@ parts:
         - libssl-dev
         - pkg-config
         build-snaps:
-        - qt-framework-sdk/6.6/stable
+        - kde-qt6-sdk
         plugin: cmake
         cmake-generator: Ninja
         cmake-parameters:
@@ -201,7 +201,7 @@ parts:
         - libpolkit-agent-1-0
         - libpolkit-gobject-1-0
         build-snaps:
-        - qt-framework-sdk/6.6/stable
+        - kde-qt6-sdk
         plugin: cmake
         cmake-generator: Ninja
         cmake-parameters:
@@ -237,7 +237,7 @@ parts:
         - cmake
         - kf6-breeze-icon-theme
         build-snaps:
-        - qt-framework-sdk/6.6/stable
+        - kde-qt6-sdk
         plugin: cmake
         cmake-generator: Ninja
         cmake-parameters:
@@ -276,7 +276,7 @@ parts:
     #     - libglx-dev
     #     - libgl1-mesa-dev
     #     build-snaps:
-    #     - qt-framework-sdk/6.6/stable
+    #     - kde-qt6-sdk
     #     plugin: cmake
     #     cmake-generator: Ninja
     #     cmake-parameters:
@@ -344,7 +344,7 @@ parts:
         - cmake
         - perl
         build-snaps:
-        - qt-framework-sdk/6.6/stable
+        - kde-qt6-sdk
         plugin: cmake
         cmake-generator: Ninja
         cmake-parameters:
@@ -382,7 +382,7 @@ parts:
         - graphviz
         - doxygen
         build-snaps:
-        - qt-framework-sdk/6.6/stable
+        - kde-qt6-sdk
         plugin: cmake
         cmake-generator: Ninja
         cmake-parameters:
@@ -420,7 +420,7 @@ parts:
         - graphviz
         - doxygen
         build-snaps:
-        - qt-framework-sdk/6.6/stable
+        - kde-qt6-sdk
         plugin: cmake
         cmake-generator: Ninja
         cmake-parameters:
@@ -457,7 +457,7 @@ parts:
         - graphviz
         - doxygen
         build-snaps:
-        - qt-framework-sdk/6.6/stable
+        - kde-qt6-sdk
         plugin: cmake
         cmake-generator: Ninja
         cmake-parameters:
@@ -498,7 +498,7 @@ parts:
         - graphviz
         - libudev-dev
         build-snaps:
-        - qt-framework-sdk/6.6/stable
+        - kde-qt6-sdk
         plugin: cmake
         cmake-generator: Ninja
         cmake-parameters:
@@ -536,7 +536,7 @@ parts:
         - graphviz
         - doxygen
         build-snaps:
-        - qt-framework-sdk/6.6/stable
+        - kde-qt6-sdk
         plugin: cmake
         cmake-generator: Ninja
         cmake-parameters:
@@ -578,7 +578,7 @@ parts:
         - graphviz
         - python3
         build-snaps:
-        - qt-framework-sdk/6.6/stable
+        - kde-qt6-sdk
         plugin: cmake
         cmake-generator: Ninja
         cmake-parameters:
@@ -617,7 +617,7 @@ parts:
         - graphviz
         - libxkbcommon-dev
         build-snaps:
-        - qt-framework-sdk/6.6/stable
+        - kde-qt6-sdk
         plugin: cmake
         cmake-generator: Ninja
         cmake-parameters:
@@ -653,7 +653,7 @@ parts:
         build-packages:
         - cmake
         build-snaps:
-        - qt-framework-sdk/6.6/stable
+        - kde-qt6-sdk
         plugin: cmake
         cmake-generator: Ninja
         cmake-parameters:
@@ -704,7 +704,7 @@ parts:
         stage-packages:
         - libwayland-client0
         build-snaps:
-        - qt-framework-sdk/6.6/stable
+        - kde-qt6-sdk
         plugin: cmake
         cmake-generator: Ninja
         cmake-parameters:
@@ -748,7 +748,7 @@ parts:
         - shared-mime-info
         - libgamin0
         build-snaps:
-        - qt-framework-sdk/6.6/stable
+        - kde-qt6-sdk
         plugin: cmake
         cmake-generator: Ninja
         cmake-parameters:
@@ -795,7 +795,7 @@ parts:
         - zlib1g
         - bzip2
         build-snaps:
-        - qt-framework-sdk/6.6/stable
+        - kde-qt6-sdk
         plugin: cmake
         cmake-generator: Ninja
         cmake-parameters:
@@ -834,7 +834,7 @@ parts:
         - doxygen
         - graphviz
         build-snaps:
-        - qt-framework-sdk/6.6/stable
+        - kde-qt6-sdk
         plugin: cmake
         cmake-generator: Ninja
         cmake-parameters:
@@ -872,7 +872,7 @@ parts:
         - doxygen
         - graphviz
         build-snaps:
-        - qt-framework-sdk/6.6/stable
+        - kde-qt6-sdk
         plugin: cmake
         cmake-generator: Ninja
         cmake-parameters:
@@ -918,7 +918,7 @@ parts:
         - libxrender-dev
         - pkg-config
         build-snaps:
-        - qt-framework-sdk/6.6/stable
+        - kde-qt6-sdk
         plugin: cmake
         cmake-generator: Ninja
         cmake-parameters:
@@ -955,7 +955,7 @@ parts:
         - cmake
         - dbus-x11
         build-snaps:
-        - qt-framework-sdk/6.6/stable
+        - kde-qt6-sdk
         plugin: cmake
         cmake-generator: Ninja
         cmake-parameters:
@@ -1004,7 +1004,7 @@ parts:
         - libhfstospell11
         - libvoikko1
         build-snaps:
-        - qt-framework-sdk/6.6/stable
+        - kde-qt6-sdk
         stage-snaps:
         - hunspell-dictionaries
         plugin: cmake
@@ -1046,7 +1046,7 @@ parts:
         - doxygen
         - graphviz
         build-snaps:
-        - qt-framework-sdk/6.6/stable
+        - kde-qt6-sdk
         plugin: cmake
         cmake-generator: Ninja
         cmake-parameters:
@@ -1087,7 +1087,7 @@ parts:
         - libxcb1-dev
         - pkg-config
         build-snaps:
-        - qt-framework-sdk/6.6/stable
+        - kde-qt6-sdk
         plugin: cmake
         cmake-generator: Ninja
         cmake-parameters:
@@ -1127,7 +1127,7 @@ parts:
         - graphviz
         - libx11-dev
         build-snaps:
-        - qt-framework-sdk/6.6/stable
+        - kde-qt6-sdk
         plugin: cmake
         cmake-generator: Ninja
         cmake-parameters:
@@ -1177,7 +1177,7 @@ parts:
         - graphviz
         - libxml2-utils
         build-snaps:
-        - qt-framework-sdk/6.6/stable
+        - kde-qt6-sdk
         plugin: cmake
         cmake-generator: Ninja
         cmake-parameters:
@@ -1217,7 +1217,7 @@ parts:
         - libglx-dev
         - libgl1-mesa-dev
         build-snaps:
-        - qt-framework-sdk/6.6/stable
+        - kde-qt6-sdk
         plugin: cmake
         cmake-generator: Ninja
         cmake-parameters:
@@ -1262,7 +1262,7 @@ parts:
         stage-packages:
         - libxslt1.1
         build-snaps:
-        - qt-framework-sdk/6.6/stable
+        - kde-qt6-sdk
         plugin: cmake
         cmake-generator: Ninja
         cmake-parameters:
@@ -1314,7 +1314,7 @@ parts:
         stage-packages:
         - perl
         build-snaps:
-        - qt-framework-sdk/6.6/stable
+        - kde-qt6-sdk
         plugin: cmake
         cmake-generator: Ninja
         cmake-parameters:
@@ -1361,7 +1361,7 @@ parts:
         - doxygen
         - graphviz
         build-snaps:
-        - qt-framework-sdk/6.6/stable
+        - kde-qt6-sdk
         plugin: cmake
         cmake-generator: Ninja
         cmake-parameters:
@@ -1401,7 +1401,7 @@ parts:
         - doxygen
         - graphviz
         build-snaps:
-        - qt-framework-sdk/6.6/stable
+        - kde-qt6-sdk
         plugin: cmake
         cmake-generator: Ninja
         cmake-parameters:
@@ -1452,7 +1452,7 @@ parts:
         - doxygen
         - graphviz
         build-snaps:
-        - qt-framework-sdk/6.6/stable
+        - kde-qt6-sdk
         plugin: cmake
         cmake-generator: Ninja
         cmake-parameters:
@@ -1502,7 +1502,7 @@ parts:
         - doxygen
         - graphviz
         build-snaps:
-        - qt-framework-sdk/6.6/stable
+        - kde-qt6-sdk
         plugin: cmake
         cmake-generator: Ninja
         cmake-parameters:
@@ -1544,7 +1544,7 @@ parts:
         - doxygen
         - graphviz
         build-snaps:
-        - qt-framework-sdk/6.6/stable
+        - kde-qt6-sdk
         plugin: cmake
         cmake-generator: Ninja
         cmake-parameters:
@@ -1590,7 +1590,7 @@ parts:
         - doxygen
         - graphviz
         build-snaps:
-        - qt-framework-sdk/6.6/stable
+        - kde-qt6-sdk
         plugin: cmake
         cmake-generator: Ninja
         cmake-parameters:
@@ -1640,7 +1640,7 @@ parts:
         - libswscale-dev
         - pkg-config
         build-snaps:
-        - qt-framework-sdk/6.6/stable
+        - kde-qt6-sdk
         - ffmpeg-2204-sdk
         stage-packages:
         - catdoc
@@ -1687,7 +1687,7 @@ parts:
         - libglib2.0-dev
         - libpulse-dev
         build-snaps:
-        - qt-framework-sdk/6.6/stable
+        - kde-qt6-sdk
         stage-packages:
         - libpulse-mainloop-glib0
         - libpulse0
@@ -1738,7 +1738,7 @@ parts:
         - libcanberra0
         - libdbusmenu-qt6-2
         build-snaps:
-        - qt-framework-sdk/6.6/stable
+        - kde-qt6-sdk
         plugin: cmake
         cmake-generator: Ninja
         cmake-parameters:
@@ -1794,7 +1794,7 @@ parts:
         - libqgpgme15-qt6-dev
         - libqca-qt6-2-dev
         build-snaps:
-        - qt-framework-sdk/6.6/stable
+        - kde-qt6-sdk
         plugin: cmake
         cmake-generator: Ninja
         cmake-parameters:
@@ -1836,7 +1836,7 @@ parts:
         - graphviz
         - libx11-dev
         build-snaps:
-        - qt-framework-sdk/6.6/stable
+        - kde-qt6-sdk
         plugin: cmake
         cmake-generator: Ninja
         cmake-parameters:
@@ -1907,7 +1907,7 @@ parts:
         - switcheroo-control
         - zlib1g-dev
         build-snaps:
-        - qt-framework-sdk/6.6/stable
+        - kde-qt6-sdk
         plugin: cmake
         cmake-generator: Ninja
         cmake-parameters:
@@ -1962,7 +1962,7 @@ parts:
         - doxygen
         - graphviz
         build-snaps:
-        - qt-framework-sdk/6.6/stable
+        - kde-qt6-sdk
         plugin: cmake
         cmake-generator: Ninja
         cmake-parameters:
@@ -2004,7 +2004,7 @@ parts:
         build-packages:
         - cmake
         build-snaps:
-        - qt-framework-sdk/6.6/stable
+        - kde-qt6-sdk
         plugin: cmake
         cmake-generator: Ninja
         cmake-parameters:
@@ -2043,7 +2043,7 @@ parts:
         - doxygen
         - graphviz
         build-snaps:
-        - qt-framework-sdk/6.6/stable
+        - kde-qt6-sdk
         plugin: cmake
         cmake-generator: Ninja
         cmake-parameters:
@@ -2089,7 +2089,7 @@ parts:
         - libepoxy-dev
         - pkg-config
         build-snaps:
-        - qt-framework-sdk/6.6/stable
+        - kde-qt6-sdk
         plugin: cmake
         cmake-generator: Ninja
         cmake-parameters:
@@ -2131,7 +2131,7 @@ parts:
         - graphviz
         - libboost-dev
         build-snaps:
-        - qt-framework-sdk/6.6/stable
+        - kde-qt6-sdk
         plugin: cmake
         cmake-generator: Ninja
         cmake-parameters:
@@ -2174,7 +2174,7 @@ parts:
         - graphviz
         - libboost-dev
         build-snaps:
-        - qt-framework-sdk/6.6/stable
+        - kde-qt6-sdk
         plugin: cmake
         cmake-generator: Ninja
         cmake-parameters:
@@ -2222,7 +2222,7 @@ parts:
         - doxygen
         - graphviz
         build-snaps:
-        - qt-framework-sdk/6.6/stable
+        - kde-qt6-sdk
         plugin: cmake
         cmake-generator: Ninja
         cmake-parameters:
@@ -2275,7 +2275,7 @@ parts:
         - doxygen
         - graphviz
         build-snaps:
-        - qt-framework-sdk/6.6/stable
+        - kde-qt6-sdk
         plugin: cmake
         cmake-generator: Ninja
         cmake-parameters:
@@ -2312,7 +2312,7 @@ parts:
         build-packages:
         - cmake
         build-snaps:
-        - qt-framework-sdk/6.6/stable
+        - kde-qt6-sdk
         plugin: cmake
         cmake-generator: Ninja
         cmake-parameters:
@@ -2367,7 +2367,7 @@ parts:
         build-packages:
         - cmake
         build-snaps:
-        - qt-framework-sdk/6.6/stable
+        - kde-qt6-sdk
         plugin: cmake
         cmake-generator: Ninja
         cmake-parameters:
@@ -2412,7 +2412,7 @@ parts:
         - pkg-config
         - wayland-protocols
         build-snaps:
-        - qt-framework-sdk/6.6/stable
+        - kde-qt6-sdk
         plugin: cmake
         cmake-generator: Ninja
         cmake-parameters:
@@ -2449,7 +2449,7 @@ parts:
         build-packages:
         - cmake
         build-snaps:
-        - qt-framework-sdk/6.6/stable
+        - kde-qt6-sdk
         plugin: cmake
         cmake-generator: Ninja
         cmake-parameters:
@@ -2509,7 +2509,7 @@ parts:
         - perl
         - pkg-config
         build-snaps:
-        - qt-framework-sdk/6.6/stable
+        - kde-qt6-sdk
         plugin: cmake
         cmake-generator: Ninja
         cmake-parameters:
@@ -2560,7 +2560,7 @@ parts:
         - libxcursor-dev
         - pkg-config
         build-snaps:
-        - qt-framework-sdk/6.6/stable
+        - kde-qt6-sdk
         stage-packages:
         - libappstreamqt-3
         - libpackagekitqt6
@@ -2602,7 +2602,7 @@ parts:
         - cmake
         - libutempter-dev
         build-snaps:
-        - qt-framework-sdk/6.6/stable
+        - kde-qt6-sdk
         plugin: cmake
         cmake-generator: Ninja
         cmake-parameters:
@@ -2645,7 +2645,7 @@ parts:
         stage-packages:
         - libwayland-client0
         build-snaps:
-        - qt-framework-sdk/6.6/stable
+        - kde-qt6-sdk
         plugin: cmake
         cmake-generator: Ninja
         cmake-parameters:
@@ -2687,7 +2687,7 @@ parts:
         - dbus-x11
         - pkg-config
         build-snaps:
-        - qt-framework-sdk/6.6/stable
+        - kde-qt6-sdk
         plugin: cmake
         cmake-generator: Ninja
         cmake-parameters:
@@ -2728,7 +2728,7 @@ parts:
         - cmake
         - doxygen
         build-snaps:
-        - qt-framework-sdk/6.6/stable
+        - kde-qt6-sdk
         plugin: cmake
         cmake-generator: Ninja
         cmake-parameters:
@@ -2768,7 +2768,7 @@ parts:
         stage-packages:
         - libical3
         build-snaps:
-        - qt-framework-sdk/6.6/stable
+        - kde-qt6-sdk
         plugin: cmake
         cmake-generator: Ninja
         cmake-parameters:
@@ -2806,7 +2806,7 @@ parts:
         - doxygen
         - graphviz
         build-snaps:
-        - qt-framework-sdk/6.6/stable
+        - kde-qt6-sdk
         plugin: cmake
         cmake-generator: Ninja
         cmake-parameters:
@@ -2849,7 +2849,7 @@ parts:
         - libdmtx0b
         - libzxingcore1
         build-snaps:
-        - qt-framework-sdk/6.6/stable
+        - kde-qt6-sdk
         plugin: cmake
         cmake-generator: Ninja
         cmake-parameters:
@@ -2897,7 +2897,7 @@ parts:
         - libaccounts-glib-dev
         - pkg-config
         build-snaps:
-        - qt-framework-sdk/6.6/stable
+        - kde-qt6-sdk
         plugin: cmake
         cmake-generator: Ninja
         cmake-parameters:
@@ -2941,7 +2941,7 @@ parts:
         build-packages:
         - cmake
         build-snaps:
-        - qt-framework-sdk/6.6/stable
+        - kde-qt6-sdk
         plugin: cmake
         cmake-generator: Ninja
         cmake-parameters:
@@ -2983,7 +2983,7 @@ parts:
         build-packages:
         - cmake
         build-snaps:
-        - qt-framework-sdk/6.6/stable
+        - kde-qt6-sdk
         plugin: cmake
         cmake-generator: Ninja
         cmake-parameters:
@@ -3055,7 +3055,7 @@ parts:
         - pkg-config
         - plasma-wayland-protocols
         build-snaps:
-        - qt-framework-sdk/6.6/stable
+        - kde-qt6-sdk
         plugin: cmake
         cmake-generator: Ninja
         cmake-parameters:
@@ -3096,7 +3096,7 @@ parts:
         stage-packages:
         - hicolor-icon-theme
         build-snaps:
-        - qt-framework-sdk/6.6/stable
+        - kde-qt6-sdk
         plugin: cmake
         cmake-generator: Ninja
         cmake-parameters:
@@ -3148,7 +3148,7 @@ parts:
         - libopenexr-3-1-30
         - libraw20
         build-snaps:
-        - qt-framework-sdk/6.6/stable
+        - kde-qt6-sdk
         plugin: cmake
         cmake-generator: Ninja
         cmake-parameters:
@@ -3187,7 +3187,7 @@ parts:
         - doxygen
         - libxkbcommon-dev
         build-snaps:
-        - qt-framework-sdk/6.6/stable
+        - kde-qt6-sdk
         plugin: cmake
         cmake-generator: Ninja
         cmake-parameters:
@@ -3223,7 +3223,7 @@ parts:
         build-packages:
         - cmake
         build-snaps:
-        - qt-framework-sdk/6.6/stable
+        - kde-qt6-sdk
         plugin: cmake
         cmake-generator: Ninja
         cmake-parameters:
@@ -3308,7 +3308,7 @@ parts:
     #     - shared-mime-info
     #     - python3-imath
     #     build-snaps:
-    #     - qt-framework-sdk/6.6/stable
+    #     - kde-qt6-sdk
     #     plugin: cmake
     #     cmake-generator: Ninja
     #     cmake-parameters:
@@ -3336,64 +3336,64 @@ parts:
     #     - XDG_DATA_DIRS: $CRAFT_STAGE/usr/share:/snap/qt-framework-sdk/current/usr/share:/usr/share${XDG_DATA_DIRS:+:$XDG_DATA_DIRS}
     #     - XDG_CONFIG_HOME: $CRAFT_STAGE/etc/xdg:/snap/qt-framework-sdk/current/etc/xdg:/etc/xdg${XDG_CONFIG_HOME:+:$XDG_CONFIG_HOME}
     #     - LD_LIBRARY_PATH: "/snap/qt-framework-sdk/current/usr/lib/${CRAFT_ARCH_TRIPLET}:/snap/qt-framework-sdk/current/usr/lib:$CRAFT_STAGE/usr/lib:$CRAFT_STAGE/lib/:$CRAFT_STAGE/usr/lib/${CRAFT_ARCH_TRIPLET}${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}"
-    breeze:
-        after:
-        - extra-cmake-modules
-        - frameworkintegration
-        - kcmutils
-        - kcolorscheme
-        - kconfig
-        - kconfigwidgets
-        - kcoreaddons
-        - kguiaddons
-        - ki18n
-        - kiconthemes
-        - kirigami
-        - kpackage
-        - kservice
-        - kwayland
-        - kwindowsystem
-        - plasma-framework
-        - kirigami
-        source: https://invent.kde.org/plasma/breeze.git
-        source-branch: master
-        build-packages:
-        - cmake
-        - libfftw3-dev
-        - libx11-dev
-        - libkdecorations2-dev
-        build-snaps:
-        - qt-framework-sdk/6.6/stable
-        plugin: cmake
-        cmake-generator: Ninja
-        cmake-parameters:
-        - -DCMAKE_INSTALL_PREFIX=/usr
-        - -DCMAKE_BUILD_TYPE=RelWithDebInfo
-        - -DQT_MAJOR_VERSION=6
-        - -DBUILD_QT6=ON
-        - -DBUILD_QT5=OFF
-        - -DBUILD_TESTING=OFF
-        - -DBUILD_KWALLETD=OFF
-        - -DCMAKE_INSTALL_SYSCONFDIR=/etc
-        - -DCMAKE_INSTALL_LOCALSTATEDIR=/var
-        - -DCMAKE_EXPORT_NO_PACKAGE_REGISTRY=ON
-        - -DCMAKE_FIND_USE_PACKAGE_REGISTRY=OFF
-        - -DCMAKE_FIND_PACKAGE_NO_PACKAGE_REGISTRY=ON
-        - -DCMAKE_INSTALL_RUNSTATEDIR=/run
-        - -DCMAKE_SKIP_INSTALL_ALL_DEPENDENCY=ON
-        - -DCMAKE_VERBOSE_MAKEFILE=ON
-        - -DCMAKE_INSTALL_LIBDIR=lib/$CRAFT_ARCH_TRIPLET
-        - --log-level=STATUS
-        - -DCMAKE_LIBRARY_PATH=lib/$CRAFT_ARCH_TRIPLET
-        - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current\\;/usr\\;/snap/ffmpeg-2204-sdk/current"
-        - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current\\;/usr"
-        build-environment:
-        - PATH: /snap/qt-framework-sdk/current/usr/bin${PATH:+:$PATH}
-        - XDG_DATA_DIRS: $CRAFT_STAGE/usr/share:/snap/qt-framework-sdk/current/usr/share:/usr/share${XDG_DATA_DIRS:+:$XDG_DATA_DIRS}
-        - XDG_CONFIG_HOME: $CRAFT_STAGE/etc/xdg:/snap/qt-framework-sdk/current/etc/xdg:/etc/xdg${XDG_CONFIG_HOME:+:$XDG_CONFIG_HOME}
-        - LD_LIBRARY_PATH: "/snap/qt-framework-sdk/current/usr/lib/${CRAFT_ARCH_TRIPLET}:/snap/qt-framework-sdk/current/usr/lib:$CRAFT_STAGE/usr/lib:$CRAFT_STAGE/lib/:$CRAFT_STAGE/usr/lib/${CRAFT_ARCH_TRIPLET}${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}"
-        prime:
-        - -usr/share/wallpapers
+    # breeze:
+    #     after:
+    #     - extra-cmake-modules
+    #     - frameworkintegration
+    #     - kcmutils
+    #     - kcolorscheme
+    #     - kconfig
+    #     - kconfigwidgets
+    #     - kcoreaddons
+    #     - kguiaddons
+    #     - ki18n
+    #     - kiconthemes
+    #     - kirigami
+    #     - kpackage
+    #     - kservice
+    #     - kwayland
+    #     - kwindowsystem
+    #     - plasma-framework
+    #     - kirigami
+    #     source: https://invent.kde.org/plasma/breeze.git
+    #     source-branch: master
+    #     build-packages:
+    #     - cmake
+    #     - libfftw3-dev
+    #     - libx11-dev
+    #     - libkdecorations2-dev
+    #     build-snaps:
+    #     - kde-qt6-sdk
+    #     plugin: cmake
+    #     cmake-generator: Ninja
+    #     cmake-parameters:
+    #     - -DCMAKE_INSTALL_PREFIX=/usr
+    #     - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+    #     - -DQT_MAJOR_VERSION=6
+    #     - -DBUILD_QT6=ON
+    #     - -DBUILD_QT5=OFF
+    #     - -DBUILD_TESTING=OFF
+    #     - -DBUILD_KWALLETD=OFF
+    #     - -DCMAKE_INSTALL_SYSCONFDIR=/etc
+    #     - -DCMAKE_INSTALL_LOCALSTATEDIR=/var
+    #     - -DCMAKE_EXPORT_NO_PACKAGE_REGISTRY=ON
+    #     - -DCMAKE_FIND_USE_PACKAGE_REGISTRY=OFF
+    #     - -DCMAKE_FIND_PACKAGE_NO_PACKAGE_REGISTRY=ON
+    #     - -DCMAKE_INSTALL_RUNSTATEDIR=/run
+    #     - -DCMAKE_SKIP_INSTALL_ALL_DEPENDENCY=ON
+    #     - -DCMAKE_VERBOSE_MAKEFILE=ON
+    #     - -DCMAKE_INSTALL_LIBDIR=lib/$CRAFT_ARCH_TRIPLET
+    #     - --log-level=STATUS
+    #     - -DCMAKE_LIBRARY_PATH=lib/$CRAFT_ARCH_TRIPLET
+    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current\\;/usr\\;/snap/ffmpeg-2204-sdk/current"
+    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/qt-framework-sdk/current\\;/usr"
+    #     build-environment:
+    #     - PATH: /snap/qt-framework-sdk/current/usr/bin${PATH:+:$PATH}
+    #     - XDG_DATA_DIRS: $CRAFT_STAGE/usr/share:/snap/qt-framework-sdk/current/usr/share:/usr/share${XDG_DATA_DIRS:+:$XDG_DATA_DIRS}
+    #     - XDG_CONFIG_HOME: $CRAFT_STAGE/etc/xdg:/snap/qt-framework-sdk/current/etc/xdg:/etc/xdg${XDG_CONFIG_HOME:+:$XDG_CONFIG_HOME}
+    #     - LD_LIBRARY_PATH: "/snap/qt-framework-sdk/current/usr/lib/${CRAFT_ARCH_TRIPLET}:/snap/qt-framework-sdk/current/usr/lib:$CRAFT_STAGE/usr/lib:$CRAFT_STAGE/lib/:$CRAFT_STAGE/usr/lib/${CRAFT_ARCH_TRIPLET}${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}"
+    #     prime:
+    #     - -usr/share/wallpapers
     plasma-integration:
         after:
         - breeze
@@ -3436,7 +3436,7 @@ parts:
         - libxcb1
         - libxcursor1
         build-snaps:
-        - qt-framework-sdk/6.6/stable
+        - kde-qt6-sdk
         plugin: cmake
         cmake-generator: Ninja
         cmake-parameters:
@@ -3477,7 +3477,7 @@ parts:
     #     build-packages:
     #     - cmake
     #     build-snaps:
-    #     - qt-framework-sdk/6.6/stable
+    #     - kde-qt6-sdk
     #     plugin: cmake
     #     cmake-generator: Ninja
     #     cmake-parameters:
