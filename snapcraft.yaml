@@ -3394,77 +3394,77 @@ parts:
     #     - LD_LIBRARY_PATH: "/snap/kde-qt6-sdk/current/usr/lib/${CRAFT_ARCH_TRIPLET}:/snap/kde-qt6-sdk/current/usr/lib:$CRAFT_STAGE/usr/lib:$CRAFT_STAGE/lib/:$CRAFT_STAGE/usr/lib/${CRAFT_ARCH_TRIPLET}${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}"
     #     prime:
     #     - -usr/share/wallpapers
-    plasma-integration:
-        after:
-        - breeze
-        - extra-cmake-modules
-        - kcolorscheme
-        - kconfig
-        - kconfigwidgets
-        - ki18n
-        - kiconthemes
-        - kio
-        - knotifications
-        - kstatusnotifieritem
-        - kwayland
-        - kwidgetsaddons
-        - kwindowsystem
-        - plasma-wayland-protocols
-        - qqc2-desktop-style
-        source: https://invent.kde.org/plasma/plasma-integration.git
-        source-branch: master
-        build-packages:
-        - cmake
-        - libwayland-dev
-        - libxcursor-dev
-        - pkg-config
-        - fonts-hack
-        - fonts-noto-cjk
-        - fonts-noto-color-emoji
-        - fonts-noto-core
-        - fonts-noto-ui-core
-        - xdg-desktop-portal-kde
-        - qt6-declarative-dev
-        stage-packages:
-        - fonts-hack
-        - fonts-noto-cjk
-        - fonts-noto-color-emoji
-        - fonts-noto-core
-        - fonts-noto-ui-core
-        - xdg-desktop-portal-kde
-        - libwayland-client0
-        - libxcb1
-        - libxcursor1
-        build-snaps:
-        - kde-qt6-sdk
-        plugin: cmake
-        cmake-generator: Ninja
-        cmake-parameters:
-        - -DCMAKE_INSTALL_PREFIX=/usr
-        - -DCMAKE_BUILD_TYPE=RelWithDebInfo
-        - -DQT_MAJOR_VERSION=6
-        - -DBUILD_QT6=ON
-        - -DBUILD_QT5=OFF
-        - -DBUILD_TESTING=OFF
-        - -DBUILD_KWALLETD=OFF
-        - -DCMAKE_INSTALL_SYSCONFDIR=/etc
-        - -DCMAKE_INSTALL_LOCALSTATEDIR=/var
-        - -DCMAKE_EXPORT_NO_PACKAGE_REGISTRY=ON
-        - -DCMAKE_FIND_USE_PACKAGE_REGISTRY=OFF
-        - -DCMAKE_FIND_PACKAGE_NO_PACKAGE_REGISTRY=ON
-        - -DCMAKE_INSTALL_RUNSTATEDIR=/run
-        - -DCMAKE_SKIP_INSTALL_ALL_DEPENDENCY=ON
-        - -DCMAKE_VERBOSE_MAKEFILE=ON
-        - -DCMAKE_INSTALL_LIBDIR=lib/$CRAFT_ARCH_TRIPLET
-        - --log-level=STATUS
-        - -DCMAKE_LIBRARY_PATH=lib/$CRAFT_ARCH_TRIPLET
-        - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/kde-qt6-sdk/current\\;/usr\\;/snap/ffmpeg-2204-sdk/current"
-        - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/kde-qt6-sdk/current\\;/usr"
-        build-environment:
-        - PATH: /snap/kde-qt6-sdk/current/usr/bin${PATH:+:$PATH}
-        - XDG_DATA_DIRS: $CRAFT_STAGE/usr/share:/snap/kde-qt6-sdk/current/usr/share:/usr/share${XDG_DATA_DIRS:+:$XDG_DATA_DIRS}
-        - XDG_CONFIG_HOME: $CRAFT_STAGE/etc/xdg:/snap/kde-qt6-sdk/current/etc/xdg:/etc/xdg${XDG_CONFIG_HOME:+:$XDG_CONFIG_HOME}
-        - LD_LIBRARY_PATH: "/snap/kde-qt6-sdk/current/usr/lib/${CRAFT_ARCH_TRIPLET}:/snap/kde-qt6-sdk/current/usr/lib:$CRAFT_STAGE/usr/lib:$CRAFT_STAGE/lib/:$CRAFT_STAGE/usr/lib/${CRAFT_ARCH_TRIPLET}${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}"
+    # plasma-integration:
+    #     after:
+    #     - breeze
+    #     - extra-cmake-modules
+    #     - kcolorscheme
+    #     - kconfig
+    #     - kconfigwidgets
+    #     - ki18n
+    #     - kiconthemes
+    #     - kio
+    #     - knotifications
+    #     - kstatusnotifieritem
+    #     - kwayland
+    #     - kwidgetsaddons
+    #     - kwindowsystem
+    #     - plasma-wayland-protocols
+    #     - qqc2-desktop-style
+    #     source: https://invent.kde.org/plasma/plasma-integration.git
+    #     source-branch: master
+    #     build-packages:
+    #     - cmake
+    #     - libwayland-dev
+    #     - libxcursor-dev
+    #     - pkg-config
+    #     - fonts-hack
+    #     - fonts-noto-cjk
+    #     - fonts-noto-color-emoji
+    #     - fonts-noto-core
+    #     - fonts-noto-ui-core
+    #     - xdg-desktop-portal-kde
+    #     - qt6-declarative-dev
+    #     stage-packages:
+    #     - fonts-hack
+    #     - fonts-noto-cjk
+    #     - fonts-noto-color-emoji
+    #     - fonts-noto-core
+    #     - fonts-noto-ui-core
+    #     - xdg-desktop-portal-kde
+    #     - libwayland-client0
+    #     - libxcb1
+    #     - libxcursor1
+    #     build-snaps:
+    #     - kde-qt6-sdk
+    #     plugin: cmake
+    #     cmake-generator: Ninja
+    #     cmake-parameters:
+    #     - -DCMAKE_INSTALL_PREFIX=/usr
+    #     - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+    #     - -DQT_MAJOR_VERSION=6
+    #     - -DBUILD_QT6=ON
+    #     - -DBUILD_QT5=OFF
+    #     - -DBUILD_TESTING=OFF
+    #     - -DBUILD_KWALLETD=OFF
+    #     - -DCMAKE_INSTALL_SYSCONFDIR=/etc
+    #     - -DCMAKE_INSTALL_LOCALSTATEDIR=/var
+    #     - -DCMAKE_EXPORT_NO_PACKAGE_REGISTRY=ON
+    #     - -DCMAKE_FIND_USE_PACKAGE_REGISTRY=OFF
+    #     - -DCMAKE_FIND_PACKAGE_NO_PACKAGE_REGISTRY=ON
+    #     - -DCMAKE_INSTALL_RUNSTATEDIR=/run
+    #     - -DCMAKE_SKIP_INSTALL_ALL_DEPENDENCY=ON
+    #     - -DCMAKE_VERBOSE_MAKEFILE=ON
+    #     - -DCMAKE_INSTALL_LIBDIR=lib/$CRAFT_ARCH_TRIPLET
+    #     - --log-level=STATUS
+    #     - -DCMAKE_LIBRARY_PATH=lib/$CRAFT_ARCH_TRIPLET
+    #     - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/kde-qt6-sdk/current\\;/usr\\;/snap/ffmpeg-2204-sdk/current"
+    #     - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/kde-qt6-sdk/current\\;/usr"
+    #     build-environment:
+    #     - PATH: /snap/kde-qt6-sdk/current/usr/bin${PATH:+:$PATH}
+    #     - XDG_DATA_DIRS: $CRAFT_STAGE/usr/share:/snap/kde-qt6-sdk/current/usr/share:/usr/share${XDG_DATA_DIRS:+:$XDG_DATA_DIRS}
+    #     - XDG_CONFIG_HOME: $CRAFT_STAGE/etc/xdg:/snap/kde-qt6-sdk/current/etc/xdg:/etc/xdg${XDG_CONFIG_HOME:+:$XDG_CONFIG_HOME}
+    #     - LD_LIBRARY_PATH: "/snap/kde-qt6-sdk/current/usr/lib/${CRAFT_ARCH_TRIPLET}:/snap/kde-qt6-sdk/current/usr/lib:$CRAFT_STAGE/usr/lib:$CRAFT_STAGE/lib/:$CRAFT_STAGE/usr/lib/${CRAFT_ARCH_TRIPLET}${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}"
     # qqc2-breeze-style:
     #     after:
     #     - kcolorscheme
