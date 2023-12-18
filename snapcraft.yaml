@@ -1,0 +1,129 @@
+---
+name: kf6-core22
+version: git
+summary: KDE Frameworks 6
+description: KDE Frameworks are addons and useful extensions to Qt
+confinement: strict
+grade: stable
+base: core22
+compression: lzo
+architectures:
+  - build-on: amd64
+  - build-on: arm64
+  # - build-on: armhf
+  # - build-on: ppc64el
+environment:
+  LD_LIBRARY_PATH: "/snap/kde-qt6-sdk/current/usr/lib/${CRAFT_ARCH_TRIPLET}:/snap/kde-qt6-sdk/current/usr/lib:$SNAP/usr/lib:$SNAP/lib/:$SNAP/usr/lib/${CRAFT_ARCH_TRIPLET}:/usr/lib/${CRAFT_ARCH_TRIPLET}:/usr/lib:/lib"
+slots:
+    kf6-core22-slot:
+        content: kf6-core22-all
+        interface: content
+        read:
+        - "."
+    kf6-core22:
+        content: kf6-core22
+        interface: content
+        read:
+        - "."
+package-repositories:
+-   type: apt
+    components:
+    - main
+    suites:
+    - jammy
+    key-id: 444DABCF3667D0283F894EDDE6D4736255751E5D
+    url: http://origin.archive.neon.kde.org/unstable
+    key-server: keyserver.ubuntu.com
+parts:
+    mesa:
+        after: []
+        plugin: nil
+        build-attributes:
+        - no-patchelf
+        build-packages: []
+        stage-packages:
+        - libgl1-mesa-dri
+        - libglx-mesa0
+        prime:
+        - "-lib/udev"
+        - "-usr/doc"
+        - "-usr/doc-base"
+        - "-usr/share/applications"
+        - "-usr/share/apport"
+        - "-usr/share/bug"
+        - "-usr/share/doc"
+        - "-usr/share/doc-base"
+        - "-usr/share/icons"
+        - "-usr/share/libdrm"
+        - "-usr/share/libwacom"
+        - "-usr/share/lintian"
+        - "-usr/share/man"
+        - "-usr/share/pkgconfig"
+    kf6:
+        stage-packages:
+        - mesa-utils-extra
+        - freeglut3-dev
+        - libglib2.0-0
+        - gstreamer1.0-x
+        - gstreamer1.0-plugins-base
+        - gstreamer1.0-pulseaudio
+        - gstreamer1.0-plugins-good
+        - locales
+        - libc-bin
+        - gettext
+        - libdrm-dev
+        - mesa-va-drivers
+        -   on amd64:
+            - i965-va-driver
+            - intel-media-va-driver
+        stage-snaps:
+        - kf6-core22-sdk
+        - kde-qt6-sdk
+        prime:
+        - "-usr/lib/*/cmake/*"
+        - "-usr/lib/*/qt6/bin/moc"
+        - "-usr/lib/*/qt6/bin/qmake"
+        - "-usr/lib/*/qt6/bin/rcc"
+        - "-usr/lib/*/qt6/bin/*cpp*"
+        - "-usr/lib/qt6/bin/assistant"
+        - "-usr/lib/qt6/bin/designer"
+        - "-usr/lib/qt6/bin/lconvert"
+        - "-usr/lib/qt6/bin/linguist"
+        - "-usr/lib/qt6/bin/lupdate"
+        - "-usr/lib/qt6/bin/lrelease"
+        - "-usr/lib/qt6/bin/moc"
+        - "-usr/lib/qt6/bin/pixeltool"
+        - "-usr/lib/qt6/bin/qcollectiongenerator"
+        - "-usr/lib/qt6/bin/qdbuscpp2xml"
+        - "-usr/lib/qt6/bin/qdbusxml2cpp"
+        - "-usr/lib/qt6/bin/qdoc"
+        - "-usr/lib/qt6/bin/qhelpconverter"
+        - "-usr/lib/qt6/bin/qlalr"
+        - "-usr/lib/qt6/bin/qmake"
+        - "-usr/lib/qt6/bin/rcc"
+        - "-usr/lib/qt6/bin/syncqt.pl"
+        - "-usr/lib/vlc/plugins/gui/libqt4_plugin.so"
+        - "-usr/include/*"
+        - "-usr/share/ECM/*"
+        - "-usr/share/xml/docbook/*"
+        - "-usr/share/doc/*"
+        - "-usr/share/locale/*/LC_MESSAGES/vlc.mo"
+        - "-usr/share/man/*"
+        - "-usr/share/icons/breeze/*.rcc"
+        - "-usr/share/icons/breeze-dark/*.rcc"
+        - "-usr/share/wallpapers/*"
+        - "-usr/share/fonts/*"
+        - "-usr/share/pkgconfig"
+        - "-usr/lib/*/pkgconfig"
+        - "-usr/share/QtCurve"
+        - "-usr/share/kde4"
+        - "-usr/share/bug"
+        - "-usr/share/debhelper"
+        - "-usr/share/lintian"
+        - "-usr/share/menu"
+        - "-usr/bin/*vlc"
+        - "-usr/bin/dh_*"
+        - "-usr/lib/*/*.a"
+        - "-usr/lib/*/*.pri"
+        - "-usr/share/kf6/kdoctools/*"
+        - "-usr/bin/make"
