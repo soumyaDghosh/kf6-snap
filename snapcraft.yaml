@@ -2722,7 +2722,7 @@ parts:
         - kcodecs
         - kconfig
         - kcoreaddons
-         -ki18n
+        - ki18n
         source: https://invent.kde.org/frameworks/kcontacts.git
         source-branch: master
         build-packages:
