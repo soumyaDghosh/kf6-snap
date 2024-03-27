@@ -13,7 +13,7 @@ architectures:
   # - build-on: armhf
   # - build-on: ppc64el
 environment:
-  LD_LIBRARY_PATH: "/snap/kde-qt6-sdk/current/usr/lib/${CRAFT_ARCH_TRIPLET}:/snap/kde-qt6-sdk/current/usr/lib:$SNAP/usr/lib:$SNAP/lib/:$SNAP/usr/lib/${CRAFT_ARCH_TRIPLET}:/usr/lib/${CRAFT_ARCH_TRIPLET}:/usr/lib:/lib"
+  LD_LIBRARY_PATH: "/snap/kde-qt6-core22-sdk/current/usr/lib/${CRAFT_ARCH_TRIPLET}:/snap/kde-qt6-core22-sdk/current/usr/lib:$SNAP/usr/lib:$SNAP/lib/:$SNAP/usr/lib/${CRAFT_ARCH_TRIPLET}:/usr/lib/${CRAFT_ARCH_TRIPLET}:/usr/lib:/lib"
 slots:
     kf6-core22-slot:
         content: kf6-core22-all
@@ -77,53 +77,21 @@ parts:
             - i965-va-driver
             - intel-media-va-driver
         stage-snaps:
-        - kf6-core22-sdk
-        - kde-qt6-sdk
-        prime:
-        - "-usr/lib/*/cmake/*"
-        - "-usr/lib/*/qt6/bin/moc"
-        - "-usr/lib/*/qt6/bin/qmake"
-        - "-usr/lib/*/qt6/bin/rcc"
-        - "-usr/lib/*/qt6/bin/*cpp*"
-        - "-usr/lib/qt6/bin/assistant"
-        - "-usr/lib/qt6/bin/designer"
-        - "-usr/lib/qt6/bin/lconvert"
-        - "-usr/lib/qt6/bin/linguist"
-        - "-usr/lib/qt6/bin/lupdate"
-        - "-usr/lib/qt6/bin/lrelease"
-        - "-usr/lib/qt6/bin/moc"
-        - "-usr/lib/qt6/bin/pixeltool"
-        - "-usr/lib/qt6/bin/qcollectiongenerator"
-        - "-usr/lib/qt6/bin/qdbuscpp2xml"
-        - "-usr/lib/qt6/bin/qdbusxml2cpp"
-        - "-usr/lib/qt6/bin/qdoc"
-        - "-usr/lib/qt6/bin/qhelpconverter"
-        - "-usr/lib/qt6/bin/qlalr"
-        - "-usr/lib/qt6/bin/qmake"
-        - "-usr/lib/qt6/bin/rcc"
-        - "-usr/lib/qt6/bin/syncqt.pl"
-        - "-usr/lib/vlc/plugins/gui/libqt4_plugin.so"
-        - "-usr/include/*"
-        - "-usr/share/ECM/*"
-        - "-usr/share/xml/docbook/*"
-        - "-usr/share/doc/*"
-        - "-usr/share/locale/*/LC_MESSAGES/vlc.mo"
-        - "-usr/share/man/*"
-        - "-usr/share/icons/breeze/*.rcc"
-        - "-usr/share/icons/breeze-dark/*.rcc"
-        - "-usr/share/wallpapers/*"
-        - "-usr/share/fonts/*"
-        - "-usr/share/pkgconfig"
-        - "-usr/lib/*/pkgconfig"
-        - "-usr/share/QtCurve"
-        - "-usr/share/kde4"
-        - "-usr/share/bug"
-        - "-usr/share/debhelper"
-        - "-usr/share/lintian"
-        - "-usr/share/menu"
-        - "-usr/bin/*vlc"
-        - "-usr/bin/dh_*"
-        - "-usr/lib/*/*.a"
-        - "-usr/lib/*/*.pri"
-        - "-usr/share/kf6/kdoctools/*"
-        - "-usr/bin/make"
+        - kf6-core22-sdk/latest/stable
+        - kde-qt6-core22-sdk/latest/stable
+        plugin: nil
+        override-prime: |
+            set -eux
+            craftctl default
+            cd $CRAFT_PRIME
+            find . -type f,l -name "*.h" -exec bash -c "rm -f {}*" \;
+        command-chain:
+        source: https://github.com/ScarlettGatelyMoore/snapcraft.git
+        source-type: git
+        source-branch: sgmoore/kde-neon-6
+        source-subdir: extensions/desktop/kde-neon-6
+        plugin: make
+        make-parameters:
+        - PLATFORM_PLUG=$SNAPCRAFT_PROJECT_NAME
+        stage-packages:
+        - tox
