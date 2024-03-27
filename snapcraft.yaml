@@ -85,7 +85,7 @@ parts:
             craftctl default
             cd $CRAFT_PRIME
             find . -type f,l -name "*.h" -exec bash -c "rm -f {}*" \;
-        command-chain:
+    command-chain:
         source: https://github.com/ScarlettGatelyMoore/snapcraft.git
         source-type: git
         source-branch: sgmoore/kde-neon-6
