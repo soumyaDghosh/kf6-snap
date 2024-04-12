@@ -81,7 +81,7 @@ parts:
         - kde-qt6-core22-sdk/latest/stable
         stage:
         - -usr/lib/*/libdrm*
-        - usr/share/doc/libdrm*
+        - -usr/share/doc/libdrm*
         plugin: nil
         override-prime: |
             set -eux
