@@ -32,7 +32,7 @@ package-repositories:
     suites:
     - jammy
     key-id: 444DABCF3667D0283F894EDDE6D4736255751E5D
-    url: http://origin.archive.neon.kde.org/unstable
+    url: http://origin.archive.neon.kde.org/user
     key-server: keyserver.ubuntu.com
 parts:
     mesa:
@@ -79,6 +79,9 @@ parts:
         stage-snaps:
         - kf6-core22-sdk/latest/stable
         - kde-qt6-core22-sdk/latest/stable
+        stage:
+        - -usr/lib/*/libdrm*
+        - usr/share/doc/libdrm*
         plugin: nil
         override-prime: |
             set -eux
@@ -86,9 +89,9 @@ parts:
             cd $CRAFT_PRIME
             find . -type f,l -name "*.h" -exec bash -c "rm -f {}*" \;
     command-chain:
-        source: https://github.com/ScarlettGatelyMoore/snapcraft.git
+        source: https://github.com/canonical/snapcraft.git
         source-type: git
-        source-branch: sgmoore/kde-neon-6
+        source-branch: main
         source-subdir: extensions/desktop/kde-neon-6
         plugin: make
         make-parameters:
