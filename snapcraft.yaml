@@ -13,7 +13,7 @@ architectures:
   # - build-on: armhf
   # - build-on: ppc64el
 environment:
-  LD_LIBRARY_PATH: "/snap/kde-qt6-core22-sdk/current/usr/lib/${CRAFT_ARCH_TRIPLET}:/snap/kde-qt6-core22-sdk/current/usr/lib:$SNAP/usr/lib:$SNAP/lib/:$SNAP/usr/lib/${CRAFT_ARCH_TRIPLET}:/usr/lib/${CRAFT_ARCH_TRIPLET}:/usr/lib:/lib"
+  LD_LIBRARY_PATH: "/snap/kde-qt6-core22-sdk/current/usr/lib/${CRAFT_ARCH_TRIPLET_FOR}:/snap/kde-qt6-core22-sdk/current/usr/lib:$SNAP/usr/lib:$SNAP/lib/:$SNAP/usr/lib/${CRAFT_ARCH_TRIPLET_FOR}:/usr/lib/${CRAFT_ARCH_TRIPLET_FOR}:/usr/lib:/lib"
 slots:
     kf6-core22-slot:
         content: kf6-core22-all
