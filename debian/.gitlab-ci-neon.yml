@@ -1,0 +1,8 @@
+# SPDX-FileCopyrightText: none
+# SPDX-License-Identifier: CC0-1.0
+
+include:
+  - project: sysadmin/ci-utilities
+    file:
+      - /gitlab-templates/snap-snapcraft-destructive.yml
+      - /gitlab-templates/snap-snapcraft-lxd.yml
