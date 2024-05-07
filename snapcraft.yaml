@@ -75,24 +75,24 @@ parts:
       stage-snaps:
         - kf6-core22-sdk/latest/stable
         - kde-qt6-core22-sdk/latest/stable
-        stage:
+      stage:
         - -usr/lib/*/libdrm*
         - -usr/share/doc/libdrm*
-        plugin: nil
-        prime:
-          - -usr/include
-          - -usr/lib/**/pkgconfig
-          - -usr/share/pkgconfig
-          - -usr/share/ECM
-          - -etc
-          - -usr/lib/udev
-          - -var
-          - -usr/bin/X11
-          - -usr/bin/sudo*
-          - -usr/libexec/sudo
-          - -usr/sbin
-        organize:
-          lib: usr/lib
+      plugin: nil
+      prime:
+        - -usr/include
+        - -usr/lib/**/pkgconfig
+        - -usr/share/pkgconfig
+        - -usr/share/ECM
+        - -etc
+        - -usr/lib/udev
+        - -var
+        - -usr/bin/X11
+        - -usr/bin/sudo*
+        - -usr/libexec/sudo
+        - -usr/sbin
+      organize:
+        lib: usr/lib
 
     command-chain:
       source: https://github.com/canonical/snapcraft.git
