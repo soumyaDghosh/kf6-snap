@@ -1,4 +1,3 @@
----
 name: kf6-core22
 version: git
 summary: KDE Frameworks 6
@@ -15,53 +14,50 @@ architectures:
 environment:
   LD_LIBRARY_PATH: "/snap/kde-qt6-core22-sdk/current/usr/lib/${CRAFT_ARCH_TRIPLET_FOR}:/snap/kde-qt6-core22-sdk/current/usr/lib:$SNAP/usr/lib:$SNAP/lib/:$SNAP/usr/lib/${CRAFT_ARCH_TRIPLET_FOR}:/usr/lib/${CRAFT_ARCH_TRIPLET_FOR}:/usr/lib:/lib"
 slots:
-    kf6-core22-slot:
-        content: kf6-core22-all
-        interface: content
-        read:
-        - "."
-    kf6-core22:
-        content: kf6-core22
-        interface: content
-        read:
-        - "."
-package-repositories:
--   type: apt
-    components:
-    - main
-    suites:
-    - jammy
-    key-id: 444DABCF3667D0283F894EDDE6D4736255751E5D
-    url: http://origin.archive.neon.kde.org/user
-    key-server: keyserver.ubuntu.com
+  kf6-core22:
+    content: kf6-core22
+    interface: content
+    read:
+      - /
+
+# package-repositories:
+# -   type: apt
+#     components:
+#     - main
+#     suites:
+#     - jammy
+#     key-id: 444DABCF3667D0283F894EDDE6D4736255751E5D
+#     url: http://origin.archive.neon.kde.org/user
+#     key-server: keyserver.ubuntu.com
+
 parts:
-    mesa:
-        after: []
-        plugin: nil
-        build-attributes:
-        - no-patchelf
-        build-packages: []
-        stage-packages:
-        - libgl1-mesa-dri
-        - libglx-mesa0
-        prime:
-        - "-lib/udev"
-        - "-usr/doc"
-        - "-usr/doc-base"
-        - "-usr/share/applications"
-        - "-usr/share/apport"
-        - "-usr/share/bug"
-        - "-usr/share/doc"
-        - "-usr/share/doc-base"
-        - "-usr/share/icons"
-        - "-usr/share/libdrm"
-        - "-usr/share/libwacom"
-        - "-usr/share/lintian"
-        - "-usr/share/man"
-        - "-usr/share/pkgconfig"
+  mesa:
+    after: []
+    plugin: nil
+    build-attributes:
+      - no-patchelf
+    build-packages: []
+    stage-packages:
+      - libgl1-mesa-dri
+      - libglx-mesa0
+      - mesa-utils-extra
+    prime:
+      - -lib/udev
+      - -usr/doc
+      - -usr/doc-base
+      - -usr/share/applications
+      - -usr/share/apport
+      - -usr/share/bug
+      - -usr/share/doc
+      - -usr/share/doc-base
+      - -usr/share/icons
+      - -usr/share/libdrm
+      - -usr/share/libwacom
+      - -usr/share/lintian
+      - -usr/share/man
+      - -usr/share/pkgconfig
     kf6:
-        stage-packages:
-        - mesa-utils-extra
+      stage-packages:
         - freeglut3-dev
         - libglib2.0-0
         - gstreamer1.0-x
@@ -73,28 +69,36 @@ parts:
         - gettext
         - libdrm-dev
         - mesa-va-drivers
-        -   on amd64:
+        - on amd64:
             - i965-va-driver
             - intel-media-va-driver
-        stage-snaps:
+      stage-snaps:
         - kf6-core22-sdk/latest/stable
         - kde-qt6-core22-sdk/latest/stable
         stage:
         - -usr/lib/*/libdrm*
         - -usr/share/doc/libdrm*
         plugin: nil
-        override-prime: |
-            set -eux
-            craftctl default
-            cd $CRAFT_PRIME
-            find . -type f,l -name "*.h" -exec bash -c "rm -f {}*" \;
+        prime:
+          - -usr/include
+          - -usr/lib/**/pkgconfig
+          - -usr/share/pkgconfig
+          - -usr/share/ECM
+          - -etc
+          - -usr/lib/udev
+          - -var
+          - -usr/bin/X11
+          - -usr/bin/sudo*
+          - -usr/libexec/sudo
+          - -usr/sbin
+        organize:
+          lib: usr/lib
+
     command-chain:
-        source: https://github.com/canonical/snapcraft.git
-        source-type: git
-        source-branch: main
-        source-subdir: extensions/desktop/kde-neon-6
-        plugin: make
-        make-parameters:
+      source: https://github.com/canonical/snapcraft.git
+      source-type: git
+      source-branch: main
+      source-subdir: extensions/desktop/kde-neon-6
+      plugin: make
+      make-parameters:
         - PLATFORM_PLUG=$SNAPCRAFT_PROJECT_NAME
-        stage-packages:
-        - tox
