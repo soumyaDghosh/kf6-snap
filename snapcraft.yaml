@@ -56,43 +56,43 @@ parts:
       - -usr/share/lintian
       - -usr/share/man
       - -usr/share/pkgconfig
-    kf6:
-      stage-packages:
-        - freeglut3-dev
-        - libglib2.0-0
-        - gstreamer1.0-x
-        - gstreamer1.0-plugins-base
-        - gstreamer1.0-pulseaudio
-        - gstreamer1.0-plugins-good
-        - locales
-        - libc-bin
-        - gettext
-        - libdrm-dev
-        - mesa-va-drivers
-        - on amd64:
-            - i965-va-driver
-            - intel-media-va-driver
-      stage-snaps:
-        - kf6-core22-sdk/latest/stable
-        - kde-qt6-core22-sdk/latest/stable
-      stage:
-        - -usr/lib/*/libdrm*
-        - -usr/share/doc/libdrm*
-      plugin: nil
-      prime:
-        - -usr/include
-        - -usr/lib/**/pkgconfig
-        - -usr/share/pkgconfig
-        - -usr/share/ECM
-        - -etc
-        - -usr/lib/udev
-        - -var
-        - -usr/bin/X11
-        - -usr/bin/sudo*
-        - -usr/libexec/sudo
-        - -usr/sbin
-      organize:
-        lib: usr/lib
+  kf6:
+    stage-packages:
+      - freeglut3-dev
+      - libglib2.0-0
+      - gstreamer1.0-x
+      - gstreamer1.0-plugins-base
+      - gstreamer1.0-pulseaudio
+      - gstreamer1.0-plugins-good
+      - locales
+      - libc-bin
+      - gettext
+      - libdrm-dev
+      - mesa-va-drivers
+      - on amd64:
+          - i965-va-driver
+          - intel-media-va-driver
+    stage-snaps:
+      - kf6-core22-sdk/latest/stable
+      - kde-qt6-core22-sdk/latest/stable
+    stage:
+      - -usr/lib/*/libdrm*
+      - -usr/share/doc/libdrm*
+    plugin: nil
+    prime:
+      - -usr/include
+      - -usr/lib/**/pkgconfig
+      - -usr/share/pkgconfig
+      - -usr/share/ECM
+      - -etc
+      - -usr/lib/udev
+      - -var
+      - -usr/bin/X11
+      - -usr/bin/sudo*
+      - -usr/libexec/sudo
+      - -usr/sbin
+    organize:
+      lib: usr/lib
 
   command-chain:
     source: https://github.com/canonical/snapcraft.git
