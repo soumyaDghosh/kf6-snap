@@ -94,11 +94,11 @@ parts:
       organize:
         lib: usr/lib
 
-    command-chain:
-      source: https://github.com/canonical/snapcraft.git
-      source-type: git
-      source-branch: main
-      source-subdir: extensions/desktop/kde-neon-6
-      plugin: make
-      make-parameters:
-        - PLATFORM_PLUG=$SNAPCRAFT_PROJECT_NAME
+  command-chain:
+    source: https://github.com/canonical/snapcraft.git
+    source-type: git
+    source-branch: main
+    source-subdir: extensions/desktop/kde-neon-6
+    plugin: make
+    make-parameters:
+      - PLATFORM_PLUG=$SNAPCRAFT_PROJECT_NAME
